@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_move_form_inherit" model="ir.ui.view">
+            <field name="name">l10n_ve_accountant.AccountMove.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+<!--            <field name="priority" eval="8"/>-->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='tax_ids']" position="after">
+                    <field name="payments_three"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='nro_control']" position="after">-->
+<!--                    <field name="payments_three"/>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

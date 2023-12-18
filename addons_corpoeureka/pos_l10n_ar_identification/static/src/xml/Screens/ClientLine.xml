@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//thead/tr/th[1]" position="after">
+            <th>RIF</th>
+            <th>Cédula</th>
+        </xpath>
+    </t>
+    <t t-name="ClientLineL10n_ar_afip" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr//td[1]" position="after">
+            <td t-if="!env.isMobile">
+                <t t-if="props.partner.vat"><t t-esc='props.partner.vat' /></t>
+                <span t-if="highlight"><br/></span>
+            </td>
+            <td t-if="!env.isMobile">
+                <t t-if="props.partner.cedula"><t t-esc='props.partner.cedula' /></t>
+                <span t-if="highlight"><br/></span>
+            </td>
+        </xpath>
+<!--         <xpath expr="//td[7]" position="replace">
+        </xpath>
+        <xpath expr="//td[5]" position="replace">
+        </xpath>
+        <xpath expr="//td[6]" position="replace">
+        </xpath> -->
+    <!-- si quisiera ocultar el teléfono debería agregar esta línea (se debe dejar la misma línea que sale anteriormente unas líneas arriba)
+    <xpath expr="//td[5]" position="replace">
+    </xpath>-->
+    </t>
+
+</templates>

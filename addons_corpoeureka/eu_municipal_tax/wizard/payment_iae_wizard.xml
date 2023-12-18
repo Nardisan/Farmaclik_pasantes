@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_pay_iae_view_tree" model="ir.ui.view">
+            <field name="name">Pagar Declaración Mensual de Ingresos</field>
+            <field name="model">account.iae.pay</field>
+            <field name="arch" type="xml">
+                <tree string="" create="0">
+                    <field name="name"/>
+                    <field name="amount"/>
+                    <field name="payment_date"/>
+                </tree>
+            </field>
+        </record>   
+            
+         <record id="view_pay_iae_view_form" model="ir.ui.view">
+            <field name="name">Pagar Declaración mensual de Ingresos</field>
+            <field name="model">account.iae.pay</field>
+            <field name="priority">5</field>
+            <field name="arch" type="xml">
+                <form string="" create="0" edit="0">
+                    <field name="name" />
+                    <group>
+                        <group>
+                            <field name="journal_id" widget="selection"/>
+                            <field name="amount" readonly="1"/>
+                            <field name="move_id"/>
+                            <field name="account_id" invisible="0"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="payment_date"/>
+                            <field name="communication"/>
+                            <field name="partner_id" />
+                            <field name="product_id" />
+                            <field name="company_currency_id" invisible="1"/>
+                            <field name="same_currency" invisible="1"/>
+                            <field name="tasa" force_save="1" attrs="{'invisible': [('same_currency', '=', True)]}"/>
+                        </group>
+                    </group>
+                        <group>
+                            <field name="tax_municipal"/>
+
+                        </group>
+                <footer>
+                     <button name="pay_tax_municipal" string="Validar" type="object" default_focus="1" class="oe_highlight"/>
+                    o 
+                    <button string="Cancelar" class="oe_link" special="cancel" />
+                </footer>         
+                </form>
+            </field>
+        </record>
+        <record id="view_pay_iae_view_form_done" model="ir.ui.view">
+            <field name="name">Pago Declaración mensual de Ingresos</field>
+            <field name="model">account.iae.pay</field>
+            <field name="priority">5</field>
+            <field name="arch" type="xml">
+                <form string="" create="0" edit="0">
+                    <field name="name" />
+                    <group>
+                        <group>
+                            <field name="journal_id" widget="selection"/>
+                            <field name="amount" readonly="1"/>
+                            <field name="move_id"/>
+                            <field name="account_id" invisible="0"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="payment_date"/>
+                            <field name="communication"/>
+                        </group>
+                    </group>
+                        <group>
+                            <field name="tax_municipal"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_account_pays_iae" model="ir.actions.act_window">
+            <field name="name">Pagar IAE</field>
+            <field name="res_model">account.iae.pay</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pay_iae_view_form_done"/>
+            <field name="target">new</field>
+        </record>
+        
+        <record id="action_account_pays_iae_menus" model="ir.actions.act_window">
+            <field name="name">Pagar IAE</field>
+            <field name="res_model">account.iae.pay</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_pay_iae_view_form_done"/>
+            <field name="context">{'formulario':True,'state':'done'}</field>
+        </record>
+        
+        <record id="action_account_pays_iae_massive" model="ir.actions.act_window">
+            <field name="name">Pay IAE</field>
+            <field name="res_model">account.iae.pay</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+         </record>
+
+        <record id="action_account_pays_iae_menus_without" model="ir.actions.act_window">
+            <field name="name">Pagos Declaracion Mensual al Municipio</field>
+            <field name="res_model">account.iae.pay</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_account_pays_iae_menus_without_view" model="ir.actions.act_window.view">
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="view_pay_iae_view_tree"/>
+                <field name="act_window_id" ref="action_account_pays_iae_menus_without"/>
+        </record>
+
+        <record id="action_account_pays_iae_menus_without_form" model="ir.actions.act_window.view" >
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_pay_iae_view_form_done"/>
+            <field name="act_window_id" ref="action_account_pays_iae_menus_without"/>
+        </record>
+
+
+         <menuitem id="menu_account_pays_iae_menu" name="Pagos de Declaración Mensual de Ingresos" parent="account.menu_finance_payables" action="action_account_pays_iae_menus_without" sequence="30"/>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_internal" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account.accountant.internal</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='account_yodlee']" position="before">
+                <field name="module_account_accountant" invisible="1"/>
+                <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('chart_template_id','=',False)]}">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Inter-Banks Transfers</span>
+                        <div class="text-muted">
+                            Account used when transferring between banks
+                        </div>
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="transfer_account_id" class="col-lg-3 o_light_label"/>
+                                <field name="transfer_account_id"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+<!--     <record id="action_bank_reconcile" model="ir.actions.client">
+        <field name="name">Reconciliation on Bank Statements</field>
+        <field name="res_model">account.bank.statement.line</field>
+        <field name="tag">bank_statement_reconciliation_view</field>
+    </record>
+    <record id="view_account_form" model="ir.ui.view">
+        <field name="name">account.account.form</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <field name="currency_id" position="after">
+                <label for="reconcile" attrs="{'invisible': ['|', ('internal_type','=','liquidity'), ('internal_group', '=', 'off_balance')]}"/>
+                <div attrs="{'invisible': ['|', ('internal_type','=','liquidity'), ('internal_group', '=', 'off_balance')]}">
+                   <field name="reconcile"/>
+                   <button name="action_open_reconcile" class="oe_link" type="object" string=" -> Reconcile" attrs="{'invisible': [('reconcile', '=', False)]}"/>
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_bank_statement_form" model="ir.ui.view">
+        <field name="name">account.bank.statement.form</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="arch" type="xml">
+            <button name="button_post" position="before">
+                <button string="Reconcile" class="oe_highlight"
+                        name="action_bank_reconcile_bank_statements" type="object"
+                        attrs="{'invisible': ['|', '|', ('all_lines_reconciled', '=', True), ('line_ids', '=', []), ('state', '!=', 'posted')]}"/>
+            </button>
+        </field>
+    </record>
+    <record id="view_bank_statement_form" model="ir.ui.view">
+        <field name="name">account.bank.statement.form</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="arch" type="xml">
+            <button name="button_post" position="before">
+                <button string="Reconcile" class="oe_highlight"
+                        name="action_bank_reconcile_bank_statements" type="object"
+                        attrs="{'invisible': ['|', '|', ('all_lines_reconciled', '=', True), ('line_ids', '=', []), ('state', '!=', 'posted')]}"/>
+            </button>
+        </field>
+    </record> -->
+</odoo>

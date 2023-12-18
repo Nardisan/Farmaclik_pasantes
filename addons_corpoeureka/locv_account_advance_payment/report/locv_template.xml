@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_payment_receipt_document_advance">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+            <div class="page">
+                <h3><strong>Recibo de Anticipo: <span t-field="o.name"/></strong></h3>
+                <div class="row mt64">
+                    <div class="col-6" t-if="o.date_apply">
+                        <strong>Fecha de Aplicación: </strong> <span t-field="o.date_apply"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" t-if="o.partner_id.es_proveedor">
+                        <strong>Proveedor: </strong>
+                        <span t-field="o.partner_id.name"/>
+                    </div>
+                    <div class="col-6" t-if="o.partner_id.es_cliente">
+                        <strong>Cliente: </strong>
+                        <span t-field="o.partner_id.name"/>
+                    </div>
+                    <div class="col-6" t-if="o.bank_account_id">
+                        <strong>Diario: </strong><span t-field="o.bank_account_id.name"/>
+                    </div>
+                </div>
+                <div class="row mb64">
+                    <div class="col-6" t-if="o.amount_advance">
+                        <strong>Monto del Anticipo: </strong><span t-field="o.amount_advance" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                     </div>
+                    <div class="col-6" t-if="o.ref">
+                        <strong>Referencia: </strong><span t-field="o.ref"/>
+                     </div>
+                </div>
+            </div>
+            <footer>
+            </footer>
+        </t>
+    </template>
+
+    <template id="report_payment_receipt_advance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-call="locv_account_advance_payment.report_payment_receipt_document_advance" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+    <report
+            id="action_report_payment_receipt_advance"
+            model="account.advanced.payment"
+            string="Recibo de Anticipo"
+            report_type="qweb-pdf"
+            name="locv_account_advance_payment.report_payment_receipt_advance"
+            file="locv_account_advance_payment.report_payment_receipt_advance"
+            menu="True"
+        />
+</odoo>

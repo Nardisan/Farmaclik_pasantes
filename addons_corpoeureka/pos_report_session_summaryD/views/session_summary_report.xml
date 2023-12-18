@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<odoo>
+	<record id="paperformat_lowmargin" model="report.paperformat">
+		<field name="name">Ticket Format</field>
+		<field name="default" eval="True"/>
+		<field name="format">custom</field>
+		<field name="page_height">300</field>
+		<field name="page_width">210</field>
+		<field name="orientation">Portrait</field>
+		<field name="margin_top">20</field>
+		<field name="margin_bottom">1</field>
+		<field name="margin_left">1</field>
+		<!-- <field name="margin_right">5</field> -->
+		<field name="margin_right">150</field>
+		<!-- <field name="margin_right">100</field> -->
+		<field name="header_line" eval="False"/>
+		<field name="header_spacing">15</field>
+		<field name="dpi">80</field>
+	</record>
+
+    <report
+        id="action_report_pos_session_summary"
+        string="Reporte de session"
+        model="pos.session"
+        report_type="qweb-pdf"
+        name="pos_report_session_summary.report_session_summary"
+        file="pos_report_session_summary.report_session_summary"
+		paperformat="pos_report_session_summary.paperformat_lowmargin"
+
+    />
+
+    
+</odoo>

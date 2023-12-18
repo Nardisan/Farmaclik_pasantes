@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_payment_form_date" model="ir.ui.view">
+            <field name="name">account.payment.add.date</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="before">
+                    <field name="payment_reg"/>
+                    <field name="payment_date_collection" attrs="{'invisible': [('payment_type', '!=', 'inbound')]}" string="Fecha de Cobranza"/>
+                    <field name="payment_date_collection" attrs="{'invisible': [('payment_type', '!=', 'outbound')]}" string="Fecha de Pago "/>
+                    <field name="payment_date_collection" attrs="{'invisible': [('payment_type', '!=', 'transfer')]}" string="Fecha de Transferencia"/>
+                </xpath>
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="string">Fecha Efectiva</attribute>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="gestores" options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}" attrs="{'invisible': [('payment_type', '!=', 'transfer')]}" string="Gestor / Tercero"/>
+                    <field name="motivo" options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}" attrs="{'invisible': [('payment_type', '!=', 'transfer')]}" string="Motivo de la Transferencia"/>
+                </xpath>
+            </field>
+        </record>  
+        <record id="account_payment_motivo_form_view" model="ir.ui.view">
+            <field name="name">account.payment.motivo.form.view</field>
+            <field name="model">account.payment.motivo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                    <div class="oe_title">
+                        <div class="oe_title">
+                        <h1>
+                            Motivo del Pago
+                        </h1>
+                    </div>
+                    </div> 
+                        <group>
+                            <group>
+                                <field name="name"/><br/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_payment_motivo_tree_view" model="ir.ui.view">
+            <field name="name">account.payment.motivo.view.tree</field>
+            <field name="model">account.payment.motivo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_account_payment_motivo">
+            <field name="name">Motivos de los Pagos</field>
+            <field name="res_model">account.payment.motivo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_account_motivo" name="Motivo de los Pagos"  parent="account.menu_account_config" action="action_account_payment_motivo"/>
+
+        <record id="view_account_payment_register_form_date" model="ir.ui.view">
+            <field name="name">account.payment.register.add.date</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_date']" position="before">
+                    <field name="payment_reg"/>
+                    <field name="payment_date_collection" attrs="{'invisible': [('payment_type', '!=', 'inbound')]}" string="Fecha de Cobranza"/>
+                    <field name="payment_date_collection" attrs="{'invisible': [('payment_type', '!=', 'outbound')]}" string="Fecha de Pago "/>
+                    <field name="payment_date_collection" attrs="{'invisible': [('payment_type', '!=', 'transfer')]}" string="Fecha de Transferencia"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_date']" position="attributes">
+                    <attribute name="string">Fecha Efectiva</attribute>
+                </xpath>
+                <xpath expr="//field[@name='communication']" position="after">
+                    <field name="gestores" options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}" attrs="{'invisible': [('payment_type', '!=', 'transfer')]}" string="Gestor / Tercero"/>
+                    <field name="motivo" options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}" attrs="{'invisible': [('payment_type', '!=', 'transfer')]}" string="Motivo de la Transferencia"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

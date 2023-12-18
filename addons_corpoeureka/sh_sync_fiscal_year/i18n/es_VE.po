@@ -1,0 +1,587 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_sync_fiscal_year
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-07 12:22+0000\n"
+"PO-Revision-Date: 2022-02-07 08:44-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_account_move
+msgid "Account invoice discount"
+msgstr "Cuenta de descuento en factura"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+msgid "Approve and Close Fiscal Year"
+msgstr "Aprobar y cerrar el año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Approve and Close this period"
+msgstr "Aprobar y cerrar este período"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+msgid "Approve and Re-Open Fiscal Year"
+msgstr "Aprobar y reabrir el año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Approve and Re-Open this period"
+msgstr "Aprobar y reabrir este período"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+msgid "Are you sure to Re-open this Fiscal Year ?"
+msgstr "¿Estás seguro de reabrir este año fiscal?"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Are you sure to Re-open this period ?"
+msgstr "¿Estás seguro de volver a abrir este período?"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Are you sure to close this period ?"
+msgstr "¿Estás seguro de cerrar este período?"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_cancel_closing_entries_form_view
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_closing_fiscal_year_form_view
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_generate_opening_entries_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.actions.act_window,name:sh_sync_fiscal_year.sh_cancel_closing_entries_action
+#: model:ir.model,name:sh_sync_fiscal_year.model_cancel_closing_entries
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_cancel_closing_entries_action_menu
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_cancel_closing_entries_form_view
+msgid "Cancel Closing Entries"
+msgstr "Cancelar asientos de cierre"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_cancel_closing_entries_form_view
+msgid "Cancel Fiscal Year Closing Entries"
+msgstr "Cancelar Asientos de Cierre de Año Fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_close_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_closing_fiscal_year_form_view
+msgid "Close Fiscal Year"
+msgstr "Cerrar año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.actions.server,name:sh_sync_fiscal_year.action_close_period
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Close Period"
+msgstr "Cerrar período"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.actions.act_window,name:sh_sync_fiscal_year.sh_closing_fiscal_year_action
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_closing_fiscal_year_action_menu
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_closing_fiscal_year_form_view
+msgid "Close a Fiscal Year"
+msgstr "Cerrar un año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_closing_period_action_menu
+msgid "Close a Period"
+msgstr "Cerrar un período"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_account_period__state__done
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_fiscal_year__state__done
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__code
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__code
+msgid "Code"
+msgstr "Código"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__company_id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__company_id
+msgid "Compañía"
+msgstr "Compañía"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_generate_opening_entries_form_view
+msgid "Create"
+msgstr "Crear"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+msgid "Create 3 Months Periods"
+msgstr "Crear períodos de 3 meses"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+msgid "Create Monthly Periods"
+msgstr "Crear períodos mensuales"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__create_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__create_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__create_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__create_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__create_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__create_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__create_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__create_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_journal__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_company__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__display_name
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_company__sh_enable_approval
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_config_settings__sh_enable_approval
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_res_config_settings_view_form
+msgid "Enable Approval work Flow"
+msgstr "Habilitar flujo de trabajo de aprobación"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__date_end
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__date_end
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_end_period_main_menu
+msgid "End of Period"
+msgstr "Fin del periodo"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__move_id
+msgid "End of Year Entries Journal"
+msgstr "Diario de entradas de fin de año"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_sh_account_period
+msgid "Fiscal Period"
+msgstr "Periodo fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.actions.act_window,name:sh_sync_fiscal_year.sh_fiscal_year_action
+#: model:ir.model,name:sh_sync_fiscal_year.model_sh_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_bank_statement_line__fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move__fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move_line__fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_payment__fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__fiscal_year_id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__fiscal_year_id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__name
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_fiscal_year_action_menu
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_invoice_search_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_move_search_view_inherit
+msgid "Fiscal Year"
+msgstr "Año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.module.category,name:sh_sync_fiscal_year.module_sync_fiscal_year
+msgid "Fiscal Year Approval"
+msgstr "Aprobación del año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.module.category,name:sh_sync_fiscal_year.module_sync_fiscal_year_period
+msgid "Fiscal Year Period Approval"
+msgstr "Aprobación del período del año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__fiscal_year_id
+msgid "Fiscal Year to Close"
+msgstr "Año fiscal para cerrar"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__old_fiscal_year_id
+msgid "Fiscal Year to close"
+msgstr "Ejercicio fiscal a cerrar"
+
+#. module: sh_sync_fiscal_year
+#: model:res.groups,name:sh_sync_fiscal_year.group_fiscal_year_closing
+msgid "Fiscal year Closing Approval"
+msgstr "Aprobación de cierre del año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:res.groups,name:sh_sync_fiscal_year.group_fiscal_year_period_closing
+msgid "Fiscal year Period Closing Approval"
+msgstr "Aprobación de Cierre de Período de Ejercicio"
+
+#. module: sh_sync_fiscal_year
+#: model:res.groups,name:sh_sync_fiscal_year.group_fiscal_year_period_re_open
+msgid "Fiscal year Period Re-Opening Approval"
+msgstr "Ejercicio fiscal Período Aprobación de reapertura"
+
+#. module: sh_sync_fiscal_year
+#: model:res.groups,name:sh_sync_fiscal_year.group_fiscal_year_re_open
+msgid "Fiscal year Re-Opening Approval"
+msgstr "Aprobación de reapertura del año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_generate_opening_entries_form_view
+msgid "Generate Fiscal Year Opening Entries"
+msgstr "Generar Asientos de Apertura de Año Fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.actions.act_window,name:sh_sync_fiscal_year.sh_generate_opening_entries_action
+#: model:ir.model,name:sh_sync_fiscal_year.model_generate_opening_entries
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_generate_opening_entries_menu
+msgid "Generate Opening Entries"
+msgstr "Generar Entradas de Apertura"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_journal__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move_line__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_company__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__id
+msgid "ID"
+msgstr "IDENTIFICACIÓN"
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/models/fiscal_year.py:0
+#: code:addons/sh_sync_fiscal_year/wizard/account_open_closed_fiscalyear.py:0
+#, python-format
+msgid ""
+"In order to close a fiscalyear, you must first post related journal entries."
+msgstr ""
+"Para cerrar un año fiscal, primero debe contabilizar los asientos de diario "
+"relacionados."
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_account_journal_view_form
+msgid "Incoming Payments"
+msgstr "Pagos entrantes"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model,name:sh_sync_fiscal_year.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_journal____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_company____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period____last_update
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year____last_update
+msgid "Last Modified on"
+msgstr "Modificada por última vez"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__write_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__write_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__write_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__write_uid
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_cancel_closing_entries__write_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_close_fiscal_year__write_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__write_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__write_date
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_account_journal_view_form
+msgid "Methods"
+msgstr "Métodos"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__name
+msgid "Name of new entries"
+msgstr "Nombre de las nuevas entradas"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__new_fiscal_year_id
+msgid "New Fiscal Year"
+msgstr "Nuevo año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_account_period__state__draft
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_fiscal_year__state__draft
+msgid "Open"
+msgstr "Abierto"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__journal_id
+msgid "Opening Entries Journal"
+msgstr "Diario de entradas de apertura"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_generate_opening_entries__period_id
+msgid "Opening Entries Period"
+msgstr "Periodo de Entradas de Apertura"
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/models/fiscal_year.py:0
+#, python-format
+msgid "Opening Period"
+msgstr "Período de apertura"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__special
+msgid "Opening/Closing Period"
+msgstr "Periodo de Apertura/Cierre"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__account_journal__type__opening
+msgid "Opening/Closing Situation"
+msgstr "Situación de apertura/cierre"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_account_journal_view_form
+msgid "Outgoing Payments"
+msgstr "Pagos salientes"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_account_journal_view_form
+msgid "Payments Configuration"
+msgstr "Configuración de pagos"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_bank_statement_line__period_id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move__period_id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_move_line__period_id
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_payment__period_id
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_invoice_search_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_move_search_view_inherit
+msgid "Period"
+msgstr "Periodo"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__name
+msgid "Period Name"
+msgstr "Nombre del periodo"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.actions.act_window,name:sh_sync_fiscal_year.sh_fiscal_year_period_action
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__period_ids
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_fiscal_year_main_menu
+#: model:ir.ui.menu,name:sh_sync_fiscal_year.sh_fiscal_year_period_menu
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Periods"
+msgstr "Periodos"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_form_view
+msgid "Re-Open Fiscal Year"
+msgstr "Reapertura del año fiscal"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_fiscal_year_period_form_view
+msgid "Re-Open Period"
+msgstr "Período de reapertura"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_company__sh_restrict_for_close_period
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_res_config_settings__sh_restrict_for_close_period
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_res_config_settings_view_form
+msgid ""
+"Restrict record creation for Closed Fiscal Period or Closed Fiscal Year"
+msgstr ""
+"Restringir la creación de registros para el período fiscal cerrado o el año "
+"fiscal cerrado"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,help:sh_sync_fiscal_year.field_account_journal__type
+msgid ""
+"Select 'Sale' for customer invoices journals.\n"
+"Select 'Purchase' for vendor bills journals.\n"
+"Select 'Cash' or 'Bank' for journals that are used in customer or vendor "
+"payments.\n"
+"Select 'General' for miscellaneous operations journals."
+msgstr ""
+"Selecciona 'Ventas' para diarios de facturas de cliente.\n"
+"Selecciona 'Compras' para diarios de facturas de proveedor.\n"
+"Selecciona 'Caja' o 'Banco' para diarios que se usan para pagos de clientes "
+"y proveedores. \n"
+"Selecciona 'General' para diarios que contienen operaciones varias."
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__date_start
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__date_start
+msgid "Start of Period"
+msgstr "Inicio del período"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_account_period__state
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_sh_fiscal_year__state
+msgid "State"
+msgstr "Estado"
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/wizard/generate_opening_entries.py:0
+#, python-format
+msgid "The journal must have default credit and debit account."
+msgstr "El diario debe tener una cuenta de crédito y débito predeterminada."
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/wizard/generate_opening_entries.py:0
+#, python-format
+msgid "The periods to generate opening entries cannot be found."
+msgstr "No se encuentran los períodos para generar asientos de apertura."
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_generate_opening_entries_form_view
+msgid ""
+"This wizard will generate the end of year journal entries of selected "
+"fiscal year. Note that you can run this wizard many times for the same "
+"fiscal year: it will simply replace the old opening entries with the new "
+"ones."
+msgstr ""
+"Este asistente generará las entradas de diario de fin de año del año fiscal "
+"seleccionado. Tenga en cuenta que puede ejecutar este asistente muchas "
+"veces durante el mismo año fiscal: simplemente reemplazará las entradas de "
+"apertura antiguas por las nuevas."
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_cancel_closing_entries_form_view
+msgid ""
+"This wizard will remove the end of year journal entries of selected fiscal "
+"year. Note that you can run this wizard many times for the same fiscal year."
+msgstr ""
+"Este asistente eliminará las entradas de diario de fin de año del año "
+"fiscal seleccionado. Tenga en cuenta que puede ejecutar este asistente "
+"muchas veces durante el mismo año fiscal."
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields,field_description:sh_sync_fiscal_year.field_account_journal__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_res_config_settings_view_form
+msgid "Update Fiscal Year/Period to Old Records"
+msgstr "Actualizar año/período fiscal a registros antiguos"
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.fiscal_year_res_config_settings_view_form
+msgid "Update Old Records"
+msgstr "Actualizar registros antiguos"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_account_period__state__waiting
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_fiscal_year__state__waiting
+msgid "Waiting for Approval"
+msgstr "A la espera de la aprobación"
+
+#. module: sh_sync_fiscal_year
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_account_period__state__reopen
+#: model:ir.model.fields.selection,name:sh_sync_fiscal_year.selection__sh_fiscal_year__state__reopen
+msgid "Waiting for Re-Open Approval"
+msgstr "Esperando la aprobación de reapertura"
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/models/fiscal_year.py:0
+#, python-format
+msgid ""
+"You can not Select Date from Closed Fiscal Period / Closed Fiscal Year."
+msgstr ""
+"No puede seleccionar la fecha del período fiscal cerrado/año fiscal cerrado."
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/models/fiscal_year.py:0
+#, python-format
+msgid ""
+"You can not Select Date from Closed Fiscal Period / Closed Fiscal Year. "
+"Nombre: %s, ID: %s"
+msgstr ""
+"No puede seleccionar la fecha del período fiscal cerrado/año fiscal "
+"cerrado. Nombre: %s, DNI: %s"
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/wizard/account_open_closed_fiscalyear.py:0
+#, python-format
+msgid ""
+"You can not cancel closing entries if the 'End of Year Entries Journal' "
+"period is closed."
+msgstr ""
+"No puede cancelar asientos de cierre si el período 'Diario de asientos de "
+"fin de año' está cerrado."
+
+#. module: sh_sync_fiscal_year
+#: code:addons/sh_sync_fiscal_year/wizard/account_open_closed_fiscalyear.py:0
+#, python-format
+msgid ""
+"You have to set the 'End  of Year Entries Journal' for this Fiscal Year "
+"which is set after generating opening entries from 'Generate Opening "
+"Entries'."
+msgstr ""
+"Debe configurar el 'Diario de entradas de fin de año' para este año fiscal "
+"que se establece después de generar entradas de apertura desde 'Generar "
+"entradas de apertura'."
+
+#. module: sh_sync_fiscal_year
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_cancel_closing_entries_form_view
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_closing_fiscal_year_form_view
+#: model_terms:ir.ui.view,arch_db:sh_sync_fiscal_year.sh_generate_opening_entries_form_view
+msgid "or"
+msgstr "o"

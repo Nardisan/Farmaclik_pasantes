@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="template_wh_municipality_tax">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                   <t t-call="web.basic_layout" t-lang="es_VE">
+                        <div class="header">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="col-2" style="margin-top: 20px; margin-bottom: 0px;">
+                                    <table style="width:90.1%; margin-left:-8px;">
+                                        <tr>
+                                            <td style="width:30%;text-align:center;">
+                                                <t t-if="o.company_id.logo">  
+                                                    <img t-attf-src="data:image/*;base64,{{o.company_id.logo}}" style="width:auto; height:50px;"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-4" style="margin-top: 20px;">
+                                </div>
+                                <div class="col-6" style="margin-top: 20px;">
+                                    <table style="width:60%; margin-left:41%; border:1px solid #000;">
+                                        <tr>
+                                            <th style="text-align:center;  font-size:10pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                VOUCHER NUMBER
+                                            </th>
+                                            <td style="width:50%; text-align:center;  font-size:10pt; border:1px solid #000;">
+                                                <span t-field="o.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align:center; font-size:10pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                DATE
+                                            </th>
+                                            <td style="text-align:center;  font-size:10pt; border:1px solid #000;">
+                                                <span t-field="o.transaction_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4" style="text-align:center; font-size:10pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                FISCAL PERIOD
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center;  font-size:10pt; border:1px solid #000;">
+                                                Year: <span t-esc="o.date_end.name"/> 
+                                            </td>
+                                            <td style="text-align:center;  font-size:10pt; border:1px solid #000;">
+                                                Month: <span t-field="o.date_start.months_number"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-12">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th style="width:100%; text-align:center; font-size:11pt;">
+                                                    COMPROBANTE DE RETENCIÓN DEL IMPUESTO SOBRE ACTIVIDADES ECONÓMICAS
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <table style="width:100%;border:1px solid #000;">
+                                        <tr style="border:1px solid #000;">
+                                            <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                 DATOS DEL AGENTE DE RETENCIÓN
+                                            </th>
+                                            <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                RIF 
+                                            </th>
+                                            <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                LICENCIA 
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                <span t-field="o.company_id"/>
+                                            </td>
+                                            <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                <span t-esc="o.company_id.rif"/>
+                                            </td>
+                                            <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                <span t-field="o.company_id.econ_act_license"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>DIRECCIÓN</strong>
+                                            </td>
+                                            <td style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>CORREO ELECTRÓNICO</strong>
+                                            </td>
+                                            <td style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>CÓDIGO DE ACTIVIDAD ECONÓMICA</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center;border:1px solid #000;">
+                                                <span t-esc="o.get_company_address()"/>
+                                            </td>
+                                            <td style="text-align:center;border:1px solid #000;">
+                                                <span t-field="o.company_id.email"/>
+                                            </td>
+                                            <td style="text-align:center;border:1px solid #000;">
+                                                <span t-field="o.company_id.nifg"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="height:10px;">   
+                               <div class="col-12" style="height:10px;">
+                               </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <table style="width:100%;border:1px solid #000;">
+                                        <tr>
+                                            <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>DATOS DEL SUJETO RETENIDO</strong>
+                                            </th>
+                                            <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>RIF</strong>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center;  font-size:11pt; border:1px solid #000;">
+                                                <span t-field="o.partner_id.name"/>
+                                            </td>
+                                            <td style="text-align:center;  font-size:11pt; border:1px solid #000;">
+                                                <span t-esc="o.partner_id.rif"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center;  font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>DIRECCIÓN </strong>
+                                            </td>
+                                            <td style="text-align:center;  font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">
+                                                <strong>CORREO ELECTRÓNICO</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                <span t-field="o.address"/>
+                                            </td>
+                                            <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                <span t-field="o.partner_id.email"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="height:10px;">   
+                               <div class="col-12" style="height:10px;">
+                               </div>
+                            </div>
+                            <div class="row">
+                                <style>
+                                #color_blanco{
+                                    color: white;
+                                }
+                                </style>
+                                <div class="col-12">
+                                    <table style="width:100%;border-radius: 5px solid #FFFFFF;">
+                                        <tr style="width:100%;border:1px solid #000;">
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Invoice Date</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Invoice Number</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Control Number</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Código de Actividad Económica</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Base Tax</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Aliquot</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Porc.</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Municipal Tax Withheld</th>
+                                           <th style="text-align:center; font-size:11pt; background-color:#FFFFFF;border:1px solid #000;">Total Impuesto Municipal Retenido</th>
+                                        </tr>
+                                        <tbody>
+                                            <t t-set="acom_base" t-value="0"/>
+                                            <t t-set="acom_retenido" t-value="0"/>
+                                            <t t-foreach="o.act_code_ids" t-as="item">
+                                                <tr>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-field="item.municipality_tax_id.invoice_id.invoice_date"/></td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;">
+                                                    <span t-esc="item.municipality_tax_id.invoice_id.vendor_invoice_number"/></td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="item.municipality_tax_id.invoice_id.nro_control"/></td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="item.concept_id.code"/></td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="item.float_format(item.base_tax * o.manual_currency_exchange_rate)"/>
+                                                    <t t-set="acom_base" t-value="acom_base + (item.base_tax * o.manual_currency_exchange_rate)"/>
+                                                    <!-- ojo -->
+                                                   </td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="'%.2f'%(item.concept_id.aliquot)"/>%</td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="item.porcentaje_alic"/>%</td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="item.float_format(item.wh_amount * o.manual_currency_exchange_rate)"/>
+                                                   <t t-set="acom_retenido" t-value="acom_retenido+ (item.wh_amount * o.manual_currency_exchange_rate )"/>
+                                                   <!-- ojo -->
+                                                   </td>
+                                                   <td style="text-align:center; font-size:10pt; border:1px solid #000;"><span t-esc="item.float_format(item.wh_amount * o.manual_currency_exchange_rate)"/></td>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td colspan="4" style="font-size:11pt; border:1px solid #000;width:50px;"><b>Totales</b></td>
+                                                <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                    <p t-raw="o.float_format2(acom_base)"/>
+                                                </td>
+                                                <td style="text-align:center; font-size:11pt; border:1px solid #000;"/>
+                                                <td style="text-align:center; font-size:11pt; border:1px solid #000;"/>
+                                                <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                    <p t-raw="o.float_format2(acom_retenido)"/>
+                                                </td>
+                                                <td style="text-align:center; font-size:11pt; border:1px solid #000;">
+                                                    <p t-raw="o.float_format2(acom_retenido)"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                               </div>
+                            </div>
+                            <style>
+                                hr {
+                                    border-color: #000;
+                                    width: 60%;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    margin-top: 0px;
+                                    margin-bottom: 0px;
+                                }
+                            </style>
+                            <div class="row">
+                                <table border="1" style="width:100%;margin-top:40px;" name="firmas">
+                                    <tr>
+                                       <td style="width:50%;text-align:center; font-size:11pt; padding:0px;margin:0px;"  valign="bottom">
+                                          <img t-if="o.company_id.firma" t-att-src="image_data_uri(o.company_id.firma)" height="120px" style="margin-top: 0px; max-width: 160px;"/>
+                                        </td>
+                                        <td style="width:50%;text-align:center;  font-size:11pt; padding:0px;margin:0px;"  valign="bottom"/>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;text-align:center; font-size:11pt; padding:0px;margin:0px;">
+                                            
+                                            <hr/>
+                                            <b><span t-esc="o.company_id.name"/></b>
+                                            <br/>
+                                            <b>Firma y sello del Agente de Retención</b>
+                                            <br/>
+                                            <span t-esc="o.company_id.rif"/>
+                                        </td>
+                                        <td style="width:50%;text-align:center;  font-size:11pt; padding:0px;margin:0px;">
+                                            
+                                            <hr/>
+                                                <b><span t-esc="o.partner_id.name"/></b>
+                                            <br/>
+                                            <b>Firma y Sello del Sujeto Retenido</b>
+                                            <br/>
+                                            <b><span t-esc="o.partner_id.rif"/></b>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+    </template>
+
+<!-- Paper format -->
+    <record id="paperformat_municipality_tax" model="report.paperformat">
+        <field name="name">Voucher of Municipal Withholding</field>
+        <field name="orientation">Landscape</field>
+        <field name="header_line" eval="False"/>
+    </record>
+
+
+<!-- Report action -->
+    <report
+        id="action_report_municipality_tax"
+        string="Voucher of Municipal Withholding"
+        model="municipality.tax"
+        report_type="qweb-pdf"
+        name="municipality_tax.template_wh_municipality_tax"
+        file="municipality_tax.template_wh_municipality_tax"
+        paperformat="municipality_tax.paperformat_municipality_tax"
+    />
+
+
+</odoo>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="place_into_bar" inherit_id="website.snippets" name="Tractor">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" 
+            position="inside">
+            <t t-snippet="theme_clarico_vega.agro"
+            t-thumbnail="/theme_clarico_vega/static/src/img/ui/snippet_thumb.jpg"/>
+
+        </xpath>
+    </template>
+
+    <template id="agro" name="Tractor">
+
+    <style>
+
+
+
+.texto{
+	margin-top: 150px;
+	text-align: center;
+}
+
+.tractor{
+	margin-top: 150px;
+	
+}
+
+.foto{
+
+	position: relative;
+	-webkit-animation-name: rebote; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 0.8; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-direction: reverse; /* Chrome, Safari, Opera */
+	animation-name: rebote;
+	animation-duration: 0.8s;
+	animation-iteration-count: infinite;
+	animation-direction: reverse;
+	animation-timing-function: ease-out;
+}
+
+
+@keyframes rebote {
+	0%   {left:0px; top:0px;}
+	25%  {left:0px; top:-8px;}
+	50%  {left:0px; top:-8px;}
+	75%  {left:0px; top:-5px;}
+	100% {left:0px; top:0px;}
+  }
+
+
+/*
+Animación Rueda
+*/
+.rueda{
+	
+	/* margin-top: -200px !important; */
+	animation-name: rueda;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	-webkit-animation-name: rueda; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	display: block;
+	margin: 0 auto;
+	height:200px;
+	width: 200px;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes rueda {
+	100% {
+	  -ms-transform: rotate(360deg); /* IE 9 */
+	  -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */ 
+	  transform: rotate(360deg);
+	}
+  }
+  @keyframes rueda{
+	100% {
+	  -ms-transform: rotate(360deg); /* IE 9 */
+	  -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */ 
+	  transform: rotate(360deg);
+	}
+  }
+
+
+  .rueda:nth-child(1){
+	width: 150px;
+	height: 150px;
+	margin-left: 330px;
+	margin-top: -120px !important;
+
+  }
+
+.rueda:nth-child(2){
+    width: 220px;
+	height: 220px;
+	margin-top: -215px !important;
+	margin-left:1px;
+
+  }
+
+  @media only screen and (max-width: 991.98px) {
+
+	.rueda:nth-child(1){
+		
+		margin-left: 620px;
+		margin-top: -160px !important;
+	
+	  }
+
+	.rueda:nth-child(2){
+	
+		margin-top: -250px !important;
+		margin-left: 300px;
+	
+	  }
+	
+	  .texto{
+		margin-top: 10px;
+
+	}
+
+	.foto{
+		/* display: none !important; */
+		margin-top: 50px;
+		margin-left: 25%;
+	}
+}
+
+@media only screen and (max-width: 575.98px) {
+
+
+	.foto{
+		width: 300px;
+		height: 180px;
+		margin-left: 20px;
+	}
+
+	.rueda:nth-child(1){
+		width: 120px;
+		height: 120px;
+		margin-left: 20px;
+		margin-top: -110px !important;
+	
+	  }
+
+	.rueda:nth-child(2){
+		width: 100px;
+		height: 100px;
+		margin-top: -90px !important;
+		margin-left: 200px;
+	
+	  }
+}
+
+    </style>
+        <section class="tractor">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="texto">
+                        <h1>TEXTO DE EJEMPLO</h1>
+                        <P>
+                            Lorem ipsum dolor sit amet consectetur adipis  consectetur adipis consectetur adipis consectetur adipis consectetur adipis 
+                        </P>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div id="tractor" > 
+                        <img src="/theme_clarico_vega/static/description/tractor/tractor_odoo_agronet.png" alt="" width="550" height="350" class="foto"/>
+                    </div>
+
+
+                    <section >
+                        <img class="rueda"  src="/theme_clarico_vega/static/description/tractor/tractor_rueda_1.png" />
+                        
+                        <img class="rueda"  src="/theme_clarico_vega/static/description/tractor/tractor_rueda_1.png" />
+                    </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

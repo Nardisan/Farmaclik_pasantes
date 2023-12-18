@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add custom css/js for website login feature -->
+    <template id="assets_frontend_inherit_website_logins" inherit_id="website.assets_frontend" name="Login Assets">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/website_logins/static/src/css/custom.css' />
+        </xpath>
+    </template>
+    <!-- Inherit template for website login futures -->
+    <template id="website_logins_form_kanak" inherit_id="web.login" name="website login form">
+        <xpath expr="//t[@t-call='web.login_layout']" position="replace">
+            <t t-call="web.login_layout">
+                <div id="login-overlay" class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="myModalLabel">Iniciar sesión en odoo</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12 ">
+                                    <div class="well">
+                                        <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                            <!-- <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                                                <label for="db" class="control-label">Base de datos</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="db" t-att-value="request.db" id="db" class="form-control" required="required" readonly="readonly" />
+                                                    <span class="input-group-btn">
+                                                        <a href="/web/database/selector" class="btn btn-default">Seleccione <i class="fa fa-database"></i></a>
+                                                    </span>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group field-login">
+                                                <label for="login" class="control-label">Email</label>
+                                                <input type="text" name="login" t-att-value="login" id="login" class="form-control" required="required" autofocus="autofocus" />
+                                            </div>
+                                            <div class="form-group field-password">
+                                                <label for="password" class="control-label">Contraseña</label>
+                                                <input type="password" name="password" id="password" class="form-control" required="required" t-att-autofocus="'autofocus' if login else None" />
+                                            </div>
+                                            <p class="alert alert-danger" t-if="error">
+                                                <t t-esc="error" />
+                                            </p>
+                                            <p class="alert alert-success" t-if="message">
+                                                <t t-esc="message" />
+                                            </p>
+                                            <input type="hidden" name="redirect" t-att-value="redirect" />
+                                            <div class="clearfix oe_login_buttons">
+                                                <button type="submit" class="btn btn-primary" style="width:100%;">Iniciar sesión</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <p class="lead">Regístrese ahora <span class="text-success">GRATIS</span></p>
+                                    <ul class="list-unstyled" style="line-height: 2">
+                                        <li><span class="fa fa-check text-success"></span> Ver todos sus pedidos</li>
+                                        <li><span class="fa fa-check text-success"></span> Pedido rápido</li>
+                                        <li><span class="fa fa-check text-success"></span> Guarda tus favoritos</li>
+                                        <li><span class="fa fa-check text-success"></span> Pago rápido</li>
+                                    </ul>
+                                    <p><a href="/web/signup" class="btn btn-primary btn-block" style="color:#FFF !important;">¡Regístrese ahora!</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//button[@type='submit']" position="before">
+            <div class="pull-right" style="margin:auto;">
+                <t t-call="auth_oauth.providers" />
+            </div>
+        </xpath>
+        <xpath expr="//button[@type='submit']" position="after">
+            <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}">Restablecer la contraseña</a>
+            <br />
+        </xpath>
+    </template>
+</odoo>

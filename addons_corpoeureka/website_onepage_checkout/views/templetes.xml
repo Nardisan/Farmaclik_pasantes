@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend_onepage" inherit_id="website.assets_frontend" name="Assets Frontend Onepage">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src='/website_onepage_checkout/static/src/js/onepage_checkout.js'></script>
+            <link rel='stylesheet' href='/website_onepage_checkout/static/src/css/onepage_checkout.css' />
+        </xpath>
+    </template>
+
+    <template id="onepage_wizard_checkout" inherit_id="website_sale.wizard_checkout" name="website_sale: Onepage Wizard Checkout">
+        <xpath expr="//div[@class='wizard']" position="replace">
+            <div class="progress-wizard">
+                <a class="no-decoration" t-att-href="step&gt;=10 and '/shop/cart' or '#'">
+                    <div id="wizard-step10" t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                    <div class="progress-wizard-bar d-none d-md-block"/>
+                    <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                    <div class="text-center progress-wizard-steplabel">Revisar pedido</div>
+                    </div>
+                </a>
+                <a class="no-decoration" t-att-href="step&gt;=20 and '/shop/checkout' or '#'">
+                    <div id="wizard-step20" t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                    <div class="progress-wizard-bar d-none d-md-block"/>
+                    <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                    <div class="text-center progress-wizard-steplabel">Verificar</div>
+                    </div>
+                </a>
+                <a class="no-decoration" t-att-href="step&gt;=40 and '/shop/payment' or '#'">
+                    <div id="wizard-step40" t-att-class="'progress-wizard-step %s' % (step == 40 and 'active' or step&gt;40 and 'complete' or 'disabled')">
+                    <div class="progress-wizard-bar d-none d-md-block"/>
+                    <span class="progress-wizard-dot d-none d-md-inline-block"></span>
+                    <div class="text-center progress-wizard-steplabel">Confirmar pedido</div>
+                    </div>
+                </a>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="onepage_checkout" name="onepage checkout">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Tienda - Pagar</t>
+            <div id="wrap">
+                <div class="container oe_website_sale oe_website_sale_onepage">
+                    <t t-call="website_sale.wizard_checkout">
+                        <t t-set="step" t-value="20" />
+                    </t>
+                    <t t-set="same_shipping" t-value="bool(order.partner_shipping_id==order.partner_id or only_services)" />
+                   
+                    <h3 class="o_page_header mt8">Proceso de Pago</h3>
+                    <div class="row">
+                        <div class="col-12 col-xl-8 oe_cart">
+                            <div class="accordion" id="onepage-accordion">
+                                <t t-if="wk_billing_panel">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary" id="billing-panel">
+                                            <h4 class="card-title">
+                                                <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#billing-collapse" aria-expanded="true" aria-controls="billing-collapse">
+                                                  <t t-esc="wk_billing_panel_name"/>
+                                                  <span id="shipping-panel-data" t-att-data-shipping="'on' if wk_shipping_panel and not only_services else 'off'"></span>
+                                                </button>
+                                            </h4>
+                                        </div>
+                                        <div id="billing-collapse" class="collapse show" aria-labelledby="billing-panel" data-parent="#onepage-accordion">
+                                            <div class="card-body">
+                                                <t t-call="website_onepage_checkout.onepage_billing_kanban"></t>
+                                            </div>
+                                            <div class="clearfix" />
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-primary fa fa-arrow-down submit-billing-btn" href="#" name="Continue" style="margin-bottom:11px;">Continuar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <t t-if="wk_shipping_panel and not only_services">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary" id="shipping-panel">
+                                            <h4 class="card-title">
+                                                <button class="btn btn-link collapsed text-white hide_class" type="button" data-toggle="collapse" data-target="#shipping-collapse" aria-expanded="false" aria-controls="shipping-collapse">
+                                                    <t t-esc="wk_shipping_panel_name"/>
+                                                </button>
+                                            </h4>
+                                        </div>
+                                        <div id="shipping-collapse" class="collapse" aria-labelledby="shipping-panel" data-parent="#onepage-accordion">
+                                            <div class="card-body">
+                                                <t t-call="website_onepage_checkout.onepage_shhipping_kanban"></t>
+                                            </div>
+                                            <div class="clearfix" />
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-primary fa fa-arrow-down submit-shipping-btn" style="margin-bottom:11px;">Continuar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <t t-if="extra_step_active">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary" id="extra-step-panel">
+                                            <h4 class="card-title">
+                                                <button class="btn btn-link collapsed text-white hide_class" type="button" data-toggle="collapse" data-target="#extra-step-collapse" aria-expanded="false" aria-controls="extra-step-collapse">
+                                                Información Extra
+                                                </button>
+                                            </h4>
+                                        </div>
+                                        <div id="extra-step-collapse" class="collapse" aria-labelledby="extra-step-panel" data-parent="#onepage-accordion">
+                                            <div class="card-body">
+                                                <t t-call="website_onepage_checkout.onepage_extra_info"></t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <t t-if="wk_delivery_panel">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary" id="delivery-method-panel">
+                                            <h4 class="card-title">
+                                                <button class="btn btn-link collapsed text-white hide_class" type="button" data-toggle="collapse" data-target="#delivery-method-collapse" aria-expanded="false" aria-controls="delivery-method-collapse">
+                                                    <t t-esc="wk_delivery_panel_name"/>
+                                                </button>
+                                            </h4>
+                                        </div>
+                                        <div id="delivery-method-collapse" class="collapse" aria-labelledby="delivery-method-panel" data-parent="#onepage-accordion">
+                                            <div class="card-body">
+                                                <t t-call="website_onepage_checkout.onepage_deliver_method"></t>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-primary fa fa-arrow-down submit-delivery-btn" href="#" name="Continue" style="margin-bottom:11px; display:none;">Continuar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                                <t t-if="wk_overview_and_payment_panel">
+                                    <div class="card border-primary">
+                                        <t t-set="website_sale_order" t-value="website.sale_get_order()" />
+                                        <div class="card-header bg-primary" id="payment-method-panel">
+                                            <h4 class="card-title">
+                                                <button class="btn btn-link collapsed text-white hide_class" role="button" data-toggle="collapse" data-target="#payment-method-collapse" aria-expanded="false" aria-controls="payment-method-collapse">
+                                                    <t t-esc="wk_overview_and_payment_panel_name"/>
+                                                </button>
+                                            </h4>
+                                        </div>
+                                        <div id="payment-method-collapse" class="collapse" aria-labelledby="payment-method-panel" data-parent="#onepage-accordion">
+                                            <div class="card-body">
+                                                <!-- <t t-call="website_sale.cart_summary"/> -->
+                                                <t t-call="website_onepage_checkout.onepage_payment_method"></t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-4 onepage_cart_summary">
+                            <t t-call="website_sale.short_cart_summary"/>
+                        </div>
+                    </div>
+                    <div class="clearfix"/>
+                    
+                    <div class="d-flex justify-content-between mt-3">
+                        <a role="button" href="/shop/cart" class="btn btn-secondary mb32">
+                            <i class="fa fa-chevron-left"></i>
+                            <span>Volver al carrito</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="onepage-loader-big" style="display:none;"></div>
+        </t>
+    </template>
+
+    <template id="onepage_billing_kanban">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h4 class="o_page_header">Dirección de Facturación</h4>
+            </div>
+            <div class="col-lg-12 one_kanban">
+                <t t-call="website_sale.address_kanban">
+                    <t t-set='contact' t-value="order.partner_id"/>
+                    <t t-set='selected' t-value="1"/>
+                    <t t-set='readonly' t-value="1"/>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <template id="onepage_shhipping_kanban">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h4 class="o_page_header">Dirección de Envío</h4>
+            </div>
+        </div>
+        <div class="row all_shipping">
+            <div class="col-lg-12">
+                <div class="row mt8">
+                    <div class="col-md-12 col-lg-12 one_kanban">
+                        <form action="/shop/address" method="post" class=''>
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <a role="button" href="#" class='a-submit btn btn-secondary mb16 btn-block'>
+                                <i class="fa fa-plus-square"/>
+                                <span>Añadir una dirección</span>
+                            </a>
+                        </form>
+                    </div>
+                    <t t-foreach="shippings" t-as="ship">
+                        <div class="col-md-12 col-lg-6 one_kanban">
+                            <t t-call="website_sale.address_kanban">
+                                <t t-set="actual_partner" t-value="order.partner_id" />
+                                <t t-set='contact' t-value="ship"/>
+                                <t t-set='selected' t-value="order.partner_shipping_id==ship"/>
+                                <t t-set='readonly' t-value="bool(len(shippings)==1)"/>
+                                <t t-set='edit_billing' t-value="bool(ship==order.partner_id)"/>
+                            </t>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="onepage_extra_info">
+        <div class="row" id="onepage_extra_info">
+            <div class="col">
+                <form action="/website_form/" method="post" class="s_website_form container-fluid" enctype="multipart/form-data" data-force_action="shop.sale.order" data-model_name="sale.order" data-success_page="/shop/payment">
+                    <div class="form-group row form-field o_website_form_custom">
+                        <div class="col-lg-3 col-md-4 text-md-right">
+                            <label class="col-form-label" for="client_order_ref">Su referencia</label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control o_website_form_input" name="client_order_ref"/>
+                        </div>
+                    </div>
+                    <div class="form-group row form-field o_website_form_custom">
+                        <div class="col-lg-3 col-md-4 text-md-right">
+                            <label class="col-form-label" for="Give us your feedback">Danos tu opinión</label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control o_website_form_input" rows="8" name="Give us your feedback" />
+                        </div>
+                    </div>
+                    <div class="form-group row form-field o_website_form_custom">
+                        <div class="col-lg-3 col-md-4 text-md-right">
+                            <label class="col-form-label" for="a_document">Un documento para proporcionar</label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="file" class="form-control o_website_form_input" name="a_document" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <span class="btn btn-primary o_website_form_send o_default_snippet_text submit-extra-info-btn">
+                        <span>Continuar </span><span class="fa fa-long-arrow-down" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="onepage_deliver_method">
+        <div class="onepage-delivery-template">
+            <div t-if="deliveries" id="delivery_carrier">
+                <t t-set="delivery_nb" t-value="len(deliveries)"/>
+                <h3 t-if="delivery_nb &gt; 1" class="mb24">Elija un método de envío</h3>
+                <div t-if="delivery_nb &gt; 1" class="card border-0" id="delivery_method">
+                    <ul class="list-group">
+                    <t t-foreach="deliveries" t-as="delivery">
+                        <li class="list-group-item">
+                            <t t-call="website_sale_delivery.payment_delivery_methods"/>
+                        </li>
+                    </t>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="onepage_payment_method">
+        <div class="onepage-payment-template"> 
+            <div id="payment_method" class="mt-3" t-if="(acquirers or tokens) and website_sale_order.amount_total">
+                <h3 class="mb24">Forma de Pago </h3>
+                <t t-call="payment.payment_tokens_list">
+                    <t t-set="mode" t-value="'payment'"/>
+                    <t t-set="submit_txt">Pagar ahora</t>
+                    <t t-set="icon_right" t-value="1"/>
+                    <t t-set="icon_class" t-value="'fa-chevron-right'"/>
+                    <t t-set="submit_class" t-value="'btn btn-primary'"/>
+                    <t t-set="pms" t-value="tokens"/>
+                    <t t-set="form_action" t-value="'/shop/payment/token'"/>
+                    <t t-set="prepare_tx_url" t-value="'/shop/payment/transaction/'"/>
+                    <t t-set="partner_id" t-value="partner"/>
+                </t>
+            </div>
+
+            <div t-if="not acquirers" class="mt-2">
+                <a role="button" class="btn-link"
+                    groups="base.group_system"
+                    t-attf-href="/web#return_label=Website&amp;action=#{payment_action_id}">
+                        <i class="fa fa-arrow-right"></i> Añadir Tipo de Pagos
+                </a>
+            </div>
+
+            <div class="js_payment mt-3" t-if="not website_sale_order.amount_total" id="payment_method">
+                <form target="_self" action="/shop/payment/validate" method="post" class="float-right">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <a role="button" class="btn btn-primary a-submit">
+                        <span t-if="order.amount_total &gt; 0">Pagar ahora <span class="fa fa-chevron-right"></span></span>
+                        <span t-if="order.amount_total == 0">Confirmar Orden <span class="fa fa-chevron-right"></span></span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </template>
+</odoo>

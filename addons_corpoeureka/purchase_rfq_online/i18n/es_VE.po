@@ -1,0 +1,358 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_rfq_online
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210426\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-27 15:54+0000\n"
+"PO-Revision-Date: 2021-04-27 14:42-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_VE\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "&amp;times;"
+msgstr "&amp;tiempos;"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-check\"/> Sign &amp; Send"
+msgstr "<i class=\"fa fa-check\"/> Firmar y enviar"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-comment\"/> Contact us to get more information."
+msgstr "<i class=\"fa fa-comment\"/> Contacte con nosotros para obtener más información."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-comment\"/> Feedback"
+msgstr "<i class=\"fa fa-comment\"/> Comentarios"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-comment\"/> Send message"
+msgstr "<i class=\"fa fa-comment\"/> Enviar mensaje"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-download\"/> Download"
+msgstr "<i class=\"fa fa-download\"/> Descargar"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-print\"/> Print"
+msgstr "<i class=\"fa fa-print\"/> Imprimir"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<i class=\"fa fa-times\"/> Reject"
+msgstr "<i class=\"fa fa-times\"/> Rechazar"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_form_inherit
+msgid ""
+"<span class=\"o_stat_text\">Supplier</span>\n"
+"                        <span class=\"o_stat_text\">Preview</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Proveedor</span>\n"
+"                        <span class=\"o_stat_text\">Revisión</span>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Importe</span>\n"
+"                                <span groups=\"account.group_show_line_subtotals_tax_included\">Precio total</"
+"span>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<span>By signing this quotation, I agree to the following terms:</span>"
+msgstr "<span>Al firmar este presupuesto, acepto los siguientes términos:</span>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<span>For an amount of:</span>"
+msgstr "span>Por un importe de:</span>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<span>On the behalf of:</span>"
+msgstr "<span>En nombre de:</span>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<span>With payment terms:</span>"
+msgstr "<span>Con condiciones de pago:</span>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">Subtotal</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<strong class=\"text-muted\">Purchase Representative</strong>"
+msgstr "<strong class=\"text-muted\">Representante de compras</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Fecha de pedido:</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "<strong>Quotation Date:</strong>"
+msgstr "<strong>Fecha de cotización:</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "<strong>Receipt Date:</strong>"
+msgstr "<strong>Fecha de recepción:</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content_totals_table
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Subtotal</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<strong>Thank You!</strong><br/>"
+msgstr "<strong>Gracias! </strong><br/>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<strong>This quotation has been canceled.</strong>"
+msgstr "<strong>Este presupuesto ha sido cancelado.</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "<strong>This quotation has been proceeded.</strong>"
+msgstr "<strong>Esta cita ha sido procesada.</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content_totals_table
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Add one"
+msgstr "Añadir  uno"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Contact"
+msgstr "Contacte con"
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,help:purchase_rfq_online.field_purchase_order__signed_on
+msgid "Date of the signature."
+msgstr "Fecha de la firma."
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order_line__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Download"
+msgstr "Descargar"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "History"
+msgstr "Historia"
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order__id
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase_rfq_online
+#: code:addons/purchase_rfq_online/controllers/portal.py:0
+#, python-format
+msgid "Invalid order."
+msgstr "Orden inválida."
+
+#. module: purchase_rfq_online
+#: code:addons/purchase_rfq_online/controllers/portal.py:0
+#, python-format
+msgid "Invalid signature data."
+msgstr "Invalid signature data."
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order_line____last_update
+msgid "Last Modified on"
+msgstr "Modificada por última vez"
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,help:purchase_rfq_online.field_purchase_order__signed_by
+msgid "Name of the person that signed the SO."
+msgstr "Nombre de la persona que ha firmado el pliego de cargos."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Payment terms"
+msgstr "Condiciones de pago"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Pricing"
+msgstr "Precios"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Products"
+msgstr "Productos"
+
+#. module: purchase_rfq_online
+#: code:addons/purchase_rfq_online/models/purchase_order.py:0
+#: model:ir.model,name:purchase_rfq_online.model_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: purchase_rfq_online
+#: model:ir.model,name:purchase_rfq_online.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: purchase_rfq_online
+#: code:addons/purchase_rfq_online/models/purchase_order.py:0
+#, python-format
+msgid "Quotation"
+msgstr "Presupuesto"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_form_inherit
+msgid "Quotation Online"
+msgstr "Presupuesto en línea"
+
+#. module: purchase_rfq_online
+#: code:addons/purchase_rfq_online/controllers/portal.py:0
+#, python-format
+msgid "Quotation viewed by supplier %s"
+msgstr "Oferta vista por el proveedor %s"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Reject This Quotation"
+msgstr "Rechazar este presupuesto"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Remove one"
+msgstr "Quitar uno"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Send quotation"
+msgstr "Enviar presupuesto"
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order__signature
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Signature"
+msgstr "Firma"
+
+#. module: purchase_rfq_online
+#: code:addons/purchase_rfq_online/controllers/portal.py:0
+#, python-format
+msgid "Signature is missing."
+msgstr "Falta la firma."
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,help:purchase_rfq_online.field_purchase_order__signature
+msgid "Signature received through the portal."
+msgstr "Firma recibida a través del portal."
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order__signed_by
+msgid "Signed By"
+msgstr "Firmado por"
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order__signed_on
+msgid "Signed On"
+msgstr "Firmado"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Tell us why you are refusing from sending this quotation, this will help us improve ourselves."
+msgstr "Díganos por qué se niega a enviar este presupuesto, esto nos ayudará a mejorar."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Terms &amp; Conditions"
+msgstr "Términos y condiciones"
+
+#. module: purchase_rfq_online
+#: model:ir.model.fields,field_description:purchase_rfq_online.field_purchase_order__type_name
+msgid "Type Name"
+msgstr "Nombre del tipo"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_content
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "You have sent this quotation successfully."
+msgstr "Ha enviado este presupuesto con éxito."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Your feedback..."
+msgstr "Sus comentarios..."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Your order has been signed."
+msgstr "Su pedido ha sido firmado."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "Your order is not in a state to be rejected."
+msgstr "Su pedido no está en condiciones de ser rechazado."
+
+#. module: purchase_rfq_online
+#: model_terms:ir.ui.view,arch_db:purchase_rfq_online.purchase_order_portal_template
+msgid "close"
+msgstr "cerrar"

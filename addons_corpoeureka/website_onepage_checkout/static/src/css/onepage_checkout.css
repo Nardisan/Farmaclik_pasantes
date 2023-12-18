@@ -1,0 +1,33 @@
+.hide_class {
+    pointer-events: none;
+    cursor: default;
+}
+.onepage-loader-big {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(/website_onepage_checkout/static/src/img/onepage_checkout_big.GIF) center no-repeat rgba(255, 255, 255, 0.5);
+    text-shadow: 0 1px 1px white;
+}
+
+.onepage_cart_summary a[href="/shop/checkout?express=1"] {
+    display: none !important;
+}
+
+.oe_website_sale_onepage .accordion .card:first-of-type {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);;
+    /*height: 70px;*/
+}
+
+#payment-method-collapse .toggle_summary_div {
+    max-width: 100%;
+}
+.oe_website_sale_onepage .accordion .bg-success{
+    background-color:#3056a6 !important;       
+}
+.oe_website_sale_onepage .accordion .bg-primary{
+    background-color:#727a8a !important;       
+}

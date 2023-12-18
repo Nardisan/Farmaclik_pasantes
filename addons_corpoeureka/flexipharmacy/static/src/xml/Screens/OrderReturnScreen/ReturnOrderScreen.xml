@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ReturnOrderScreen" owl="1">
+        <div class="order-management-screen screen" t-att-class="{ oe_hidden: !props.isShown }">
+            <div t-if="!env.isMobile" class="screen-full-width">
+                <div class="leftpane">
+                    <div class="pads">
+                        <div class="control-button" t-on-click="ProcessReturnOrder">
+                            <i class="fa fa-print"/>
+                            <span> </span>
+                            <span>Process Order</span>
+                        </div>
+                    </div>
+                    <ReturnOrderDetails order="orderManagementContext.selectedOrder" />
+                </div>
+                <div class="rightpane">
+                    <div class="flex-container">
+                        <ReturnOrderManagementControlPanel />
+                        <ReturnOrderList orders="orders" initHighlightedOrder="orderManagementContext.selectedOrder" />
+                    </div>
+                </div>
+            </div>
+            <MobileReturnOrderScreen t-else="" />
+        </div>
+    </t>
+
+</templates>

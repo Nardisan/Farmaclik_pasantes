@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+    <data>
+        <record id="num_import_export_view" model="ir.ui.view">
+            <field name="name">num.import.export</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='journal_div']" position="after">
+                    <field name="doc_impor_export" attrs="{'required' : ['|',('num_export', '=',' ' ),('num_import', '=',' ' )]}"/>
+                    <div class="o_td_label" attrs="{'invisible': [('doc_impor_export','=',False)]}"  >
+                        <label for="num_export" string="Planilla/Import" style="font-weight:bold;" attrs="{'invisible': ['|',('doc_impor_export', '=',False),('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt'))]}"/>
+                        <label for="num_export" string="Expediente/import" style="font-weight:bold;" attrs="{'invisible': ['|',('doc_impor_export', '=',False),('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"/>
+                    </div>
+                    <field name="num_export" nolabel="1" attrs="{'required': [('doc_impor_export','=',True)], 'invisible': [('doc_impor_export','=',False)]}"/>   
+                    
+                    <div class="o_td_label" attrs="{'invisible': [('doc_impor_export','=',False)]}"  >
+                        <label for="num_import" string="Planilla/Export" style="font-weight:bold;" attrs="{'invisible': ['|',('doc_impor_export', '=',False),('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt'))]}"/>
+                        <label for="num_import" string="Expediente/Export" style="font-weight:bold;" attrs="{'invisible': ['|',('doc_impor_export', '=',False),('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"/>
+                    </div>
+                    <field name="num_import" nolabel="1" attrs="{'required': [('doc_impor_export','=',True)], 'invisible': [('doc_impor_export','=',False)]}"/>
+                </xpath>
+            </field>
+        </record> 
+
+    </data>
+</odoo>

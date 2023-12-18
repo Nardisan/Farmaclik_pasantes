@@ -1,0 +1,195 @@
+<odoo>
+        <template id="print_daily_legal_xls_report_template">
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="10"/>
+                <t t-call="web.basic_layout">
+                    <div style="border:1px solid black;border-radius:20px;border-spacing:0;margin-left:0%;width:100%;">
+                        <table class="text-center" style="width:100%;font-size:12px;">
+                            <tr>
+                                <th><span t-esc="form.get('company_name')"></span></th>
+                            </tr>
+                            <tr>
+                                <th><span t-esc="form.get('company_vat')"></span></th>
+                            </tr>
+                            <tr>
+                                <th><span>** CONTABILIDAD GENERAL **</span></th>
+                            </tr>
+                            <tr>
+                                <t t-if="form.get('show_initial_balance')">
+                                    <th><span>LIBRO MAYOR</span></th>
+                                </t>
+                                <t t-else="">
+                                    <th><span>DIARIO LEGAL</span></th>
+                                </t>
+                            </tr>
+                            <t t-if="form.get('start_date')">
+                                <tr>
+                                    <th>
+                                        DESDE: <span t-esc="form.get('start_date')" t-options='{"widget": "date"}'/>
+                                        HASTA: <span t-esc="form.get('end_date')" t-options='{"widget": "date"}'/>
+                                    </th>
+                                </tr>
+                            </t>
+                            <t t-if="form.get('target_move')">
+                                <tr>
+                                    <th>Estado:
+                                        <t t-if="form.get('target_move')=='all'">
+                                            <strong>Todas</strong>
+                                        </t>
+                                        <t t-else="" >
+                                            <strong>Publicadas</strong>
+                                        </t>
+                                    </th>
+                                </tr>
+                            </t>
+                            <t t-if="form.get('display_account')">
+                                <tr>
+                                    <th>Mostrar Cuenta: 
+                                        <t t-if="form.get('display_account')=='all'">
+                                            <strong>Todas</strong>
+                                        </t>
+                                        <t t-else="" >
+                                            <strong>Con movimientos</strong>
+                                        </t>
+                                    </th>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                    <table class="text-center" style="width:100%;font-size:12px;margin-top:20px">
+                        <thead>
+                            <tr style="font-size:12px;">
+                                <th class="text-center"> <!-- 1 -->
+                                    <strong>Código Cuenta</strong>
+                                </th>
+                                <th class="text-center"><!-- 2 -->
+                                    <strong>Descripción</strong>
+                                </th>
+                                <t t-if="form.get('show_initial_balance')">
+                                    <th class="text-center"><!-- 3 -->
+                                        <strong>Saldo Anterior</strong>
+                                    </th>
+                                </t>
+                                <th class="text-center"> <!-- 4 -->
+                                    <strong>Debe</strong>
+                                </th>
+                                <th class="text-center"> <!-- 5 -->
+                                    <strong>Haber</strong>
+                                </th>
+                                <t t-if="form.get('show_initial_balance')">
+                                    <th class="text-center"><!-- 6 -->
+                                        <strong>Balance</strong>
+                                    </th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="Tdebe" t-value="0"/>
+                            <t t-set="Thaber" t-value="0"/>
+                            <t t-set="Tbalance" t-value="0"/>
+                            <t t-set="Tbalance_inicial" t-value="0"/>
+                            <t t-foreach="form.get('invoices')" t-as="l">    
+                                <tr style="font-size:12px;">
+                                    <td class="text-left" style="width:10%;"> <!-- 1 -->
+                                        <t t-set="sub" t-value="0"/>
+                                        <t t-set="myvar2" t-value="l.get('parent').split('/')"/>
+                                        <t t-if="len(myvar2)&lt;=3">
+                                            <t t-set="sub" t-value="1"/>
+                                        </t>
+                                        <t t-if="len(myvar2)==2" >
+                                            <t t-set="Tbalance_inicial" t-value="Tbalance_inicial+l.get('balance_initial')"/>
+                                            <t t-set="Tdebe" t-value="Tdebe+l.get('debit_final')"/>
+                                            <t t-set="Thaber" t-value="Thaber+l.get('credit_final')"/>
+                                            <t t-set="Tbalance" t-value="Tbalance+l.get('balance_final_total')"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-set="sub" t-value="0"/>
+                                        </t>
+                                        <t t-if="sub==1">
+                                            <strong><u><span t-esc="l.get('account_code')" /></u></strong>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="l.get('account_code')" />
+                                        </t>
+                                    </td>
+                                    <td class="text-left" style="width:26%;"> <!-- 2 -->
+                                        <t t-if="sub==1">
+                                            <strong><u><span t-esc="l.get('account_name')"/></u></strong>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="l.get('account_name')"/>
+                                        </t>
+                                    </td>
+                                    <t t-if="form.get('show_initial_balance')">
+                                        <td class="text-right" style="width:16%;"><!-- 3 -->
+                                            <t t-if="sub==1">
+                                                <strong><u><span t-esc="l.get('balance_initial')" t-options='{"widget": "float", "precision": 2}'/></u></strong>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-esc="l.get('balance_initial')" t-options='{"widget": "float", "precision": 2}'/>
+                                                <!-- <t t-set="Tbalance_inicial" t-value="Tbalance_inicial+l.get('balance_initial')"/> -->
+                                            </t>
+                                        </td>
+                                    </t>
+                                    <td class="text-right" style="width:16%;"><!-- 4 -->
+                                        <t t-if="sub==1">
+                                            <strong><u><span t-esc="l.get('debit_final')" t-options='{"widget": "float", "precision": 2}'/></u></strong>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="l.get('debit_final')" t-options='{"widget": "float", "precision": 2}'/>
+                                            <!-- <t t-set="Tdebe" t-value="Tdebe+l.get('debit_final')"/> -->
+                                        </t>
+                                    </td>
+                                    <td class="text-right" style="width:16%;"> <!-- 5 -->
+                                        <t t-if="sub==1">
+                                            <strong><u><span t-esc="l.get('credit_final')" t-options='{"widget": "float", "precision": 2}'/></u></strong>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="l.get('credit_final')" t-options='{"widget": "float", "precision": 2}'/>
+                                           <!--  <t t-set="Thaber" t-value="Thaber+l.get('credit_final')"/> -->
+                                        </t>
+                                    </td>
+                                    <t t-if="form.get('show_initial_balance')">
+                                        <td class="text-right" style="width:16%;"><!-- 6 -->
+                                            <t t-if="sub==1">
+                                                <strong><u><span t-esc="l.get('balance_final_total')" t-options='{"widget": "float", "precision": 2}'/></u></strong>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-esc="l.get('balance_final_total')" t-options='{"widget": "float", "precision": 2}'/>
+                                                <!-- <t t-set="Tbalance" t-value="Tbalance+l.get('balance_final_total')"/> -->
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr  class="border-top">
+                                <td class="text-center"> <!-- 1 -->
+                                     <span />
+                                </td>
+                                <td class="text-center"><!-- 2 -->
+                                     <strong><span>Total General</span></strong>
+                                </td>
+                                <t t-if="form.get('show_initial_balance')">
+                                    <td class="text-right"><!-- 3 -->
+                                        <span t-esc="Tbalance_inicial" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>
+                                <td class="text-right"><!-- 4 -->
+                                    <span t-esc="Tdebe" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td class="text-right"><!-- 5 -->
+                                    <span t-esc="Thaber" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <t t-if="form.get('show_initial_balance')">
+                                    <td class="text-right"><!-- 6 -->
+                                        <span t-esc="Tbalance" t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </t>                                
+                            </tr>  
+                        </tbody>
+                    </table>
+                    <br/>
+                </t>
+            </t>
+        </template>
+</odoo>

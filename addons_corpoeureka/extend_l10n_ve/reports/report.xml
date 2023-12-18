@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+
+        <record id="action_report_shooping_book_excel" model="ir.actions.report">
+            <field name="name">Libro de compras en Excel</field>
+            <field name="model">wizard.book</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">extend_l10n_ve.report_shooping_book_excel</field>
+            <field name="report_file">extend_l10n_ve.report_shooping_book_excel</field>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_sale_book_excel" model="ir.actions.report">
+            <field name="name">Libro de ventas en Excel</field>
+            <field name="model">wizard.book.sale</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">extend_l10n_ve.report_sale_book_excel</field>
+            <field name="report_file">extend_l10n_ve.report_sale_book_excel</field>
+            <field name="binding_type">report</field>
+        </record>
+
+
+    </data>
+</odoo>

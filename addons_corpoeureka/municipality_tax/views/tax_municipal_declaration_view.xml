@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_tax_municipal_declaration_form" model="ir.ui.view">
+        <field name="name">tax.municipal.declaration.form</field>
+        <field name="model">tax.municipal.declaration</field>
+        <field name="arch" type="xml">
+            <form string="Declaración de Retenciones de IAE">
+                <header>
+                    <button name="button_confirm" type="object" groups="" string="Declarar" states="draft" class="btn-primary" confirm="¿Esta seguro que desea declarar las retenciones seleccionadas?" />
+                    <button name="button_done" type="object" groups="" string="Pagar Retenciones IAE" states="declared" class="btn-primary" />
+                    <button name="txt_declaration" type="object" groups="" string="Generar TXT Declaracion" class="btn-primary" states="declared" />
+                    <button name="button_draft" type="object" string="Cambiar a Borrador" states="declared" groups="base.group_no_one" class="btn-primary"/> 
+                    <field name="state" widget="statusbar" statusbar_visible="draft,declared,done,cancel" readonly="1"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                    </div>
+                    <div class="oe_title">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/><br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <p class="oe_grey">
+                    Cuando  declare una retención de IAE no puede cancelarla, verifique que todos los datos esten correctos antes de confirmar la declaración.
+                    </p>
+                    <group>
+                        <group>
+                            <field name="company_id" invisible="1" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+                            <field name="date" attrs="{'readonly':[('state', 'in', ['declared','done', 'cancel'])]}"/>
+                            <field name="date_in" attrs="{'readonly':[('state', 'in', ['declared','done', 'cancel'])]}" />
+                            <field name="date_end" attrs="{'readonly':[('state', 'in', ['declared','done', 'cancel'])]}"/>
+                        </group>
+                        <group>
+                            <field name="description_decl_reten" attrs="{'readonly':[('state', 'in', ['declared','done', 'cancel'])]}" />
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Linea de retenciones IAE" name="tax_municipal_line"  attrs="{'readonly':[('state', 'in', ['done', 'cancel'])]}" >
+                            <field name="tax_municipal_line" attrs="{'readonly':[('state', 'in', ['declared','done', 'cancel'])]}">
+                                <tree editable="bottom">
+                                    <field name="municipal_tax_id" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' force_save="1"  invisible="1"/>
+                                    <field name="comprobante" force_save="1" />
+                                    <field name="partner_id" readonly="1" force_save="1" />
+                                     <field name="rif" force_save="1"/>
+                                    <field name="transaction_date" force_save="1" />
+                                    <field name="invoice_id" force_save="1" />
+                                    <field name="amount_total_invoice" force_save="1" sum="total_mt" />
+                                    <field name="base_imponible" force_save="1" sum="total_baseimp" />
+                                    <field name="aliquot" force_save="1" />
+                                    <field name="amount_total_ret" force_save="1" sum="total_tx_ret" />
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <label for="total_retenido"/>
+                                <field name="total_retenido" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tax_municipal_declaration_tree" model="ir.ui.view">
+        <field name="name">tax.municipal.declaration.tree</field>
+        <field name="model">tax.municipal.declaration</field>
+        <field name="arch" type="xml">
+            <tree string="Declaración de Retenciones de IAE">
+                <field name="name" />
+                <field name="description_decl_reten" />
+                <field name="date" />
+                <field name="date_in" />
+                <field name="date_end" />
+                <field name="total_retenido" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_tax_municipal_declaration" model="ir.actions.act_window">
+        <field name="name">Declaración de IAE</field>
+        <field name="res_model">tax.municipal.declaration</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+        <field name="help">Aquí puede declarar las retenciones de Impuesto Actividad Económica Municipal que estén confirmadas, y al estar declaradas genera su respectivo TXT para la declaración al portal de la Alcaldía correspondiente. Después de declarada puede registrar el pago de la retención declarada.</field>
+    </record>
+</odoo>

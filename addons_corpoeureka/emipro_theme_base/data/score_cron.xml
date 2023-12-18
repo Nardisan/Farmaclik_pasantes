@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="0">
+
+        <!-- Cron Job for 'Product Popularity Score'-->
+        <record id="score_cron" forcecreate="True" model="ir.cron">
+            <field name="name">Product Score</field>
+            <field eval="True" name="active"/>
+            <field name="model_id" ref="emipro_theme_base.model_product_template"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="state">code</field>
+            <field name="code">model.get_products_score()</field>
+        </record>
+
+    </data>
+</odoo>

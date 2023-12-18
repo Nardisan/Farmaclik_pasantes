@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+    <!-- Detalles Operaciones -->
+    <menuitem id="tax_municipal_decl_month" name="Declaración Mensual de Ingresos al Municipio"  sequence="1"  action="eu_municipal_tax.open_tax_municipal" parent="account.menu_finance_receivables"/>
+</odoo>

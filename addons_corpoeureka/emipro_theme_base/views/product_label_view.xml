@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<!-- Product template form View -->
+	   	<record id="label_product_template_form_inherit" model="ir.ui.view">
+            <field name="name">label_product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml"> 
+            <xpath expr="//group[@name='extra_images']" position="before">
+					<group name="label" string="Sale Label">
+						<field name="label_ept_id" title="Label"></field>
+					</group>
+			</xpath>
+        </field>
+        </record>
+
+		<!-- label Form view  -->
+		<record id="label_form_view" model="ir.ui.view">
+	        <field name="name">label.form.view</field>
+	        <field name="model">product.label</field>
+	        <field name="arch" type="xml">
+	            <form string="Product label">
+	                <sheet>
+	                    <div class="oe_left">
+	                        <group>
+	                             <field name="name" title="Label"></field>
+	                        </group>
+	                    </div>
+	                </sheet>
+	            </form>
+	        </field>
+	    </record>
+	
+	    <!-- label action with menu  -->
+	    <record id="label_filter_action" model="ir.actions.act_window">
+	        <field name="name">Product Label</field>
+	        <field name="type">ir.actions.act_window</field>
+	        <field name="res_model">product.label</field>
+	        <field name="view_mode">tree,form</field>
+	        <field name="view_id" eval="False"/>
+	    </record>
+	    <menuitem action="label_filter_action" id="label_filter" parent="website_sale.menu_ecommerce_settings" sequence="1" />
+
+	</data>
+</odoo>

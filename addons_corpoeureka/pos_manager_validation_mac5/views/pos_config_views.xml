@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pos_config_manager_validation_form" model="ir.ui.view">
+        <field name="name">view.pos.config.manager.validation.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <h2>Manager Validation (User)</h2>
+                <div class="row mt16 o_settings_container" id="manager_validation">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="manager_user_ids" string="Managers"/>
+                            <div class="text-muted">
+                                Setup managers for this Point of Sale
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="manager_user_ids" widget="many2many_tags" options="{'no_create': True}"
+                                       attrs="{'required': ['|', '|', '|', '|', '|', '|', ('iface_validate_delete_orderline', '=', True),
+                                                            ('iface_validate_delete_order', '=', True), ('iface_validate_payment', '=', True),
+                                                            ('iface_validate_discount', '=', True), ('iface_validate_price', '=', True),
+                                                            ('iface_validate_decrease_quantity', '=', True), ('iface_validate_close', '=', True)]}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_close"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_close" string="Closing of POS"/>
+                            <div class="text-muted">
+                                Allow manager to validate closing of POS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_delete_order"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_delete_order" string="Order Deletion"/>
+                            <div class="text-muted">
+                                Allow manager to validate orders need to be deleted
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_delete_orderline"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_delete_orderline" string="Order Line Deletion"/>
+                            <div class="text-muted">
+                                Allow manager to validate order lines need to be deleted
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_decrease_quantity"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_decrease_quantity" string="Decrease Quantity"/>
+                            <div class="text-muted">
+                                Allow manager to validate if decreasing quantity is valid on order lines
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_discount"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_discount" string="Discount Application"/>
+                            <div class="text-muted">
+                                Allow manager to validate if discount is applicable to order line
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_payment"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_payment" string="Payment"/>
+                            <div class="text-muted">
+                                Allow manager to validate if order is for payment
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_validate_price"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_validate_price" string="Price Change"/>
+                            <div class="text-muted">
+                                Allow manager to validate if price change is needed for order line
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </sheet>
+        </field>
+    </record>
+
+</odoo>

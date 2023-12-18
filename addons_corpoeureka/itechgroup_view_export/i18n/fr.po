@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* itechgroup_view_export
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-07 14:23+0000\n"
+"PO-Revision-Date: 2021-02-07 14:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: itechgroup_view_export
+#: model:res.groups,name:itechgroup_view_export.group_can_export_view_to_csv
+msgid "Can export views as a CSV"
+msgstr "Peut exporter des vues au format CSV"
+
+#. module: itechgroup_view_export
+#: model:res.groups,name:itechgroup_view_export.group_can_export_view_to_excel
+msgid "Can export views as an EXCEL"
+msgstr "Peut exporter des vues au format EXCEL"
+
+#. module: itechgroup_view_export
+#: model:res.groups,name:itechgroup_view_export.group_can_export_view_to_pdf
+msgid "Can export views as a PDF"
+msgstr "Peut exporter des vues au format PDF"
+
+#. module: itechgroup_view_export
+#: model:ir.model,name:itechgroup_view_export.model_res_company
+msgid "Companies"
+msgstr "Companies"
+
+#. module: itechgroup_view_export
+#. openerp-web
+#: code:addons/itechgroup_view_export/static/src/js/listview.js:19
+#, python-format
+msgid "Custom Export"
+msgstr "Export personnalisé"
+
+#. module: itechgroup_view_export
+#: model:ir.module.category,name:itechgroup_view_export.module_category_custom_export
+msgid "Custom export"
+msgstr "Export personnalisé"
+
+#. module: itechgroup_view_export
+#: model:ir.ui.view,arch_db:itechgroup_view_export.view_company_export_view_form
+msgid "Export view to PDF configuration"
+msgstr "Exporter la vue vers la configuration PDF"
+
+#. module: itechgroup_view_export
+#. openerp-web
+#: code:addons/itechgroup_view_export/static/src/js/listview.js:220
+#, python-format
+msgid "False"
+msgstr "False"
+
+#. module: itechgroup_view_export
+#: model:ir.ui.view,arch_db:itechgroup_view_export.view_company_export_view_form
+msgid "Footer"
+msgstr "Bas de page"
+
+#. module: itechgroup_view_export
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_footer_bar_color
+msgid "Footer bar color"
+msgstr "Couleur de la barre de pied"
+
+#. module: itechgroup_view_export
+#: selection:res.company,table_theme:0
+msgid "Grid"
+msgstr "Grid"
+
+#. module: itechgroup_view_export
+#: model:ir.ui.view,arch_db:itechgroup_view_export.view_company_export_view_form
+msgid "Header"
+msgstr "Entête"
+
+#. module: itechgroup_view_export
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_header_bar_color
+msgid "Header bar color"
+msgstr "Couleur de la barre d'en-tête"
+
+#. module: itechgroup_view_export
+#: selection:res.company,table_theme:0
+msgid "Plain"
+msgstr "Plain"
+
+#. module: itechgroup_view_export
+#: selection:res.company,table_theme:0
+msgid "Striped"
+msgstr "Striped"
+
+#. module: itechgroup_view_export
+#: model:ir.ui.view,arch_db:itechgroup_view_export.view_company_export_view_form
+msgid "Table"
+msgstr "Table"
+
+#. module: itechgroup_view_export
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_table_theme
+msgid "Table theme"
+msgstr "Thème de la table"
+
+#. module: itechgroup_view_export
+#. openerp-web
+#: code:addons/itechgroup_view_export/static/src/js/listview.js:220
+#, python-format
+msgid "True"
+msgstr "True"
+
+#. module: itechgroup_view_export
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_with_footer_bar
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_with_header_bar
+msgid "With bar"
+msgstr "Avec bar"
+
+#. module: itechgroup_view_export
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_with_footer
+msgid "With footer"
+msgstr "Avec pied de page"
+
+#. module: itechgroup_view_export
+#: model:ir.model.fields,field_description:itechgroup_view_export.field_res_company_with_header
+msgid "With header"
+msgstr "Avec en-tête"

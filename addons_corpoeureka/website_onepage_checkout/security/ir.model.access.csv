@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onepage_checkout_designer,website.onepage.checkout.config.designer,model_onepage_checkout_config,website.group_website_designer,1,1,1,1
+access_onepage_checkout_all,website.onepage.checkout.config,model_onepage_checkout_config,,1,0,0,0
+access_billing_fields_system,onepage.billing.fields.system,model_billing_default_fields,base.group_system,1,1,1,1
+access_billing_fields_all,onepage.billing.fields.all,model_billing_default_fields,,1,0,0,0
+access_shipping_fields_system,onepage.billing.fields.system,model_shipping_default_fields,base.group_system,1,1,1,1
+access_shipping_fields_all,onepage.billing.fields.all,model_shipping_default_fields,,1,0,0,0

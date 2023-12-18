@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="info_template" xml:space="preserve">
+    <t t-name="ButtonsComponent" owl="1">
+        <div class="top-buttons">
+            <button
+                type="button" 
+                id="has-invoice"
+                t-on-click="toggleIsToInvoice"
+                accesskey="i"
+                t-attf-class="{{ (currentOrder.is_to_invoice()) ? 'is-invoice' : ''}}"
+            >
+                <i class="fa fa-file-text-o" aria-hidden="true"></i><t>Factura Fiscal</t>
+            </button>
+            <button type="button" id="customer-btn" accesskey="c" t-on-click="selectClient" style="pointer-events: none;">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <t t-if="env.pos.get_client()">
+                    <t t-esc="env.pos.get_client().name" /><br/>
+		    <t t-esc="env.pos.get_client().cedula" />
+
+                </t>
+                <t t-if="!env.pos.get_client()">
+                    Customer
+                </t>
+            </button>
+            <t t-if="
+                env.pos.config.enable_gift_card
+                and env.pos.get_order().get_client() 
+                and env.pos.get_order().get_due() >= 0
+                and env.pos.user.access_gift_card
+            ">
+                <GiftCardComponent />
+            </t>
+        </div>
+    </t>
+</templates>

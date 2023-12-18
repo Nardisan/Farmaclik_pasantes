@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="add_wallet_wizard_form_view" model="ir.ui.view">
+        <field name="name">Motivo de bloqueo wizard</field>
+        <field name="model">add.wallet.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Agregar a la billetera">
+                <group>
+                    <field name="currency_id" invisible="1"/>
+                    <field 
+                        name="amount" 
+                        widget="monetary"
+                        options="{'currency_field': 'currency_id'}" 
+                    />
+                </group>
+                <footer>
+                    <button 
+                        name="add_wallet"
+                        string="Agregar"
+                        type="object"
+                        class="btn-primary"
+                        confirm="Esta acción no se puede deshacer"
+                    />
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_add_wallet_wizard" model="ir.actions.act_window">
+        <field name="name">Add wallet</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">add.wallet.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="add_wallet_wizard_form_view"></field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="binding_view_types">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

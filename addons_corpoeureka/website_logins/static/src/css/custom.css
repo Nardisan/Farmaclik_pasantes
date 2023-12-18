@@ -1,0 +1,71 @@
+#wrapwrap .oe_website_login_container {
+    width: 100%;
+}
+
+#wrapwrap .oe_website_login_container .oe_signup_form {
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+    background-color: #FFF !important;
+}
+
+#wrapwrap .oe_website_login_container .oe_reset_password_form {
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+}
+
+.oe_website_login_container .well form.oe_login_form {
+    margin: 0px;
+}
+
+.oe_login_form .oe_login_buttons em.my-2 {
+    margin-top: 0.0rem !important;
+    margin-bottom: 1.0rem !important;
+}
+
+.social-buttons a {
+    height: 41px  !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+    font-size: 12px !important;
+    text-align: center !important;
+    color: #FFF !important;
+    padding: 10px 28px 0px 0px !important;
+}
+
+.social-buttons a:hover {
+    text-decoration: none;
+    opacity: 0.8 !important;
+    color: #FFF !important;
+}
+
+.social-buttons a i {
+    float: left !important;
+    font-size: 14px !important;
+    position: relative !important;
+    padding: 0px 17px !important;
+    margin-right: 6px !important;
+    padding-right: 15px !important;
+    border-right: 1px solid #fcfcfc !important;
+    vertical-align: middle !important;
+    width: 50px !important;
+}
+
+.social-buttons .signin_Facebook {
+    background: #1877f2 !important;
+    font-family: "Roboto" !important;
+}
+
+.social-buttons .signin_Google {
+    background: #EA4335 !important;
+    font-family: "Roboto" !important;
+}
+
+.oe_login_buttons>div.pull-right {
+    width: 100% !important;
+}
+
+.oe_login_buttons>button.pull-left {
+    width: 100% !important;
+}

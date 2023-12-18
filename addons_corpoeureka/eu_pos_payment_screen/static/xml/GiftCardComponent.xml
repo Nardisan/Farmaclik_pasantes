@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="giftcard_template" xml:space="preserve">
+    <t t-name="GiftCardComponent" owl="1">
+        <t t-set="cls" t-value="env.pos.currency.name === 'VEF' ? 'input-bolivar' : 'input-dollar'"/>
+        <button type="button" t-on-click="handleClick" accesskey="r" id="giftcard-button">
+            <i class="fa fa-gift" aria-hidden="true"></i>
+            <strong t-att-class="cls">
+                0.00
+            </strong>
+            <small t-att-class="cls">
+                <t t-esc="env.pos.currency.symbol"/>
+            </small>
+        </button>
+    </t>
+</templates>

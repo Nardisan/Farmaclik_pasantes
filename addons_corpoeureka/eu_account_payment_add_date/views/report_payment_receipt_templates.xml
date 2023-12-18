@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_payment_receipt_document">
+        <t t-call="eu_template_report_corpoeureka.template_report_corpoeureka">
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+            <div class="page">
+                <div class="col-6">
+                    <t t-if="o.state == 'draft' ">
+                        <span style="color:red;">RECIBO NO VALIDO PARA IMPRIMIR</span>
+                    </t>
+                    <t t-if="o.state == 'cancel' ">
+                        <span style="color:red;">RECIBO NO VALIDO PARA IMPRIMIR ESTA ANULADO</span>
+                    </t>
+                </div>
+                <h3><strong>Recibo de Pago: <span t-field="o.name"/></strong></h3>
+                <div class="row mt64">
+                    <div class="col-6" t-if="o.payment_type == 'inbound' ">
+                      <!--  <strong>Payment Date: </strong> <span t-field="o.payment_date"/> MODIFICADO PARA UN ADDON -->
+                      <strong>Fecha de Cobranza: </strong> <span t-field="o.payment_date_collection"/> 
+                    </div>
+                    <div class="col-6" t-if="o.payment_type == 'outbound' ">
+                      <!--  <strong>Payment Date: </strong> <span t-field="o.payment_date"/> MODIFICADO PARA UN ADDON -->
+                      <strong>Fecha de Pago: </strong> <span t-field="o.payment_date_collection"/> 
+                    </div>
+                    <div class="col-6" t-if="o.is_internal_transfer">
+                      <!--  <strong>Payment Date: </strong> <span t-field="o.payment_date"/> MODIFICADO PARA UN ADDON -->
+                      <strong>Fecha de Transferencia: </strong> <span t-field="o.payment_date_collection"/> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" t-if="o.partner_type">
+                        <t t-if="o.partner_type == 'customer'">
+                            <strong>Cliente: </strong>
+                        </t>
+                        <t t-if="o.partner_type == 'supplier'">
+                            <strong>Proveedor: </strong>
+                        </t><span t-field="o.partner_id"/>
+                    </div>
+                    <div class="col-6" t-if="o.payment_method_id">
+                        <strong>Método de Pago: </strong><span t-field="o.payment_method_id.name"/>
+                    </div>
+                </div>
+                <div class="row mb">
+                    <div class="col-6" t-if="o.amount">
+                        <strong>Importe del Pago: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                     </div>
+                    <div class="col-6" t-if="o.ref">
+                        <strong>Circular: </strong><span t-field="o.ref"/>
+                     </div>
+                     
+
+                </div>
+                <div class="row mb">
+                    <t t-if="o.currency_id != o.env.company.currency_id">
+                         <div class="col-6">
+                            <strong>Tasa: </strong><span t-field="o.manual_currency_exchange_rate"/>
+                         </div>
+                     </t>
+                     <t t-else="">
+                          <div class="col-6">
+                            <strong>Tasa: </strong> <t t-esc="1/o.manual_currency_exchange_rate"/>
+                          </div>
+                     </t>
+                </div>
+                <div class="row mb" t-if="o.is_internal_transfer ">
+                    <div class="col-6" t-if="o.gestores">
+                        <strong>Gestor / Tercero </strong><span t-field="o.gestores"/>
+                     </div>
+                    <div class="col-6" t-if="o.motivo">
+                        <strong>Motivo </strong><span t-field="o.motivo"/>
+                     </div>
+                </div>
+                  <div class="row mb"  >
+                    <div class="col-6" t-if="o.journal_id">
+                        <strong>Diario </strong><span t-field="o.journal_id"/>
+                     </div>
+                   <!--  <div class="col-6" t-if="o.destination_journal_id">
+                        <strong>Transferir a </strong><span t-field="o.destination_journal_id"/>
+                     </div> -->
+                </div>
+                
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th><span>Fecha de Factura</span></th>
+                            <th><span>Número de Factura</span></th>
+                            <th><span>Referencia</span></th>
+                            <th class="text-right"><span>Importe Original</span></th>
+                            <th class="text-right"><span>Cantidad Pagada</span></th>
+                            <th class="text-right"><span>Balance</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.move_id._get_reconciled_invoices_partials()" t-as="rec">
+                            <t t-set="amount" t-value="rec[1]"/>
+                            <t t-set="inv" t-value="rec[2].move_id"/>
+                            <t t-if="inv.move_type != 'entry'">
+                            <td><span t-field="inv.invoice_date"/></td>
+                            <td><span t-field="inv.name"/></td>
+                            <td><span t-field="inv.ref"/></td>
+                            <td class="text-right"><span t-field="inv.amount_total"/></td>
+                            <td class="text-right"><span t-esc="o._get_invoice_payment_amount(inv)" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>
+                            <td class="text-right"><span t-field="inv.amount_residual"/></td>
+                            </t>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br></br>
+            <br></br>
+                    <p>
+                       <table width="100%" border="0" style="font-size:12px;">
+                            <tr>
+                                <th width="32%" height="30px" style="border: 1px solid black;text-align:center;"  >Elaborado por: <span  t-esc="o.env.user.name"/></th>
+                                <th width="3%"  height="30px" ></th>
+                                <th width="31%" height="30px" style="border: 1px solid black;text-align:center;" >Revisado por: </th>
+                                <th width="3%"  height="30px" ></th>
+                                <th width="31%" height="30px" style="border: 1px solid black;text-align:center;" >Aprobado por: </th>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td width="32%" height="50px" style="border: 1px solid black;"></td>
+                                <td width="3%"  height="50px" ></td>
+                                <td width="31%" height="50px" style="border: 1px solid black;"></td>
+                                <td width="3%"  height="50px" ></td>
+                                <td width="31%" height="50px" style="border: 1px solid black;"></td>
+                            </tr>
+                        </table>
+                    </p>
+        </t>
+    </template>
+
+    <template id="report_payment_receipt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-call="eu_account_payment_add_date.report_payment_receipt_document" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+        <report
+            id="action_report_payment_receipt"
+            model="account.payment"
+            string="Recibo de Pago - Modificado"
+            report_type="qweb-pdf"
+            name="eu_account_payment_add_date.report_payment_receipt"
+            file="eu_account_payment_add_date.report_payment_receipt"
+            menu="True"
+        />
+</odoo>

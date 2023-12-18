@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="municipality_tax_view" model="ir.ui.view">
+        <field name="name">municipality.tax.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+             
+            <xpath expr="//group/group[last()]/field" position="before">
+                <field name="partner_type" />
+            </xpath> 
+            
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Municipal Taxes">
+                    <group string="Municipal withholding agent" name="muni_wh_agent">
+                        <field name="muni_wh_agent"/>
+                    </group>
+                    
+                    <group string="Other Information">
+                        
+                        <group>
+                        <field name="econ_act_license" attrs="{'required': [('muni_wh_agent','=', True)]}"/>
+                        </group>
+
+                        <group>
+                            <label for="ids_concept_muni" />
+                            <strong> : </strong>
+                            <field name="ids_concept_muni" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="muni_concept" style="whidth:30%" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True}" required="True"/>
+                                </tree>
+                            </field>
+                        </group>
+                        
+                    </group>
+
+                    <group string="Municipal Tax Withholding" attrs="{'invisible': [('muni_wh_agent', '=', False)]}">
+                        
+                        <separator string="Purchase" name="purchase_vat_retetion" invisible="1"/>
+                        <!--field name="purchase_jrl_id" invisible="1"/-->
+                        <field name="purchase_jrl_id"/>
+                        
+                        <!--separator string="'Withholding accounts receivable" /-->
+                        <field name="account_ret_muni_receivable_id"/>
+                        
+                        <!--separator string="Sale" name="sale_vat_retention" invisible="1"/-->
+                        <field name="sale_jrl_id" invisible="1"/>
+                        
+                        <!--separator string="Account Withholding to pay (Suppliers)"/-->
+                        <field name="account_ret_muni_payable_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+            
+
+
+
+</odoo>

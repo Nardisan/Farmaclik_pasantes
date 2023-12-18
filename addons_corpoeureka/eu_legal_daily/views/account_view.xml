@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_template_form_wp" model="ir.ui.view">
+        <field name="name">account.account.template.wp.form</field>
+        <field name="model">account.account.template</field>
+        <field name="inherit_id" ref="account.view_account_template_form" />
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="parent_id"/>
+            </field>
+        </field>
+    </record>
+    
+    <record id="view_account_template_tree_wp" model="ir.ui.view">
+        <field name="name">account.account.template.wp.tree</field>
+        <field name="model">account.account.template</field>
+        <field name="inherit_id"
+            ref="account.view_account_template_tree" />
+        <field name="arch" type="xml">
+            <field name="user_type_id" position="after">
+                <field name="parent_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_withparent_form" model="ir.ui.view">
+        <field name="name">account.account.form</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form" />
+        <field name="arch" type="xml">
+            <field name="user_type_id" position="after">
+                <field name="parent_id" />
+            </field>
+        </field>
+    </record>
+        <record id="view_account_withparent_tree" model="ir.ui.view">
+        <field name="name">account.account.tree</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_list" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="parent_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

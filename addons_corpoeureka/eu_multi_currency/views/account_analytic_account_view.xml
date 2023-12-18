@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="account_analytic_form_inherit_tree_usd" model="ir.ui.view">
+            <field name="name">account_analytic_form_inherit_tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_list"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='balance']" position="after">
+                    <field name="currency_id_dif" invisible="1" options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}"></field>
+                    <field name="debit_usd" widget='monetary' options="{'currency_field': 'currency_id_dif'}" sum="Debit"/>
+                    <field name="credit_usd" widget='monetary' options="{'currency_field': 'currency_id_dif'}" sum="Credit"/>
+                    <field name="balance_usd" widget='monetary' options="{'currency_field': 'currency_id_dif'}" sum="Balance"/>
+                </xpath>
+            </field>
+        </record>        
+    </data>
+</odoo>

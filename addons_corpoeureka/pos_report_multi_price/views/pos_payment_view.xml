@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_pos_payment_show_dual_currency_config_form_three" model="ir.ui.view">
+        <field name="name">pos.order.form.show_dual_currency</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount']" position="after">
+                <field name="amount_ref" optional="show" options="{'currency_field': 'parent.show_dual_currency'}" widget="monetary"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="point_of_sale_view_pos_payment_tree_multi_price" model="ir.ui.view">
+        <field name="name">pos.payment.form.show_dual_currency</field>
+        <field name="model">pos.payment</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_payment_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount']" position="after">
+                <field name="amount_ref" optional="show" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

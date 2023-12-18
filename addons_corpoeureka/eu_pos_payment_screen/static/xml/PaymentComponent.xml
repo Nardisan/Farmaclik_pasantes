@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="payment_template" xml:space="preserve">
+    <t t-name="PaymentComponent" owl="1">
+        <section id="payment-box">
+            <div class="payments">
+                <t t-foreach="normalMethods" t-as="paymentMethod"
+                    t-key="paymentMethod.id">
+                    <PaymentBox t-if="paymentMethod.name!='Tarjeta de Regalo' and paymentMethod.name!='Vale'" paymentMethod="paymentMethod" />
+                </t>
+            </div>
+            <t t-if="env.pos.config.enable_wallet
+                and env.pos.get_order().get_client()
+                and env.pos.get_order().get_due() >= 0
+                and env.pos.user.access_wallet
+                and env.pos.payment_methods.some(({ jr_use_for }) => jr_use_for === 'wallet')
+            ">
+                <WalletComponent client="env.pos.get_client()" />
+            </t>
+        </section>
+    </t>
+
+    <t t-name="PaymentBox" owl="1">
+        <div 
+	    t-att-class="props.paymentMethod.name == 'Banco De Venezuela' ? 'banco_venezuela' : (props.paymentMethod.name == 'Banco Provincial' ? 'banco_provincial' : (props.paymentMethod.name == 'Banco Fondo Comun' ? 'banco_fondo_comun' : '' ) )"
+            class="payment empty" 
+            t-att-style="!(env.pos.config.show_ref_input)
+                ? '--grids-repeat: 2;'
+                : '';"
+	    
+        >
+            <label>
+                <t t-esc="props.paymentMethod.name"/>
+            </label>
+            <span 
+                class="flex-form" 
+                t-att-style="!(props.paymentMethod.has_reference) 
+                    ? 'visibility: hidden;' 
+                    : ''"
+            >
+                <input 
+                    type="text"
+                    name="reference"
+                    autocomplete="off"
+                    t-on-keyup="handleKeyUp"
+                    class="input-reference"
+                />
+                <small class="input-reference">REF</small>
+            </span>
+            <InputComponent paymentMethod="props.paymentMethod" />
+            <t t-if="env.pos.config.show_ref_input">
+                <InputComponent paymentMethod="props.paymentMethod" inverse="1" />
+            </t>
+        </div>
+    </t>
+</templates>

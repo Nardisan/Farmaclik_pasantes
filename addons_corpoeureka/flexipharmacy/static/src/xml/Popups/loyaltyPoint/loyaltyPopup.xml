@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="loyaltyPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup">
+                    <header class="title drag-handle">
+                        <t t-esc="props.title"/>
+                    </header>
+                    <div class="div">
+                        <div class="summary_option_container">
+                            <table border="0" align="center" id="table1" style="width: 100%; margin-top: 16px;">
+                                <tr>
+                                    <td>1 Point = <t t-esc="env.pos.format_currency(props.amount_per_point)"/></td>
+                                    <td style="text-align: left; padding-left: 30px;">Your Total Points: <t t-esc="props.remaining_point"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Redeem Point </td>
+                                    <td><input type="text" class="redeem_loyalty_input" t-model="state.LoyaltyPoints" t-on-keydown="onInputKeyDownNumberVlidation" style="margin-top: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Point Amount</td>
+                                    <td style="text-align: left; padding-left: 30px;"><t t-esc="env.pos.format_currency(state.pointsAmount)"/></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <div class="button confirm" t-on-click="confirm">
+                            <t t-esc="props.confirmText"/>
+                        </div>
+                        <div class="button cancel" t-on-click="cancel">
+                            <t t-esc="props.cancelText"/>
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+
+</templates>

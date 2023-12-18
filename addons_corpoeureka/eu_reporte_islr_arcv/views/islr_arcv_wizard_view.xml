@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="islr_arcv_wizard_view">
+        <field name="name">islr.wizard.arcv form</field>
+        <field name="model">islr.wizard.arcv</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="move_type"/>
+                    </group>                  
+                    <group>
+                        <field name="date_start"/>
+    					<field name="date_end"/>
+                        <field name="company_id" readonly="1" options='{"no_open": False, "no_create_edit": True, "no_quick_create": True, "no_create": True}' invisible="1"/>
+                    </group>                    
+                </group>
+                <footer>
+                    <button name="report_islr_arcv" string="Generar Reporte" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+	<record model="ir.actions.act_window" id="islr_wizard_action">
+            <field name="name">Reporte de ISLR AR-CV</field>
+            <field name="res_model">islr.wizard.arcv</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+     </record>
+
+    <menuitem id="menu_islr_wizard" name="Reporte de ISLR AR-CV"
+          parent="account.menu_finance_reports" action="islr_wizard_action"
+          sequence="100"/>
+</odoo>

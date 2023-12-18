@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="header_template" xml:space="preserve">
+    <t t-name="HeaderComponent" owl="1">
+        <nav class="payment-nav">
+            <button t-on-click="showScreen('ProductScreen')" class="back" type="button">
+                <strong>Back</strong>
+            </button>
+            <h3>
+                Payment
+            </h3>
+            <button 
+                t-on-click="validate()" 
+                t-att-disabled="!currentOrder.is_paid() || !currentOrder.get_client()"
+                class="validate"
+                type="button"
+            >
+                <strong>Validate</strong>
+            </button>
+        </nav>
+    </t>
+    <t t-name="DueComponent" owl="1">
+        <div class="header">
+            <h1 id="remaining" accesskey="p" t-on-click="handleClick"></h1>
+            <ButtonsComponent media="'(min-width: 729px)'" />
+        </div>
+    </t>
+</templates>

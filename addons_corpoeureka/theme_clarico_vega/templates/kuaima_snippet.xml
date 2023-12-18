@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="place_into_bar" inherit_id="website.snippets" name="Botella">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" 
+            position="inside">
+            <t t-snippet="theme_clarico_vega.kuaima"
+            t-thumbnail="/theme_classic_store/static/src/img/ui/snippet_thumb.jpg"/>
+
+        </xpath>
+    </template>
+
+    <template id="kuaima" name="Botella">
+
+    <style>
+
+    .promocion{
+        right: 100px;
+        width: 800px;
+        height: 600px;
+        margin: auto;
+    }
+
+    .titulo-promocion{
+        text-align: center;
+        padding-top: 150px ;
+        font-size: 60px;
+        color: white;
+    }
+
+    .parrafo-promocion{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+    }
+
+      .btn-promo{
+        position: relative;
+        display: inline-flex;
+        width: 180px;
+        height: 55px;
+        margin: 0 15px;
+        perspective: 1000px;
+      }
+
+    .btn-promo a{
+        font-size: 19px;
+        letter-spacing: 1px;
+        transform-style: preserve-3d;
+        transform: translateZ(-25px);
+        transition: transform .25s;
+        font-family: 'Montserrat', sans-serif; 
+      }
+     .btn-promo a:before,
+     .btn-promo a:after{
+        position: absolute;
+        content: "BUTTON";
+        height: 55px;
+        width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid #FE9000;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+      .btn-promo a:before{
+        color: #fff;
+        background: #FE9000;;
+        transform: rotateY(0deg) translateZ(25px);
+      }
+      .btn-promo a:after{
+        color: #FE9000;;
+        transform: rotateX(90deg) translateZ(25px);
+      }
+      .btn-promo a:hover{
+        transform: translateZ(-25px) rotateX(-90deg);
+      }
+      
+    .botella{
+        background-image: url('/theme_clarico_vega/static/description/kuaima/fondo_kuaima_plantas.png');
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 600px;   
+        object-fit: cover;
+        margin: auto;
+    }
+
+    .botella img{
+        margin-top: -30px;
+        margin-left: 120px;
+        height: 640px;
+        transition-property: all;
+        transition-duration: 1s;
+        cursor: pointer;
+    }
+
+    .botella img:hover{
+        transform: rotate(5deg);
+    }
+
+    .botella img:nth-child(2){
+        margin-top: -900px;
+        margin-left: 25px;
+        height: 180px;
+        transform: rotate(-22deg);
+        transition-property: all;
+        transition-duration: 1s;
+    }
+
+    .botella img:nth-child(2):hover{
+        transform: rotate(-30deg);
+          
+    }
+
+    .botella img:nth-child(3){
+        margin-top: -280px;
+        margin-left: 230px;
+        height: 150px;
+        transform: rotate(-22deg);
+        transition-property: all;
+        transition-duration: 1s;
+    }
+
+    .botella img:nth-child(3):hover{
+        transform: rotate(-10deg);
+    }
+
+
+    </style>
+        <section class="kuaima">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-12 mt-md-5">
+                        <h4 class="titulo-promocion">TITULO PROMOCION</h4>
+                        <p class="parrafo-promocion">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit tenetur Fugit teneturFugit teneturFugit teneturFugit teneturFugit tenetur</p>
+                         <center> <span class="btn-promo"><a href="#"></a></span></center>
+                    </div>
+                    <div class="col-lg-5 col-12">
+                        <div class="botella">
+                            <img src="/theme_clarico_vega/static/description/kuaima/KUAIMA_BOTELLA.png" alt="" srcset="" />
+                            <img src="/theme_clarico_vega/static/description/kuaima/hoja_kuama_1.png" alt="" srcset="" />
+                            <img src="/theme_clarico_vega/static/description/kuaima/hoja_kuama_2.png" alt="" srcset="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

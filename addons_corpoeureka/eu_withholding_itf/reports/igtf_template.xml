@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="itf_templates">		
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<style type="text/css">
+                        .table{
+				        	font-family: Times;
+				        	font-size: 9px;
+				        	line-height: 1.6;
+				        }
+
+				        .cabecera{
+				        	background: #E4E4E4;
+				        	font-size: 12px;
+				        }
+
+                    </style>
+					<div class="row container">
+						<div class="col-12 text-center">
+                        	<h5><b>REPORTE DE IGTF</b></h5>
+                        	<div class="col-12" style="font-size:12px;">
+	                        	<t t-if="diario">
+	                            	<b><spam t-esc="diario"/></b>
+	                        	</t>
+	                        </div>
+	                        <div class="col-12" style="font-size:12px;">
+	                        	<t t-if="date_start">
+	                            	<b>Desde: <spam t-esc="date_start" t-options='{"widget": "date"}'/></b>
+	                        	</t>
+	                        	<t t-if="date_end">
+	                            	<b>Hasta: <spam t-esc="date_end" t-options='{"widget": "date"}'/></b>
+	                        	</t>                            
+	                        </div>
+	                        <div class="col-12" style="font-size:12px;">
+	                        	<t t-if="partner_id">
+	                            	<b>Proveedor: <spam t-esc="partner_id"/></b>
+	                        	</t>
+	                        </div>
+                    	</div>
+                    </div><br/>
+                    <t t-set="Tmonto" t-value="0"/>
+					<t t-set="Tbase" t-value="0"/>
+					<t t-set="TmontoA" t-value="0"/>
+					<t t-set="TbaseA" t-value="0"/>
+					<t t-set="Timpu" t-value="False"/>
+					<t t-set="Ttot" t-value="False"/>                 
+                    		
+                	<table class="table table-sm" style="width:100%;">
+						
+                		<thead class="thead-light">
+                			<tr>
+                				<td scope="col" style="border-top:0px;width:30%;">
+                					<strong>Proveedor</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:10%;">
+                					<strong>RIF</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:10%;">
+                					<strong>Fecha del Pago</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:20%;">
+                					<strong>Banco</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:15%;" class="text-right">
+                					<strong>Monto</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:15%;" class="text-right">
+                					<strong>IGTF</strong>
+                				</td>
+                			
+                			</tr>
+						</thead>
+						<tbody>	
+							<tr t-foreach="final" t-as="f">									
+								<td>
+									<span t-esc="f['contacto']"/>
+								</td>
+								<td>
+									<span t-esc="f['rif']" />
+								</td>
+								<td>
+									<span t-esc="f['fecha']"  t-options='{"widget": "date"}'/>
+								</td>
+								<td >
+									<span t-esc="f['diario_pago']" />
+								</td>
+								<td class="text-right">
+									<span t-esc="f['monto_pago']"  t-options='{"widget": "float", "precision": 2}'/>
+									<t t-set="Tmonto" t-value="Tmonto + f['monto_pago']" t-if="f['monto_pago']" t-options='{"widget": "float", "precision": 2}' />
+								</td>
+								<td class="text-right">												
+									<span t-esc="f['monto_igtf']" t-options='{"widget": "float", "precision": 2}'/>
+									<t t-set="Tbase" t-value="Tbase + f['monto_igtf']"/>
+								</td>
+							</tr>
+							<!-- <tr t-foreach="advance" t-as="a">
+								<td>
+									<span t-esc="a['contacto']"/>
+								</td>
+								<td>
+									<span t-esc="a['rif']" />
+								</td>
+								<td>
+									<span t-esc="a['fecha']"  t-options='{"widget": "date"}'/>
+								</td>
+								<td >
+									<span t-esc="a['diario_pago']" />
+								</td>
+								<td class="text-right">
+									<span t-esc="a['monto_pago']"  t-options='{"widget": "float", "precision": 2}'/>
+									<t t-set="TmontoA" t-value="TmontoA + a['monto_pago']" t-if
+									="a['monto_pago']" t-options='{"widget": "float", "precision": 2}' />
+								</td>
+								<td class="text-right">												
+									<span t-esc="a['monto_igtf']" t-options='{"widget": "float", "precision": 2}'/>
+									<t t-set="TbaseA" t-value="TbaseA + a['monto_igtf']"/>
+								</td>
+							</tr> -->
+						</tbody>						
+                	</table>
+                	<table class="table table-sm" style="100%">
+                		<tr>
+                			<td scope="col" style="border-top:0px;width:30%;"></td>
+            				<td scope="col" style="border-top:0px;width:10%;"></td>
+            				<td scope="col" style="border-top:0px;width:10%;"></td>
+            				<td scope="col" style="border-top:0px;width:20%;">
+            					<strong>TOTAL GENERAL</strong>
+            				</td>
+            				<td scope="col" style="border-top:0px;width:15%;" class="text-right">
+            					<strong><t t-esc="Tmonto" t-options='{"widget": "float", "precision": 2}'/></strong>
+            				</td>
+            				<td scope="col" style="border-top:0px;width:15%;" class="text-right">
+            					<strong><t t-esc="Tbase" t-options='{"widget": "float", "precision": 2}'/></strong>
+            				</td>
+            				
+                		</tr>
+                	</table>
+				</div>
+			</t>
+		</t>
+	</template>
+
+	<report id="igtf_report"
+        model="igtf.wizard"
+        string="Reporte de IGTF"
+        name="eu_withholding_itf.itf_templates"
+        file="eu_withholding_itf.itf_templates"
+        report_type="qweb-pdf"
+        menu="False"
+    />
+</odoo>
+

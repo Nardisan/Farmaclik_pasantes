@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="numpad_template" xml:space="preserve">
+    <t t-name="NumpadComponent" owl="1">
+        <section name="NumpadComponent">
+            <h1>
+                <small class="float-top">RESUMEN</small>
+                <span class="text-right"></span>
+            </h1>
+            <output id="total">
+                <small class="float-top">ABONO</small>
+                <span class="text-right">0 $ <br /> 0 Bs.S</span>
+            </output>
+            <div class="calculator">
+                <t t-foreach="buttons" t-as="button">
+                    <button 
+                        class="calculator-btn" 
+                        type="button" 
+                        t-esc="button"
+                        t-on-click="handleClick"
+                    ></button>
+                </t>
+            </div>
+        </section>
+    </t>
+</templates>

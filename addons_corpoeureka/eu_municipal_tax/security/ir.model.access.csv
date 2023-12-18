@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tax_municipal,eu_municipal_tax.tax_municipal,model_tax_municipal,base.group_user,1,1,1,1
+access_tax_municipal_line,eu_municipal_tax.tax_municipal_line,model_tax_municipal_line,base.group_user,1,1,1,1
+access_account_iae_pay,eu_municipal_tax.account_iae_pay,model_account_iae_pay,base.group_user,1,1,1,0

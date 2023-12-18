@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_inherit_view_form_igtf" model="ir.ui.view">
+        <field name="name">payment.inherit.view.form3</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="move_itf_id" attrs="{'invisible': [('move_itf_id', '=', False)]}" readonly='True' />
+            </xpath>
+        </field>
+    </record>
+</odoo>

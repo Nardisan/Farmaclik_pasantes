@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+		<record id="res_partner_view_municipality_parish" model="ir.ui.view">
+			<field name="name">res.partner.view.municipality_parish</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='city']" position="attributes">
+					<attribute name="required">0</attribute>
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<field name="country_id" position="after">
+					<field name="state_id" placeholder="Estado" domain="[('country_id','=',country_id)]" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' required="1"/>
+					<field name="city_id" placeholder="Ciudad" domain="[('state_id','=',state_id),('country_id','=',country_id)]" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' required="1"/>
+					<field name="municipality_id" placeholder="Municipio" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' domain="[('country_id','=',country_id), ('state_id','=',state_id),('city_id','=',city_id)]" />
+					<field name="parish_id" placeholder="Parroquia" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' domain="[('municipality_id','=',municipality_id)]" />
+					
+				</field>
+				<xpath expr="//field[@name='state_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//div[@name='div_address']//field[@name='state_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath> 
+				<xpath expr="//div[@name='div_address']//field[@name='city']" position="attributes">
+					<attribute name="required">0</attribute>
+					<attribute name="invisible">1</attribute>
+				</xpath>   
+				<xpath expr="//div[@name='div_address']//field[@name='country_id']" position="after">
+					<field name="state_id" placeholder="Estado" domain="[('country_id','=',country_id)]" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' required="1"/>
+					<field name="city_id" placeholder="Ciudad" domain="[('state_id','=',state_id),('country_id','=',country_id)]" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' required="1"/>
+					<field name="municipality_id" placeholder="Municipio" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' domain="[('country_id','=',country_id), ('state_id','=',state_id),('city_id','=',city_id)]" />
+					<field name="parish_id" placeholder="Parroquia" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' domain="[('municipality_id','=',municipality_id)]" />
+				</xpath>
+			</field>
+		</record>
+
+		<menuitem id="contacts.menu_country_partner"
+			parent="contacts.menu_localisation"
+			action="base.action_country"
+			groups="l10n_ve_dpt.hide_menus_location"
+			sequence="1"/>
+			
+		<menuitem id="contacts.menu_country_state_partner"
+			parent="contacts.menu_localisation"
+			action="base.action_country_state"
+			groups="l10n_ve_dpt.hide_menus_location"
+			sequence="2"/>
+
+	</data>
+</odoo>

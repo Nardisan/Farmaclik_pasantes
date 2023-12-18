@@ -1,0 +1,1537 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_account_SH
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-14 07:12+0000\n"
+"PO-Revision-Date: 2018-09-14 03:15-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "%         Alic."
+msgstr "%         Alic."
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "% Alic."
+msgstr "% Alic."
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "% Alicuota 1"
+msgstr "% Alicuota 1"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "% Alicuota 2"
+msgstr "% Alicuota 2"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "-155.600,23"
+msgstr "-155.600,23"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "0.00"
+msgstr "0.00"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "10"
+msgstr "10"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "11"
+msgstr "11"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "12"
+msgstr "12"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "13"
+msgstr "13"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "14"
+msgstr "14"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "15"
+msgstr "15"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "16"
+msgstr "16"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "17"
+msgstr "17"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "18"
+msgstr "18"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "19"
+msgstr "19"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "20"
+msgstr "20"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "21"
+msgstr "21"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "22"
+msgstr "22"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "24"
+msgstr "24"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "26"
+msgstr "26"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "27"
+msgstr "27"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "278.592,53"
+msgstr "278.592,53"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "28"
+msgstr "28"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "29"
+msgstr "29"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "30"
+msgstr "30"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "31"
+msgstr "31"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "312"
+msgstr "312"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "313"
+msgstr "313"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "32"
+msgstr "32"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "322"
+msgstr "322"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "323"
+msgstr "323"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "33"
+msgstr "33"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "332"
+msgstr "332"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "333"
+msgstr "333"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "34"
+msgstr "34"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "342"
+msgstr "342"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "343"
+msgstr "343"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "35"
+msgstr "35"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "36"
+msgstr "36"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "37"
+msgstr "37"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "38"
+msgstr "38"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "39"
+msgstr "39"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "40"
+msgstr "40"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "41"
+msgstr "41"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "42"
+msgstr "42"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "43"
+msgstr "43"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "434.192,75"
+msgstr "434.192,75"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "44"
+msgstr "44"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "442"
+msgstr "442"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "443"
+msgstr "443"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "45"
+msgstr "45"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "452"
+msgstr "452"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "453"
+msgstr "453"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "46"
+msgstr "46"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "463.256,81"
+msgstr "463.256,81"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "47"
+msgstr "47"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "48"
+msgstr "48"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "49"
+msgstr "49"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "50"
+msgstr "50"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "51"
+msgstr "51"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "52"
+msgstr "52"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "53"
+msgstr "53"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "54"
+msgstr "54"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "55"
+msgstr "55"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "56"
+msgstr "56"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "57"
+msgstr "57"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "58"
+msgstr "58"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "59"
+msgstr "59"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "60"
+msgstr "60"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "66"
+msgstr "66"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "67"
+msgstr "67"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "68"
+msgstr "68"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "69"
+msgstr "69"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "70"
+msgstr "70"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "71"
+msgstr "71"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "72"
+msgstr "72"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "73"
+msgstr "73"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "74"
+msgstr "74"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "75"
+msgstr "75"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "76"
+msgstr "76"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "77"
+msgstr "77"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "78"
+msgstr "78"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "80"
+msgstr "80"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "90"
+msgstr "90"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong> Contribuyente:</strong>"
+msgstr "<strong> Contribuyente:</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong> Dirección fiscal de contribuyente:</strong>"
+msgstr "<strong> Dirección fiscal de contribuyente:</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong> NOMBRE CONTRIBUYENTE:</strong>"
+msgstr "<strong> NOMBRE CONTRIBUYENTE:</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong> Perdiodo de declaración:</strong>"
+msgstr "<strong> Perdiodo de declaración:</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>30</strong>"
+msgstr "<strong>30</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>312</strong>"
+msgstr "<strong>312</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>313</strong>"
+msgstr "<strong>313</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>31</strong>"
+msgstr "<strong>31</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>322</strong>"
+msgstr "<strong>322</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>323</strong>"
+msgstr "<strong>323</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>32</strong>"
+msgstr "<strong>32</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>332</strong>"
+msgstr "<strong>332</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>333</strong>"
+msgstr "<strong>333</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>33</strong>"
+msgstr "<strong>33</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>342</strong>"
+msgstr "<strong>342</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>343</strong>"
+msgstr "<strong>343</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>34</strong>"
+msgstr "<strong>34</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>35</strong>"
+msgstr "<strong>35</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>36</strong>"
+msgstr "<strong>36</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>40</strong>"
+msgstr "<strong>40</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>41</strong>"
+msgstr "<strong>41</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>42</strong>"
+msgstr "<strong>42</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>43</strong>"
+msgstr "<strong>43</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>442</strong>"
+msgstr "<strong>442</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>443</strong>"
+msgstr "<strong>443</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>452</strong>"
+msgstr "<strong>452</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>453</strong>"
+msgstr "<strong>453</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>46</strong>"
+msgstr "<strong>46</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>47</strong>"
+msgstr "<strong>47</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>Ajuste Aplicado</strong>"
+msgstr "<strong>Ajuste Aplicado</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>Base Imponible</strong>"
+msgstr "<strong>Base Imponible</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>Debito Fiscal</strong>"
+msgstr "<strong>Debito Fiscal</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>Especial</strong>"
+msgstr "<strong>Especial</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>Retenciones dejadas a descontar</strong>"
+msgstr "<strong>Retenciones dejadas a descontar</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "<strong>TOTAL</strong>"
+msgstr "<strong>TOTAL</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "A. DATOS DEL CONTRIBUYENTE"
+msgstr "A. DATOS DEL CONTRIBUYENTE"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "AJUSTES"
+msgstr "AJUSTES"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "AUTOLIQUIDACION"
+msgstr "AUTOLIQUIDACION"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model,name:l10n_ve_account_SH.model_account_print_journal_sale
+msgid "Account Print Journal"
+msgstr "Contabilidad. Imprimir diario"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Ajuste a los creditos fiscales de periodos anteriores"
+msgstr "Ajuste a los creditos fiscales de periodos anteriores"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Ajuste a los debitos fiscales de periodos anteriores"
+msgstr "Ajuste a los debitos fiscales de periodos anteriores"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ajustes"
+msgstr "Ajustes"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ajustes de Este Periodo"
+msgstr "Ajustes de Este Periodo"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "B. DATOS DEL APODERADO O REPRESENTANTE LEGAL"
+msgstr "B. DATOS DEL APODERADO O REPRESENTANTE LEGAL"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "BASE IMPONIBLE"
+msgstr "BASE IMPONIBLE"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Base Imponible"
+msgstr "Base Imponible"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Base imponible"
+msgstr "Base imponible"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "COMPRAS ALICUOTA GENERAL MAS ALICUOTA REDUCIDA"
+msgstr "COMPRAS ALICUOTA GENERAL MAS ALICUOTA REDUCIDA"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "COMPRAS ALICUOTA REDUCIDA"
+msgstr "COMPRAS ALICUOTA REDUCIDA"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "COMPRAS GRAVADAS POR ALICUOTA GENERAL"
+msgstr "COMPRAS GRAVADAS POR ALICUOTA GENERAL"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "CONTRIBUYENTES"
+msgstr "CONTRIBUYENTES"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "CREDITO FISCAL"
+msgstr "CREDITO FISCAL"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "CREDITOS FISCALES"
+msgstr "CREDITOS FISCALES"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid ""
+"Certificados de Debitos Fiscales Exonerados, registrados en el\n"
+"                                            periodo"
+msgstr ""
+"Certificados de Debitos Fiscales Exonerados, registrados en el\n"
+"                                            periodo"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Compras Internas No Gravadas y/o sin derecho a credito fiscal"
+msgstr "Compras Internas No Gravadas y/o sin derecho a credito fiscal"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Compras internas gravadas por alicuota general mas adicional"
+msgstr "Compras internas gravadas por alicuota general mas adicional"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Compras internas gravadas por alicuota reducida"
+msgstr "Compras internas gravadas por alicuota reducida"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Compras internas gravadas solo por alicuota general"
+msgstr "Compras internas gravadas solo por alicuota general"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Compras no gravadas y/o sin derecho a credito fiscal"
+msgstr "Compras no gravadas y/o sin derecho a credito fiscal"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Compras sin derecho a credito I.V.A."
+msgstr "Compras sin derecho a credito I.V.A."
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_create_uid
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume_create_uid
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_create_date
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume_create_date
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Credito fiscal"
+msgstr "Credito fiscal"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid ""
+"Creditos\n"
+"                                                Fiscales producto de la aplicación del % de la prorrata"
+msgstr ""
+"Creditos\n"
+"                                                Fiscales producto de la aplicación del % de la prorrata"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Creditos Adquiridos por Cesiones de Percepciones"
+msgstr "Creditos Adquiridos por Cesiones de Percepciones"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Creditos Adquiridos por Cesiones de Retenciones"
+msgstr "Creditos Adquiridos por Cesiones de Retenciones"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Creditos Fiscales Totalmente deducibles"
+msgstr "Creditos Fiscales Totalmente deducibles"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "DEBITO FISCAL"
+msgstr "DEBITO FISCAL"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "DEBITOS FISCALES"
+msgstr "DEBITOS FISCALES"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "DECLARACION Y PAGO DEL IMPUESTO AL VALOR AGREGADO"
+msgstr "DECLARACION Y PAGO DEL IMPUESTO AL VALOR AGREGADO"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Desde"
+msgstr "Desde"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Desde:"
+msgstr "Desde:"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_journal_ids
+msgid "Diario"
+msgstr "Diario"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.menu,name:l10n_ve_account_SH.menu_print_journal
+msgid "Diarios de Ventas SH"
+msgstr "Diarios de Ventas SH"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_display_name
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume_display_name
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger_display_name
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_ledger_fiscal_resume_display_name
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_purchase_invoice_ledger_display_name
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_sale_invoice_ledger2_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid ""
+"Excedente de\n"
+"                                                credito fiscal del mes siguiente. Si (39&gt;49), indique la diferencia"
+msgstr ""
+"Excedente de\n"
+"                                                credito fiscal del mes siguiente. Si (39&gt;49), indique la diferencia"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Excedentes creditos fiscales del mes anterior"
+msgstr "Excedentes creditos fiscales del mes anterior"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax0purchase
+msgid "Exento (compras)"
+msgstr "Exento (compras)"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax0sale
+msgid "Exento (ventas)"
+msgstr "Exento (ventas)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "FORMA 99030"
+msgstr "FORMA 99030"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Factura Afectada"
+msgstr "Factura Afectada"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Fecha Comp. Ret."
+msgstr "Fecha Comp. Ret."
+
+#. module: l10n_ve_account_SH
+#: model:ir.model,name:l10n_ve_account_SH.model_purchase_account_invoice_ledger
+msgid "General Purchase Invoice Ledger Report"
+msgstr "Libro de Compras"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Hasta"
+msgstr "Hasta"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Hasta:"
+msgstr "Hasta:"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_id
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume_id
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger_id
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_ledger_fiscal_resume_id
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_purchase_invoice_ledger_id
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_sale_invoice_ledger2_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax1purchase
+msgid "IVA (12.0%) compras"
+msgstr "IVA (12.0%) compras"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax1sale
+msgid "IVA (12.0%) ventas"
+msgstr "IVA (12.0%) ventas"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax3purchase
+msgid "IVA (16.0%) compras"
+msgstr "IVA (16.0%) compras"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax3sale
+msgid "IVA (16.0%) ventas"
+msgstr "IVA (16.0%) ventas"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax2purchase
+msgid "IVA (8.0%) compras"
+msgstr "IVA (8.0%) compras"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,name:l10n_ve_account_SH.1_tax2sale
+msgid "IVA (8.0%) ventas"
+msgstr "IVA (8.0%) ventas"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,description:l10n_ve_account_SH.1_tax1purchase
+#: model:account.tax,description:l10n_ve_account_SH.1_tax1sale
+msgid "IVA 12.0%"
+msgstr "IVA 12.0%"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,description:l10n_ve_account_SH.1_tax3purchase
+#: model:account.tax,description:l10n_ve_account_SH.1_tax3sale
+msgid "IVA 16.0%"
+msgstr "IVA 16.0%"
+
+#. module: l10n_ve_account_SH
+#: model:account.tax,description:l10n_ve_account_SH.1_tax2purchase
+#: model:account.tax,description:l10n_ve_account_SH.1_tax2sale
+msgid "IVA 8.0%"
+msgstr "IVA 8.0%"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "IVA Percibido"
+msgstr "IVA Percibido"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "IVA Retenido (Comprador)"
+msgstr "IVA Retenido (Comprador)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "IVA Retenido (Por el Comprador)"
+msgstr "IVA Retenido (Por el Comprador)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "IVA Retenido al Proveedor"
+msgstr "IVA Retenido al Proveedor"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Importaciones gravadas por alicuota general"
+msgstr "Importaciones gravadas por alicuota general"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Importaciones gravadas por alicuota general mas adicional"
+msgstr "Importaciones gravadas por alicuota general mas adicional"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Importaciones gravadas por alicuota reducida"
+msgstr "Importaciones gravadas por alicuota reducida"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Impuesto I.V.A."
+msgstr "Impuesto I.V.A."
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Impuesto I.V.A. Alicuota 1 + 2"
+msgstr "Impuesto I.V.A. Alicuota 1 + 2"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Impuesto pagado en declaraion(es) sustituiva(s)"
+msgstr "Impuesto pagado en declaraion(es) sustituiva(s)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale___last_update
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume___last_update
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger___last_update
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_ledger_fiscal_resume___last_update
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_purchase_invoice_ledger___last_update
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_report_sale_invoice_ledger2___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_write_uid
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume_write_uid
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_account_print_journal_sale_write_date
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_ledger_fiscal_resume_write_date
+#: model:ir.model.fields,field_description:l10n_ve_account_SH.field_purchase_account_invoice_ledger_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model,name:l10n_ve_account_SH.model_ledger_fiscal_resume
+#: model:ir.ui.menu,name:l10n_ve_account_SH.menu_ledger_fiscal_resume_ledger
+msgid "Ledger Fiscal Resume"
+msgstr "Resumen de declaración"
+
+#. module: l10n_ve_account_SH
+#: model:ir.actions.report.xml,name:l10n_ve_account_SH.report_purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Libro de Compras"
+msgstr "Libro de Compras"
+
+#. module: l10n_ve_account_SH
+#: model:ir.actions.report.xml,name:l10n_ve_account_SH.report_sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Libro de Ventas"
+msgstr "Libro de Ventas"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Monto Retenido"
+msgstr "Monto Retenido"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "N.A"
+msgstr "N.A"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "NO CONTRIBUYENTES"
+msgstr "NO CONTRIBUYENTES"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Nombre o Razón Social"
+msgstr "Nombre o Razón Social"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Nota de Crédito"
+msgstr "Nota de Crédito"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Nota de Debito"
+msgstr "Nota de Debito"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Nro de Comprobante de retencion"
+msgstr "Nro de Comprobante de retencion"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Nro de Comprobante de retención"
+msgstr "Nro de Comprobante de retención"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Numero de Comprobante"
+msgstr "Numero de Comprobante"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "N° de Comprob. de Retención"
+msgstr "N° de Comprob. de Retención"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "N° de Control"
+msgstr "N° de Control"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "N° de Factura"
+msgstr "N° de Factura"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "N° de RIF"
+msgstr "N° de RIF"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Nº RIF:"
+msgstr "Nº RIF:"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "PERCEPCION"
+msgstr "PERCEPCION"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "PERIODO DE IMPOSICION"
+msgstr "PERIODO DE IMPOSICION"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Percepciones Acumuladas en Importaciones por Descontar"
+msgstr "Percepciones Acumuladas en Importaciones por Descontar"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Percepciones Descontadas en Declaracion(es) Sustitutida(s)"
+msgstr "Percepciones Descontadas en Declaracion(es) Sustitutida(s)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Percepciones del Periodo"
+msgstr "Percepciones del Periodo"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Percepciones en Aduanas Descontadas"
+msgstr "Percepciones en Aduanas Descontadas"
+
+#. module: l10n_ve_account_SH
+#: model:ir.actions.act_window,name:l10n_ve_account_SH.ledger_fiscal_resume_action
+#: model:ir.actions.act_window,name:l10n_ve_account_SH.purchase_account_invoice_ledger_menu
+#: model:ir.actions.act_window,name:l10n_ve_account_SH.purchase_account_invoice_ledger_menu2
+#: model:ir.ui.menu,name:l10n_ve_account_SH.menu_purchase_account_invoice_ledger
+msgid "Purchase Invoice Ledger"
+msgstr "Libro de compras"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "RESUMEN MENSUAL DE I.V.A"
+msgstr "RESUMEN MENSUAL DE I.V.A"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "RETENCIONES IVA"
+msgstr "RETENCIONES IVA"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Recuperacion Percepciones Solicitado"
+msgstr "Recuperacion Percepciones Solicitado"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Recuperaciones de Retenciones Solicitadas"
+msgstr "Recuperaciones de Retenciones Solicitadas"
+
+#. module: l10n_ve_account_SH
+#: model:ir.actions.report.xml,name:l10n_ve_account_SH.report_ledger_fiscal_resume
+msgid "Resumen de declaración"
+msgstr "Resumen de declaración"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Retenciones Dejadas de Descontar"
+msgstr "Retenciones Dejadas de Descontar"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Retenciones Descontadas en Exceso de Periodos Anteriores"
+msgstr "Retenciones Descontadas en Exceso de Periodos Anteriores"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Retenciones acumuladas por descontar"
+msgstr "Retenciones acumuladas por descontar"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Retenciones del periodo"
+msgstr "Retenciones del periodo"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Retenciones descontadas en declaraion(es) sustituiva(s)"
+msgstr "Retenciones descontadas en declaraion(es) sustituiva(s)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Retenciones por Descontar"
+msgstr "Retenciones por Descontar"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Retenciones soportadas descontadas en esta declaracion"
+msgstr "Retenciones soportadas descontadas en esta declaracion"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Saldo Anterior de Ajuste"
+msgstr "Saldo Anterior de Ajuste"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Saldo Retenciones de IVA no aplicado (74-55)"
+msgstr "Saldo Retenciones de IVA no aplicado (74-55)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Saldo de Ajuste Proximo Periodo"
+msgstr "Saldo de Ajuste Proximo Periodo"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Saldo de Percepciones en Aduanas no Aplicado"
+msgstr "Saldo de Percepciones en Aduanas no Aplicado"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Sub-total Impuesto a pagar (53-22-51)"
+msgstr "Sub-total Impuesto a pagar (53-22-51)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Sub-total Impuesto a pagar (78-55)"
+msgstr "Sub-total Impuesto a pagar (78-55)"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "TCNEL. MILTON TORRES VALBUENA"
+msgstr "TCNEL. MILTON TORRES VALBUENA"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "TOTAL A PAGAR"
+msgstr "TOTAL A PAGAR"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "TOTAL CUOTA TRIBUTARIA DEL PERIODO"
+msgstr "TOTAL CUOTA TRIBUTARIA DEL PERIODO"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Tipo de Proveedor"
+msgstr "Tipo de Proveedor"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Tipo de Transaccion"
+msgstr "Tipo de Transaccion"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Total Ajuste Aplicable"
+msgstr "Total Ajuste Aplicable"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total Percepciones"
+msgstr "Total Percepciones"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total Retenciones"
+msgstr "Total Retenciones"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total compras y creditos fiscales del periodo"
+msgstr "Total compras y creditos fiscales del periodo"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total creditos fiscales"
+msgstr "Total creditos fiscales"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total creditos fiscales Deducibles"
+msgstr "Total creditos fiscales Deducibles"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.purchase_invoice_ledger_calc
+msgid "Total de Compras Incluyendo I.V.A."
+msgstr "Total de Compras Incluyendo I.V.A."
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Total de Ventas Incluye I.V.A."
+msgstr "Total de Ventas Incluye I.V.A."
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total debitos fiscales"
+msgstr "Total debitos fiscales"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Total ventas y debitos fiscales para efectos de determinacion"
+msgstr "Total ventas y debitos fiscales para efectos de determinacion"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ventas Internas Afectas en Alicuota General + Adicional"
+msgstr "Ventas Internas Afectas en Alicuota General + Adicional"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ventas Internas Afectas en Alicuota Reducida"
+msgstr "Ventas Internas Afectas en Alicuota Reducida"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ventas Internas Afectas solo Alicuota General"
+msgstr "Ventas Internas Afectas solo Alicuota General"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ventas Internas No Gravadas"
+msgstr "Ventas Internas No Gravadas"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ventas Internas no Gravadas"
+msgstr "Ventas Internas no Gravadas"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Ventas Internas no gravadas"
+msgstr "Ventas Internas no gravadas"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger2
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.sale_invoice_ledger_calc
+msgid "Ventas de Exportacion"
+msgstr "Ventas de Exportacion"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Ventas de exportación"
+msgstr "Ventas de exportación"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Ventas internas gravadas por alicuota general"
+msgstr "Ventas internas gravadas por alicuota general"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "Ventas internas gravadas por alicuota general mas adicional"
+msgstr "Ventas internas gravadas por alicuota general mas adicional"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model,name:l10n_ve_account_SH.model_report_ledger_fiscal_resume
+msgid "report.ledger_fiscal_resume"
+msgstr "report.ledger_fiscal_resume"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model,name:l10n_ve_account_SH.model_report_purchase_invoice_ledger
+msgid "report.purchase_invoice_ledger"
+msgstr "report.purchase_invoice_ledger"
+
+#. module: l10n_ve_account_SH
+#: model:ir.model,name:l10n_ve_account_SH.model_report_sale_invoice_ledger2
+msgid "report.sale_invoice_ledger2"
+msgstr "report.sale_invoice_ledger2"
+
+#. module: l10n_ve_account_SH
+#: model:ir.ui.view,arch_db:l10n_ve_account_SH.ledger_account_fiscal_resume
+msgid "ventas internas gravadas por alicuota reducida"
+msgstr "ventas internas gravadas por alicuota reducida"

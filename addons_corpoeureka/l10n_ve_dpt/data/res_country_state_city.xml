@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+		<!-- Ciudades -->
+		<record id="city_ve_1_isla_raton" model="res.country.state.city">
+			<field name="code">1</field>
+			<field name="name">Isla Raton</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_2_la_esmeralda" model="res.country.state.city">
+			<field name="code">2</field>
+			<field name="name">La Esmeralda</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_3_maroa" model="res.country.state.city">
+			<field name="code">3</field>
+			<field name="name">Maroa</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_4_puerto_ayacucho" model="res.country.state.city">
+			<field name="code">4</field>
+			<field name="name">Puerto Ayacucho</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_5_san_carlos_de_rio_negro" model="res.country.state.city">
+			<field name="code">5</field>
+			<field name="name">San Carlos de Rio Negro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_6_san_fernando_de_atabapo" model="res.country.state.city">
+			<field name="code">6</field>
+			<field name="name">San Fernando de Atabapo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_7_san_juan_de_manapiare" model="res.country.state.city">
+			<field name="code">7</field>
+			<field name="name">San Juan de Manapiare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_AMA"/>
+		</record>
+				
+		<record id="city_ve_8_anaco" model="res.country.state.city">
+			<field name="code">8</field>
+			<field name="name">Anaco</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_9_aragua_de_barcelona" model="res.country.state.city">
+			<field name="code">9</field>
+			<field name="name">Aragua de Barcelona</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_10_barcelona" model="res.country.state.city">
+			<field name="code">10</field>
+			<field name="name">Barcelona</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_11_caigua" model="res.country.state.city">
+			<field name="code">11</field>
+			<field name="name">Caigua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_12_cantaura" model="res.country.state.city">
+			<field name="code">12</field>
+			<field name="name">Cantaura</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_13_clarines" model="res.country.state.city">
+			<field name="code">13</field>
+			<field name="name">Clarines</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_14_el_chaparro" model="res.country.state.city">
+			<field name="code">14</field>
+			<field name="name">El Chaparro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_15_el_tigre" model="res.country.state.city">
+			<field name="code">15</field>
+			<field name="name">El Tigre</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_16_guanta" model="res.country.state.city">
+			<field name="code">16</field>
+			<field name="name">Guanta</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_17_lecheria" model="res.country.state.city">
+			<field name="code">17</field>
+			<field name="name">Lecheria</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_18_mapire" model="res.country.state.city">
+			<field name="code">18</field>
+			<field name="name">Mapire</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_19_onoto" model="res.country.state.city">
+			<field name="code">19</field>
+			<field name="name">Onoto</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_20_pariguan" model="res.country.state.city">
+			<field name="code">20</field>
+			<field name="name">Pariguan</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_21_puerto_la_cruz" model="res.country.state.city">
+			<field name="code">21</field>
+			<field name="name">Puerto La Cruz</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_22_puerto_piritu" model="res.country.state.city">
+			<field name="code">22</field>
+			<field name="name">Puerto Piritu</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_23_san_jose_de_guanipa" model="res.country.state.city">
+			<field name="code">23</field>
+			<field name="name">San Jose de Guanipa</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_24_san_mateo" model="res.country.state.city">
+			<field name="code">24</field>
+			<field name="name">San Mateo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_25_san_miguel" model="res.country.state.city">
+			<field name="code">25</field>
+			<field name="name">San Miguel</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_26_san_tome" model="res.country.state.city">
+			<field name="code">26</field>
+			<field name="name">San Tome</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_27_santa_ana" model="res.country.state.city">
+			<field name="code">27</field>
+			<field name="name">Santa Ana</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_28_soledad" model="res.country.state.city">
+			<field name="code">28</field>
+			<field name="name">Soledad</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_29_urica" model="res.country.state.city">
+			<field name="code">29</field>
+			<field name="name">Urica</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_30_valle_de_guanape" model="res.country.state.city">
+			<field name="code">30</field>
+			<field name="name">Valle de Guanape</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_31_vidoo" model="res.country.state.city">
+			<field name="code">31</field>
+			<field name="name">Vidoo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_32_zuata" model="res.country.state.city">
+			<field name="code">32</field>
+			<field name="name">Zuata</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ANZ"/>
+		</record>
+				
+		<record id="city_ve_33_achaguas" model="res.country.state.city">
+			<field name="code">33</field>
+			<field name="name">Achaguas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_34_arichuna" model="res.country.state.city">
+			<field name="code">34</field>
+			<field name="name">Arichuna</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_35_biruaca" model="res.country.state.city">
+			<field name="code">35</field>
+			<field name="name">Biruaca</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_36_bruzual" model="res.country.state.city">
+			<field name="code">36</field>
+			<field name="name">Bruzual</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_37_ciudad_sucre" model="res.country.state.city">
+			<field name="code">37</field>
+			<field name="name">Ciudad Sucre</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_38_el_amparo" model="res.country.state.city">
+			<field name="code">38</field>
+			<field name="name">El Amparo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_39_elorza" model="res.country.state.city">
+			<field name="code">39</field>
+			<field name="name">Elorza</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_40_guachara" model="res.country.state.city">
+			<field name="code">40</field>
+			<field name="name">Guachara</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_41_guasdualito" model="res.country.state.city">
+			<field name="code">41</field>
+			<field name="name">Guasdualito</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_42_mantecal" model="res.country.state.city">
+			<field name="code">42</field>
+			<field name="name">Mantecal</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_43_puerto_paez" model="res.country.state.city">
+			<field name="code">43</field>
+			<field name="name">Puerto Paez</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_44_san_fernando_de_apure" model="res.country.state.city">
+			<field name="code">44</field>
+			<field name="name">San Fernando de Apure</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_45_san_juan_de_payara" model="res.country.state.city">
+			<field name="code">45</field>
+			<field name="name">San Juan de Payara</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_APU"/>
+		</record>
+				
+		<record id="city_ve_46_barbacoas" model="res.country.state.city">
+			<field name="code">46</field>
+			<field name="name">Barbacoas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_47_cagua" model="res.country.state.city">
+			<field name="code">47</field>
+			<field name="name">Cagua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_48_camatagua" model="res.country.state.city">
+			<field name="code">48</field>
+			<field name="name">Camatagua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_49_colonia_tovar" model="res.country.state.city">
+			<field name="code">49</field>
+			<field name="name">Colonia Tovar</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_50_el_consejo" model="res.country.state.city">
+			<field name="code">50</field>
+			<field name="name">El Consejo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_51_el_limon" model="res.country.state.city">
+			<field name="code">51</field>
+			<field name="name">El Limon</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_52_la_victoria" model="res.country.state.city">
+			<field name="code">52</field>
+			<field name="name">La Victoria</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_53_maracay" model="res.country.state.city">
+			<field name="code">53</field>
+			<field name="name">Maracay</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_54_ocumare_de_la_costa" model="res.country.state.city">
+			<field name="code">54</field>
+			<field name="name">Ocumare de la Costa</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_55_palo_negro" model="res.country.state.city">
+			<field name="code">55</field>
+			<field name="name">Palo Negro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_56_san_casimiro" model="res.country.state.city">
+			<field name="code">56</field>
+			<field name="name">San Casimiro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_57_san_mateo" model="res.country.state.city">
+			<field name="code">57</field>
+			<field name="name">San Mateo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_58_san_sebastian" model="res.country.state.city">
+			<field name="code">58</field>
+			<field name="name">San Sebastian</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_59_santa_cruz" model="res.country.state.city">
+			<field name="code">59</field>
+			<field name="name">Santa Cruz</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_60_turmero" model="res.country.state.city">
+			<field name="code">60</field>
+			<field name="name">Turmero</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_61_santa_rita" model="res.country.state.city">
+			<field name="code">61</field>
+			<field name="name">Santa rita</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ARA"/>
+		</record>
+				
+		<record id="city_ve_62_arismendi" model="res.country.state.city">
+			<field name="code">62</field>
+			<field name="name">Arismendi</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BAR"/>
+		</record>
+				
+		<record id="city_ve_63_barinas" model="res.country.state.city">
+			<field name="code">63</field>
+			<field name="name">Barinas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BAR"/>
+		</record>
+				
+		<record id="city_ve_64_sabaneta" model="res.country.state.city">
+			<field name="code">64</field>
+			<field name="name">Sabaneta</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BAR"/>
+		</record>
+				
+		<record id="city_ve_65_caicara_del_orinoco" model="res.country.state.city">
+			<field name="code">65</field>
+			<field name="name">Caicara del Orinoco</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_66_ciudad_bolivar" model="res.country.state.city">
+			<field name="code">66</field>
+			<field name="name">Ciudad Bolivar</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_67_ciudad_guayana" model="res.country.state.city">
+			<field name="code">67</field>
+			<field name="name">Ciudad Guayana</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_68_el_callao" model="res.country.state.city">
+			<field name="code">68</field>
+			<field name="name">El Callao</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_69_el_dorado" model="res.country.state.city">
+			<field name="code">69</field>
+			<field name="name">El Dorado</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_70_el_pauji" model="res.country.state.city">
+			<field name="code">70</field>
+			<field name="name">El Pauji</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_71_guasipati" model="res.country.state.city">
+			<field name="code">71</field>
+			<field name="name">Guasipati</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_72_iboriwo" model="res.country.state.city">
+			<field name="code">72</field>
+			<field name="name">Iboriwo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_73_kavanayen" model="res.country.state.city">
+			<field name="code">73</field>
+			<field name="name">Kavanayen</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_74_maripa" model="res.country.state.city">
+			<field name="code">74</field>
+			<field name="name">Maripa</field>
+			<field name="country_id" ref="base.ve"/>
+				<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_75_paraitepuy_de_roraima" model="res.country.state.city">
+			<field name="code">75</field>
+			<field name="name">Paraitepuy de Roraima</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_76_san_francisco_de_yuruani" model="res.country.state.city">
+			<field name="code">76</field>
+			<field name="name">San Francisco de Yuruani</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_77_santa_elena_de_uairen" model="res.country.state.city">
+			<field name="code">77</field>
+			<field name="name">Santa Elena de Uairen</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_78_san_rafael_de_kamoiran" model="res.country.state.city">
+			<field name="code">78</field>
+			<field name="name">San Rafael de Kamoiran</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_79_upata" model="res.country.state.city">
+			<field name="code">79</field>
+			<field name="name">Upata</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_80_wnken" model="res.country.state.city">
+			<field name="code">80</field>
+			<field name="name">Wnken</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_BOL"/>
+		</record>
+				
+		<record id="city_ve_81_bejuma" model="res.country.state.city">
+			<field name="code">81</field>
+			<field name="name">Bejuma</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_82_guacara" model="res.country.state.city">
+			<field name="code">82</field>
+			<field name="name">Guacara</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_83_gige" model="res.country.state.city">
+			<field name="code">83</field>
+			<field name="name">Gige</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_84_los_guayos" model="res.country.state.city">
+			<field name="code">84</field>
+			<field name="name">Los Guayos</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_85_mariara" model="res.country.state.city">
+			<field name="code">85</field>
+			<field name="name">Mariara</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_86_idiota" model="res.country.state.city">
+			<field name="code">86</field>
+			<field name="name">Idiota</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_87_naguanagua" model="res.country.state.city">
+			<field name="code">87</field>
+			<field name="name">Naguanagua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_88_puerto_cabello" model="res.country.state.city">
+			<field name="code">88</field>
+			<field name="name">Puerto Cabello</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_89_san_diego" model="res.country.state.city">
+			<field name="code">89</field>
+			<field name="name">San Diego</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_90_san_joaquin" model="res.country.state.city">
+			<field name="code">90</field>
+			<field name="name">San Joaquin</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_91_tocuyito" model="res.country.state.city">
+			<field name="code">91</field>
+			<field name="name">Tocuyito</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_92_valencia" model="res.country.state.city">
+			<field name="code">92</field>
+			<field name="name">Valencia</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_CAR"/>
+		</record>
+				
+		<record id="city_ve_93_cojedes" model="res.country.state.city">
+			<field name="code">93</field>
+			<field name="name">Cojedes</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_COJ"/>
+		</record>
+				
+		<record id="city_ve_94_el_pao" model="res.country.state.city">
+			<field name="code">94</field>
+			<field name="name">El Pao</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_COJ"/>
+		</record>
+				
+		<record id="city_ve_95_san_carlos" model="res.country.state.city">
+			<field name="code">95</field>
+			<field name="name">San Carlos</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_COJ"/>
+		</record>
+				
+		<record id="city_ve_96_tinaco" model="res.country.state.city">
+			<field name="code">96</field>
+			<field name="name">Tinaco</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_COJ"/>
+		</record>
+				
+		<record id="city_ve_97_tinaquillo" model="res.country.state.city">
+			<field name="code">97</field>
+			<field name="name">Tinaquillo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_COJ"/>
+		</record>
+				
+		<record id="city_ve_98_curiapo" model="res.country.state.city">
+			<field name="code">98</field>
+			<field name="name">Curiapo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_DEA"/>
+		</record>
+				
+		<record id="city_ve_99_pedernales" model="res.country.state.city">
+			<field name="code">99</field>
+			<field name="name">Pedernales</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_DEA"/>
+		</record>
+				
+		<record id="city_ve_100_tucupita" model="res.country.state.city">
+			<field name="code">100</field>
+			<field name="name">Tucupita</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_DEA"/>
+		</record>
+				
+		<record id="city_ve_101_dabajuro" model="res.country.state.city">
+			<field name="code">101</field>
+			<field name="name">Dabajuro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_FAL"/>
+		</record>
+				
+		<record id="city_ve_102_coro" model="res.country.state.city">
+			<field name="code">102</field>
+			<field name="name">Coro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_FAL"/>
+		</record>
+				
+		<record id="city_ve_103_punto_fijo" model="res.country.state.city">
+			<field name="code">103</field>
+			<field name="name">Punto Fijo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_FAL"/>
+		</record>
+				
+		<record id="city_ve_104_tucacas" model="res.country.state.city">
+			<field name="code">104</field>
+			<field name="name">Tucacas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_FAL"/>
+		</record>
+				
+		<record id="city_ve_105_urumaco" model="res.country.state.city">
+			<field name="code">105</field>
+			<field name="name">Urumaco</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_FAL"/>
+		</record>
+				
+		<record id="city_ve_106_altagracia_de_orituco" model="res.country.state.city">
+			<field name="code">106</field>
+			<field name="name">Altagracia de Orituco</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_107_calabozo" model="res.country.state.city">
+			<field name="code">107</field>
+			<field name="name">Calabozo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_108_chaguaramas" model="res.country.state.city">
+			<field name="code">108</field>
+			<field name="name">Chaguaramas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_109_el_socorro" model="res.country.state.city">
+			<field name="code">109</field>
+			<field name="name">El Socorro</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_110_guayabal" model="res.country.state.city">
+			<field name="code">110</field>
+			<field name="name">Guayabal</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_111_ortiz" model="res.country.state.city">
+			<field name="code">111</field>
+			<field name="name">Ortiz</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_112_san_juan_de_los_morros" model="res.country.state.city">
+			<field name="code">112</field>
+			<field name="name">San Juan de Los Morros</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_113_valle_de_la_pascua" model="res.country.state.city">
+			<field name="code">113</field>
+			<field name="name">Valle de la Pascua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_114_zaraza" model="res.country.state.city">
+			<field name="code">114</field>
+			<field name="name">Zaraza</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_GUA"/>
+		</record>
+				
+		<record id="city_ve_115_barquisimeto" model="res.country.state.city">
+			<field name="code">115</field>
+			<field name="name">Barquisimeto</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_116_cabudare" model="res.country.state.city">
+			<field name="code">116</field>
+			<field name="name">Cabudare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_117_carora" model="res.country.state.city">
+			<field name="code">117</field>
+			<field name="name">Carora</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_118_el_tocuyo" model="res.country.state.city">
+			<field name="code">118</field>
+			<field name="name">El Tocuyo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_119_sanare" model="res.country.state.city">
+			<field name="code">119</field>
+			<field name="name">Sanare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_120_sarare" model="res.country.state.city">
+			<field name="code">120</field>
+			<field name="name">Sarare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_121_quibor" model="res.country.state.city">
+			<field name="code">121</field>
+			<field name="name">Quibor</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_LAR"/>
+		</record>
+				
+		<record id="city_ve_122_bailadores" model="res.country.state.city">
+			<field name="code">122</field>
+			<field name="name">Bailadores</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MER"/>
+		</record>
+				
+		<record id="city_ve_123_ejido" model="res.country.state.city">
+			<field name="code">123</field>
+			<field name="name">Ejido</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MER"/>
+		</record>
+				
+		<record id="city_ve_124_el_vigia" model="res.country.state.city">
+			<field name="code">124</field>
+			<field name="name">El Vigia</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MER"/>
+		</record>
+				
+		<record id="city_ve_125_merida" model="res.country.state.city">
+			<field name="code">125</field>
+			<field name="name">Merida</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MER"/>
+		</record>
+				
+		<record id="city_ve_126_mucuchies" model="res.country.state.city">
+			<field name="code">126</field>
+			<field name="name">Mucuchies</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_DTC"/>
+		</record>
+				
+		<record id="city_ve_127_caracas_(capital_federal)" model="res.country.state.city">
+			<field name="code">127</field>
+			<field name="name">Caracas (capital federal)</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MER"/>
+		</record>
+				
+		<record id="city_ve_128_charallave" model="res.country.state.city">
+			<field name="code">128</field>
+			<field name="name">Charallave</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_129_ca" model="res.country.state.city">
+			<field name="code">129</field>
+			<field name="name">Ca</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_130_cpira" model="res.country.state.city">
+			<field name="code">130</field>
+			<field name="name">Cpira</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_131_guarenas" model="res.country.state.city">
+			<field name="code">131</field>
+			<field name="name">Guarenas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_132_guatire" model="res.country.state.city">
+			<field name="code">132</field>
+			<field name="name">Guatire</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_133_higuerote" model="res.country.state.city">
+			<field name="code">133</field>
+			<field name="name">Higuerote</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_134_los_teques" model="res.country.state.city">
+			<field name="code">134</field>
+			<field name="name">Los Teques</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_135_mamporal" model="res.country.state.city">
+			<field name="code">135</field>
+			<field name="name">Mamporal</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_136_petare" model="res.country.state.city">
+			<field name="code">136</field>
+			<field name="name">Petare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_137_ocumare_del_tuy" model="res.country.state.city">
+			<field name="code">137</field>
+			<field name="name">Ocumare del Tuy</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_138_rio_chico" model="res.country.state.city">
+			<field name="code">138</field>
+			<field name="name">Rio Chico</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_139_san_antonio_de_los_altos" model="res.country.state.city">
+			<field name="code">139</field>
+			<field name="name">San Antonio de Los Altos</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_140_san_francisco_de_yare" model="res.country.state.city">
+			<field name="code">140</field>
+			<field name="name">San Francisco de Yare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_141_san_jose_de_barlovento" model="res.country.state.city">
+			<field name="code">141</field>
+			<field name="name">San Jose de Barlovento</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_142_santa_lucia" model="res.country.state.city">
+			<field name="code">142</field>
+			<field name="name">Santa Lucia</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_143_santa_teresa_del_tuy" model="res.country.state.city">
+			<field name="code">143</field>
+			<field name="name">Santa Teresa del Tuy</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MIR"/>
+		</record>
+				
+		<record id="city_ve_144_aragua_de_maturin" model="res.country.state.city">
+			<field name="code">144</field>
+			<field name="name">Aragua de Maturin</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MON"/>
+		</record>
+				
+		<record id="city_ve_145_caripe" model="res.country.state.city">
+			<field name="code">145</field>
+			<field name="name">Caripe</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MON"/>
+		</record>
+				
+		<record id="city_ve_146_caripito" model="res.country.state.city">
+			<field name="code">146</field>
+			<field name="name">Caripito</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MON"/>
+		</record>
+				
+		<record id="city_ve_147_maturin" model="res.country.state.city">
+			<field name="code">147</field>
+			<field name="name">Maturin</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MON"/>
+		</record>
+				
+		<record id="city_ve_148_punta_de_mata" model="res.country.state.city">
+			<field name="code">148</field>
+			<field name="name">Punta de Mata</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_MON"/>
+		</record>
+				
+		<record id="city_ve_149_juan_griego" model="res.country.state.city">
+			<field name="code">149</field>
+			<field name="name">Juan Griego</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_NVE"/>
+		</record>
+				
+		<record id="city_ve_150_la_asuncion" model="res.country.state.city">
+			<field name="code">150</field>
+			<field name="name">La Asuncion</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_NVE"/>
+		</record>
+				
+		<record id="city_ve_151_pampatar" model="res.country.state.city">
+			<field name="code">151</field>
+			<field name="name">Pampatar</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_NVE"/>
+		</record>
+				
+		<record id="city_ve_152_porlamar" model="res.country.state.city">
+			<field name="code">152</field>
+			<field name="name">Porlamar</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_NVE"/>
+		</record>
+				
+		<record id="city_ve_153_acarigua" model="res.country.state.city">
+			<field name="code">153</field>
+			<field name="name">Acarigua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_POR"/>
+		</record>
+				
+		<record id="city_ve_154_araure" model="res.country.state.city">
+			<field name="code">154</field>
+			<field name="name">Araure</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_POR"/>
+		</record>
+				
+		<record id="city_ve_155_guanare" model="res.country.state.city">
+			<field name="code">155</field>
+			<field name="name">Guanare</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_POR"/>
+		</record>
+				
+		<record id="city_ve_156_ospino" model="res.country.state.city">
+			<field name="code">156</field>
+			<field name="name">Ospino</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_POR"/>
+		</record>
+				
+		<record id="city_ve_157_araya" model="res.country.state.city">
+			<field name="code">157</field>
+			<field name="name">Araya</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_SUC"/>
+		</record>
+				
+		<record id="city_ve_158_carpano" model="res.country.state.city">
+			<field name="code">158</field>
+			<field name="name">Carpano</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_SUC"/>
+		</record>
+				
+		<record id="city_ve_159_casanay" model="res.country.state.city">
+			<field name="code">159</field>
+			<field name="name">Casanay</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_SUC"/>
+		</record>
+				
+		<record id="city_ve_160_cumana" model="res.country.state.city">
+			<field name="code">160</field>
+			<field name="name">Cumana</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_SUC"/>
+		</record>
+				
+		<record id="city_ve_161_marigitar" model="res.country.state.city">
+			<field name="code">161</field>
+			<field name="name">Marigitar</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_SUC"/>
+		</record>
+				
+		<record id="city_ve_162_rio_caribe" model="res.country.state.city">
+			<field name="code">162</field>
+			<field name="name">Rio Caribe</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_SUC"/>
+		</record>
+				
+		<record id="city_ve_163_colon" model="res.country.state.city">
+			<field name="code">163</field>
+			<field name="name">Colon</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_164_la_fria" model="res.country.state.city">
+			<field name="code">164</field>
+			<field name="name">La Fria</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_165_la_grita" model="res.country.state.city">
+			<field name="code">165</field>
+			<field name="name">La Grita</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_166_michelena" model="res.country.state.city">
+			<field name="code">166</field>
+			<field name="name">Michelena</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_167_palmira" model="res.country.state.city">
+			<field name="code">167</field>
+			<field name="name">Palmira</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_168_pregonero" model="res.country.state.city">
+			<field name="code">168</field>
+			<field name="name">Pregonero</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_169_queniquea" model="res.country.state.city">
+			<field name="code">169</field>
+			<field name="name">Queniquea</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_170_san_antonio_del_tachira" model="res.country.state.city">
+			<field name="code">170</field>
+			<field name="name">San Antonio del Tachira</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_171_santa_ana_del_tachira" model="res.country.state.city">
+			<field name="code">171</field>
+			<field name="name">Santa Ana del Tachira</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_172_san_cristobal" model="res.country.state.city">
+			<field name="code">172</field>
+			<field name="name">San Cristobal</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_173_tariba" model="res.country.state.city">
+			<field name="code">173</field>
+			<field name="name">Tariba</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_174_rubio" model="res.country.state.city">
+			<field name="code">174</field>
+			<field name="name">Rubio</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TAC"/>
+		</record>
+				
+		<record id="city_ve_175_bocono" model="res.country.state.city">
+			<field name="code">175</field>
+			<field name="name">Bocono</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TRU"/>
+		</record>
+				
+		<record id="city_ve_176_la_quebrada" model="res.country.state.city">
+			<field name="code">176</field>
+			<field name="name">La Quebrada</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TRU"/>
+		</record>
+				
+		<record id="city_ve_177_monte_carmelo" model="res.country.state.city">
+			<field name="code">177</field>
+			<field name="name">Monte Carmelo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TRU"/>
+		</record>
+				
+		<record id="city_ve_178_trujillo" model="res.country.state.city">
+			<field name="code">178</field>
+			<field name="name">Trujillo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TRU"/>
+		</record>
+				
+		<record id="city_ve_179_valera" model="res.country.state.city">
+			<field name="code">179</field>
+			<field name="name">Valera</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_TRU"/>
+		</record>
+				
+		<record id="city_ve_180_catia_la_mar" model="res.country.state.city">
+			<field name="code">180</field>
+			<field name="name">Catia La Mar</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_VAR"/>
+		</record>
+				
+		<record id="city_ve_181_la_guaira" model="res.country.state.city">
+			<field name="code">181</field>
+			<field name="name">La Guaira</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_VAR"/>
+		</record>
+				
+		<record id="city_ve_182_maiquetia" model="res.country.state.city">
+			<field name="code">182</field>
+			<field name="name">Maiquetia</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_VAR"/>
+		</record>
+				
+		<record id="city_ve_183_chivacoa" model="res.country.state.city">
+			<field name="code">183</field>
+			<field name="name">Chivacoa</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_YAR"/>
+		</record>
+				
+		<record id="city_ve_184_guama" model="res.country.state.city">
+			<field name="code">184</field>
+			<field name="name">Guama</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_YAR"/>
+		</record>
+				
+		<record id="city_ve_185_san_felipe" model="res.country.state.city">
+			<field name="code">185</field>
+			<field name="name">San Felipe</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_YAR"/>
+		</record>
+				
+		<record id="city_ve_186_yaritagua" model="res.country.state.city">
+			<field name="code">186</field>
+			<field name="name">Yaritagua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_YAR"/>
+		</record>
+				
+		<record id="city_ve_187_nirgua" model="res.country.state.city">
+			<field name="code">187</field>
+			<field name="name">Nirgua</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_YAR"/>
+		</record>
+				
+		<record id="city_ve_188_cabimas" model="res.country.state.city">
+			<field name="code">188</field>
+			<field name="name">Cabimas</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_189_ciudad_ojeda" model="res.country.state.city">
+			<field name="code">189</field>
+			<field name="name">Ciudad Ojeda</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_190_la_villa_del_rosario" model="res.country.state.city">
+			<field name="code">190</field>
+			<field name="name">La Villa del Rosario</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_191_machiques" model="res.country.state.city">
+			<field name="code">191</field>
+			<field name="name">Machiques</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_192_maracaibo" model="res.country.state.city">
+			<field name="code">192</field>
+			<field name="name">Maracaibo</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_193_san_rafael_del_mojan" model="res.country.state.city">
+			<field name="code">193</field>
+			<field name="name">San Rafael del Mojan</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_194_sinamaica" model="res.country.state.city">
+			<field name="code">194</field>
+			<field name="name">Sinamaica</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+				
+		<record id="city_ve_195_san_carlos_del_zulia" model="res.country.state.city">
+			<field name="code">195</field>
+			<field name="name">San Carlos del Zulia</field>
+			<field name="country_id" ref="base.ve"/>
+			<field name="state_id" ref="l10n_ve_dpt.est_ve_ZUL"/>
+		</record>
+
+	</data>
+</odoo>

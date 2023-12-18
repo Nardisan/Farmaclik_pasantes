@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_txt_iva_export" model="ir.ui.view">
+            <field name="name">Export TXT</field>
+            <field name="model">account.iva.txt.export</field>
+            <field name="arch" type="xml">
+                <form string="Export TXT">
+                    <field invisible="1" name="state"/>
+                    <field name="name" invisible="1"/>
+                    <div states="get">
+                        <h2>TXT Generated Complete</h2>
+                        <p>Here is the your retención TXT file: <field name="data"  filename="name"/></p>
+                        <p></p> 
+                        <p>
+                            <ul>
+                                <li>Por favor, verifique los datos de este achivo.</li>
+                                <li>Ten en cuenta que este archivo es de consulta.</li>
+                            </ul>
+                        </p>
+                        <p>Sí, los datos en el archivo son los correctos, procesada declarar.</p>
+                    </div>
+                    <footer states="choose">
+                        <button special="cancel" string="Cancel" type="object" class="btn-default"/>
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Close" type="object" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_txt_iva_export" model="ir.actions.act_window">
+            <field name="name">Export TXT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.iva.txt.export</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

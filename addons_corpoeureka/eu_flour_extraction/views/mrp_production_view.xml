@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+   <record id="flour_extraction_production_view" model="ir.ui.view">
+      <field name="name">flour.extraction.production.view</field>
+      <field name="model">mrp.production</field>
+      <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+      <field name="arch" type="xml">
+         <xpath expr="//field[@name='move_raw_ids']/tree/field[last()]" position="after">
+            <field name="product_principal_id" readonly='True'/>
+            <field name="emp_primary"/>
+            <field name="emp_secondary"/>
+            <field name="cinta_codificadora"/>
+            <field name="teflon"/>
+         </xpath>
+         <xpath expr="//field[@name='company_id']" position="after">
+            <label for="extraction_flour" string="Porcentaje de Extracción"/>
+            <div class="o_row" width="10%">
+               <field name="extraction_flour" readonly='True'/>
+               <span>%</span>
+            </div>
+            <field name="extraction_porcent" readonly='True'/>
+         </xpath>
+      </field>
+   </record>
+</odoo>
+
+

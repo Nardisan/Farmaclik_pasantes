@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="expertise_res_company_form_view_inherit" model="ir.ui.view">
+		<field name="name">expertise.res.company.form.view.inherit"</field>
+		<field name="model">res.company</field>
+		<field name="inherit_id" ref="base.view_company_form" />
+		<field name="arch" type="xml">
+		<xpath expr="//page[last()]" position="after">	
+			<page name="expertise" string="Expertise">
+				<group>
+                     <field name="expertise_ids" colspan="4" nolabel="1">
+                     	<tree>
+                     		<field name="name" />
+                     		<field name="expertise" />
+                     	</tree>
+                     </field>
+                   </group>
+              	</page>
+		</xpath>		
+		</field>
+	</record>
+</odoo>

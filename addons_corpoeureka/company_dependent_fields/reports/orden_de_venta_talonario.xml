@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+    <report
+        id="orden_de_venta_talonario"
+        model="sale.order"
+        string="Formato Talonario"
+        report_type="xlsx"
+        name="company_dependent_fields.orden_de_venta_talonario"
+        file="company_dependent_fields.orden_de_venta_talonario"
+        attachment_use="False"
+    />
+    </data>
+</odoo>

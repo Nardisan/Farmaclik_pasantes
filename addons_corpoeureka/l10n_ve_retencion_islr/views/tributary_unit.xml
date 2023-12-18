@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="tributary_unit_tree_view">
+      <field name="name">tributary_unit_tree_view</field>
+      <field name="model">tributary.unit</field>
+      <field name="arch" type="xml">
+        <tree string="Tributary Unit" import="false" editable="bottom">
+          <field name="name" />
+          <field name="gazette" />
+          <field name="amount" />
+          <field name="company_id" invisible="1"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_tributary_unit">
+      <field name="name">Tributary Unit</field>
+      <field name="res_model">tributary.unit</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem action="action_tributary_unit"
+              id="menu_tributary_unit"
+              name="Tributary Unit"
+              parent="account.account_account_menu" sequence="2"/>
+</odoo>

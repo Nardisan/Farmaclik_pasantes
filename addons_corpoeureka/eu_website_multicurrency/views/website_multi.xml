@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template 
+        id="multicurrency_cart" 
+        inherit_id="website_sale.total"
+        customize_show="True"
+        name="Carrito Multidivisa"
+    >
+    <xpath expr="//tr[@id='order_total_untaxed']/td[last()]/span" position="replace">
+        <span 
+            t-esc="round(website_sale_order.amount_untaxed, 2)" 
+            class="monetary_field" 
+            style="white-space: nowrap;" 
+            t-options="{
+                'widget': 'monetary', 
+                'display_currency': website_sale_order.currency_id
+            }"
+        />
+    </xpath>
+    <xpath expr="//tr[@id='order_total']/td[last()]/strong" position="replace">
+        <strong 
+            t-esc="round(website_sale_order.amount_total, 2)"
+            class="monetary_field"
+            t-options='{
+                "widget": "monetary", 
+                "display_currency": website_sale_order.pricelist_id.currency_id
+            }'
+        />
+    </xpath>
+    <xpath expr="//div[@id='cart_total']//table/tr[last()]" position="after">
+        <tr id="multicurrency_cart">
+            <td class="text-right">
+                Tasa del día:
+            </td>
+            <td class="text-xl-right">
+        <span t-esc="'{:.2f}'.format(website_sale_order.pricelist_id.tasa_del_dia)" style="white-space: nowrap;" />
+            </td>
+        </tr>
+        <tr id="multicurrency_cart_two">
+            <td class="text-right">
+                Referencia:
+            </td>
+            <td class="text-xl-right">
+                <span t-esc="round(website_sale_order.amount_total_ref, 2)" style="white-space: nowrap;" t-options="{'widget': 'monetary','display_currency': website_sale_order.pricelist_id.currency_id.parent_id}" />
+            </td>
+        </tr>
+    </xpath>
+    </template>
+<!--     <template id="multicurrency_shop" inherit_id="website_sale.total" customize_show="True" name="MultiCurrency Shop" priority="20">
+        <xpath expr="//tr[@id='order_total']" position="after">
+            <t t-if="website_sale_order and website_sale_order.website_order_line">
+                <tr id="tasa" class="m_c_tasa_del_dia">
+                    <label class="m_c_label">Tasa del día:</label>
+                    <span class="m_c_value">
+                        <span t-field="website_sale_order.pricelist_id.tasa_del_dia" style="white-space: nowrap;" />
+                    </span>
+                </tr>
+                <tr id="Referencia" class="m_c_referencia">
+                    <label class="m_c_label">Referencia:</label>
+                    <span class="m_c_value">
+                        <span t-field="website_sale_order.amount_total_ref" style="white-space: nowrap;" t-options="{'widget': 'monetary','display_currency': website_sale_order.pricelist_id.currency_id.parent_id}" />
+                    </span>
+                </tr>
+            </t>
+        </xpath>
+    </template> -->
+</odoo>

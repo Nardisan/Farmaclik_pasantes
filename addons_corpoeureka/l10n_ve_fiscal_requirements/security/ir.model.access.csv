@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_move_line_userr,account.move.line.user,account.model_account_move_line,account.group_account_user,1,1,1,1
+access_account_move_line_managerr,account.move.line.manager,account.model_account_move_line,account.group_account_manager,1,1,1,1
+access_account_move_userr,account.move userr,account.model_account_move,account.group_account_user,1,1,1,1
+access_account_move_managerr,account.move manager,account.model_account_move,account.group_account_manager,1,1,1,1
+access_wizard_shopping_book_user,model.wizard.shopping.book.user,l10n_ve_fiscal_requirements.model_wizard_shopping_book,account.group_account_user,1,1,1,1
+access_wizard_shopping_book_manager,model.wizard.shopping.book.manager,l10n_ve_fiscal_requirements.model_wizard_shopping_book,account.group_account_manager,1,1,1,1

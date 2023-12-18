@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_partner_ciudad,access_res_partner_ciudad,model_res_partner_ciudad,base.group_user,1,1,1,1
+access_res_partner_sectores,access_res_partner_sectores,model_res_partner_sectores,base.group_user,1,1,1,1
+access_res_partner_ciudad_portal,access_res_partner_ciudad_portal,model_res_partner_ciudad,,1,0,0,0
+access_res_partner_sectores_portal,access_res_partner_sectores_portal,model_res_partner_sectores,,1,0,0,0

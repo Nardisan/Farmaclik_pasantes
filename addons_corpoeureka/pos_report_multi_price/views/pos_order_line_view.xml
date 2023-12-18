@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_pos_order_show_dual_currency_config_form_two" model="ir.ui.view">
+        <field name="name">pos.order.form.show_dual_currency</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="price_unit_ref" optional="show" options="{'currency_field': 'parent.show_dual_currency'}" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='price_subtotal']" position="after">
+                <field name="price_subtotal_ref" optional="show" options="{'currency_field': 'parent.show_dual_currency'}" widget="monetary"/>
+            </xpath>
+            <xpath expr="//field[@name='price_subtotal_incl']" position="after">
+                <field name="price_subtotal_incl_ref" optional="show" options="{'currency_field': 'parent.show_dual_currency'}" widget="monetary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

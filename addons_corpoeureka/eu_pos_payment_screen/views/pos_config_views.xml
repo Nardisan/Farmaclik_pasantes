@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="eu_pos_payment_screen_inherit_pos_config_view_form" model="ir.ui.view">
+        <field name="name">eu.pos.payment.screen.inherit.pos.config.view.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h2/following-sibling::div/div[last()]" position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="show_ref_input"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="show_ref_input"/>
+                        <div class="text-muted">
+                            Mostrar monto de referencia
+                        </div>
+                    </div>
+                    <div class="o_setting_left_pane">
+                        <field name="edit_ref_input" attrs="{'readonly':[('show_ref_input', '=', False)]}"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="edit_ref_input"/>
+                        <div class="text-muted">
+                            Habilitar edición del monto de referencia
+                        </div>
+                    </div>
+                    <div class="o_setting_right_pane mt16">
+                        <label for="fiscal_port" />
+                        <div class="content-group mt16">
+                            <div class="row mt16">
+                                <label string="Puerto" for="fiscal_port" class="col-md-3 o_light_label"/>
+                                <field name="fiscal_port" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o_setting_right_pane mt16">
+                        <label for="maquina" />
+                        <div class="content-group mt16">
+                            <div class="row mt16">
+                                <label string="Número" for="maquina" class="col-md-3 o_light_label"/>
+                                <field name="maquina" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="eu_pos_payment_screen_inherit_pos_session_view_form" model="ir.ui.view">
+        <field name="name">eu.pos.payment.screen.inherit.pos.session.view.form</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button string="Imprimir reporte Z" name="print_z_report" type="object" class="oe_highlight"/>
+                <button string="Imprimir reporte X" name="print_x_report" type="object" class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

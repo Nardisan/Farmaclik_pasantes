@@ -1,0 +1,166 @@
+:root {
+    --border: 1.25px solid rgba(0, 0, 0, 0.125);
+}
+
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.tabs-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-menu {
+    display: grid;
+    border: var(--border);
+    overflow: hidden;
+    border-radius: .35rem .35rem 0 0;
+    font-weight: 700;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}
+
+.tabs-menu > .tab, .payment-accounts > button, #tab-available button {
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+#tab-available button {
+    background: none;
+}
+
+:where(.tabs-menu > .tab, .payment-accounts > button):not(.selected) {
+    background-color: #ffffff;
+}
+
+.tabs-menu > .tab {
+    padding: .45rem 1rem;
+    border: var(--border);
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.selected {
+    color: white;
+    background-color: var(--primary);
+}
+
+.current-form {
+    border: var(--border);
+    border-top: 0;
+    overflow: hidden;
+    border-radius: 0 0 .35rem .35rem;
+}
+
+.payment-accounts > button, .tabs-menu > .tab {
+    transition: filter 150ms ease-in, background-color 150ms ease-in;
+}
+
+.current-form > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: .25rem;
+    padding: .5rem;
+}
+
+.payment-accounts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    padding: .125rem;
+    gap: .25rem;
+}
+
+.payment-accounts > button {
+    text-align: center;
+    padding: .5rem;
+    border-radius: .25rem;
+}
+
+.payment-accounts > button:not(.selected) {
+    border: 1px solid rgb(231, 231, 231);
+}
+
+.payment-quantity {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    row-gap: .35rem;
+}
+
+.form-quantity {
+    display: flex;
+    flex-direction: column;
+    row-gap: .25rem;
+}
+
+.form-quantity > p {
+    padding: .35rem;
+}
+
+:where(.payment-accounts > button:hover, .tab:hover):not(.selected) {
+    background-color: var(--100);
+}
+
+.tab-total {
+    margin-top: .55rem;
+    border: var(--border);
+    padding: .35rem;
+    font-style: italic;
+    border-radius: .35rem;
+    user-select: none;
+}
+
+#spin {
+    margin: auto;
+    width: 8rem;
+    height: 8rem;
+    border: 4px solid var(--primary);
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 100%;
+    animation: spin 1s infinite linear;
+    cursor: wait;
+}
+
+#tab-available {
+    font-size: .95em;
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#tab-confirmation {
+    list-style: none inside;
+    font-size: 1.125rem;
+}
+
+#tab-confirmation > li {
+    margin-bottom: .35rem;
+    border-bottom: 1px solid var(--300);
+    display: flex;
+    justify-content: space-between;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #tab-confirmation {
+        font-size: 1rem;
+    }
+
+    .tab-total {
+        font-size: 1rem;
+    }
+}

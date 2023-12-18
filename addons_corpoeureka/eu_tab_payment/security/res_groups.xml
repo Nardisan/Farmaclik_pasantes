@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="add_wallet_group" model="res.groups">
+            <field name="name">Añadir a la billetera</field>
+          </record>
+    </data>
+</odoo>

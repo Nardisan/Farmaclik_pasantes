@@ -1,0 +1,1064 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* locv_account_advance_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-07 15:50+0000\n"
+"PO-Revision-Date: 2022-02-07 12:08-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "<strong>Cliente: </strong>"
+msgstr "<strong>Cliente: </strong>"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "<strong>Diario: </strong>"
+msgstr "<strong>Diario: </strong>"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "<strong>Fecha de Aplicación: </strong>"
+msgstr "<strong>Fecha de Aplicación: </strong>"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "<strong>Monto del Anticipo: </strong>"
+msgstr "<strong>Monto del Anticipo: </strong>"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "<strong>Proveedor: </strong>"
+msgstr "<strong>Proveedor: </strong>"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "<strong>Referencia: </strong>"
+msgstr "<strong>Referencia: </strong>"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_bank_statement_line__account_advance_ids
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__account_advance_ids
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_payment__account_advance_ids
+msgid "Account Advance"
+msgstr "Adelanto de cuenta"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+msgid "Account Advance Payment"
+msgstr "Cuenta Anticipo Pago"
+
+#. module: locv_account_advance_payment
+#: model:ir.model,name:locv_account_advance_payment.model_account_move
+msgid "Account invoice discount"
+msgstr "Cuenta de descuento en factura"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_needaction
+msgid "Action Needed"
+msgstr "Accion necesaria"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
+
+#. module: locv_account_advance_payment
+#: model:ir.model,name:locv_account_advance_payment.model_account_advanced_payment
+msgid "Advance payments"
+msgstr "Pagos anticipados"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__res_partner__tipo_usuario__ambos
+msgid "Ambos"
+msgstr "Ambos"
+
+#. module: locv_account_advance_payment
+#: model:ir.ui.menu,name:locv_account_advance_payment.menu_action_account_advance_payment_parent_form
+#: model:ir.ui.menu,name:locv_account_advance_payment.menu_action_advance_parent_customer_form
+msgid "Anticipo"
+msgstr "Anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_bank_statement_line__sum_amount_available
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__sum_amount_available
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_payment__sum_amount_available
+msgid "Anticipo Disponible"
+msgstr "Anticipo Disponible"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Anticipo de cuenta por cobrar"
+msgstr "Anticipo de cuenta por cobrar"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+msgid "Anticipo proveedor..."
+msgstr "Anticipo proveedor..."
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_invoice_advanced_id
+msgid "Anticipos Cliente"
+msgstr "Anticipos Cliente"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_invoice_supplier_advanced_id
+msgid "Anticipos Proveedor"
+msgstr "Anticipos Proveedor"
+
+#. module: locv_account_advance_payment
+#: model:ir.actions.act_window,name:locv_account_advance_payment.action_apply_advance_payment_supplier
+msgid "Aplicar Anticipo"
+msgstr "Aplicar Anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.actions.act_window,name:locv_account_advance_payment.action_apply_advance_customer
+msgid "Aplicar Anticipo Cliente"
+msgstr "Aplicar Anticipo Cliente"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+msgid "Aplicar anticipo de pago Cliente"
+msgstr "Aplicar anticipo de pago Cliente"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__apply_manual_currency_exchange
+msgid "Aplicar cambio de tasa manual"
+msgstr "Aplicar cambio de tasa manual"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Aplicar pago de anticipo Proveedores"
+msgstr "Aplicar pago de anticipo Proveedores"
+
+#. module: locv_account_advance_payment
+#: model:ir.ui.menu,name:locv_account_advance_payment.menu_advance_apply_customer
+msgid "Aplicar/reintegrar Anticipos Clientes"
+msgstr "Aplicar/reintegrar Anticipos Clientes"
+
+#. module: locv_account_advance_payment
+#: model:ir.ui.menu,name:locv_account_advance_payment.menu_apply_advance_supplier
+msgid "Aplicar/reintegrar Anticipos Proveedores"
+msgstr "Aplicar/reintegrar Anticipos Proveedores"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Asiento Contable"
+msgstr "Asiento Contable"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__move_apply_id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__move_id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__move_refund_id
+msgid "Asiento contable"
+msgstr "Asiento contable"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__asiento_conciliado
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__asiento_conl_apply
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__move_apply_line
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__move_line
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__move_refund_line
+msgid "Asientos contables"
+msgstr "Asientos contables"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_attachment_count
+msgid "Attachment Count"
+msgstr "Recuento de archivos adjuntos"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Banco"
+msgstr "Banco"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__advance_account_id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__bank_account_id
+msgid "Bank"
+msgstr "Banco"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Cambiar a Borrador"
+msgstr "Cambiar a Borrador"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__account_advanced_payment__state__cancel
+msgid "Cancelado"
+msgstr "Cancelado"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_res_partner__es_proveedor
+#: model:ir.model.fields,help:locv_account_advance_payment.field_res_users__es_proveedor
+msgid "Chequea si el usuario es Proveedor"
+msgstr "Chequea si el usuario es Proveedor"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_res_partner__es_cliente
+#: model:ir.model.fields,help:locv_account_advance_payment.field_res_users__es_cliente
+msgid "Chequea si el usuario es un Cliente"
+msgstr "Chequea si el usuario es un Cliente"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__es_cliente
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__res_partner__tipo_usuario__cliente
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+msgid "Cliente"
+msgstr "Cliente"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__tipo_usuario
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_users__tipo_usuario
+msgid "Cliente o proveedor"
+msgstr "Cliente o proveedor"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__company_id
+msgid "Compañia"
+msgstr "Compañia"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__company_id
+msgid "Compañía"
+msgstr "Compañía"
+
+#. module: locv_account_advance_payment
+#: model:ir.model,name:locv_account_advance_payment.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__partner_id
+msgid "Contacto"
+msgstr "Contacto"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Cuenta"
+msgstr "Cuenta"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Cuenta Bancaria"
+msgstr "Cuenta Bancaria"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__account_advance_payment_purchase_id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_users__account_advance_payment_purchase_id
+msgid "Cuenta de Anticipos de Compras"
+msgstr "Cuenta de Anticipos de Compras"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__account_advance_payment_sales_id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_users__account_advance_payment_sales_id
+msgid "Cuenta de Anticipos de Ventas"
+msgstr "Cuenta de Anticipos de Ventas"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_bank_statement_line__currency_company
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_bank_statement_line__foreign_currency
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__currency_company
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__foreign_currency
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_payment__currency_company
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_payment__foreign_currency
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__customer
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Debe"
+msgstr "Debe"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Diario"
+msgstr "Diario"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__journal_advanced_id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_users__journal_advanced_id
+msgid "Diario de Anticipos"
+msgstr "Diario de Anticipos"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Diario de Aplicación"
+msgstr "Diario de Aplicación"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__display_name
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__display_name
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__account_advanced_payment__state__available
+msgid "Disponible"
+msgstr "Disponible"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "El cliente no tiene configurado la cuenta contable de anticipo"
+msgstr "El cliente no tiene configurado la cuenta contable de anticipo"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "El monto a aplicar (%s) no puede ser mayor al monto de la factura (%s)"
+msgstr "El monto a aplicar (%s) no puede ser mayor al monto de la factura (%s)"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "El monto a aplicar (%s) no puede ser mayor al monto disponible (%s)"
+msgstr "El monto a aplicar (%s) no puede ser mayor al monto disponible (%s)"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "El monto a aplicar debe ser mayor que cero"
+msgstr "El monto a aplicar debe ser mayor que cero"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "El monto de anticipo debe ser mayor que cero"
+msgstr "El monto de anticipo debe ser mayor que cero"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#, python-format
+msgid "El monto del anticipo debe ser mayor que cero"
+msgstr "El monto del anticipo debe ser mayor que cero"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "El proveedor no tiene configurado la cuenta contable de anticipo"
+msgstr "El proveedor no tiene configurado la cuenta contable de anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__es_cliente
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_users__es_cliente
+msgid "Es un cliente"
+msgstr "Es un cliente"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__es_proveedor
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_users__es_proveedor
+msgid "Es un proveedor"
+msgstr "Es un proveedor"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Estado"
+msgstr "Estado"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__state
+msgid "Estatus"
+msgstr "Estatus"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Factura"
+msgstr "Factura"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__invoice_id
+msgid "Factura a Asociar"
+msgstr "Factura a Asociar"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+msgid "Fecha Anticipo"
+msgstr "Fecha Anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__date_contable
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Fecha Contable"
+msgstr "Fecha Contable"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__date_apply
+msgid "Fecha Efectiva"
+msgstr "Fecha Efectiva"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Fecha anticipo"
+msgstr "Fecha anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__date
+msgid "Fecha de Creación"
+msgstr "Fecha de Creación"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__date_advance
+msgid "Fecha del anticipo"
+msgstr "Fecha del anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Socios)"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de fuente impresionante, p. fa-tareas"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Haber"
+msgstr "Haber"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__id
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner__id
+msgid "ID"
+msgstr "IDENTIFICACIÓN"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+msgid "ID Factura"
+msgstr "ID Factura"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_needaction
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los nuevos mensajes requieren su atención."
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_has_error
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcada, algunos mensajes tienen un error de entrega."
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Importe en Moneda"
+msgstr "Importe en Moneda"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__journal_id
+msgid "Journal"
+msgstr "Diario"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__apply_journal_id
+msgid "Journal applied"
+msgstr "Diario aplicado"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment____last_update
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move____last_update
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Archivo adjunto principal"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega de mensajes"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__invoice_currency
+msgid "Moneda de la Factura"
+msgstr "Moneda de la Factura"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__company_currency
+msgid "Moneda de la compañía"
+msgstr "Moneda de la compañía"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__currency_id
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+msgid "Moneda del Anticipo"
+msgstr "Moneda del Anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__currency_id_usd
+msgid "Moneda del Anticipo $"
+msgstr "Moneda del Anticipo $"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Monto Anticipo"
+msgstr "Monto Anticipo"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Monto Anticipo $"
+msgstr "Monto Anticipo $"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Monto Anticipo Bs"
+msgstr "Monto Anticipo Bs"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+msgid "Monto Aplicado"
+msgstr "Monto Aplicado"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+msgid "Monto Aplicar"
+msgstr "Monto Aplicar"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_available
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+msgid "Monto Disponible"
+msgstr "Monto Disponible"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_available_conversion
+msgid "Monto Disponible (Company Currency)"
+msgstr "Monto Disponible (Moneda de la Compañía)"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_invoice_in_company
+msgid "Monto Factura (Company Currency)"
+msgstr "Monto Factura (Moneda de la Compañía)"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_apply
+msgid "Monto a Aplicar"
+msgstr "Monto a Aplicar"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_apply_conversion
+msgid "Monto a Aplicar (Company Currency)"
+msgstr "Monto a Aplicar (Moneda de la empresa)"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Monto a aplicar"
+msgstr "Monto a aplicar"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+msgid "Monto de Anticipo"
+msgstr "Monto de Anticipo"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Monto de Factura"
+msgstr "Monto de Factura"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_invoice
+msgid "Monto de la Factura"
+msgstr "Monto de la Factura"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_advance
+msgid "Monto del Anticipo"
+msgstr "Monto del Anticipo"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_advance_bs
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__amount_advance_usd
+msgid "Monto del Anticipo $"
+msgstr "Monto del Anticipo $"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_bank_statement_line__sum_amount_available_dolares
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_move__sum_amount_available_dolares
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_payment__sum_amount_available_dolares
+msgid "Monto moneda extranjera"
+msgstr "Monto moneda extranjera"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__payment_id
+msgid "Motivo del Anticipo"
+msgstr "Motivo del Anticipo"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Movimiento"
+msgstr "Movimiento"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite de la próxima actividad"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#, python-format
+msgid "No puedes borrar un anticipo que esté en borrador o en cancelado"
+msgstr "No puedes borrar un anticipo que esté en borrador o en cancelado"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "No se reversaron los asientos asociados"
+msgstr "No se reversaron los asientos asociados"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leídos"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__account_advanced_payment__state__paid
+msgid "Pagado"
+msgstr "Pagado"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Pago"
+msgstr "Pago"
+
+#. module: locv_account_advance_payment
+#: model:res.groups,name:locv_account_advance_payment.group_allow_to_apply_advance
+msgid "Permitir Aplicar Anticipos a Clientes"
+msgstr "Permitir Aplicar Anticipos a Clientes"
+
+#. module: locv_account_advance_payment
+#: model:res.groups,name:locv_account_advance_payment.group_allow_to_apply_advance_vendors
+msgid "Permitir Aplicar Anticipos a Proveedores"
+msgstr "Permitir Aplicar Anticipos a Proveedores"
+
+#. module: locv_account_advance_payment
+#: model:res.groups,name:locv_account_advance_payment.group_allow_to_advance
+msgid "Permitir Realizar Anticipos a Clientes"
+msgstr "Permitir Realizar Anticipos a Clientes"
+
+#. module: locv_account_advance_payment
+#: model:res.groups,name:locv_account_advance_payment.group_allow_to_advance_vendors
+msgid "Permitir Realizar Anticipos a Proveedores"
+msgstr "Permitir Realizar Anticipos a Proveedores"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Por ejemplo, Banesco ..."
+msgstr "Por ejemplo, Banesco ..."
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+msgid "Por ejemplo, Banesco..."
+msgstr "Por ejemplo, Banesco ..."
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Por ejemplo, Transferencia..."
+msgstr "Por ejemplo, Transferencia..."
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__es_proveedor
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__res_partner__tipo_usuario__proveedor
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Proveedor"
+msgstr "Proveedor"
+
+#. module: locv_account_advance_payment
+#: model:ir.actions.report,name:locv_account_advance_payment.action_report_payment_receipt_advance
+msgid "Recibo de Anticipo"
+msgstr "Recibo de Anticipo"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.report_payment_receipt_document_advance
+msgid "Recibo de Anticipo:"
+msgstr "Recibo de Anticipo:"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+msgid "Reembolsar cantidad disponible"
+msgstr "Reembolsar cantidad disponible"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Reembolso de monto disponible"
+msgstr "Reembolsar cantidad disponible"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__ref
+msgid "Referencia"
+msgstr "Referencia"
+
+#. module: locv_account_advance_payment
+#: model:ir.actions.act_window,name:locv_account_advance_payment.action_account_advance_payment
+msgid "Registrar Anticipo Proveedor"
+msgstr "Registrar Anticipo Proveedor"
+
+#. module: locv_account_advance_payment
+#: model:ir.actions.act_window,name:locv_account_advance_payment.action_register_advance_customer
+msgid "Registrar Anticipo de Cliente"
+msgstr "Registrar Anticipo de Cliente"
+
+#. module: locv_account_advance_payment
+#: model:ir.ui.menu,name:locv_account_advance_payment.menu_action_advance_register_customer_form
+msgid "Registrar de Anticipo Clientes"
+msgstr "Registrar Anticipo de Clientes"
+
+#. module: locv_account_advance_payment
+#: model:ir.ui.menu,name:locv_account_advance_payment.menu_register_advance_supplier_form
+msgid "Registrar de Anticipo Proveedores"
+msgstr "Registrar de Anticipo Proveedores"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "Registre una tasa de cambio para la fecha de aplicación"
+msgstr "Registre una tasa de cambio para la fecha de aplicación"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment.py:0
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "Selecciona una fecha de aplicación"
+msgstr "Selecciona una fecha de aplicación"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields.selection,name:locv_account_advance_payment.selection__account_advanced_payment__state__draft
+msgid "Sin Publicar"
+msgstr "Sin Publicar"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_supplier_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_customer_tree
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.register_advance_supplier_tree
+msgid "Socio"
+msgstr "Socio"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Atrasado: la fecha de vencimiento ya pasó\n"
+"Hoy: la fecha de la actividad es hoy\n"
+"Planeado: Actividades futuras."
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__supplier
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__manual_currency_exchange_rate_ref
+msgid "Tasa"
+msgstr "Tasa"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "Tipo Moneda"
+msgstr "Tipo Moneda"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__manual_currency_exchange_rate
+msgid "Tipo de tasa manual"
+msgstr "Tipo de tasa manual"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__type_advance
+msgid "Type Advance"
+msgstr "Tipo de avance"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes no leídos"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_customer_form
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.apply_advance_payment_supplier_form
+msgid "Validar"
+msgstr "Validar"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,field_description:locv_account_advance_payment.field_account_advanced_payment__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: locv_account_advance_payment
+#: model:ir.model.fields,help:locv_account_advance_payment.field_account_advanced_payment__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del sitio web"
+
+#. module: locv_account_advance_payment
+#: code:addons/locv_account_advance_payment/model/account_advance_payment_respaldo.py:0
+#, python-format
+msgid "You cannot delete an advance payment is not draft or cancelled"
+msgstr "No se puede eliminar un anticipo no borrador o cancelado"
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_receivable_form
+msgid "anticipo cliente ..."
+msgstr "anticipo cliente ..."
+
+#. module: locv_account_advance_payment
+#: model_terms:ir.ui.view,arch_db:locv_account_advance_payment.account_advance_payment_form
+msgid "cambiar a borrador"
+msgstr "cambiar a borrador"

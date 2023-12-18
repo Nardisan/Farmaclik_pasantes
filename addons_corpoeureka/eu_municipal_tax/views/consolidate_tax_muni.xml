@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_tax_municipal_form" model="ir.ui.view">
+        <field name="name">tax.municipal.form</field>
+        <field name="model">tax.municipal</field>
+        <field name="arch" type="xml">
+            <form string="Declaración Mensual de Ingresos">
+                <header>
+                    <button name="reset_draft" type="object" string="Cambiar a Borrador" states="cancel,confirmed" confirm="¿Esta Seguro que desea cambiar a Borrador?" groups="" class="btn-primary"/>
+                    <button name="button_confirm" type="object" groups="" string="Confirmar IAE" states="draft" class="btn-primary" />
+                     <button name="button_done" type="object" groups="" string="Pagar IAE" states="confirmed" class="btn-primary" />
+                    <button name="button_cancel" type="object" string="Cancelar" states="draft,confirmed" groups="" confirm="¿Esta Seguro que desae cancelar el Impuesto AE ?" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done,cancel" readonly="1"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" 
+                                type="object" 
+                                icon="fa-check"
+                                name="show_payments"
+                                width="200px"
+                                attrs="{'invisible': [('payment_count', '=', 0)]}"
+                                >
+                        <field name="payment_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/><br/>
+                            </h1>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id" invisible="1" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+                            <field name="date_in" attrs="{'readonly':[('state','in',['confirmed','done'])]}" />
+                            <field name="date_end" attrs="{'readonly':[('state','in',['confirmed','done'])]}" />
+                            <field name="aliquot_municipal" force_save="1"  attrs="{'readonly':[('state','in',['confirmed','done'])]}" />
+                            <field name="journal_id" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' attrs="{'invisible':['|','|',('date_in', '=', False),('date_end', '=', False),('aliquot_municipal','=',False)],'readonly':[('state','in',['confirmed','done'])]}" />
+                            <field name="invoice_ids"/>
+                        </group>
+
+                    </group>
+                    
+                    <notebook>
+                        <page string="Linea de la Facturas" name="invoice_line"  attrs="{'readonly':[('state', 'in', ['done', 'cancel'])]}" >
+                            <field name="invoice_line" attrs="{'readonly':[('state', 'in', ['done', 'cancel'])]}">
+                                <tree editable="bottom" create="0">
+                                    <field name="invoice_id" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}' force_save="1" />
+                                    <field name="date_invoice" readonly="1" force_save="1" />
+                                    <field name="partner_id" force_save="1" />
+                                    <field name="rif" force_save="1"/>
+                                    <!--<field name="name" force_save="1" /> -->
+                                    <field name="amount_untaxed" force_save="1" sum="total_au" />
+                                    <field name="amount_tax" force_save="1" sum="total_iva" />
+                                    <field name="amount_total" force_save="1" sum="total_total" />
+                                    <field name="monto_muni" force_save="1" sum="total_tx" />
+                                    <field name="total_amount_tax_ret" force_save="1" sum="total_tx_ret" />
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <label for="total_tax_ret"/>
+                                <field name="total_tax_ret" nolabel="1"/>
+                                <label for="total_iae"/>
+                                <field name="total_iae" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tax_municipal_tree" model="ir.ui.view">
+        <field name="name">tax.municipal.tree</field>
+        <field name="model">tax.municipal</field>
+        <field name="arch" type="xml">
+            <tree string="Impuesto Actividad Económica">
+                <field name="name" />
+                <field name="date_in" />
+                <field name="date_end" />
+                <field name="journal_id" />
+                <field name="total_iae" />
+                <field name="aliquot_municipal" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_tax_municipal" model="ir.actions.act_window">
+        <field name="name">Pago Impuesto Municipal</field>
+        <field name="res_model">tax.municipal</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+    </record>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ordinary_position_fiscal_1" model="account.fiscal.position">
+            <field name="name">Contribuyente Ordinario</field>
+            <field name="auto_apply">True</field>
+            <field name="vat_required">True</field>
+            <field name="ret_IVA_purchase">02-special</field>
+            <field name="ret_IVA_sale">01-sin</field>
+        </record>
+        <record id="ordinary_position_fiscal_2" model="account.fiscal.position">
+            <field name="name">Contribuyente Ordinario (sujeto a retención del 100%)</field>
+            <field name="auto_apply">True</field>
+            <field name="vat_required">True</field>
+            <field name="ret_IVA_purchase">03-ordinary</field>
+            <field name="ret_IVA_sale">01-sin</field>
+        </record>
+        <record id="special_position_fistal_1" model="account.fiscal.position">
+            <field name="name">Contribuyente Especial</field>
+            <field name="auto_apply">True</field>
+            <field name="vat_required">True</field>
+            <field name="ret_IVA_purchase">02-special</field>
+            <field name="ret_IVA_sale">02-special</field>
+        </record>
+        <record id="special_position_fistal_2" model="account.fiscal.position">
+            <field name="name">Contribuyente Especial (sujeto a retención del 100%)</field>
+            <field name="auto_apply">True</field>
+            <field name="vat_required">True</field>
+            <field name="ret_IVA_purchase">03-ordinary</field>
+            <field name="ret_IVA_sale">02-special</field>
+        </record>
+    </data>
+</odoo>

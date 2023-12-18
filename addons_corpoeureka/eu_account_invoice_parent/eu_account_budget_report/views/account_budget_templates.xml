@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_crossovered_budget">
+    <t t-call="web.html_container">
+        <t t-set="data_report_margin_top" t-value="10"/>
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <style type="text/css">
+                        .table{
+                            font-size: 14px;
+                            line-height: 1.3;
+                        }
+
+                    </style>
+                    <t t-if="o and 'company_id' in o">
+                        <t t-set="company" t-value="o.company_id"/>
+                    </t>
+                    <t t-if="not o or not 'company_id' in o">
+                        <t t-set="company" t-value="res_company"/>
+                    </t>
+                    <div style="display: block; margin-bottom: 3px">
+                        <div class="pull-left" style="display:inline-block; font-size:10px;" align="center">
+                            <table style="padding: 5px; border: none;" class="text-center">
+                               <tr style="text-align:center">
+                                   <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" height="50px" style="max-width: 150px;"/>
+                               </tr>
+                            </table>
+                            <br/>
+                            <table style="padding: 5px; border: none;" class="text-center">
+                                <tr style="text-align:center">
+                                    <td class="text-center" style="font-style: bold;" t-esc="company.name"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="font-style: bold;" t-esc="company.rif"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:100px;">
+                        <div class="col-7">
+                            <br/><br/>
+                            <h3><span t-field="o.name"/></h3>
+                        </div>                        
+                    </div>
+                    <table class="table table-sm table-borderless">
+                        <tr>
+                            <th>
+                                <strong>Responsable: </strong>
+                                <span t-field="o.user_id"/>
+                            </th>
+                            <th>
+                                <strong>Periodo: </strong>
+                                <span t-field="o.date_from"/>-
+                                <span t-field="o.date_to"/>
+                            </th>
+
+                            <th>
+                                <strong>Compañia: </strong>
+                                <span t-field="o.company_id.name"/>
+                            </th>
+                        </tr>
+                    </table>
+                    <br/>                    
+                </div>
+                <span t-set="total_planned_amount" t-value="0" />
+                <span t-set="total_practical_amount" t-value="0" />
+                <span t-set="total_theoritical_amount" t-value="0" />
+                <table class="table table-sm" t-if="o.crossovered_budget_line" id="table_crossovered_budget_line" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th style="width:16%">
+                                Posición presupuestaria
+                            </th>
+                            <th style="width:14%">
+                                Cuenta Analitica
+                            </th>
+                            <th style="width:10%">
+                                Fec. Inicio
+                            </th>
+                            <th style="width:10%">
+                                Fec. Final
+                            </th>
+                            <th style="width:10%">
+                                Fec. Pago
+                            </th>
+                            <th style="width:12%">
+                                Importe Previsto
+                            </th>
+                            <th style="width:12%">
+                                Importe Real
+                            </th>
+                            <th style="width:12%">
+                                Importe Teórico
+                            </th>
+                            <th style="width:4%">
+                                %
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.crossovered_budget_line" t-as="raw_line">
+                            <td>
+                                <span t-esc="raw_line.general_budget_id.name" />
+                            </td>
+                            <td>
+                                <span t-esc="raw_line.analytic_account_id.name" />
+                            </td>
+                            <td>
+                                <span t-esc="raw_line.date_from" t-options='{"widget": "date"}'/>
+                            </td>
+                            <td>
+                                <span t-esc="raw_line.date_to" t-options='{"widget": "date"}'/>
+                            </td>
+                            <td>
+                                <span t-esc="raw_line.paid_date" t-options='{"widget": "date"}'/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="raw_line.planned_amount" t-options='{"widget": "float", "precision": 2}' />
+                                <span t-set="total_planned_amount" t-value="total_planned_amount + raw_line.planned_amount" />
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="raw_line.practical_amount" t-options='{"widget": "float", "precision": 2}' />
+                                <span t-set="total_practical_amount" t-value="total_practical_amount + raw_line.practical_amount" />
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="raw_line.theoritical_amount" t-options='{"widget": "float", "precision": 2}' />
+                                <span t-set="total_theoritical_amount" t-value="total_theoritical_amount + raw_line.theoritical_amount" />
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="raw_line.percentage" />
+                            </td>
+                        </tr>
+                    </tbody>                    
+                </table>
+
+                <table class="table table-sm" style="width:100%">
+                    <tr>
+                        <td style="width:16%"></td>
+                        <td style="width:14%"></td>
+                        <td style="width:10%"></td>
+                        <td style="width:10%">
+                            <b>Totales:</b>
+                        </td>
+                        <td style="width:10%"></td>
+                        <td style="width:12%" class="text-right">
+                            <span t-esc="total_planned_amount" t-options='{"widget": "float", "precision": 2}'/>
+                        </td>
+                        <td style="width:12%" class="text-right">
+                            <span t-esc="total_practical_amount" t-options='{"widget": "float", "precision": 2}'/>
+                        </td>
+                        <td style="width:12%" class="text-right">
+                            <span t-esc="total_theoritical_amount" t-options='{"widget": "float", "precision": 2}'/>
+                        </td>
+                        <td style="width:4%"></td>
+                    </tr>
+                </table>
+
+                <br/><br/><br/>
+                <table width="100%" border="0" style="font-size:12px;">
+                    <tr>
+                        <th width="31%" height="30px" style="border: 1px solid black;text-align:center;" >Elaborado por: <span  t-esc="user.name"/></th>
+                        <th width="3%"  height="30px" ></th>
+                        <th width="32%" height="30px" style="border: 1px solid black;text-align:center;" >Autorizado por: </th>
+                        <th width="3%"  height="30px" ></th>
+                        <th width="31%" height="30px" style="border: 1px solid black;text-align:center;" >Recibido por: </th>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td width="31%" height="50px" style="border: 1px solid black;"></td>
+                        <td width="3%"  height="50px" ></td>
+                        <td width="32%" height="50px" style="border: 1px solid black;"></td>
+                        <td width="3%"  height="50px" ></td>
+                        <td width="31%" height="50px" style="border: 1px solid black;"></td>
+                    </tr>
+                </table>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>

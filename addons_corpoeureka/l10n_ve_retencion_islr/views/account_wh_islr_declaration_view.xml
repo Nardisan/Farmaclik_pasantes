@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_wh_islr_declaration_tree" model="ir.ui.view">
+        <field name="name">account.wh.islr.declaration.tree</field>
+        <field name="model">account.wh.islr.declaration</field>
+        <field name="arch" type="xml">
+            <tree string="Declaraciones de ISLR">
+                <field name="name"/>        
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_account_wh_islr_declaration_form" model="ir.ui.view">
+        <field name="name">account.wh.islr.declaration.form</field>
+        <field name="model">account.wh.islr.declaration</field>
+        <field name="arch" type="xml">
+            <form string="Declaración de ISLR" create="0">
+                <sheet>
+                    <group> 
+                        <field name="name" />
+                        <field name="file_xml_id" widget="many2many_binary"/>
+                        <field name="date" />
+                        <field name="period" />
+                    </group>
+                    <notebook>
+                        <page string="Retenciones Asociadas">
+                            <group>
+                                <group>
+                                    <field name="withholding_id" readonly="1">
+                                        <form string="Retenciones Asociadas">
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="number"/>
+                                                <field name="partner_id"/>
+                                                <field name="amount_total"/>
+                                                <field name="state"/>
+                                            </group>
+                                        </form>
+                                        <tree string="Retenciones Asociadas" editable="bottom">
+                                            <field name="name"/>
+                                            <field name="number"/>
+                                            <field name="partner_id"/>
+                                            <field name="amount_total"/>
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>  
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>  
+            </form>
+        </field>
+    </record>
+
+    <record id="open_view_reason_new_tree" model="ir.actions.act_window">
+        <field name="name">Motivo de Cancelación de Romana</field>
+        <field name="res_model">account.wh.islr.declaration</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_account_wh_islr_declaration_tree"></field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_wh_islr_declaration">
+        <field name="name">Declaraciones de ISLR</field>
+        <field name="res_model">account.wh.islr.declaration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_action_account_wh_islr_declaration" name="Declaraciones de ISLR" parent="account.menu_finance_entries" action="action_account_wh_islr_declaration"/>
+</odoo>
+

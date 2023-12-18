@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_islr_document">
+    <t t-call="web.internal_layout">
+        <div class="page">
+			<table class="table table-bordered">
+				<thead>
+				  <tr>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">RIF agente:</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="docs[0].company_id.rif"/></th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Periodo:</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="docs[0].period"/></th>
+				  </tr>
+				</thead>
+			</table>
+			<table class="table table-bordered">
+				<thead>
+				  <tr>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">ID Sec</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">RIF retenido</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Número Factura</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Número Control</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Fecha operación</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Codígo concepto</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Monto Operación</th>
+					<th style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; ">Porcentaje Retención</th>
+				  </tr>
+				</thead>
+				<tbody>
+					<t t-foreach="docs" t-as="o">
+						<t t-set="iterador" t-value="1"/>
+						<tr t-foreach="o.withholding_line" t-as="l">
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-esc="iterador"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="o.partner_id.rif"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="l.invoice_id.vendor_invoice_number"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="l.invoice_id.nro_control"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="l.invoice_id.date_invoice"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="o.code_withholding"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="l.invoice_id.amount_untaxed"/></td>
+							<td style="border: 1px !important; border-style: solid !important; border-color: #000000; color:#000000 !important; "><span t-field="l.porc_islr"/></td>
+							<t t-set="iterador" t-value="iterador+1"/>
+						</tr>
+					</t>
+				</tbody>
+			  </table>
+			</div>
+		</t>
+</template>
+
+<template id="report_islr">
+    <t t-call="web.html_container">
+            <t t-call="l10n_ve_retencion_islr.report_islr_document"/>
+    </t>
+</template>
+
+</data>
+</odoo>

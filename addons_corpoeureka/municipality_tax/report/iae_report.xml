@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<report id="iae_report"
+        model="iae.wizard"
+        string="Reporte de IAE"
+        name="municipality_tax.iae_templates"
+        file="municipality_tax.iae_templates"
+        report_type="qweb-pdf"
+        menu="False"
+    />
+</odoo>
+

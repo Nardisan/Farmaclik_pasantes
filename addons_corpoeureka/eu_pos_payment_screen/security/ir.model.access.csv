@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_eu_pos_payment_screen_eu_pos_payment_screen,eu_pos_payment_screen.eu_pos_payment_screen,model_eu_pos_payment_screen_eu_pos_payment_screen,base.group_user,1,1,1,1

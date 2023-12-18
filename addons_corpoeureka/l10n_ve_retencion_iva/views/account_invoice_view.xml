@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_invoice_form_inherited_iva">
+            <field name="name">account.move_form_inh_iva</field>
+            <field name="model">account.move</field>
+            <field name="priority">7</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="create_retention" groups="l10n_ve_retencion_iva.retencion_iva_group_create" string="Create Retention IVA" class="oe_highlight" type="object" attrs="{'invisible': ['|', ('state', '=', 'cancel'),('wh_id', '!=', False)]}"/>
+                    <button name="action_post_iva" groups="l10n_ve_retencion_iva.retencion_iva_group_confirm" string="Confirmar Retención" class="oe_highlight" type="object" attrs="{'invisible': ['|','|', ('state', '=', 'cancel'),('wh_id', '=', False),('can_delete_iva','=',True)]}"/>
+                    <button name="delete_retention" groups="l10n_ve_retencion_iva.retencion_iva_group_delete" string="Delete Retention IVA" class="oe_highlight" type="object" attrs="{'invisible': ['|','|', ('state', '=', 'cancel'),('wh_id', '=', False),('can_delete_iva','=',True)]}"/>
+                    <button name="print_wh_iva" groups="l10n_ve_retencion_iva.retencion_iva_group_print" string="Comprobante de retención IVA" type="object" icon="fa-download" attrs="{'invisible': [('wh_id', '=', False)]}"/>
+
+                </header>
+                <xpath expr="//field[@name='fiscal_position_id']" position="before">
+                    <field name="retention"/>
+                    <field name="can_delete_iva" invisible="1"/>
+                    <field name="wh_id"
+                        context="{'form_view_ref': 'l10n_ve_retencion_iva.view_wh_iva_form_customer', 'default_partner_id': partner_id,'default_move_type': move_type,'default_journal_id': journal_id, 'readonly': True}" 
+                        domain="[('partner_id','=',partner_id),('state','=','draft')]" 
+                    />
+                </xpath>      
+                <xpath expr="//field[@name='amount_total']" position="after">
+                    <field name="amount_wh_iva" attrs="{'invisible': [('wh_id', '=', False)]}"/>
+                </xpath> 
+            </field>
+        </record>
+    </data>
+</odoo>

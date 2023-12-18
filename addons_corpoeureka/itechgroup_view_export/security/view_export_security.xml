@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_custom_export" model="ir.module.category">
+        <field name="name">Custom export</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="group_can_export_view_to_pdf" model="res.groups">
+        <field name="name">Can export views as a PDF</field>
+        <field name="category_id" ref="module_category_custom_export" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+    </record>
+    <record id="group_can_export_view_to_excel" model="res.groups">
+        <field name="name">Can export views as an EXCEL</field>
+        <field name="category_id" ref="module_category_custom_export" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+    </record>
+    <record id="group_can_export_view_to_csv" model="res.groups">
+        <field name="name">Can export views as a CSV</field>
+        <field name="category_id" ref="module_category_custom_export" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+    </record>
+</odoo>

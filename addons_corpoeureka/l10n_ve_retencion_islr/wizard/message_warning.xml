@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+    <record id="message_warning_view" model="ir.ui.view">
+            <field name="name">message.warning.view</field>
+            <field name="model">message.islr.warning</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="">
+                <p class="oe_black">
+                    <field name="warning" nolabel="True" readonly="True"/>
+                </p>
+                <footer>
+                    <button name="action_create_islr_retention_manual" string="Generar retención manual" type="object" default_focus="1" class="oe_highlight"/>
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>         
+                </form>
+            </field>
+        </record>
+        
+<!--        <act_window-->
+<!--            id="action_account_confirmed_retention_islr"-->
+<!--            name="Confirmed Retention"-->
+<!--            res_model="account.confirmed.islr"-->
+<!--            view_mode="form"-->
+<!--            target="new"-->
+<!--            />-->
+</odoo>

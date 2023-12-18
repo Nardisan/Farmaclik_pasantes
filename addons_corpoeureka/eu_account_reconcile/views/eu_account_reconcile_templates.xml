@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="account assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/eu_account_reconcile/static/src/scss/move_line_list_view.scss"/>
+            <script type="text/javascript" src="/eu_account_reconcile/static/src/js/move_line_list_view.js"></script>
+            <script type="text/javascript" src="/eu_account_reconcile/static/src/js/reconciliation/reconciliation_action.js"></script>
+            <script type="text/javascript" src="/eu_account_reconcile/static/src/js/reconciliation/reconciliation_model.js"></script>
+            <script type="text/javascript" src="/eu_account_reconcile/static/src/js/reconciliation/reconciliation_renderer.js"></script>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,year,factor,parcentage_subtracting_1,parcentage_subtracting_3,amount
+account_wh_rate_table_001,Gaceta Oficial Nro. 41.839 del 13 de marzo de 2020 ,2020,0.83333333,1250.00,3750.00,125000.00
+account_wh_rate_table_002,Gaceta Oficial Nro. 41.839 del 13 de marzo de 2020 ,2021,0.83333333,1250.00,3750.00,125000.00
+account_wh_rate_table_003,"Decreto 1.808, Reglamento Parcial de la Ley de Impuesto Sobre la Renta en Materia de Retenciones  Gaceta 36.203. 12/05/1997",2022,0.83333333,0.33,1,33.33

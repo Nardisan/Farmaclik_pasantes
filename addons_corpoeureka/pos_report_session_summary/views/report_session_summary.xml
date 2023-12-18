@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_session_summary">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="col-3 mb4">
+                    <t t-set="company" t-value="env.company"/>
+                </div>
+                <t t-foreach="docs" t-as="o">
+                    <td><t t-esc="data['company_name']"/></td> 
+                    <h6>Reporte de Session: <span t-field="o.name" /></h6>
+                    
+                    <div class="col-left" style='font-size: 13px !important;'>
+                        <strong>Empleado</strong>:                            
+                        <tr t-foreach="data['sessions']" t-as='sess'>
+                            <td><t t-esc="sess['employee_id']"/></td> 
+                        </tr>
+                    </div>
+
+                    <div class="col-left" style='font-size: 13px !important;'>
+                        <strong>Caja</strong>:                            
+                        <span t-field="o.config_id" />
+                    </div>
+
+                    <div class="col-left" style='font-size: 13px !important;'>
+                        <strong>Apertura</strong>:                            
+                        <span t-field="o.start_at" />
+                    </div>
+
+                    <div class="col-left" style='font-size: 13px !important;'>
+                        <strong>Cierres</strong>:                            
+                        <span t-field="o.stop_at" />
+                    </div>
+                </t>
+                <br/>
+                <h8>Pagos</h8>
+                <div class="col-left" style='font-size: 13px !important;'>
+                    <table  class="table table-sm mt-3 p-0 text-left" style='font-size: 13px; !important;'>
+                        <thead><tr>
+                            <th style='color: black;'>Tipo</th>
+                            <th style='color: black;'>Total $</th>
+                            <th style='color: black;'>Total Bs</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr t-foreach="data['payments']" t-as='payment'>
+                            <td><t t-esc="payment['name']" /></td>
+                            <td><t t-esc="payment['total']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                            <td><t t-esc="payment['total_ref']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h8>Impuestos</h8>
+                <div class="col-left" style='font-size: 13px !important;'>
+
+                    <table  class="table table-sm mt-3 p-0 text-left" style='font-size: 13px; !important;'>
+                        <thead><tr>
+                            <th style='color: black;'>Tipo</th>
+                            <th style='color: black;'>Importe Impuesto</th>
+                            <th style='color: black;'>Base Impuesto</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr t-foreach="data['taxes']" t-as='tax'>
+                            <td><t t-esc="tax['name']" /></td>
+                            <td><t t-esc="tax['tax_amount']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                            <td><t t-esc="tax['base_amount']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <strong>Total $: <t t-esc="data['total_paid']" t-options="{'widget': 'float', 'precision': 2}" /></strong>
+                <br/>
+                <strong>Total Bs: <t t-esc="data['total_paid_ref']" t-options="{'widget': 'float', 'precision': 2}"/></strong>
+                <br/>
+                <br/>
+                <h8>Recipes Medicos</h8>
+                <div class="col-left" style='font-size: 13px !important;'>
+                    <table  class="table table-sm mt-3 p-0 text-left" style='font-size: 13px; !important;'>
+                        <thead><tr>
+                            <th style='color: black;'>Médico</th>
+                            <th style='color: black;'>Total de Recipes</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr t-foreach="data['commissions']" t-as='commission'>
+                            <td><t t-esc="commission['name']" /></td>
+                            <td><t t-esc="commission['count']" /></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <div class="col-left" style='font-size: 15px !important;'>
+                    <strong>Responsable:</strong>                            
+                </div>
+                <br/>
+                <div class="col-left" style='font-size: 15px !important;'>
+                    <strong>Recibe:</strong>                            
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

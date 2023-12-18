@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fiscal_year_account_journal_view_form" model="ir.ui.view">
+        <field name="name">account.journal fiscal year</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="journal_entries" string="Payments Configuration" attrs="{'invisible': [('type', 'not in', ['opening'])]}">
+                    <group>
+                        <group string="Incoming Payments">
+                            <field name="payment_debit_account_id" attrs="{'required': [('id', '!=', False), ('type', 'in', ('opening'))], 'invisible': [('type', 'not in', ('opening'))]}" groups="account.group_account_readonly"/>
+                            <field name="inbound_payment_method_ids" string="Methods" widget="many2many_checkboxes" attrs="{'invisible': [('type', 'not in', ['opening'])]}"/>
+                        </group>
+                        <group string="Outgoing Payments">
+                            <field name="id" invisible="1"/>
+                            <field name="payment_credit_account_id" attrs="{'required': [('id', '!=', False), ('type', 'in', ('opening'))], 'invisible': [('type', 'not in', ('opening'))]}" groups="account.group_account_readonly"/>
+                            <field name="outbound_payment_method_ids" string="Methods" widget="many2many_checkboxes" attrs="{'invisible': [('type', 'not in', ['opening'])]}"/>
+                        </group>
+                        <group name="outgoing_payment"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+    
+</odoo>

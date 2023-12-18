@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="productos_valoracion_mercancia_vendida_view_form" model="ir.ui.view">
+		<field name="name">productos.valoracion.mercancia.vendida.view.form</field>
+		<field name="model">productos.valoracion.mercancia.vendida</field>
+		<field name="arch" type="xml">
+			<form>
+
+                <group col="3">
+				
+                    <group >
+                    
+                        <field name="ubicacion" domain="[('name', '=ilike', '%stock%' )]" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                    
+                    </group>
+
+                    <group >
+                    
+                        <field name="fecha_inicial_de_venta"/>
+                        
+                    </group>
+
+                    <group >
+                    
+                        <field name="fecha_final_de_venta"/>
+                    
+                    </group>
+
+                </group>
+                
+                <group>
+                    <field name="file_name" colspan="4" invisible="1"/>
+                    <field name="file" filename="file_name" colspan="4"/>
+                </group>
+				<footer>
+					<button string="Generar" name="generar" type="object" class="oe_highlight"/>
+					<button string="Cancel" class="btn btn-secondary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="productos_valoracion_mercancia_vendida_action" model="ir.actions.act_window">
+		<field name="name">Productos Valoración Mercancía Vendida</field>
+		<field name="res_model">productos.valoracion.mercancia.vendida</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+	<menuitem id="productos_valoracion_mercancia_vendida_menu" action="productos_valoracion_mercancia_vendida_action" parent="stock.menu_warehouse_report" groups="base.group_user" sequence="100"/>
+</odoo>

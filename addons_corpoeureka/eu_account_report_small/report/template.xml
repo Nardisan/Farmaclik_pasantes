@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <record id="paperformat_account_custom" model="report.paperformat">
+            <field name="name">Factura formato pequeño en Almacen</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">279</field>
+            <field name="page_width">80</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+         
+         <report id="stock_report_action_custom"
+            model="account.move"
+            string="Factura Formato Pequeño"
+            report_type="qweb-pdf"
+            paperformat="eu_account_report_small.paperformat_account_custom"
+            name="eu_account_report_small.report_invoice_small_format"
+            file="eu_account_report_small.report_invoice_small_format"
+            menu="True"/>
+    </data>
+</odoo>

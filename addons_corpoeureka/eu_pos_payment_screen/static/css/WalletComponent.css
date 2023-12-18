@@ -1,0 +1,70 @@
+.wallet-box {
+    gap: .35rem;
+    padding: .75rem;
+    border-radius: .25rem;
+    transition: box-shadow 250ms ease-in-out;
+    user-select: none;
+    background-color: #324838;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#wallet-payment {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-box > button {
+    appearance: none;
+    background-color: transparent;
+    font-size: 1rem;
+    color: white;
+    padding: .5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .35rem;
+    transition: backdrop-filter 75ms ease-in, transform 60ms ease-out;
+}
+
+.wallet-box small {
+    font-size: .95rem;
+}
+
+.wallet-box span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.wallet-box.disabled {
+    background-color: #626262;
+    cursor: not-allowed;
+    filter: brightness(0.75);
+}
+
+.wallet-box + p {
+    margin: 0;
+    color: rgb(109, 100, 17);
+    text-align: center;
+    padding: .5rem .25rem;
+    font-size: .75rem;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.wallet-box strong {
+    font-family: monospace;
+}
+
+.wallet-box > button:hover {
+    backdrop-filter: brightness(75%);
+}
+
+.wallet-box > button:active {
+    transform: scale(110%);
+}
+
+.wallet-box input:read-only {
+    color: rgb(129 129 129);
+}

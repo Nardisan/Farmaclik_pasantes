@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mim_max_farmacia,access.min.max.farmacia,model_mim_max_farmacia,base.group_user,1,1,1,1
+access_lista_productos_min_max,access.lista.productos.min.max,model_lista_productos_min_max,base.group_user,1,1,1,1
+access_calculo_rotacion_producto,access.calculo.rotacion.producto,model_calculo_rotacion_producto,base.group_user,1,1,1,1
+

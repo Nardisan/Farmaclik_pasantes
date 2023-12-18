@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_saledetails_ref" inherit_id="point_of_sale.report_saledetails">
+    <t t-set="company" t-value="env.company"/>
+		<xpath expr="//div[@class='page']" position="replace">
+
+            <div class="page">
+
+                <div class="text-center">
+                    <h2>Detalles de ventas</h2>
+
+                    <strong><t t-esc="date_start" t-options="{'widget': 'datetime'}"/> - <t t-esc="date_stop" t-options="{'widget': 'datetime'}"/></strong>
+                </div>
+                <br/>
+
+                <h3>Sessiones</h3>
+                <table  class="table table-sm">
+                    <thead><tr>
+                        <th>Session Pos</th>
+                        <th>Reponsable</th>
+                        <th>Caja</th>
+                        <th>Empleado</th>
+                    </tr></thead>
+                    <tbody>
+
+                        <tr t-foreach='sessions' t-as='s'>
+                            <td><t t-esc="s['session']"/></td>
+                            <td><t t-esc="s['user_id']"/></td>
+                            <td><t t-esc="s['config_id']"/></td>
+                            <td><t t-esc="s['employee_id']"/></td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <br/>
+                <br/>
+
+                <h3>Pagos</h3>
+                <table  class="table table-sm">
+                    <thead><tr>
+                        <th>Nombre</th>
+                        <th>Total</th>
+                        <th>Total Ref</th>
+                    </tr></thead>
+                    <tbody>
+                    <tr t-foreach='payments' t-as='payment'>
+                        <td><t t-esc="payment['name']" /></td>
+                        <td><t t-esc="payment['total']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                        <td><t t-esc="payment['total_ref']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <br/>
+                <br/>
+
+                <h3>Impuestos</h3>
+                <table  class="table table-sm">
+                    <thead><tr>
+                        <th>Nombre</th>
+                        <th>Importe Impuesto</th>
+                        <th>Base Impuesto</th>
+                    </tr></thead>
+                    <tbody>
+                    <tr t-foreach='taxes' t-as='tax'>
+                        <td><t t-esc="tax['name']" /></td>
+                        <td><t t-esc="tax['tax_amount']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                        <td><t t-esc="tax['base_amount']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <br/>
+                <br/>
+
+                <strong>Total: <t t-esc='total_paid' t-options="{'widget': 'float', 'precision': 2}"/></strong>
+                <br/>
+                <strong>Total Ref: <t t-esc='total_paid_ref' t-options="{'widget': 'float', 'precision': 2}"/></strong>
+                <br/>
+                <br/>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Responsable :</th>
+                            <th>Recibe :</th>
+                        </tr>
+                    </thead>
+                </table>   
+            </div>
+        </xpath>
+</template>
+</data>
+</openerp>

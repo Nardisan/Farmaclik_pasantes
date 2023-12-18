@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="slider_style_form" model="ir.ui.view">
+		<field name="name">slider.style.form</field>
+		<field name="model">slider.styles</field>
+		<field name="arch" type="xml">
+			<form string="Slider Style">
+				<sheet>
+					<group>
+                         <field name="name"/>
+                         <field name="theme_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="slider_style_tree" model="ir.ui.view">
+		<field name="name">slider.style.tree</field>
+		<field name="model">slider.styles</field>
+		<field name="arch" type="xml">
+			<tree string="Slider Style">
+				<field name="name" />
+			    <field name="theme_id"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record id="action_slider_style" model="ir.actions.act_window">
+		<field name="name">Slider Style</field>
+		<field name="res_model">slider.styles</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem name="Slider Styles"
+            id="menu_slider_style"
+            action="action_slider_style"
+            parent="emipro_theme_base.menu_slider_settings"
+            sequence="2"
+            />
+   
+</odoo>

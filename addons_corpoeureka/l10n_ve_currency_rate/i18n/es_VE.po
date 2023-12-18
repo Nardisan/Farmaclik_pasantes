@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_currency_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 18:03+0000\n"
+"PO-Revision-Date: 2020-04-28 18:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.actions.server,name:l10n_ve_currency_rate.update_sale_price_product_ir_actions_server
+#: model:ir.cron,cron_name:l10n_ve_currency_rate.update_sale_price_product
+#: model:ir.cron,name:l10n_ve_currency_rate.update_sale_price_product
+msgid "Actualizar Producto "
+msgstr "Actualizar Producto "
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields.selection,name:l10n_ve_currency_rate.selection__res_currency_rate_server__server__bcv
+msgid "Banco Central de Venezuela"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields.selection,name:l10n_ve_currency_rate.selection__res_currency_rate_server__server__dolar-today
+msgid "DolarToday"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.actions.act_window,name:l10n_ve_currency_rate.res_currency_rate_server_type_action
+#: model:ir.ui.menu,name:l10n_ve_currency_rate.order_scheduling_report_menu
+msgid "Exchange Rate Server"
+msgstr "Tipo de Cambio Venezuela"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__name
+msgid "Money"
+msgstr "Moneda"
+
+#. module: l10n_ve_currency_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_currency_rate.product_template_kanban_view
+msgid "Price:"
+msgstr "Precio"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model,name:l10n_ve_currency_rate.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__res_currency
+msgid "Rate"
+msgstr "Tasa"
+
+#. module: l10n_ve_currency_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_currency_rate.res_currency_rate_server_view_form
+msgid "Rate exchange day"
+msgstr "Tasa de Cambio del dia"
+
+#. module: l10n_ve_currency_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_currency_rate.res_currency_rate_server_view_form
+msgid "Rates"
+msgstr "Tasas"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields.selection,name:l10n_ve_currency_rate.selection__res_currency_rate_server__server__sunacrip
+msgid "SUNACRIP"
+msgstr ""
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_product_product__list_price_usd
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_product_template__list_price_usd
+msgid "Sale Price USD"
+msgstr "Precio de Venta $"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_res_currency_rate_server__server
+msgid "Server"
+msgstr "Servidor"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_product_product__currency_usd_id
+#: model:ir.model.fields,field_description:l10n_ve_currency_rate.field_product_template__currency_usd_id
+msgid "USD"
+msgstr "Dolares"
+
+#. module: l10n_ve_currency_rate
+#: model:ir.model,name:l10n_ve_currency_rate.model_res_currency_rate_server
+msgid "res.currency.rate.server"
+msgstr ""

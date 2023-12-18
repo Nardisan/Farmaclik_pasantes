@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="paperformat_sales_book" model="report.paperformat">
+            <field name="name">European A4 Landscape</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="page_height">356</field>
+            <field name="page_width">216</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">8</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="sales_book" model="ir.actions.report">
+            <field name="name">Sales book</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="paperformat_id" ref="l10n_ve_accountant.paperformat_sales_book" />
+            <field name="report_name">l10n_ve_accountant.report_sales_book</field>
+            <field name="report_file">l10n_ve_accountant.report_sales_book</field>
+        </record>
+
+        <template id="l10n_ve_accountant.report_sales_book">
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="12"/>
+                <t t-set="data_report_header_spacing" t-value="9"/>
+                <t t-set="data_report_dpi" t-value="110"/>
+                <t t-call="l10n_ve_accountant.report_sales_book_doc"/>
+            </t>
+        </template>
+
+         <template id="l10n_ve_accountant.report_sales_book_doc">
+            <t t-call="web.html_container">            
+                <t t-call="web.basic_layout">
+                    <div class="page" style="font-size:12px;font-family: Times;line-height: 1.6;">
+                        <style type="text/css">
+                            table.tableizer-table{
+                                /**font-size:10px;**/
+                                font-family: Arial, Helvetica, sans-serif;
+                                }
+                            .tableizer-table td{
+                                /**font-size:10px;**/
+                                text-align: center;
+                                }
+                            .tableizer-table th {
+                                font-weight: bold;
+                                text-align: center;                                
+                                /**font-size:10px;**/
+                                /****/
+                                }
+                            tr.total td {
+                                background: transparent;
+                                border-style: none ;
+                                }
+                            table {text-align:center}
+                                .table-bordered {
+                                empty-cells: hide;
+                                }
+                            .table-bordered tr td:nth-child(1){
+                                text-align:left;
+                                }
+
+                            .logo_company{
+                                position:absolute;
+                                margin-top:15px;
+                                margin-left:10px;
+                            }
+
+                            .borde{
+                                border: solid 1px gray;
+                                border-radius: 20px;
+                                padding:5px;
+                            }
+                        </style>
+                        <br/>
+                        <table class="tableizer-table" style="width:100%;">
+                            <t t-set="R40" t-value="False"/>
+                            <t t-set="R41" t-value="False"/>
+                            <t t-set="R42" t-value="False"/>
+                            <t t-set="R43" t-value="False"/>
+                            <t t-set="R442" t-value="False"/>
+                            <t t-set="R452" t-value="False"/>
+                            <t t-set="R443" t-value="False"/>
+                            <t t-set="R453" t-value="False"/>
+                            <t t-set="R46" t-value="False"/>
+                            <t t-set="R47" t-value="False"/>
+                            <t t-set="R54" t-value="False"/>
+                            <t t-set="R62" t-value="False"/>
+                            <t t-set="R34" t-value="False"/>
+                            <t t-set="R35" t-value="False"/>
+                            <t t-set="R36" t-value="False"/>
+                            <t t-set="untaxed" t-value="0"/>
+                            <t t-set="exento" t-value="0"/>
+                            <t t-set="tax" t-value="0"/>
+                            <t t-set="retencion" t-value="0"/>
+                            <t t-set="total" t-value="0"/>
+                            <t t-set="iva_percibido" t-value="0"/>
+                            <t t-set="iva_percibido_g" t-value="0"/>
+                            <t t-set="iva_percibido_r" t-value="0"/>
+                            <t t-set="iva_percibido_ga" t-value="0"/>
+                            <t t-set="retencion_g" t-value="0"/>
+                            <t t-set="retencion_ga" t-value="0"/>
+                            <t t-set="retencion_r" t-value="0"/>
+                            <t t-set="retention" t-value="0"/>
+                            <t t-set="sum_export" t-value="0"/>
+                            <t t-set="monto_impuesto_untaxed" t-value="0"/>
+                            <t t-set="monto_impuesto_untaxed_exento" t-value="0"/>
+                            <t t-set="acum_exento" t-value="0"/>
+                            <thead>
+                                <tr>
+                                    <td class="text-center" colspan="23" valign="middle">
+                                      <div style="border:1px solid black;border-radius:20px;">
+                                        <table style="width:100%;">
+                                            <tr>
+                                                <td style="width:33%;" colspan="3" class="text-left" valign="middle">
+                                                    <img t-if="company_id.logo" t-att-src="image_data_uri(company_id.logo)" height="60px" style="max-width: 150px;padding-left:5px; margin-top:20px;"/>
+                                                </td>
+                                                <td style="width:34%;" colspan="16" class="text-center" valign="middle">
+                                                    <table style="width:100%;font-size:14px;margin-top:0px;">
+                                                        <tr style="margin-top:0px;">
+                                                            <th class="text-center"><span t-esc="company_id.name"/></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center"><span t-esc="company_vat"/></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center"><span>** VENTAS ** UHJ</span></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-center"><span>LIBRO DE VENTAS</span></th>
+                                                        </tr>
+                                                        <!-- <tr>
+                                                            <th class="text-center"><span>Sucursales: </span><span t-esc="branch"/></th>
+                                                        </tr> -->
+                                                        <tr>
+                                                            <th class="text-center">
+                                                                DEL: <span t-esc="data['date_from']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                                                                AL: <span t-esc="data['date_to']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                                                            </th>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td style="width:33%;" colspan="4" class="text-right" valign="middle">
+                                                    <ul class="list-unstyled" style="padding:5px">
+                                                        <li>Fecha:<span t-esc="datetime.datetime.now().strftime('%d/%m/%Y')"/></li>
+                                                        <li>Hora:<span t-esc="hora_printer"/></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="23">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:10px;">
+                                    <th colspan="11" style="background: transparent;border-style: none ;"/>
+                                    <th colspan="4" style="text-align:center; font-size:10px">Contribuyentes</th>
+                                    <th colspan="4" style="text-align:center; font-size:10px">No Contribuyentes</th>
+                                    <th colspan="4" style="text-align:center; font-size:10px">Retenciones de I.V.A</th>
+                                </tr>
+                                <tr class="borde" style="font-size:10px;">
+                                    <th style="">Oper. N°</th>                       <!-- 1 -->
+                                    <th style="">Fecha de la Factura</th>            <!-- 2 -->
+                                    <th style="width:6%;">RIF. No. o Cédula</th>                            <!-- 3 -->
+                                    <th style="">Nombre Apellido o Razón Social del Comprador</th>          <!-- 4 -->
+                                    <th style="width:6%;">Nro Control</th>         <!-- 5 -->
+                                    <th style="">Factura.</th>             <!-- 6 -->
+                                    <th>Núm.Planilla de Export</th>         <!--7 -->
+                                    <th>Núm.Expedte. Export</th>            <!--8 -->
+                                    <th style="width:4%;">Serie</th>                          <!-- 9 Serie -->
+                                    <th style="">Número Nota Debito</th>             <!-- 10 -->
+                                    <th style="">Número Nota Credito.</th>          <!-- 11 -->
+                                    <th style="">Tipo de Transacc.</th>              <!-- 12 -->
+                                    <th style="">Número de Factura Afectada</th>     <!-- 13 -->
+                                    <th style="">Total Ventas Incluyendo el IVA</th> <!-- 14 -->
+                                    <th style="">Ventas Exentas o Exoneradas</th>    <!-- 15 -->
+                                    <th style="">Base Imponible</th>                 <!-- 16 -->
+                                    <th style="">% Alícuota</th>                     <!-- 17 -->
+                                    <th style="">Impuesto IVA</th>                   <!-- 18 -->
+                                    <th style="">Ventas Exentas o Exoneradas</th>    <!-- 19 -->
+                                    <th style="">Base Imponible</th>                 <!-- 20 -->
+                                    <th style="">% Alícuota</th>                     <!-- 21 -->
+                                    <th style="">Impuesto IVA</th>                   <!-- 22 -->
+                                    <th style="">IVA Retenido<br/>(por el comprador)</th><!-- 23 -->
+                                    <th style="">Comp. de Retención</th>               <!-- 24  -->
+                                    <!-- <th style="">IVA Percibido</th>                  25 -->
+                                    <th style="">Agente Retención</th>                  <!-- 26 -->
+                                </tr>
+                            </thead>
+                            <t t-if="con_documento">
+                                <!-- EN DOLARES -->
+                                <t t-if="not in_bs ">
+                                    <tbody style="font-size:10px;">
+                                        <t t-set="count" t-value="0"/>
+                                        <t t-set="fac" t-value="fact.filtered(lambda doc: doc.transaction_type != '04-ajuste')"/>
+                                        <t t-set="base_imponible_total" t-value="0"/>
+                                        <t t-foreach="fac.sorted(lambda m: (m.invoice_date, m.name))" t-as="s">
+                                            <t t-if="s.state !='annulled' and s.state !='cancel'">
+                                                <t t-if="s.retention == '01-sin'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-if="s.retention == '02-special'">
+                                                    <t t-set="retention" t-value="0.75"/>
+                                                </t>
+                                                <t t-if="s.retention == '03-ordinary'">
+                                                    <t t-set="retention" t-value="1"/>
+                                                </t>
+                                                <t t-set="count" t-value="count+1"/>
+                                                <tr>
+                                                    <t t-if="s.doc_impor_export">
+                                                            <!-- EMPIEZAN LOS CALCULOS -->
+                                                        <t t-set="total" t-if="s.move_type == 'out_invoice'" t-value="total + sum(s.mapped('amount_total'))"/>
+                                                        <t t-set="total" t-if="s.move_type == 'out_refund'" t-value="total - sum(s.mapped('amount_total'))"/>
+                                                    
+                                                        <!-- Calculamos el Exento -->
+                                                        <t t-set="exento" t-value="sum(s.invoice_line_ids.filtered(lambda line: not len(line.tax_ids)).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))"/> 
+                                                        <!-- Calculamos los impuestos REDUCIDOS -->
+                                                        <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))))">
+                                                            <!-- Base imponible del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 +sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 -sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))"/>
+
+                                                            <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                            <t t-if="s.wh_id">
+                                                                <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="retencion_r" t-value="retencion_r-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="retencion_r" t-value="retencion_r+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_r" t-value="iva_percibido_r-(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_r" t-value="iva_percibido_r+(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                            </t>
+                                                        </t>
+                                                        <!-- Calculamos los impuestos ADICIONAL -->
+                                                        <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))))">
+                                                            <!-- Base imponible del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 +sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 -sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))"/>
+          
+                                                            <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                            <t t-if="s.wh_id">
+                                                                <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="retencion_ga" t-value="retencion_ga-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="retencion_ga" t-value="retencion_ga+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_ga" t-value="iva_percibido_ga-(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_ga" t-value="iva_percibido_ga+(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                            </t>
+                                                        </t>
+                                                        <!-- Calculamos los impuestos GENERAL -->
+                                                        <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))))">
+                                                            <!-- Base imponible del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 +sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 -sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))"/>
+                                                            
+                                                            <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                            <t t-if="s.wh_id">
+                                                                <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="retencion_g" t-value="retencion_g-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="retencion_g" t-value="retencion_g+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_g" t-value="iva_percibido_g-(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_g" t-value="iva_percibido_g+(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                            </t>
+                                                        </t>
+                                                        <!-- Calculamos el TOTAL de impuestos EXENTOS -->
+                                                        <t t-set="untaxed" t-if="s.move_type == 'out_invoice'" t-value="untaxed + exento"/>
+                                                        <t t-set="untaxed" t-if="s.move_type == 'out_refund'" t-value="untaxed - exento"/>
+                                                        <t t-set="R41" t-if="s.move_type == 'out_invoice'" t-value="R41 + exento"/>
+                                                        <t t-set="R41" t-if="s.move_type == 'out_refund'" t-value="R41 - exento"/>
+                                                        <!-- Retenciones -->
+                                                        <t t-if="s.move_type == 'out_invoice'" t-set="retencion" t-value="retencion + (s.wh_id.total_tax_ret /s.wh_id.manual_currency_exchange_rate) "/>
+                                                        <t t-if="s.move_type == 'out_refund'" t-set="retencion" t-value="retencion - (s.wh_id.total_tax_ret /s.wh_id.manual_currency_exchange_rate)"/>
+                                                        <!-- TOTAL de IMPUESTOS (Reducido + General + Adicional)-->
+                                                        <t t-set="tax" t-if="s.move_type == 'out_invoice'" t-value="tax + s.amount_tax"/>
+                                                        <t t-set="tax" t-if="s.move_type == 'out_refund'" t-value="tax - s.amount_tax"/>
+                                                        <!-- IVA PERCIBIDO -->
+                                                        <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido" t-value="iva_percibido+((s.amount_tax)-(s.wh_id.total_tax_ret))"/>
+                                                        <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido" t-value="iva_percibido-((s.amount_tax)-(s.wh_id.total_tax_ret))"/>
+                                                        <!-- TERMINAN LOS CALCULOS -->
+                                                    </t>
+                                                    
+                                                    
+                                                    <t t-else="">
+                                                     <!-- EMPIEZAN LOS CALCULOS -->
+                                                        <t t-set="total" t-if="s.move_type == 'out_invoice'" t-value="total + sum(s.mapped('amount_total'))"/>
+                                                        <t t-set="total" t-if="s.move_type == 'out_refund'" t-value="total - sum(s.mapped('amount_total'))"/>
+                                                        
+                                                        <!-- Calculamos el Exento -->
+                                                        <t t-set="exento" t-value="sum(s.invoice_line_ids.filtered(lambda line: not len(line.tax_ids)).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))"/> 
+                                                        <!-- Calculamos los impuestos REDUCIDOS -->
+                                                        <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))))">
+                                                            <!-- Base imponible del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R443" t-value="R443 +sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R443" t-value="R443 -sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))"/>
+                                                            <!-- Monto del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R453" t-value="R453 + (sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R453" t-value="R453 - (sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))"/>
+                                                            <!-- Iva Percibido  -->
+                                                            <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                            <t t-if="s.wh_id">
+                                                                <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="retencion_r" t-value="retencion_r-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="retencion_r" t-value="retencion_r+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_r" t-value="iva_percibido_r-(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_r" t-value="iva_percibido_r+(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                            </t>
+                                                        </t>
+                                                        <!-- Calculamos los impuestos ADICIONAL -->
+                                                        <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))))">
+                                                            <!-- Base imponible del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R442" t-value="R442 +sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R442" t-value="R442 -sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))"/>
+                                                            <!-- Monto del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R452" t-value="R452 + (sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R452" t-value="R452 - (sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))"/>
+                                                            <!-- Iva Percibido  -->
+                                                            <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                            <t t-if="s.wh_id">
+                                                                <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="retencion_ga" t-value="retencion_ga-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="retencion_ga" t-value="retencion_ga+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_ga" t-value="iva_percibido_ga-(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_ga" t-value="iva_percibido_ga+(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                            </t>
+                                                        </t>
+                                                        <!-- Calculamos los impuestos GENERAL -->
+                                                        <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))))">
+                                                            <!-- Base imponible del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R42" t-value="R42 +sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R42" t-value="R42 -sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))"/>
+                                                            <!-- Monto del Impuesto -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="R43" t-value="R43 + (sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="R43" t-value="R43 - (sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))"/>
+                                                            <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                            <t t-if="s.wh_id">
+                                                                <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="retencion_g" t-value="retencion_g-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="retencion_g" t-value="retencion_g+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_g" t-value="iva_percibido_g-(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_g" t-value="iva_percibido_g+(sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                            </t>
+                                                        </t>
+                                                        <!-- Calculamos el TOTAL de impuestos EXENTOS -->
+                                                        <t t-set="untaxed" t-if="s.move_type == 'out_invoice'" t-value="untaxed + exento"/>
+                                                        <t t-set="untaxed" t-if="s.move_type == 'out_refund'" t-value="untaxed - exento"/>
+                                                        <t t-set="R40" t-if="s.move_type == 'out_invoice'" t-value="R40 + exento"/>
+                                                        <t t-set="R40" t-if="s.move_type == 'out_refund'" t-value="R40 - exento"/>
+                                                        <!-- Retenciones -->
+                                                        <t t-if="s.move_type == 'out_invoice'" t-set="retencion" t-value="retencion + (s.wh_id.total_tax_ret / s.wh_id.manual_currency_exchange_rate)"/>
+                                                        <t t-if="s.move_type == 'out_refund'" t-set="retencion" t-value="retencion - (s.wh_id.total_tax_ret / s.wh_id.manual_currency_exchange_rate)"/>
+                                                        <!-- TOTAL de IMPUESTOS (Reducido + General + Adicional)-->
+                                                        <t t-set="tax" t-if="s.move_type == 'out_invoice'" t-value="tax + s.amount_tax"/>
+                                                        <t t-set="tax" t-if="s.move_type == 'out_refund'" t-value="tax - s.amount_tax"/>
+                                                        <!-- IVA PERCIBIDO -->
+                                                        <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido" t-value="iva_percibido+((s.amount_tax)-(s.wh_id.total_tax_ret))"/>
+                                                        <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido" t-value="iva_percibido-((s.amount_tax)-(s.wh_id.total_tax_ret))"/>
+                                                        <!-- TERMINAN LOS CALCULOS -->
+                                                    </t>
+
+                                                    <td><t t-esc="count"/></td> <!-- 1-->
+                                                    <td><span t-esc="s.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td> <!-- 2 -->
+                                                    <td><span t-esc="s.partner_id.rif"/></td> <!--  3 -->
+                                                    <td><span t-esc="s.partner_id.name"/></td> <!--  4 -->
+                                                    <td>
+                                                        <t t-if="s.move_type=='out_invoice'">
+                                                            <t t-esc="s.nro_control"/>
+                                                        </t>
+                                                        <t t-if="s.move_type == 'out_refund' ">
+                                                            <t t-esc="s.ref_credit"/>                                                        
+                                                        </t>
+                                                    </td> <!--  6 -->
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_invoice'">
+                                                            <span t-esc="int(s.name) if len(s.name) &lt;= 6 else s.name"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span>-</span>
+                                                        </t>
+                                                    </td> <!--  5 -->
+                                                    <!-- num.expediente de import -->
+                                                    <td> 
+                                                        <span t-esc="s.num_import"></span>
+                                                    </td>
+                                                    <!--num. planilla de import  -->
+                                                    <td>
+                                                        <span t-esc="s.num_export"></span>
+                                                    </td>
+                                                    <td> <!--  SERIE (en caso de que exista)-->
+                                                        <!-- <t t-if="s.account_serie">
+                                                          <span>Serie </span><span t-esc="s.account_serie.upper()"/>
+                                                        </t> -->
+                                                        <span>-</span>
+                                                    </td>
+                                                    <td><span t-esc="debito"/></td> <!--  7 -->
+                                                    <td><span t-esc="int(s.num_credit) if s.move_type == 'out_refund' else '-'"/></td> <!--  8 -->
+                                                    <td><span t-esc="s.transaction_type"/></td><!--  9 -->
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_refund' and len(s.reversed_entry_id) &gt; 0">
+                                                            <span t-esc="int(s.reversed_entry_id.name) if len(s.reversed_entry_id.name) &lt;= 6 else s.reversed_entry_id.name"/>
+                                                        </t>
+                                                        <t t-else="">-</t>
+                                                        <!-- <span t-esc="s.reversed_entry_id.name if s.move_type == 'out_refund' else '-'"/> -->
+                                                    </td> <!--  10 -->
+
+                                                    <!-- Total de Ventas incluyendo el IVA-->
+                                                    <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-esc="sum(s.mapped('amount_total'))" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td>
+                                                    <!-- Total Compras Incluyendo el IVA -->
+                                                    <t t-set="monto_impuesto" t-value="sum(s.invoice_line_ids.mapped('tax_ids.amount'))"/>
+                                                    <t t-set="monto_impuesto_untaxed" t-value="sum(s.invoice_line_ids.filtered(lambda whl: not whl.tax_ids).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))"/>
+                                                    <t t-set="monto_impuesto_untaxed_exento" t-value="sum(s.invoice_line_ids.filtered(lambda whl: len(whl.tax_ids) == 0).mapped('price_subtotal'))"/>
+                                                    <t t-if="monto_impuesto == 0 or monto_impuesto_untaxed &gt; 0 or monto_impuesto_untaxed_exento">
+                                                        <td class="text-right"><t t-if="s.move_type == 'in_refund'">-</t>
+                                                            <span t-esc="exento" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                            <!-- <t t-set="acum_exento" t-value="acum_exento + (exento)"/> -->
+                                                        </td> 
+                                                    </t>
+                                                    <t t-else="">
+                                                        <td class="text-right"><t t-if="s.move_type == 'in_refund'">-</t><span>0.0</span></td> 
+                                                    </t>
+                                                    <t t-set="acum_exento" t-value="acum_exento + (exento)"/>
+                                                    <!-- Venta Excenas o exoneradas -->
+                                                    <!-- <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="exento"/>
+                                                    </td> -->
+                                                    <!-- Base Imponible-->
+                                                    <td class="text-right">
+                                                        <t t-if="sum(s.invoice_line_ids.mapped('tax_ids.amount')) &gt; 0">
+                                                            <t t-if="s.move_type == 'out_refund'">-</t>
+                                                            <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal'))"/>
+                                                            
+                                                            <t t-if="s.move_type == 'out_invoice'">
+                                                                <t t-set="base_imponible_total" t-value="base_imponible_total + sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal'))"/>
+                                                            </t>
+                                                            <t t-if="s.move_type == 'out_refund'">
+                                                                <t t-set="base_imponible_total" t-value="base_imponible_total - sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal'))"/>
+                                                            </t>
+                                                        </t>
+                                                        <t t-else="">
+                                                           <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                        </t>
+                                                    </td>
+                                                    <!-- Total Impuestos  (alicuota) 15 -->
+                                                    <td><span t-esc="sum(s.invoice_line_ids.mapped('tax_ids.amount'))"/>%</td>
+                                                    <!-- Monto Total de los Impuestos (Reducido + General + Adicional) 16 -->
+                                                    <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-esc="s.amount_tax" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                    </td>
+
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+
+                                                    <!-- Impuesto Retenido -->
+                                                    <td class="text-right"><!-- <t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="s.wh_id.total_tax_ret"/> -->
+                                                    </td>
+                                                    <!--comprobante de retencion -->
+                                                    <td>-</td>
+                                                    <!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                                    <!-- <td class="text-right">
+                                                        <t t-if="s.move_type == 'out_refund'">-</t>
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="(s.amount_tax)-(s.wh_id.total_tax_ret)"/>
+                                                    </td> -->
+                                                    <td>-</td>
+                                               </tr>
+                                            </t>
+                                            <!-- #################################################################################-->
+                                            <t t-if="s.state =='cancel'">
+                                                <t t-if="s.retention == '01-sin'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-if="s.retention == '02-special'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-if="s.retention == '03-ordinary'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-set="count" t-value="count+1"/>
+                                                <tr>
+                                                    <td><t t-esc="count"/></td> <!-- 1-->
+                                                    <td><span t-esc="s.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td> <!-- 2 -->
+                                                    <td><span t-esc="s.partner_id.rif"/></td> <!--  3 -->
+                                                    <td><span t-esc="s.partner_id.name"/></td> <!--  4 -->
+                                                    <td>
+                                                        <t t-if="s.move_type=='out_invoice'">
+                                                            <t t-esc="s.nro_control"/>
+                                                        </t>
+                                                        <t t-if="s.move_type == 'out_refund' ">
+                                                            <t t-esc="s.ref_credit"/>                                                        
+                                                        </t>
+                                                        <!-- <span t-esc="s.nro_control"/> -->
+                                                    </td> <!--  6 -->
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_invoice'">
+                                                            <span t-esc="int(s.name) if len(s.name) &lt;= 6 else s.name"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span>-</span>
+                                                        </t>
+                                                    </td> <!--  5 -->
+                                                    <!-- num.expediente de import -->    
+                                                    <td> 
+                                                        <span t-esc="s.num_import"></span>
+                                                    </td>
+                                                     <!--num. planilla de import  -->
+                                                    <td>
+                                                        <span t-esc="s.num_export"></span>
+                                                    </td>
+                                                    <td> <!--  SERIE (en caso de que exista)-->
+                                                        <!-- <t t-if="s.account_serie">
+                                                          <span>Serie </span><span t-esc="s.account_serie.upper()"/>
+                                                        </t> -->
+                                                        <span>-</span>
+                                                    </td>
+                                                    <td><span t-esc="debito"/></td> <!--  7 -->
+                                                    <!--  <td><span t-esc="int(s.name) if s.move_type == 'out_refund' else '-'"/></td> 8 -->
+                                                    <td><span t-esc="int(s.num_credit) if s.num_credit and len(s.num_credit) &lt;= 6 else '-'"/></td> <!--  8 -->
+                                                    <td><span t-esc="s.transaction_type"/></td><!--  9 -->
+                                                    
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_refund' and len(s.reversed_entry_id) &gt; 0">
+                                                            <span t-esc="int(s.reversed_entry_id.name) if len(s.reversed_entry_id.name) &lt;= 6 else s.reversed_entry_id.name"/>
+                                                        </t>
+                                                        <t t-else="">-</t>
+                                                        <!-- <span t-esc="s.reversed_entry_id.name if s.move_type == 'out_refund' else '-'"/> -->
+                                                    </td> <!--  10 -->
+
+                                                    <!-- Total de Ventas incluyendo el IVA-->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+                                                    
+                                                    <!-- Venta Excenas o exoneradas -->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+                                                    <!-- Base Imponible-->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+                                                    <!-- Total Impuestos  (alicuota) 15 -->
+                                                    <td>0,0 %</td>
+                                                    <!-- Monto Total de los Impuestos (Reducido + General + Adicional) 16 -->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+
+                                                    <!-- Impuesto Retenido -->
+                                                    <td><!-- <t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="s.wh_id.total_tax_ret"/> -->
+                                                    </td>
+                                                    <!--comprobante de retencion -->
+                                                    <td>-</td>
+                                                    <!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                                    <td>
+                                                        -
+                                                        <!-- <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/> -->
+                                                    </td>
+                                               </tr>
+                                            </t>
+                                            <!-- #################################################################################-->
+                                        </t>
+
+                                        <!-- linea de las retenciones -->
+                                        <t t-foreach="rete.sorted(lambda r: (r.retention_id.date, r.retention_id.id))" t-as="ret">
+                                            <t t-set="count" t-value="count+1"/>
+                                            <tr>
+                                                <td><t t-esc="count"/></td> <!-- N° Operación -->  
+                                                <td><span t-esc="ret.retention_id.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td> <!-- Fecha de la retención -->
+                                                <td><span t-esc="ret.retention_id.partner_id.rif"/></td>  <!-- RIF -->
+                                                <td><span t-esc="ret.retention_id.partner_id.name"/></td> <!-- Nombre o Razón social -->
+                                              
+                                                <td><span t-esc="ret.invoice_id.nro_control"/></td><!-- Número de Control de Factura -->
+                                                <td>-</td> <!-- nmero de factura-->
+                                                            
+
+                                                <td>-</td> <!-- planilla Importacion-->
+                                                <td>-</td> <!-- expediente Importacion--> 
+                                                <td>-</td><!-- serie -->
+                                                <td>-</td> <!-- n debit -->
+                                                <td>-</td> <!-- n de cred -->
+                                                <td>-</td> <!-- tipo de transa-->
+                                                <td><span t-esc="ret.invoice_id.name"/></td><!-- Número de factura afectada -->
+                                                <td>-</td><!-- t compras inclydo iva -->
+                                                <td>-</td><!-- exento -->
+                                                <td>-</td><!-- b imponible -->
+                                                <td>-</td><!-- aliq -->
+                                                <td>-</td><!-- imp iva  -->
+                                                <td>-</td><!-- exento -->
+                                                <td>-</td><!-- b imponible -->
+                                                <td>-</td><!-- aliq -->
+                                                <td>-</td><!-- imp iva  -->
+                                                <td class="text-right"><t t-if="ret.retention_id.move_type == 'out_refund'">-</t><span t-esc="ret.ret_amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                <!-- <t t-set="acumret" t-value="acumret + ret.ret_amount" />-->
+                                                </td><!--iva retenido al comprador -->
+                                                <!-- <td><t t-if="ret.retention_id.move_type == 'in_refund'">-</t>
+                                                <span t-esc="ret.rate_amount"  /></td> --><!--porcentaje ret -->
+                                                <td>
+                                                    <t t-if="ret.retention_id.move_type == 'in_refund'">-</t><span t-esc="ret.retention_id.customer_doc_number"/>
+                                                </td><!-- comprobante de retencion -->
+                                                <td><!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                                    -
+                                                </td>
+                                            </tr>
+                                        </t>
+                                            <!-- fin las retenciones  -->
+                                        <!-- Calculos Totales -->
+                                        <t t-set="R46" t-value="R40+R42+R442+R443"/>
+                                        <t t-set="R47" t-value="R43+R452+R453"/>
+                                        <t t-set="R54" t-value="R34"/>
+                                        <!-- FIN calculos totales -->
+                                        <tr class="total">
+                                            <td colspan="12" style="text-align:center"/>
+                                            <td colspan="1" style="text-align:center"><strong>TOTAL</strong></td>
+                                            <!-- Total Ventas Incluyendo el IVA --> 
+                                            <th class="text-right">
+                                                <span t-esc="total" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                            </th>
+                                            <!-- Ventas Internas No Gravadas --> 
+                                            <th class="text-right"><span t-esc="R40" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></th>
+                                            <!-- Base Imponible --> 
+                                            <th class="text-center">
+                                              <!--<span t-esc="R46" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>-->
+                                              <span t-esc="base_imponible_total" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                            </th>
+                                            <th>-</th><!-- alicuota -->
+                                            <!-- Total Impuestos (General + Adicional + Reducido) --> 
+                                            <th class="text-right"><span t-esc="tax" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></th>
+                                            
+                                            <th/>
+                                            <th/>
+                                            <th/>
+                                            <th/>
+                                            <!-- IVA RETENIDO POR EL COMPRADOR -->
+                                            <th class="text-right"><span t-esc="retencion" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></th>
+                                            <th>-</th><!-- número de comprobante -->
+                                            <!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                            <th>-
+                                                <!-- <span t-esc="iva_percibido" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> -->
+                                            </th>
+
+                                        </tr>
+                                    </tbody>
+                                </t>
+                                <!-- EN BS-->
+                                <t t-else="">
+                                    <tbody style="font-size:10px;">
+                                        <t t-set="count" t-value="0"/>
+                                        <t t-set="fac" t-value="fact.filtered(lambda doc: doc.transaction_type != '04-ajuste')"/>
+                                        <t t-set="base_imponible_total" t-value="0"/>
+                                        <t t-foreach="fac.sorted(lambda m: (m.invoice_date, m.name))" t-as="s">
+                                            <t t-if="s.state !='annulled' and s.state !='cancel'">
+                                                <t t-if="s.retention == '01-sin'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-if="s.retention == '02-special'">
+                                                    <t t-set="retention" t-value="0.75"/>
+                                                </t>
+                                                <t t-if="s.retention == '03-ordinary'">
+                                                    <t t-set="retention" t-value="1"/>
+                                                </t>
+                                                <t t-set="count" t-value="count+1"/>
+                                                <tr>
+                                                    <t t-if="s.doc_impor_export">
+                                                        <!-- EMPIEZAN LOS CALCULOS -->
+                                                        <t t-if="s.currency_id == s.company_id.currency_id">
+                                                            <t t-set="total" t-if="s.move_type == 'out_invoice'" t-value="total + (sum(s.mapped('amount_total')) * s.manual_currency_exchange_rate)"/>
+                                                            <t t-set="total" t-if="s.move_type == 'out_refund'" t-value="total - (sum(s.mapped('amount_total')) * s.manual_currency_exchange_rate)"/>
+                                                            <!-- <t t-set="sum_export" t-if="s.check_id" t-value="sum_export + (sum(s.mapped('amount_total')) * s.manual_currency_exchange_rate)"/> -->
+                                                            
+                                                            <!-- Calculamos el Exento -->
+                                                            <t t-set="exento" t-value="(sum(s.invoice_line_ids.filtered(lambda line: not len(line.tax_ids)).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))) * s.manual_currency_exchange_rate"/> 
+                                                            <!-- Calculamos los impuestos REDUCIDOS -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 - (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')) * s.manual_currency_exchange_rate)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_r" t-value="retencion_r-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_r" t-value="retencion_r+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_r" t-value="iva_percibido_r-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_r" t-value="iva_percibido_r+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos ADICIONAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 +(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_ga" t-value="retencion_ga-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_ga" t-value="retencion_ga+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_ga" t-value="iva_percibido_ga-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_ga" t-value="iva_percibido_ga+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos GENERAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_g" t-value="retencion_g-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_g" t-value="retencion_g+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_g" t-value="iva_percibido_g-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_g" t-value="iva_percibido_g+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos el TOTAL de impuestos EXENTOS -->
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_invoice'" t-value="untaxed + exento"/>
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_refund'" t-value="untaxed - exento"/>
+                                                            <t t-set="R41" t-if="s.move_type == 'out_invoice'" t-value="R41 + exento"/>
+                                                            <t t-set="R41" t-if="s.move_type == 'out_refund'" t-value="R41 - exento"/>
+                                                            <!-- Retenciones -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="retencion" t-value="retencion + (s.wh_id.total_tax_ret * s.manual_currency_exchange_rate)"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="retencion" t-value="retencion - (s.wh_id.total_tax_ret * s.manual_currency_exchange_rate)"/>
+                                                            <!-- TOTAL de IMPUESTOS (Reducido + General + Adicional)-->
+                                                            <t t-set="tax" t-if="s.move_type == 'out_invoice'" t-value="tax + (s.amount_tax * s.manual_currency_exchange_rate)"/>
+                                                            <t t-set="tax" t-if="s.move_type == 'out_refund'" t-value="tax - (s.amount_tax * s.manual_currency_exchange_rate)"/>
+                                                            <!-- IVA PERCIBIDO -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido" t-value="iva_percibido+(((s.amount_tax)-(s.wh_id.total_tax_ret))* s.manual_currency_exchange_rate)"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido" t-value="iva_percibido-(((s.amount_tax)-(s.wh_id.total_tax_ret))* s.manual_currency_exchange_rate)"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <t t-set="total" t-if="s.move_type == 'out_invoice'" t-value="total + (sum(s.mapped('amount_total')) )"/>
+                                                            <t t-set="total" t-if="s.move_type == 'out_refund'" t-value="total - (sum(s.mapped('amount_total')) )"/>
+                                                            <!-- Calculamos el Exento -->
+                                                            <t t-set="exento" t-value="(sum(s.invoice_line_ids.filtered(lambda line: not len(line.tax_ids)).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))) "/> 
+                                                            <!-- Calculamos los impuestos REDUCIDOS -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R41" t-value="R41 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R41" t-value="R41 - (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')) )"/>
+                                                                
+
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_r" t-value="retencion_r-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_r" t-value="retencion_r+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_r" t-value="iva_percibido_r-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_r" t-value="iva_percibido_r+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)))"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos ADICIONAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R442" t-value="R442 +(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R442" t-value="R442 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))"/>
+
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_ga" t-value="retencion_ga-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_ga" t-value="retencion_ga+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_ga" t-value="iva_percibido_ga-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_ga" t-value="iva_percibido_ga+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)))"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos GENERAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R42" t-value="R42 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R42" t-value="R42 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))"/>
+
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_g" t-value="retencion_g-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_g" t-value="retencion_g+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_g" t-value="iva_percibido_g-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_g" t-value="iva_percibido_g+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)))"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos el TOTAL de impuestos EXENTOS -->
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_invoice'" t-value="untaxed + exento"/>
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_refund'" t-value="untaxed - exento"/>
+                                                            <t t-set="R40" t-if="s.move_type == 'out_invoice'" t-value="R40 + exento"/>
+                                                            <t t-set="R40" t-if="s.move_type == 'out_refund'" t-value="R40 - exento"/>
+                                                            <!-- Retenciones -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="retencion" t-value="retencion + (s.wh_id.total_tax_ret / s.wh_id.manual_currency_exchange_rate)"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="retencion" t-value="retencion - (s.wh_id.total_tax_ret / s.wh_id.manual_currency_exchange_rate)"/>
+                                                            <!-- TOTAL de IMPUESTOS (Reducido + General + Adicional)-->
+                                                            <t t-set="tax" t-if="s.move_type == 'out_invoice'" t-value="tax + (s.amount_tax )"/>
+                                                            <t t-set="tax" t-if="s.move_type == 'out_refund'" t-value="tax - (s.amount_tax )"/>
+                                                            <!-- IVA PERCIBIDO -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido" t-value="iva_percibido+(((s.amount_tax)-(s.wh_id.total_tax_ret)))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido" t-value="iva_percibido-(((s.amount_tax)-(s.wh_id.total_tax_ret)))"/>
+                                                        </t>
+                                                    <!-- TERMINAN LOS CALCULOS -->
+                                                
+                                                    </t>
+
+
+                                
+                                                    <t t-else="">
+                                                        <!-- EMPIEZAN LOS CALCULOS -->
+                                                        <t t-if="s.currency_id == s.company_id.currency_id">
+                                                            <t t-set="total" t-if="s.move_type == 'out_invoice'" t-value="total + (sum(s.mapped('amount_total')) * s.manual_currency_exchange_rate)"/>
+                                                            <t t-set="total" t-if="s.move_type == 'out_refund'" t-value="total - (sum(s.mapped('amount_total')) * s.manual_currency_exchange_rate)"/>
+                                                            <!-- <t t-set="sum_export" t-if="s.check_id" t-value="sum_export + (sum(s.mapped('amount_total')) * s.manual_currency_exchange_rate)"/> -->
+                                                            
+                                                            <!-- Calculamos el Exento -->
+                                                            <t t-set="exento" t-value="(sum(s.invoice_line_ids.filtered(lambda line: not len(line.tax_ids)).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))) * s.manual_currency_exchange_rate"/> 
+                                                            <!-- Calculamos los impuestos REDUCIDOS -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R443" t-value="R443 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R443" t-value="R443 - (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')) * s.manual_currency_exchange_rate)"/>
+                                                                <!-- Monto del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R453" t-value="R453 + ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))) * s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R453" t-value="R453 - ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))) * s.manual_currency_exchange_rate)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_r" t-value="retencion_r-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_r" t-value="retencion_r+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_r" t-value="iva_percibido_r-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_r" t-value="iva_percibido_r+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos ADICIONAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R442" t-value="R442 +(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R442" t-value="R442 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <!-- Monto del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R452" t-value="R452 + ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R452" t-value="R452 - ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))* s.manual_currency_exchange_rate)"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_ga" t-value="retencion_ga-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_ga" t-value="retencion_ga+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_ga" t-value="iva_percibido_ga-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_ga" t-value="iva_percibido_ga+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos GENERAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R42" t-value="R42 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R42" t-value="R42 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                <!-- Monto del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R43" t-value="R43 + ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))* s.manual_currency_exchange_rate)"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R43" t-value="R43 - ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))* s.manual_currency_exchange_rate)"/>
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_g" t-value="retencion_g-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_g" t-value="retencion_g+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)* s.manual_currency_exchange_rate)"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_g" t-value="iva_percibido_g-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_g" t-value="iva_percibido_g+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos el TOTAL de impuestos EXENTOS -->
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_invoice'" t-value="untaxed + exento"/>
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_refund'" t-value="untaxed - exento"/>
+                                                            <t t-set="R40" t-if="s.move_type == 'out_invoice'" t-value="R40 + exento"/>
+                                                            <t t-set="R40" t-if="s.move_type == 'out_refund'" t-value="R40 - exento"/>
+                                                            <!-- Retenciones -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="retencion" t-value="retencion + (s.wh_id.total_tax_ret * s.manual_currency_exchange_rate)"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="retencion" t-value="retencion - (s.wh_id.total_tax_ret * s.manual_currency_exchange_rate)"/>
+                                                            <!-- TOTAL de IMPUESTOS (Reducido + General + Adicional)-->
+                                                            <t t-set="tax" t-if="s.move_type == 'out_invoice'" t-value="tax + (s.amount_tax * s.manual_currency_exchange_rate)"/>
+                                                            <t t-set="tax" t-if="s.move_type == 'out_refund'" t-value="tax - (s.amount_tax * s.manual_currency_exchange_rate)"/>
+                                                            <!-- IVA PERCIBIDO -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido" t-value="iva_percibido+(((s.amount_tax)-(s.wh_id.total_tax_ret))* s.manual_currency_exchange_rate)"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido" t-value="iva_percibido-(((s.amount_tax)-(s.wh_id.total_tax_ret))* s.manual_currency_exchange_rate)"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <t t-set="total" t-if="s.move_type == 'out_invoice'" t-value="total + (sum(s.mapped('amount_total')) )"/>
+                                                            <t t-set="total" t-if="s.move_type == 'out_refund'" t-value="total - (sum(s.mapped('amount_total')) )"/>
+                                                            <!-- Calculamos el Exento -->
+                                                            <t t-set="exento" t-value="(sum(s.invoice_line_ids.filtered(lambda line: not len(line.tax_ids)).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))) "/> 
+                                                            <!-- Calculamos los impuestos REDUCIDOS -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R443" t-value="R443 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R443" t-value="R443 - (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')) )"/>
+                                                                <!-- Monto del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R453" t-value="R453 + ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))) )"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R453" t-value="R453 - ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))) )"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_r" t-value="retencion_r-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_r" t-value="retencion_r+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_r" t-value="iva_percibido_r-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_r" t-value="iva_percibido_r+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'reduced'))).mapped('price_subtotal')))*retention)))"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos ADICIONAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R442" t-value="R442 +(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R442" t-value="R442 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))"/>
+                                                                <!-- Monto del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R452" t-value="R452 + ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R452" t-value="R452 - ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))))"/>
+                                                                <!-- Iva Percibido  -->
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_ga" t-value="retencion_ga-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_ga" t-value="retencion_ga+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_ga" t-value="iva_percibido_ga-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_ga" t-value="iva_percibido_ga+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'additional'))).mapped('price_subtotal')))*retention)))"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos los impuestos GENERAL -->
+                                                            <t t-if="len(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))))">
+                                                                <!-- Base imponible del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R42" t-value="R42 + (sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R42" t-value="R42 -(sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))"/>
+                                                                <!-- Monto del Impuesto -->
+                                                                <t t-if="s.move_type == 'out_invoice'" t-set="R43" t-value="R43 + ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))))"/>
+                                                                <t t-if="s.move_type == 'out_refund'" t-set="R43" t-value="R43 - ((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))))"/>
+                                                                <!-- Iva Percibido - IVA RETENIDO POR EL COMPRADOR -->
+                                                                <t t-if="s.wh_id">
+                                                                    <!-- IVA RETENIDO POR EL COMPRADOR-->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="retencion_g" t-value="retencion_g-(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="retencion_g" t-value="retencion_g+(((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention))"/>
+                                                                    <!-- Iva Percibido  -->
+                                                                    <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido_g" t-value="iva_percibido_g-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)))"/>
+                                                                    <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido_g" t-value="iva_percibido_g+((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal'))-((sum(s.line_ids.filtered(lambda line: len(line.mapped('tax_line_id').filtered(lambda tax: tax.aliquot_type == 'general'))).mapped('price_subtotal')))*retention)))"/>
+                                                                </t>
+                                                            </t>
+                                                            <!-- Calculamos el TOTAL de impuestos EXENTOS -->
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_invoice'" t-value="untaxed + exento"/>
+                                                            <t t-set="untaxed" t-if="s.move_type == 'out_refund'" t-value="untaxed - exento"/>
+                                                            <t t-set="R40" t-if="s.move_type == 'out_invoice'" t-value="R40 + exento"/>
+                                                            <t t-set="R40" t-if="s.move_type == 'out_refund'" t-value="R40 - exento"/>
+                                                            <!-- Retenciones -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="retencion" t-value="retencion + (s.wh_id.total_tax_ret / s.wh_id.manual_currency_exchange_rate)"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="retencion" t-value="retencion - (s.wh_id.total_tax_ret / s.wh_id.manual_currency_exchange_rate)"/>
+                                                            <!-- TOTAL de IMPUESTOS (Reducido + General + Adicional)-->
+                                                            <t t-set="tax" t-if="s.move_type == 'out_invoice'" t-value="tax + (s.amount_tax )"/>
+                                                            <t t-set="tax" t-if="s.move_type == 'out_refund'" t-value="tax - (s.amount_tax )"/>
+                                                            <!-- IVA PERCIBIDO -->
+                                                            <t t-if="s.move_type == 'out_invoice'" t-set="iva_percibido" t-value="iva_percibido+(((s.amount_tax)-(s.wh_id.total_tax_ret)))"/>
+                                                            <t t-if="s.move_type == 'out_refund'" t-set="iva_percibido" t-value="iva_percibido-(((s.amount_tax)-(s.wh_id.total_tax_ret)))"/>
+                                                        </t>
+                                                        <!-- TERMINAN LOS CALCULOS -->
+                                                    </t>
+
+                                                    <td><t t-esc="count"/></td> <!-- 1-->
+                                                    <td><span t-esc="s.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td> <!-- 2 -->
+                                                    <td><span t-esc="s.partner_id.rif"/></td> <!--  3 -->
+                                                    <td><span t-esc="s.partner_id.name"/></td> <!--  4 -->
+                                                    <td>
+                                                        <t t-if="s.move_type=='out_invoice'">
+                                                            <t t-esc="s.nro_control"/>
+                                                        </t>
+                                                        <t t-if="s.move_type == 'out_refund' ">
+                                                            <t t-esc="s.ref_credit"/>                                                        
+                                                        </t>
+                                                    </td> <!--  6 -->
+
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_invoice'">
+                                                            <span t-esc="int(s.name) if len(s.name) &lt;= 6 else s.name"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span>-</span>
+                                                        </t>
+                                                    </td> <!--  5 -->
+                                                    <td> 
+                                                        <span t-esc="s.num_import"></span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="s.num_export"></span>
+                                                    </td>
+                                                    <td> <!--  SERIE (en caso de que exista)-->
+                                                        <!-- <t t-if="s.account_serie">
+                                                          <span>Serie </span><span t-esc="s.account_serie.name.upper()"/>
+                                                        </t> -->
+                                                        <span>-</span>
+                                                    </td>
+                                                    <td><span t-esc="debito"/></td> <!--  7 -->
+                                                    <td><span t-esc="int(s.num_credit) if s.move_type == 'out_refund' else '-'"/></td> <!--  8 -->
+                                                    <td><span t-esc="s.transaction_type"/></td><!--  9 -->
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_refund' and len(s.reversed_entry_id) &gt; 0">
+                                                            <span t-esc="int(s.reversed_entry_id.name) if len(s.reversed_entry_id.name) &lt;= 6 else s.reversed_entry_id.name"/>
+                                                        </t>
+                                                        <t t-else="">-</t>
+                                                        <!-- <span t-esc="s.reversed_entry_id.name if s.move_type == 'out_refund' else '-'"/> -->
+                                                    </td> <!--  10 -->
+
+                                                    <t t-if="s.currency_id == s.company_id.currency_id">
+                                                       
+                                                        <!-- Total de Ventas incluyendo el IVA-->
+                                               
+                                                        <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-esc="(sum(s.mapped('amount_total'))* s.manual_currency_exchange_rate)" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td>
+                                                        <t t-set="monto_impuesto" t-value="(sum(s.invoice_line_ids.mapped('tax_ids.amount'))*s.manual_currency_exchange_rate)"/>
+                                                        <t t-set="monto_impuesto_untaxed" t-value="(sum(s.invoice_line_ids.filtered(lambda whl: not whl.tax_ids).mapped('price_subtotal')) + sum(s.invoice_line_ids.filtered(lambda line: len(line.mapped('tax_ids').filtered(lambda tax: tax.amount == 0))).mapped('price_subtotal'))*s.manual_currency_exchange_rate)"/>
+                                                        <t t-set="monto_impuesto_untaxed_exento" t-value="(sum(s.invoice_line_ids.filtered(lambda whl: len(whl.tax_ids) == 0).mapped('price_subtotal'))*s.manual_currency_exchange_rate)"/>
+                                                        <t t-if="monto_impuesto == 0 or monto_impuesto_untaxed &gt; 0 or monto_impuesto_untaxed_exento">
+                                                            <td class="text-right"><t t-if="s.move_type == 'in_refund'">-</t>
+                                                                <span t-esc="exento" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                                <!-- <t t-set="acum_exento" t-value="acum_exento + (exento)"/> -->
+                                                            </td> 
+                                                        </t>
+                                                        <t t-else="">
+                                                            <td class="text-right"><t t-if="s.move_type == 'in_refund'">-</t><span>0.0</span></td> 
+                                                        </t>
+                                                        <t t-set="acum_exento" t-value="acum_exento + (exento)"/>
+                                                        
+                                                        <!-- Venta Excenas o exoneradas -->
+                                                       
+
+                                                        <!-- <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="exento"/></td> -->
+
+                                                        <!-- Base Imponible-->
+                                                        <td class="text-right">
+                                                            <t t-if="sum(s.invoice_line_ids.mapped('tax_ids.amount')) &gt; 0">
+                                                                <t t-if="s.move_type == 'out_refund'">-</t>
+                                                                <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="(sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                
+                                                                <t t-if="s.move_type == 'out_invoice'">
+                                                                    <t t-set="base_imponible_total" t-value="base_imponible_total + (sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                                <t t-if="s.move_type == 'out_refund'">
+                                                                    <t t-set="base_imponible_total" t-value="base_imponible_total - (sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal'))* s.manual_currency_exchange_rate)"/>
+                                                                </t>
+                                                            </t>
+                                                            <t t-else="">
+                                                               <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                            </t>
+                                                        </td>
+                                                        <!-- Total Impuestos  (alicuota) 15 -->
+                                                        <td><span t-esc="sum(s.invoice_line_ids.mapped('tax_ids.amount'))"/>%</td>
+                                                        <!-- Monto Total de los Impuestos (Reducido + General + Adicional) 16 -->
+                                                        <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-esc="s.amount_tax*s.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <!-- Total de Ventas incluyendo el IVA-->
+                                                        <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-esc="(sum(s.mapped('amount_total')))" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td>
+                                                        
+                                                        <!-- Venta Excenas o exoneradas -->
+                                                        <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="exento"/>
+                                                        </td>
+                                                        <!-- Base Imponible-->
+                                                        <td class="text-right">
+                                                            <t t-if="sum(s.invoice_line_ids.mapped('tax_ids.amount')) &gt; 0">
+                                                                <t t-if="s.move_type == 'out_refund'">-</t>
+                                                                <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="(sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal')))"/>
+                                                                
+                                                                <t t-if="s.move_type == 'out_invoice'">
+                                                                    <t t-set="base_imponible_total" t-value="base_imponible_total + (sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal')))"/>
+                                                                </t>
+                                                                <t t-if="s.move_type == 'out_refund'">
+                                                                    <t t-set="base_imponible_total" t-value="base_imponible_total - (sum(s.invoice_line_ids.filtered(lambda line: len(line.tax_ids.filtered(lambda imp: imp.amount &gt;0))&gt;0).mapped('price_subtotal')))"/>
+                                                                </t>
+                                                            </t>
+                                                            <t t-else="">
+                                                               <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                            </t>
+                                                        </td>
+                                                        <!-- Total Impuestos  (alicuota) 15 -->
+                                                        <td><span t-esc="sum(s.invoice_line_ids.mapped('tax_ids.amount'))"/>%</td>
+                                                        <!-- Monto Total de los Impuestos (Reducido + General + Adicional) 16 -->
+                                                        <td class="text-right"><t t-if="s.move_type == 'out_refund'">-</t><span t-esc="s.amount_tax " t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                        </td>
+                                                    </t>
+
+
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+
+                                                    <!-- Impuesto Retenido -->
+                                                    <td class="text-right"><!-- <t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="s.wh_id.total_tax_ret"/> -->
+                                                    </td>
+                                                    <!--comprobante de retencion -->
+                                                   
+                                                    <!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                                    <!-- <td class="text-right">
+                                                        <t t-if="s.move_type == 'out_refund'">-</t>
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="(s.amount_tax)-(s.wh_id.total_tax_ret)"/>
+                                                    </td> -->
+                                                    
+                                               </tr>
+                                            </t>
+                                            <!-- #################################################################################-->
+                                            <t t-if="s.state =='cancel'">
+                                                <t t-if="s.retention == '01-sin'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-if="s.retention == '02-special'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-if="s.retention == '03-ordinary'">
+                                                    <t t-set="retention" t-value="0"/>
+                                                </t>
+                                                <t t-set="count" t-value="count+1"/>
+                                                <tr>
+                                                    <td><t t-esc="count"/></td> <!-- 1-->
+                                                    <td><span t-esc="s.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td> <!-- 2 -->
+                                                    <td><span t-esc="s.partner_id.rif"/></td> <!--  3 -->
+                                                    <td><span t-esc="s.partner_id.name"/></td> <!--  4 -->
+                                                    <td>
+                                                        <t t-if="s.move_type=='out_invoice'">
+                                                            <t t-esc="s.nro_control"/>
+                                                        </t>
+                                                        <t t-if="s.move_type == 'out_refund' ">
+                                                            <t t-esc="s.ref_credit"/>                                                        
+                                                        </t>
+                                                        <!-- <span t-esc="s.nro_control"/> -->
+                                                    </td> <!--  6 -->
+
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_invoice'">
+                                                            <span t-esc="int(s.name) if len(s.name) &lt;= 6 else s.name"/>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span>-</span>
+                                                        </t>
+                                                    </td> <!--  5 -->
+                                                    <td> 
+                                                        <span t-esc="s.num_import"></span>
+                                                    </td>
+                                                    <td>
+                                                        <span t-esc="s.num_export"></span>
+                                                    </td>
+                                                    
+                                                    <td> <!--  SERIE (en caso de que exista)-->
+                                                        <!-- <t t-if="s.account_serie">
+                                                          <span>Serie </span><span t-esc="s.account_serie.name.upper()"/>
+                                                        </t> -->
+                                                        <span>-</span>
+                                                    </td>
+                                                    <td><span t-esc="debito"/></td> <!--  7 -->
+                                                    <!--  <td><span t-esc="int(s.name) if s.move_type == 'out_refund' else '-'"/></td> 8 -->
+                                                    <td><span t-esc="int(s.num_credit) if s.num_credit and len(s.num_credit) &lt;= 6 else '-'"/></td> <!--  8 -->
+                                                    <td><span t-esc="s.transaction_type"/></td><!--  9 -->
+                                                    
+                                                    <td>
+                                                        <t t-if="s.move_type == 'out_refund' and len(s.reversed_entry_id) &gt; 0">
+                                                            <span t-esc="int(s.reversed_entry_id.name) if len(s.reversed_entry_id.name) &lt;= 6 else s.reversed_entry_id.name"/>
+                                                        </t>
+                                                        <t t-else="">-</t>
+                                                        <!-- <span t-esc="s.reversed_entry_id.name if s.move_type == 'out_refund' else '-'"/> -->
+                                                    </td> <!--  10 -->
+
+                                                    <!-- Total de Ventas incluyendo el IVA-->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+                                                    
+                                                    <!-- Venta Exentas o exoneradas -->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+                                                    <!-- Base Imponible-->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+                                                    <!-- Total Impuestos  (alicuota) 15 -->
+                                                    <td>0,0 %</td>
+                                                    <!-- Monto Total de los Impuestos (Reducido + General + Adicional) 16 -->
+                                                    <td class="text-right">
+                                                        <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/>
+                                                    </td>
+
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+                                                    <td/>
+
+                                                    <!-- Impuesto Retenido -->
+                                                    <td><!-- <t t-if="s.move_type == 'out_refund'">-</t><span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="s.wh_id.total_tax_ret"/> -->
+                                                    </td>
+                                                    <!--comprobante de retencion -->
+                                                    <td>-</td>
+                                                    <!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                                    <td>
+                                                        -
+                                                        <!-- <span t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" t-esc="0.00"/> -->
+                                                    </td>
+                                               </tr>
+                                            </t>
+                                            <!-- #################################################################################-->
+                                        </t>
+
+                                        <!-- linea de las retenciones -->
+                                        <t t-foreach="rete.sorted(lambda r: (r.retention_id.date, r.retention_id.id))" t-as="ret">
+                                            <t t-set="count" t-value="count+1"/>
+                                            <tr>
+                                                <td><t t-esc="count"/></td> <!-- N° Operación -->  
+                                                <td><span t-esc="ret.retention_id.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td> <!-- Fecha de la retención -->
+                                                <td><span t-esc="ret.retention_id.partner_id.rif"/></td>  <!-- RIF -->
+                                                <td><span t-esc="ret.retention_id.partner_id.name"/></td> <!-- Nombre o Razón social -->
+                                              
+                                                <td><span t-esc="ret.invoice_id.nro_control"/></td><!-- Número de Control de Factura -->
+                                                <td>-</td> <!-- nmero de factura-->
+                                                <td>-</td> <!-- planilla import-->
+                                                <td>-</td> <!-- expediente import-->
+                                                
+                                                <td>-</td><!-- serie -->
+                                                <td>-</td> <!-- n debit -->
+                                                <td>-</td> <!-- n de cred -->
+                                                <td>-</td> <!-- tipo de transa-->
+                                                <td><span t-esc="ret.invoice_id.name"/></td><!-- Número de factura afectada -->
+                                                <td>-</td><!-- t compras inclydo iva -->
+                                                <td>-</td><!-- exento -->
+                                                <td>-</td><!-- b imponible -->
+                                                <td>-</td><!-- aliq -->
+                                                <td>-</td><!-- imp iva  -->
+                                                <td>-</td><!-- exento -->
+                                                <td>-</td><!-- b imponible -->
+                                                <td>-</td><!-- aliq -->
+                                                <td>-</td><!-- imp iva  -->
+                                                <t t-if="ret.invoice_id.currency_id == ret.invoice_id.company_id.currency_id">
+                                                    <td class="text-right"><t t-if="ret.retention_id.move_type == 'out_refund'">-</t><t t-else=""></t><span t-esc="ret.ret_amount * ret.invoice_id.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td>
+                                                </t>
+                                                <t t-else="">
+                                                    <td class="text-right"><t t-if="ret.retention_id.move_type == 'out_refund'">-</t><t t-else=""></t><span t-esc="ret.ret_amount" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td>
+                                                </t>
+                                                <!-- <t t-set="acumret" t-value="acumret + ret.ret_amount" />-->
+                                                <!--iva retenido al comprador -->
+                                                <!-- <td><t t-if="ret.retention_id.move_type == 'in_refund'">-</t>
+                                                <span t-esc="ret.rate_amount"  /></td> --><!--porcentaje ret -->
+                                                <td>
+                                                    <t t-if="ret.retention_id.move_type == 'in_refund'">-</t><span t-esc="ret.retention_id.customer_doc_number"/>
+                                                </td><!-- comprobante de retencion -->
+                                                <td><!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                                    -
+                                                </td>
+                                            </tr>
+                                        </t>
+                                            <!-- fin las retenciones  -->
+                                        <!-- Calculos Totales -->
+                                        <t t-set="R46" t-value="R40+R42+R442+R443"/>
+                                        <t t-set="R47" t-value="R43+R452+R453"/>
+                                        <t t-set="R54" t-value="R34"/>
+                                        <!-- FIN calculos totales -->
+                                        <tr class="total">
+                                            <td colspan="12" style="text-align:center"/>
+                                            <td colspan="1" style="text-align:center"><strong>TOTAL</strong></td>
+                                            <!-- Total Ventas Incluyendo el IVA --> 
+                                            <th class="text-right">
+                                                <span t-esc="total" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                            </th>
+                                            <!-- Ventas Internas No Gravadas --> 
+                                            <th class="text-right"><span t-esc="R40" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></th>
+                                            <!-- Base Imponible --> 
+                                            <th class="text-right">
+                                              <!--<span t-esc="R46" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>-->
+                                              <span t-esc="base_imponible_total" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                            </th>
+                                            <th>-</th><!-- alicuota -->
+                                            <!-- Total Impuestos (General + Adicional + Reducido) --> 
+                                            <th class="text-right"><span t-esc="tax" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></th>
+                                            
+                                            <th/>
+                                            <th/>
+                                            <th/>
+                                            <th/>
+                                            <!-- IVA RETENIDO POR EL COMPRADOR -->
+                                            <th class="text-right"><span t-esc="retencion" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></th>
+                                            <th>-</th><!-- número de comprobante -->
+                                            <!-- IVA PERCIBIDO -> AGENTE DE RETENCION-->
+                                            <th>-
+                                                <!-- <span t-esc="iva_percibido" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> -->
+                                            </th>
+
+                                        </tr>
+                                    </tbody>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="23">
+                                            <span>Sin actividad en el periodo solicitado</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </t>
+                        </table>
+                        <br/>
+                        <table class="text-left;" style="width:50%;font-size:10px;margin-left:15%;">
+                            <thead style="display: table-row-group">
+                                <tr>
+                                <!-- 1 --><th/>
+                                <!-- 2 --><th/>
+                                <!-- 3 --><th>Base imponible</th>
+                                <!-- 4 --><th>Debito  fiscal</th>
+                                <!-- 5 --><th/>
+                                <!-- 6 --><td style="width:3%;"/>
+                                <!-- 7 --><th style="width:15%;">IVA Retenido por el Comprador</th>
+                                <!-- 8 --><td/>
+                                <!-- 9 --><th>IVA de Ventas Percibido</th>
+                                <!-- 10 --><td/>
+                                </tr>
+                            </thead>
+                            <t t-if="con_documento">
+                                <tbody>
+                                    <t t-set="ducs" t-value="docs.filtered(lambda doc: doc.wh_lines.invoice_id.transaction_type != '04-ajuste')"/>
+                                    <tr>
+                                    <!-- 1 --><td class="text-left" style="border:1px solid #000;padding:3px;">Total : Ventas Internas No Gravadas</td>
+                                    <!-- 2 --><td style="border:1px solid #000;padding:3px;"><strong><div style="border:1px solid black;">40</div></strong></td>
+                                    <!-- 3 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R40" t-esc="R40" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                    <!-- 4 --><td style="border:1px solid #000;"/>
+                                    <!-- 5 --><td/>
+                                    <!-- 6 --><td/>
+                                    <!-- 7 --><td style="border:1px solid #000;"/>
+                                    <!-- 8 --><td/>
+                                    <!-- 9 --><td style="border:1px solid #000;"/>
+                                    <!-- 10 --><td/>
+                                    </tr>
+                                    <tr>
+                                    <!-- 1 --><td class="text-left" style="border:1px solid #000;padding:3px;">Suma de las: Ventas de Exportación</td>
+                                    <!-- 2 --><td style="border:1px solid #000;padding:3px;"><strong><div style="border:1px solid black;">41</div></strong></td>
+                                    <!-- 3 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"> <span t-esc="R41" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"></span></td>
+                                    <!-- 4 --><td style="border:1px solid #000;"/>
+                                    <!-- 5 --><td/>
+                                    <!-- 6 --><td/>
+                                    <!-- 7 --><td style="border:1px solid #000;"/>
+                                    <!-- 8 --><td/>
+                                    <!-- 9 --><td style="border:1px solid #000;"/>
+                                    <!-- 10 --><td/>
+                                    </tr>
+                                    <tr>
+                                    <!-- 1 --><td style="border:1px solid #000;padding:3px;height:19px;"><p/></td>
+                                    <!-- 2 --><td style="border:1px solid #000;"/>
+                                    <!-- 3 --><td style="border:1px solid #000;"/>
+                                    <!-- 4 --><td style="border:1px solid #000;"/>
+                                    <!-- 5 --><td/>
+                                    <!-- 6 --><td/>
+                                    <!-- 7 --><td style="border:1px solid #000;"/>
+                                    <!-- 8 --><td/>
+                                    <!-- 9 --><td style="border:1px solid #000;"/>
+                                    <!-- 10 --><td/>
+                                    </tr>
+                                    <tr>
+                                    <!-- 1 --><td class="text-left" style="border:1px solid #000;padding:3px;">Suma de las: Ventas Internas Afectas solo Alicuota General</td>
+                                        <!-- Base Imponible-->
+                                    <!-- 2 --><td style="border:1px solid #000;padding:3px;"><strong><div style="border:1px solid black;">42</div></strong></td>
+                                    <!-- 3 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R42" t-esc="R42" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                        <!-- Debito Fiscal-->
+                                    <!-- 4 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R43" t-esc="R43" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                    <!-- 5 --><td style="padding:3px;"><strong><div style="border:1px solid black;">43</div></strong></td>
+                                    <!-- 6 --><td/>
+                                        <!-- Iva retenido por comprador-->
+                                    <!-- 7 -->
+                                    <td class="text-right" style="border:1px solid #000;padding-right:5px;">
+                                        <t t-if="retencion &gt; 0" t-esc="retencion_g" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-if="retencion == 0">0,00</t>
+                                    </td>
+                                    <!-- 8 --><td/>
+                                        <!-- Iva percibido-->
+                                    <!-- 9 -->
+                                    <td class="text-right" style="border:1px solid #000;padding-right:5px;">
+                                        <!-- <t t-if="iva_percibido" t-esc="iva_percibido" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/> -->
+                                        <!-- <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 10 --><td/>
+                                    </tr>
+                                    <tr>
+                                    <!-- 1 --><td class="text-left" style="border:1px solid #000;padding:3px;">Suma de las: Ventas Internas Afectas en Alicuota General + Adicional</td>
+                                    <!-- 2 --><td style="border:1px solid #000;padding:3px;"><strong><div style="border:1px solid black;">442</div></strong></td>
+                                        <!-- Base Imponible-->
+                                    <!-- 3 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R442" t-esc="R442" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                        <!-- Debito fiscal-->
+                                    <!-- 4 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R452" t-esc="R452" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                    <!-- 5 --><td style="padding:3px;"><strong><div style="border:1px solid black;">452</div></strong></td>
+                                    <!-- 6 --><td/>
+                                        <!--Iva retenido por el Comprador-->
+                                    <!-- 7 -->
+                                    <td class="text-right" style="border:1px solid #000;padding-right:5px;">
+                                        <!-- <t t-if="retencion_ga" t-esc="retencion_ga" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 8 --><td/>
+                                    <!-- 9 -->
+                                    <td class="text-right" style="border:1px solid #000;padding-right:5px;">
+                                        <!-- <t t-if="iva_percibido_ga" t-esc="iva_percibido_ga" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 10 --><td/>
+                                    </tr>
+                                    <tr>
+                                    <!-- 1 --><td class="text-left" style="border:1px solid #000;padding:3px;">Suma de las: Ventas Internas Afectadas en Alicuota Reducida</td>
+                                    <!-- 2 --><td style="border:1px solid #000;padding:3px;"><strong><div style="border:1px solid black;">443</div></strong></td>
+                                        <!--   Base Imponible-->
+                                    <!-- 3 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R443" t-esc="R443" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                        <!-- Debito fiscal-->
+                                    <!-- 4 --><td class="text-right" style="border:1px solid #000;padding-right:5px;"><t t-if="R453" t-esc="R453" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                    <!-- 5 --><td style="padding:3px;"><strong><div style="border:1px solid black;">453</div></strong></td>
+                                    <!-- 6 --><td/>
+                                        <!--Iva retenido por el Comprador-->
+                                    <!-- 7 -->
+                                    <td class="text-right" style="border:1px solid #000;padding-right:5px;">
+                                        <!-- <t t-if="retencion_r" t-esc="retencion_r" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 8 --><td><strong>(+)</strong></td>
+                                    <!-- 9 -->
+                                    <td class="text-right" style="border:1px solid #000;padding-right:5px;">
+                                        <!-- <t t-if="iva_percibido_r" t-esc="iva_percibido_r" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 10 --><td/>
+                                    </tr>
+                                    <tr class="total">
+                                    <!-- 1 --><td><strong>Total</strong></td>
+                                    <!-- 2 --><td style="padding:3px;"><strong><div style="border:1px solid black;">46</div></strong></td>
+                                        <!--Base Imponible-->
+                                    <!-- 3 --><td class="text-right" style="padding-right:5px;"><t t-if="R46" t-esc="R46 + R41" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                        <!-- Debito fiscal-->
+                                    <!-- 4 --><td class="text-right" style="padding-right:5px;"><t t-if="R47" t-esc="R47" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t></td>
+                                    <!-- 5 --><td style="padding:3px;"><strong><div style="border:1px solid black;">47</div></strong></td>
+                                    <!-- 6 --><td/>
+                                        <!-- Iva del comprador -->
+                                    <!-- 7 -->
+                                    <td class="text-right" style="padding-right:5px;">
+                                        <!-- <t t-if="retencion" t-esc="retencion" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 8 --><td style="padding:3px;"><strong><div style="border:1px solid black;">54</div></strong></td>
+                                    <!-- 9 -->
+                                    <td class="text-right" style="padding-right:5px;">
+                                        <!-- <t t-if="iva_percibido" t-esc="iva_percibido" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                        <t t-else="">0,00</t> -->
+                                    </td>
+                                    <!-- 10 --><td style="padding:3px"><strong><div style="border:1px solid black;">62</div></strong></td>
+                                    </tr>
+                                </tbody>
+                            </t>
+                            <t t-else="">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="23">
+                                            <span>Sin actividad en el periodo solicitado</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </t>
+                        </table>
+                        <br/>
+                        <table class="text-left;" style="width:40%;font-size:10px;margin-left:10%;">
+                            <thead style="display: table-row-group">
+                                <tr>
+                                    <th/>
+                                    <th/>
+                                    <th/>
+                                    <th style="width:5%"/>
+                                    <th colspan="3">Resumen Tasa General</th>
+                                    
+                                </tr>
+                                <tr>
+                                    <th/>
+                                    <th/>
+                                    <th/>
+                                    <th/>
+                                    <th style="border:1px solid #000;">Tasa</th>
+                                    <th style="border:1px solid #000;">Base Imponible</th>
+                                    <th style="border:1px solid #000;">Débito Fiscal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border:1px solid #000;padding:3px;" class="text-left">Contribuyente</td>
+                                    <td style="border:1px solid #000;padding-right:5px;" class="text-right">
+                                        <t t-if="R42" t-esc="R42" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t>
+                                    </td>
+                                    <td style="border:1px solid #000;padding-right:5px;" class="text-right">
+                                        <t t-if="R43" t-esc="R43" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/><t t-else="">0,00</t>
+                                    </td>
+                                    <td/>
+                                    <td style="border:1px solid #000;">16%</td><!--Tasa-->
+                                    <td style="border:1px solid #000;padding-right:5px;" class="text-right"><span t-esc="R42" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td><!--Base Imponible-->
+                                    <td style="border:1px solid #000;padding-right:5px;" class="text-right"><span t-esc="R43" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td><!--Débito Fiscal-->
+                                </tr>
+                                <tr>
+                                    <td style="border:1px solid #000;padding:3px;" class="text-left">No Contribuyente</td>
+                                    <td style="border:1px solid #000;">
+                                        <!-- no totalizado -->
+                                    </td>
+                                    <td style="border:1px solid #000;">
+                                        <!-- no totalizado -->
+                                    </td>
+                                    <td/>
+                                    <th style="border:1px solid #000;"><span>-</span></th><!--Tasa-->
+                                    <th style="border:1px solid #000;"><span>-</span></th><!--Base Imponible-->
+                                    <th style="border:1px solid #000;"><span>-</span></th><!--Débito Fiscal-->
+                                </tr>
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <th style="border:1px solid #000;"><span>-</span></th><!--Tasa-->
+                                    <th style="border:1px solid #000;"><span>-</span></th><!--Base Imponible-->
+                                    <th style="border:1px solid #000;"><span>-</span></th><!--Débito Fiscal-->
+                                </tr>
+                                <tr>
+                                    <th/>
+                                    <th/>
+                                    <th/>
+                                    <th/>
+                                    <th/><!--Tasa-->
+                                    <td style="padding-right:5px;" class="text-right"><span t-esc="R42" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td><!--Base Imponible-->
+                                    <td style="padding-right:5px;" class="text-right"><span t-esc="R43" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/></td><!--Débito Fiscal-->                                        
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div t-attf-class="footer o_boxed_footer o_company_#{company_id.id}_layout">
+                        <div class="text-center">
+                            <ul class="list-inline">
+                           
+                            </ul>
+                            <div t-field="company_id.report_footer"/>
+                            <div t-if="report_type == 'pdf'">
+                                Página: <span class="page"/> / <span class="topage"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

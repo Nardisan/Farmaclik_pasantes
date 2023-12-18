@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_pricelist_form_inherit_views" model="ir.ui.view">
+        <field name="name">product_pricelist_form_inherit_views</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="currency_id_dif" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'></field>
+                <field name="tasa_del_dia" options="{'widget': 'monetary','display_currency': 'currency_id_dif'}"></field>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/field/tree/field[3]" position="after">
+                <field name="fixed_price_ref"></field>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_pricelist_form_inherit_tree_usd" model="ir.ui.view">
+        <field name="name">product_pricelist_form_inherit_tree</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="currency_id_dif" optional="show" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

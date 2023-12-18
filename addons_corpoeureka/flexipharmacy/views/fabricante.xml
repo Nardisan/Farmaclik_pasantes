@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="fabricante_tree" model="ir.ui.view">
+            <field name="name">fabricante tree</field>
+            <field name="model">fabricante</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_view_fabricante">
+            <field name="name">Fabricantes</field>
+            <field name="res_model">fabricante</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="main_menu_fabricante" name="Fabricantes" parent="stock.menu_product_in_config_stock"
+                  action="action_view_fabricante" sequence="10"/>
+
+    </data>
+</odoo>

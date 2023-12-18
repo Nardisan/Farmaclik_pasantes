@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+		<record id="hide_menus_location" model="res.groups">
+			<field name="name">Ocultar Campos de Localización</field>
+		</record>
+	</data>
+
+</odoo>

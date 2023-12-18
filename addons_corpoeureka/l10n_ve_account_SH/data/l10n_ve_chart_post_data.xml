@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="l10n_ve_account_SH.ve_sh_chart_template_amd" model="account.chart.template">
+        <field name="property_account_receivable_id" ref="account_activa_account_110201001"/>
+        <field name="property_account_payable_id" ref="account_activa_account_210201"/>
+        <field name="property_account_expense_categ_id" ref="account_activa_account_6"/>
+        <field name="property_account_income_categ_id" ref="account_activa_account_4102"/>
+        <field name="income_currency_exchange_account_id" ref="account_activa_account_420201001"/>
+        <field name="expense_currency_exchange_account_id" ref="account_activa_account_620302"/>
+        <field name="default_pos_receivable_account_id" ref="account_activa_account_1101" />
+    </record>
+</odoo>

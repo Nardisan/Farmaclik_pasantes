@@ -1,0 +1,88 @@
+id,table_id/id,code,concept,residence_type,company_type,percentage_amount_base,apply_up_to,percentage,variable,rate2,sustraendo
+account_wh_rate_line_001,account_wh_rate_table_001,1,Sueldos y Salarios,R,person,,0.01,,1,,no
+account_wh_rate_line_002,account_wh_rate_table_001,2,Honorarios Profesionales No Mercantiles,R,person,100,33.33,3,,,no
+account_wh_rate_line_003,account_wh_rate_table_001,3,Honorarios Profesionales No Mercantiles,NR,person,90,0.01,34,,,no
+account_wh_rate_line_004,account_wh_rate_table_001,4,Honorarios Profesionales No Mercantiles,D,company,100,0.01,5,,,no
+account_wh_rate_line_005,account_wh_rate_table_001,5,Honorarios Profesionales No Mercantiles,ND,company,90,0.01,,,1,no
+account_wh_rate_line_018,account_wh_rate_table_001,18,Comisiones distintas a Remuneraciones Sueldos y Salarios,R,person,100,33.33,3,,,no
+account_wh_rate_line_019,account_wh_rate_table_001,19,Comisiones distintas a Remuneraciones Sueldos y Salarios,NR,person,100,0.01,34,,,no
+account_wh_rate_line_020,account_wh_rate_table_001,20,Comisiones distintas a Remuneraciones Sueldos y Salarios,D,company,100,0.01,5,,,no
+account_wh_rate_line_021,account_wh_rate_table_001,21,Comisiones distintas a Remuneraciones Sueldos y Salarios,ND,company,100,0.01,5,,,no
+account_wh_rate_line_053,account_wh_rate_table_001,53,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,R,person,100,33.33,1,,,no
+account_wh_rate_line_054,account_wh_rate_table_001,54,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,NR,person,100,0.01,34,,,no
+account_wh_rate_line_055,account_wh_rate_table_001,55,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,D,company,100,0.01,2,,,no
+account_wh_rate_line_056,account_wh_rate_table_001,56,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,ND,company,100,0.01,,,1,no
+account_wh_rate_line_057,account_wh_rate_table_001,57,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,R,person,100,33.33,3,,,no
+account_wh_rate_line_058,account_wh_rate_table_001,58,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,NR,person,90,0.01,34,,,no
+account_wh_rate_line_059,account_wh_rate_table_001,59,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,D,company,100,0.01,5,,,no
+account_wh_rate_line_060,account_wh_rate_table_001,60,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,ND,company,90,0.01,,,1,no
+account_wh_rate_line_061,account_wh_rate_table_001,61,Cánones de Arrendamiento de Bienes Muebles situados en el pais,R,person,100,33.33,3,,,no
+account_wh_rate_line_062,account_wh_rate_table_001,62,Cánones de Arrendamiento de Bienes Muebles situados en el pais,NR,person,100,0.01,34,,,no
+account_wh_rate_line_063,account_wh_rate_table_001,63,Cánones de Arrendamiento de Bienes Muebles situados en el pais,D,company,100,0.01,5,,,no
+account_wh_rate_line_064,account_wh_rate_table_001,64,Cánones de Arrendamiento de Bienes Muebles situados en el pais,ND,company,100,0.01,5,,,no
+account_wh_rate_line_071,account_wh_rate_table_001,71,Pagos por Gastos de Transporte conformados por Fletes,NR,person,100,33.33,1,,,no
+account_wh_rate_line_072,account_wh_rate_table_001,72,Pagos por Gastos de Transporte conformados por Fletes,D,company,100,0.01,3,,,no
+account_wh_rate_line_073,account_wh_rate_table_001,73,Fletes Pagados a Personas Naturales o Jurídicas Domiciliadas en el Pais,NR,person,100,0.01,3,,,no
+account_wh_rate_line_074,account_wh_rate_table_001,74,Fletes Pagados a Personas Naturales o Jurídicas Domiciliadas en el Pais,D,company,100,0.01,5,,,no
+account_wh_rate_line_083,account_wh_rate_table_001,83,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,NR,person,100,33.33,3,,,no
+account_wh_rate_line_084,account_wh_rate_table_001,84,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,D,company,100,0.01,5,,,no
+account_wh_rate_line_085,account_wh_rate_table_001,85,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,ND,company,100,0.01,5,,,no
+account_wh_rate_line_086,account_wh_rate_table_001,86,Pagos por Servicios de Publicidad y Propaganda a Emisoras Radiodifusoras,D,company,100,0.01,3,,,no
+account_wh_rate_line_087,account_wh_rate_table_002,1,Sueldos y Salarios,R,person,,0.01,,1,,no
+account_wh_rate_line_088,account_wh_rate_table_002,2,Honorarios Profesionales No Mercantiles,R,person,100,33.33,3,,,no
+account_wh_rate_line_089,account_wh_rate_table_002,3,Honorarios Profesionales No Mercantiles,NR,person,90,0.01,34,,,no
+account_wh_rate_line_090,account_wh_rate_table_002,4,Honorarios Profesionales No Mercantiles,D,company,100,0.01,5,,,no
+account_wh_rate_line_091,account_wh_rate_table_002,5,Honorarios Profesionales No Mercantiles,ND,company,90,0.01,,,1,no
+account_wh_rate_line_092,account_wh_rate_table_002,18,Comisiones distintas a Remuneraciones Sueldos y Salarios,R,person,100,33.33,3,,,no
+account_wh_rate_line_093,account_wh_rate_table_002,19,Comisiones distintas a Remuneraciones Sueldos y Salarios,NR,person,100,0.01,34,,,no
+account_wh_rate_line_094,account_wh_rate_table_002,20,Comisiones distintas a Remuneraciones Sueldos y Salarios,D,company,100,0.01,5,,,no
+account_wh_rate_line_095,account_wh_rate_table_002,21,Comisiones distintas a Remuneraciones Sueldos y Salarios,ND,company,100,0.01,5,,,no
+account_wh_rate_line_096,account_wh_rate_table_002,53,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,R,person,100,33.33,1,,,no
+account_wh_rate_line_097,account_wh_rate_table_002,54,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,NR,person,100,0.01,34,,,no
+account_wh_rate_line_098,account_wh_rate_table_002,55,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,D,company,100,0.01,2,,,no
+account_wh_rate_line_099,account_wh_rate_table_002,56,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,ND,company,100,0.01,,,1,no
+account_wh_rate_line_100,account_wh_rate_table_002,57,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,R,person,100,33.33,3,,,no
+account_wh_rate_line_101,account_wh_rate_table_002,58,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,NR,person,90,0.01,34,,,no
+account_wh_rate_line_101,account_wh_rate_table_002,59,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,D,company,100,0.01,5,,,no
+account_wh_rate_line_102,account_wh_rate_table_002,60,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,ND,company,90,0.01,,,1,no
+account_wh_rate_line_103,account_wh_rate_table_002,61,Cánones de Arrendamiento de Bienes Muebles situados en el pais,R,person,100,33.33,3,,,no
+account_wh_rate_line_104,account_wh_rate_table_002,62,Cánones de Arrendamiento de Bienes Muebles situados en el pais,NR,person,100,0.01,34,,,no
+account_wh_rate_line_105,account_wh_rate_table_002,63,Cánones de Arrendamiento de Bienes Muebles situados en el pais,D,company,100,0.01,5,,,no
+account_wh_rate_line_106,account_wh_rate_table_002,64,Cánones de Arrendamiento de Bienes Muebles situados en el pais,ND,company,100,0.01,5,,,no
+account_wh_rate_line_107,account_wh_rate_table_002,71,Pagos por Gastos de Transporte conformados por Fletes,NR,person,100,33.33,1,,,no
+account_wh_rate_line_108,account_wh_rate_table_002,72,Pagos por Gastos de Transporte conformados por Fletes,D,company,100,0.01,3,,,no
+account_wh_rate_line_109,account_wh_rate_table_002,73,Fletes Pagados a Personas Naturales o Jurídicas Domiciliadas en el Pais,NR,person,100,0.01,3,,,no
+account_wh_rate_line_110,account_wh_rate_table_002,74,Fletes Pagados a Personas Naturales o Jurídicas Domiciliadas en el Pais,D,company,100,0.01,5,,,no
+account_wh_rate_line_111,account_wh_rate_table_002,83,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,NR,person,100,33.33,3,,,no
+account_wh_rate_line_112,account_wh_rate_table_002,84,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,D,company,100,0.01,5,,,no
+account_wh_rate_line_113,account_wh_rate_table_002,85,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,ND,company,100,0.01,5,,,no
+account_wh_rate_line_114,account_wh_rate_table_002,86,Pagos por Servicios de Publicidad y Propaganda a Emisoras Radiodifusoras,D,company,100,0.01,3,,,no
+account_wh_rate_line_115,account_wh_rate_table_003,1,Sueldos y Salarios,R,person,0,0.01,0,1,1,no
+account_wh_rate_line_116,account_wh_rate_table_003,2,Honorarios Profesionales No Mercantiles,R,person,100,33.33,3,,,sí
+account_wh_rate_line_117,account_wh_rate_table_003,3,Honorarios Profesionales No Mercantiles,NR,person,90,0.01,34,,,no
+account_wh_rate_line_118,account_wh_rate_table_003,4,Honorarios Profesionales No Mercantiles,D,company,100,0.01,5,,,no
+account_wh_rate_line_119,account_wh_rate_table_003,5,Honorarios Profesionales No Mercantiles,ND,company,90,0.01,0,,,no
+account_wh_rate_line_120,account_wh_rate_table_003,18,Comisiones distintas a Remuneraciones Sueldos y Salarios,R,person,100,33.33,3,,,sí
+account_wh_rate_line_121,account_wh_rate_table_003,19,Comisiones distintas a Remuneraciones Sueldos y Salarios,NR,person,100,0.01,34,,,no
+account_wh_rate_line_122,account_wh_rate_table_003,20,Comisiones distintas a Remuneraciones Sueldos y Salarios,D,company,100,0.01,5,,,no
+account_wh_rate_line_123,account_wh_rate_table_003,21,Comisiones distintas a Remuneraciones Sueldos y Salarios,ND,company,100,0.01,5,,,no
+account_wh_rate_line_124,account_wh_rate_table_003,53,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,R,person,100,33.33,1,,,sí
+account_wh_rate_line_125,account_wh_rate_table_003,54,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,NR,person,100,0.01,34,,,no
+account_wh_rate_line_126,account_wh_rate_table_003,55,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,D,company,100,0.01,2,,,no
+account_wh_rate_line_127,account_wh_rate_table_003,56,Pagos a Empresas Contratistas o Subcontratistas por la ejecución de obras o de la prestación de servicios en base a valuaciones y ordenes de pago,ND,company,100,0.01,0,,,no
+account_wh_rate_line_128,account_wh_rate_table_003,57,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,R,person,100,33.33,3,,,sí
+account_wh_rate_line_129,account_wh_rate_table_003,59,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,D,company,100,0.01,5,,,no
+account_wh_rate_line_130,account_wh_rate_table_003,60,Pagos de los Administradores de bienes inmuebles a los Arrendadores de los bienes inmuebles situados en el país,ND,company,90,0.01,0,,,no
+account_wh_rate_line_131,account_wh_rate_table_003,61,Cánones de Arrendamiento de Bienes Muebles situados en el pais,R,person,100,33.33,3,,,sí
+account_wh_rate_line_132,account_wh_rate_table_003,62,Cánones de Arrendamiento de Bienes Muebles situados en el pais,NR,person,100,0.01,34,,,no
+account_wh_rate_line_133,account_wh_rate_table_003,63,Cánones de Arrendamiento de Bienes Muebles situados en el pais,D,company,100,0.01,5,,,no
+account_wh_rate_line_134,account_wh_rate_table_003,64,Cánones de Arrendamiento de Bienes Muebles situados en el pais,ND,company,100,0.01,5,,,no
+account_wh_rate_line_135,account_wh_rate_table_003,71,Pagos por Gastos de Transporte conformados por Fletes,R,person,100,33.33,1,,,sí
+account_wh_rate_line_136,account_wh_rate_table_003,72,Pagos por Gastos de Transporte conformados por Fletes,D,company,100,0.01,3,,,no
+account_wh_rate_line_137,account_wh_rate_table_003,73,Fletes Pagados a Personas Naturales o Jurídicas Domiciliadas en el Pais,R,person,100,0.01,3,,,no
+account_wh_rate_line_138,account_wh_rate_table_003,74,Fletes Pagados a Personas Naturales o Jurídicas Domiciliadas en el Pais,D,company,100,0.01,5,,,no
+account_wh_rate_line_139,account_wh_rate_table_003,83,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,NR,person,100,33.33,3,,,no
+account_wh_rate_line_140,account_wh_rate_table_003,84,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,D,company,100,0.01,5,,,no
+account_wh_rate_line_141,account_wh_rate_table_003,85,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,ND,company,100,0.01,5,,,no
+account_wh_rate_line_142,account_wh_rate_table_003,86,Pagos por Servicios de Publicidad y Propaganda a Emisoras Radiodifusoras,D,company,100,0.01,3,,,no
+account_wh_rate_line_143,account_wh_rate_table_003,87,Pagos por Servicios de Publicidad y Propaganda y la Cesión de la Venta de Espacios para tales fines,R,person,100,33.33,3,,,sí

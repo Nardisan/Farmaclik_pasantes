@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="tributary_unit_2021_06_04" model="tributary.unit">
+        <field name="name">2021-04-06</field>
+        <field name="gazette">42100</field>
+        <field name="amount">20000</field>
+    </record>
+
+    <record id="tributary_unit_2020_03_13" model="tributary.unit">
+        <field name="name">2020-03-13</field>
+        <field name="gazette">41839</field>
+        <field name="amount">1500</field>
+    </record>
+
+    <record id="tributary_unit_2019_03_07" model="tributary.unit">
+        <field name="name">2019-03-07</field>
+        <field name="gazette">41597</field>
+        <field name="amount">50</field>
+    </record>
+
+    <record id="tributary_unit_2018_09_11" model="tributary.unit">
+        <field name="name">2018-09-11</field>
+        <field name="gazette">41479</field>
+        <field name="amount">17</field>
+    </record>
+
+</odoo>
+

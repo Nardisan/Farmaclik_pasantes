@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="report_sale_invoice_ledger2"
+                model="account.invoice"
+                string="Libro de Ventas"
+                name="sale_invoice_ledger2"
+                file="sale_invoice_ledger2"
+                report_type="qweb-pdf"/>
+
+
+        <template id="sale_invoice_ledger2">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                        <div class="page" style ="font-size:10px;font-family: Times;line-height: 1.6;">
+
+                            <style type="text/css">
+                                table.tableizer-table {
+                                font-size: 12px;
+                                border: 1px solid #CCC;
+                                font-family: Arial, Helvetica, sans-serif;
+                                }
+                                .tableizer-table td {
+                                padding: 4px;
+                                margin: 3px;
+                                border: 1px solid #CCC;
+                                }
+                                .tableizer-table th {
+                                color: black;
+                                font-weight: bold;
+                                 border: 1px solid #CCC;
+                                }
+                            </style>
+                            <h4>
+                                    <div class="col-xs-12">
+                                            <div class="col-xs-3" style ="float:left">
+                                                <strong> NOMBRE CONTRIBUYENTE:</strong>
+                                             </div>
+                                            <div class="col-xs-2">
+                                                <strong><t t-esc="docs.mapped('company_id').name"/></strong>
+                                             </div>
+                                        </div>
+                                    <div class="col-xs-12">
+                                            <div class="col-xs-3" style ="float:left">
+                                                <strong> Dirección fiscal de contribuyente:</strong>
+                                             </div>
+                                            <div class="col-xs-2">
+                                                <address t-esc="docs.mapped('company_id.partner_id')"
+                                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
+                                             </div>
+                                        </div>
+                                    <div class="col-xs-12">
+                                            <div class="col-xs-3" style ="float:left">
+                                                <strong> Contribuyente:</strong>
+                                             </div>
+                                            <div class="col-xs-2">
+                                                <strong>Especial</strong>
+                                             </div>
+                                        </div>
+                                    <div class="col-xs-12" style="margin-bottom:30px">
+                                            <div class="col-xs-3" style ="float:left">
+                                                <strong> Perdiodo de declaración:</strong>
+                                             </div>
+                                            <div class="col-xs-2">
+                                                Desde <strong><t t-esc="data.get('date_from')"/></strong>
+                                             </div>
+                                            <div class="col-xs-2">
+                                                Hasta <strong><t t-esc="data.get('date_to')"/></strong>
+                                             </div>
+                                        </div>
+                            </h4>
+                            <H4><strong><CENTER>Libro de Ventas</CENTER></strong></H4>
+                            <table class="tableizer-table"  width="100%">
+                                <thead>
+                                    <tr class="tableizer-firstrow">
+                                        <th colspan="13"></th>
+                                        <th colspan="4" style="text-align:center;">CONTRIBUYENTES</th>
+                                        <th colspan="4" style="text-align:center;">NO CONTRIBUYENTES</th>
+                                        <t t-set="invoice_reg" t-value="docs.filtered(lambda invoice: not invoice.transaction_type == '04-ajuste')"/>
+                                        <th colspan="2"></th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                                <tr>
+                                    <td>N°</td>
+                                    <td>Fecha</td>
+                                    <td>Nombre o Razón Social</td>
+                                    <td>N° de RIF</td>
+                                    <td>N° de Factura</td>
+                                    <td>N° de Control</td>
+                                    <td>Nota de Debito</td>
+                                    <td>Nota de Crédito</td>
+                                    <td>Factura Afectada</td>
+                                    <td>Fecha Comp. Ret.</td>
+                                    <td>Tipo de Transaccion</td>
+                                    <td>N° de Comprob. de Retención</td>
+                                    <td>Total de Ventas Incluye I.V.A.</td>
+                                    <td>Ventas Internas No Gravadas</td>
+                                    <td>Base Imponible</td>
+                                    <td>% Alic.</td>
+                                    <td>Impuesto I.V.A.</td>
+                                    <td>Ventas Internas No Gravadas</td>
+                                    <td>Base Imponible</td>
+                                    <td>% Alic.</td>
+                                    <td>Impuesto I.V.A.</td>
+                                    <td>IVA Retenido (Por el Comprador)</td>
+                                    <td>IVA Percibido</td>
+                                </tr>
+                                <t t-set="count" t-value="0"/>
+                                <t t-foreach="invoice_reg" t-as="o">
+                                    <t t-set="count" t-value="count+1"/>
+                                    <tr><td><t t-esc="count"/></td>
+                                        <td><span t-field="o.date_invoice"/></td>
+                                        <td><span t-field="o.partner_id.name"/></td>
+                                        <td><span t-field="o.partner_id.rif"/></td>
+                                        <td><span t-field="o.number"/></td>
+                                        <td><span t-field="o.nro_control"/></td>
+                                        <td>N.A</td>
+                                        <td>N.A</td>
+                                        <td></td>
+                                        <td><t t-esc="o.wh_id.date"/></td>
+                                        <td><t t-esc="o.transaction_type"/></td>
+                                        <td><t t-esc="o.wh_id.customer_doc_number"/></td>
+
+                                        <td><t 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_total"/></td>
+                                        
+                                        <td><t t-if="o.partner_id.company_type == 'company'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="sum(o.invoice_line_ids.filtered(lambda line: line.invoice_line_tax_ids.amount == 0.00 
+                                                        and line.invoice_line_tax_ids.type_tax_use == 'sale').mapped('price_subtotal'))"/></td>
+                                        
+                                        <td><t t-if="o.partner_id.company_type == 'company'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_untaxed"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'company' and len(o.mapped('invoice_line_ids.invoice_line_tax_ids.amount'))" 
+                                                t-esc="o.mapped('invoice_line_ids.invoice_line_tax_ids.amount')[0]"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'company'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_tax"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="sum(o.invoice_line_ids.filtered(lambda line: line.invoice_line_tax_ids.amount == 0.00 
+                                                        and line.invoice_line_tax_ids.type_tax_use == 'sale').mapped('price_subtotal'))"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_untaxed"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person' and len(o.mapped('invoice_line_ids.invoice_line_tax_ids.amount'))" 
+                                                t-esc="o.mapped('invoice_line_ids.invoice_line_tax_ids.amount')[0]"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_tax"/></td>
+                                        
+                                        <td >
+                                            <t t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                            t-esc="get_withheld_tax(o.wh_id.wh_lines)"/>
+                                        </td>
+                                                
+                                                
+                                        <td><t 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="(o.amount_tax)-(get_withheld_tax(o.wh_id.wh_lines))"/></td>
+                                        
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td colspan="12" style="text-align:center"><strong>TOTAL</strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['price_subtotal']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['internal_sales_not_tax']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_untaxed']"/></strong></td>
+                                    <td>-</td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_tax']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['internal_sales_not_tax_person']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_untaxed_person']"/></strong></td>
+                                    <td>-</td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_tax_person']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['withheld_iva']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['perceived_iva']"/></strong></td>
+                                </tr>
+                            </tbody></table>
+                            <br/>
+                            <table class="tableizer-table" border="0" cellpadding="0" cellspacing="0" width="75%">
+                                    <thead>
+                                        <tr class="tableizer-firstrow">
+                                            <th colspan="3" style="text-align:center;"></th>
+                                            <th colspan="3" style="text-align:center;"></th>
+                                            <th colspan="3" style="text-align:center;"></th>
+                                            <th colspan="4" style="text-align:center;"><strong>Base Imponible</strong></th>
+                                            <th colspan="4" style="text-align:center;"><strong>Debito Fiscal</strong></th>
+                                        </tr>
+                                    </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="9" style="vertical-align: top;">Ventas Internas no Gravadas</td>
+                                        <td colspan="2"><span 
+                                                t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                                t-esc="data['internal_sales_not_tax']"/></td>
+                                        <td colspan="2"><strong>40</strong></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" style="vertical-align: top;">Ventas de Exportacion</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"><strong>41</strong></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" style="vertical-align: top;">Ventas Internas Afectas solo Alicuota General</td>
+                                        <td colspan="2"><span 
+                                                t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                                t-esc="data['amount_untaxed']"/></td>
+                                        <td colspan="2"><strong>42</strong></td>
+                                        <td colspan="2"><span 
+                                                t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                                t-esc="data['amount_tax']"/></td>
+                                        <td colspan="2"><strong>43</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" style="vertical-align: top;">Ventas Internas Afectas en Alicuota General + Adicional</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"><strong>442</strong></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"><strong>452</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" style="vertical-align: top;">Ventas Internas Afectas en Alicuota Reducida</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"><strong>443</strong></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"><strong>453</strong></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td colspan="9" style="text-align:center"><strong>TOTAL</strong></td>
+                                            <td colspan="2">
+                                                <span t-esc="data['amount_untaxed']+data['internal_sales_not_tax']"/>
+                                            </td>
+                                            <td colspan="2"><strong>46</strong></td>
+                                            <td colspan="2">
+                                                <span 
+                                                    t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                                    t-esc="data['amount_tax']"/>
+                                            </td>
+                                            <td colspan="2"><strong>47</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <table class="tableizer-table" border="0" cellpadding="0" cellspacing="0" width="75%">
+                                <tbody>
+                                    <tr>
+                                            <td colspan="9" style="vertical-align: top;"><strong>Iva Retenido por el Comprador</strong></td>
+                                            <td colspan="4"><span 
+                                                t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                                t-esc="data['withheld_iva']"/></td>
+                                            <td colspan="2">66</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <H4><strong><CENTER>Ajustes</CENTER></strong></H4>
+
+                            <table class="tableizer-table"  width="100%">
+                                <thead>
+                                    <tr class="tableizer-firstrow">
+                                        <th colspan="13"></th>
+                                        <th colspan="4" style="text-align:center;">CONTRIBUYENTES</th>
+                                        <th colspan="4" style="text-align:center;">NO CONTRIBUYENTES</th>
+                                        <t t-set="invoice_reg" t-value="docs.filtered(lambda invoice: invoice.transaction_type == '04-ajuste')"/>
+                                        <th colspan="2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>N°</td>
+                                    <td>Fecha</td>
+                                    <td>Nombre o Razón Social</td>
+                                    <td>N° de RIF</td>
+                                    <td>N° de Factura</td>
+                                    <td>N° de Control</td>
+                                    <td>Nota de Debito</td>
+                                    <td>Nota de Crédito</td>
+                                    <td>Factura Afectada</td>
+                                    <td>Fecha Comp. Ret.</td>
+                                    <td>Tipo de Transaccion</td>
+                                    <td>N° de Comprob. de Retención</td>
+                                    <td>Total de Ventas Incluye I.V.A.</td>
+                                    <td>Ventas Internas No Gravadas</td>
+                                    <td>Base Imponible</td>
+                                    <td>% Alic.</td>
+                                    <td>Impuesto I.V.A.</td>
+                                    <td>Ventas Internas No Gravadas</td>
+                                    <td>Base Imponible</td>
+                                    <td>% Alic.</td>
+                                    <td>Impuesto I.V.A.</td>
+                                    <td>IVA Retenido (Por el Comprador)</td>
+                                    <td>IVA Percibido</td>
+                                </tr>
+                                <t t-set="count" t-value="0"/>
+                                <t t-foreach="invoice_reg" t-as="o">
+                                    <t t-set="count" t-value="count+1"/>
+                                    <tr><td><t t-esc="count"/></td>
+                                        <td><span t-field="o.date_invoice"/></td>
+                                        <td><span t-field="o.partner_id.name"/></td>
+                                        <td><span t-field="o.partner_id.rif"/></td>
+                                        <td><span t-field="o.vendor_invoice_number"/></td>
+                                        <td><span t-field="o.nro_control"/></td>
+                                        <td>N.A</td>
+                                        <td>N.A</td>
+                                        <td></td>
+                                        <td><t t-esc="o.wh_id.date"/></td>
+                                        <td><t t-esc="o.transaction_type"/></td>
+                                        <td><t t-esc="o.wh_id.customer_doc_number"/></td>
+                                        
+                                        <td><t 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_total"/></td>
+                                        
+                                        <td><t t-if="o.partner_id.company_type == 'company'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="sum(o.invoice_line_ids.filtered(lambda line: line.invoice_line_tax_ids.amount == 0.00 
+                                                        and line.invoice_line_tax_ids.type_tax_use == 'sale').mapped('price_subtotal'))"/></td>
+                                        
+                                        <td><t t-if="o.partner_id.company_type == 'company'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_untaxed"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'company' and len(o.mapped('invoice_line_ids.invoice_line_tax_ids.amount'))" 
+                                                t-esc="o.mapped('invoice_line_ids.invoice_line_tax_ids.amount')[0]"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'company'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_tax"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="sum(o.invoice_line_ids.filtered(lambda line: line.invoice_line_tax_ids.amount == 0.00 
+                                                        and line.invoice_line_tax_ids.type_tax_use == 'sale').mapped('price_subtotal'))"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_untaxed"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person' and len(o.mapped('invoice_line_ids.invoice_line_tax_ids.amount'))" 
+                                                t-esc="o.mapped('invoice_line_ids.invoice_line_tax_ids.amount')[0]"/></td>
+                                        
+                                        <td><t 
+                                                t-if="o.partner_id.company_type == 'person'" 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="o.amount_tax"/></td>
+                                        <td >
+                                            <t t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                            t-esc="get_withheld_tax(o.wh_id.wh_lines)"/>
+                                        </td>
+                                                
+                                                
+                                        <td><t 
+                                                t-options="{'widget': 'monetary', 'display_currency':o.currency_id, 'from_currency':o.currency_id}"
+                                                t-esc="(o.amount_tax)-(get_withheld_tax(o.wh_id.wh_lines))"/></td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td colspan="12" style="text-align:center"><strong>TOTAL</strong></td>
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['price_subtotal_aj']"/></strong></td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['internal_sales_not_tax_aj']"/></strong></td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_untaxed_aj']"/></strong></td>
+                                        
+                                        <td>-</td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_tax_aj']"/></strong></td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['internal_sales_not_tax_person_aj']"/></strong></td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_untaxed_person_aj']"/></strong></td>
+                                        
+                                        <td></td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['amount_tax_person_aj']"/></strong></td>
+                                        
+                                        <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['withheld_iva_aj']"/></strong></td>
+                                    <td><strong><span 
+                                        t-options="{'widget': 'monetary', 'display_currency':invoice_reg.mapped('currency_id'), 'from_currency':invoice_reg.mapped('currency_id')}"
+                                        t-esc="data['perceived_iva_aj']"/></strong></td>
+                                </tr>
+                            </tbody></table>
+                            <br/>
+                            <table class="tableizer-table" border="0" cellpadding="0" cellspacing="0" width="50%">
+                                    <thead>
+                                        <tr class="tableizer-firstrow">
+                                            <th colspan="8" style="text-align:center;">AJUSTES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="vertical-align: top;">Saldo Anterior de Ajuste</td>
+                                            <td>------</td>
+                                            <td>------</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top;">Ajustes de Este Periodo</td>
+                                            <td>------</td>
+                                            <td>------</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top;">Total Ajuste Aplicable</td>
+                                            <td>------</td>
+                                            <td>------</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top;"><strong>Ajuste Aplicado</strong></td>
+                                            <td>------</td>
+                                            <td>------</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top;">Saldo de Ajuste Proximo Periodo</td>
+                                            <td>------</td>
+                                            <td>------</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top;">Retenciones por Descontar</td>
+                                            <td>------</td>
+                                            <td>------</td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                            <br/>
+                            <table class="tableizer-table" border="0" cellpadding="0" cellspacing="0" width="50%">
+                                    <thead>
+                                        <tr class="tableizer-firstrow">
+                                            <th colspan="12" style="text-align:center;"><strong>Retenciones dejadas a descontar</strong></th>
+                                        </tr>
+                                    </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6">Numero de Comprobante</td>
+                                        <td >Factura Afectada</td>
+                                        <td >Monto Retenido</td>
+                                    </tr>
+                                    
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr>
+                                            <td colspan="6"></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td colspan="6" style="text-align:center"><strong>TOTAL</strong></td>
+                                            <td >0.00</td>
+                                            <td >0.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+

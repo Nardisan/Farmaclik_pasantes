@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('orderlines')]" position="replace">
+            <div class="orderlines">
+                <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+                    <t t-if="isSimple(line)">
+                        <div class="responsive-price">
+                            <t t-esc="line.product_name_wrapped[0]" />
+                            <t t-set="price_other_currency" t-value="0"/>
+                            <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                                <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display / env.pos.config.show_currency_rate_real)"/> 
+                            </t>
+                            <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                                <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display * env.pos.config.show_currency_rate_real)"/>
+                            </t>
+                            <t t-else="">
+                                <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display)"/>
+                            </t>
+                            <span t-esc="price_other_currency" class="price_display pos-receipt-right-align"/>
+                        </div>
+                        <WrappedProductNameLines line="line" />
+                    </t>
+                    <t t-else="">
+                        <div t-esc="line.product_name_wrapped[0]" />
+                        <WrappedProductNameLines line="line" />
+                        <t t-if="line.display_discount_policy == 'without_discount' and line.price != line.price_lst">
+                            <div class="pos-receipt-left-padding">
+                                <t t-set="price_lst_other_currency" t-value="0"/>
+                                <t t-set="price_other_currency" t-value="0"/>
+                                <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                                    <t t-set="price_lst_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_lst / env.pos.config.show_currency_rate_real)"/> 
+                                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price / env.pos.config.show_currency_rate_real)"/> 
+                                </t>
+                                <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                                    <t t-set="price_lst_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_lst * env.pos.config.show_currency_rate_real)"/>
+                                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price * env.pos.config.show_currency_rate_real)"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-set="price_lst_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_lst)"/>
+                                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price)"/>
+                                </t>
+                                <t t-esc="price_lst_other_currency" />
+                                ->
+                                <t t-esc="price_other_currency" />
+                            </div>
+                        </t>
+                        <t t-elif="line.discount !== 0">
+                            <div class="pos-receipt-left-padding">
+                                <t t-if="env.pos.config.iface_tax_included === 'total'">
+                                    <t t-set="price_other_currency" t-value="0"/>
+                                    <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount / env.pos.config.show_currency_rate_real)"/> 
+                                    </t>
+                                    <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount * env.pos.config.show_currency_rate_real)"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount)"/>
+                                    </t>
+                                    <t t-esc="price_other_currency"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-set="price_other_currency" t-value="0"/>
+                                    <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price / env.pos.config.show_currency_rate_real)"/> 
+                                    </t>
+                                    <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price * env.pos.config.show_currency_rate_real)"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price)"/>
+                                    </t>
+                                    <t t-esc="price_other_currency"/>
+                                </t>
+                            </div>
+                        </t>
+                        <t t-if="line.discount !== 0">
+                            <div class="pos-receipt-left-padding">
+                                Descuento: <t t-esc="line.discount" />%
+                            </div>
+                        </t>
+                        <div class="pos-receipt-left-padding">
+                            <t t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                            <t t-if="!line.is_in_unit" t-esc="line.unit_name" />
+                            x
+                            <t t-set="price_other_currency" t-value="0"/>
+                            <t t-set="price_display_other_currency" t-value="0"/>
+                            <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                                <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display_one / env.pos.config.show_currency_rate_real)"/> 
+                                <t t-set="price_display_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display / env.pos.config.show_currency_rate_real)"/> 
+                            </t>
+                            <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                                <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display_one * env.pos.config.show_currency_rate_real)"/>
+                                <t t-set="price_display_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display * env.pos.config.show_currency_rate_real)"/>
+                            </t>
+                            <t t-else="">
+                                <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display_one)"/>
+                                <t t-set="price_display_other_currency" t-value="env.pos.format_currency_no_symbol(line.price_display)"/>
+                            </t>
+                            <t t-esc="price_other_currency" />
+                            <span class="price_display pos-receipt-right-align">
+                                <t t-esc="price_display_other_currency" />
+                            </span>
+                        </div>
+                    </t>
+                    <t t-if="line.pack_lot_lines">
+                        <div class="pos-receipt-left-padding">
+                            <ul>
+                                <t t-foreach="line.pack_lot_lines" t-as="lot" t-key="lot.cid">
+                                    <li>
+                                        SN <t t-esc="lot.attributes['lot_name']"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-if='receipt.total_discount']" position="replace">
+            <t t-if="receipt.total_discount">
+                <div class="pos-receipt-right-align">--------</div>
+                <br/>
+                <div>
+                    Discounts
+                    <t t-set="price_other_currency" t-value="0"/>
+                    <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_discount / env.pos.config.show_currency_rate_real)"/> 
+                    </t>
+                    <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_discount * env.pos.config.show_currency_rate_real)"/>
+                    </t>
+                    <t t-else="">
+                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_discount)"/>
+                    </t>
+                    <span t-esc="price_other_currency" class="pos-receipt-right-align"/>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-if='isTaxIncluded']" position="replace">
+            <t t-if="isTaxIncluded and mostrar_impuesto">
+                <div class="pos-receipt-right-align">--------</div>
+                <br/>
+                <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                    <div>
+                        <t t-set="price_other_currency" t-value="0"/>
+                        <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                            <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(tax.amount / env.pos.config.show_currency_rate_real)"/> 
+                        </t>
+                        <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                            <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(tax.amount * env.pos.config.show_currency_rate_real)"/>
+                        </t>
+                        <t t-else="">
+                            <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(tax.amount)"/>
+                        </t>
+                        <t t-esc="tax.name" />
+                        <span t-esc="price_other_currency" class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+                <div class="pos-receipt-right-align">--------</div>
+                <br/>
+                <div>
+                    <t t-set="price_other_currency" t-value="0"/>
+                    <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_tax / env.pos.config.show_currency_rate_real)"/> 
+                    </t>
+                    <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_tax * env.pos.config.show_currency_rate_real)"/>
+                    </t>
+                    <t t-else="">
+                        <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_tax)"/>
+                    </t>
+                    Total Impuestos
+                    <span t-esc="price_other_currency" class="pos-receipt-right-align"/>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-if='!isTaxIncluded']" position="replace">
+            <t t-if="!isTaxIncluded and mostrar_impuesto">
+                <div class="pos-receipt-right-align">--------</div>
+                <br/>
+                <t t-set="price_other_currency" t-value="0"/>
+                <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.subtotal / env.pos.config.show_currency_rate_real)"/> 
+                </t>
+                <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.subtotal * env.pos.config.show_currency_rate_real)"/>
+                </t>
+                <t t-else="">
+                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.subtotal)"/>
+                </t>
+                <div>Subtotal<span t-esc="price_other_currency" class="pos-receipt-right-align"/></div>
+                <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                    <div class="responsive-price">
+                        <t t-esc="tax.name" />
+                        <t t-set="price_other_currency" t-value="0"/>
+                        <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                            <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(tax.amount / env.pos.config.show_currency_rate_real)"/> 
+                        </t>
+                        <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                            <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(tax.amount * env.pos.config.show_currency_rate_real)"/>
+                        </t>
+                        <t t-else="">
+                            <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(tax.amount)"/>
+                        </t>
+                        <span t-esc='price_other_currency' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('pos-receipt-amount')]" position="replace">
+            <div class="pos-receipt-amount">
+                TOTAL
+                <t t-set="price_other_currency" t-value="0"/>
+                <t t-if="env.pos.config.rate_company &lt; env.pos.config.show_currency_rate">
+                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_with_tax / env.pos.config.show_currency_rate_real)"/> 
+                </t>
+                <t t-elif="env.pos.config.rate_company &gt; env.pos.config.show_currency_rate">
+                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_with_tax * env.pos.config.show_currency_rate_real)"/>
+                </t>
+                <t t-else="">
+                    <t t-set="price_other_currency" t-value="env.pos.format_currency_no_symbol(receipt.total_with_tax)"/>
+                </t>
+                <span t-esc="price_other_currency" class="pos-receipt-right-align"/>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

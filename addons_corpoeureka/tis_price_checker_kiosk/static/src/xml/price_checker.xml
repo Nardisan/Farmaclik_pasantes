@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<template xml:space="preserve">
+    <t t-name="PriceCheckerKioskMode">
+        <div class="o_hr_attendance_kiosk_mode_container o_home_menu_background">
+            <span class="o_hr_attendance_kiosk_backdrop"/>
+            <div class="o_hr_attendance_clock text-center"/>
+            <div class="o_hr_attendance_kiosk_mode">
+                <t>
+                    <div class="row">
+                    <h3 style="padding-left: 26%;">Ingresar Código de Barra</h3>
+                    </div>
+                    <div class="row">
+                                    <div style=" padding-left: 26%; border: transparent;">
+                                        <input class="o_hr_attendance_PINbox text-center"
+                                               t-attf-value="{{widget.text_field}}"/></div>
+                                </div>
+
+                    <div class="row">
+
+                            <div class="col-md-8 offset-md-2 o_hr_attendance_pin_pad">
+
+
+                                <div class="row">
+                                    <t t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', ['C', 'btn-warning'], '0', ['ok', 'btn-primary']]"
+                                       t-as="btn_name">
+                                        <div class="col-4 mb4">
+                                            <a t-attf-class="btn {{btn_name[1]? btn_name[1] : 'btn-secondary'}} btn-block btn-lg {{ 'o_hr_attendance_pin_pad_button_' + btn_name[0] }}"><t t-esc="btn_name[0]"/></a>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    <br></br>
+                    <br></br>
+                    <t t-if="widget.flag!=1">
+                    <table cellpadding="10" align="center">
+
+                        
+
+			<tr>
+				<th>
+					<h3 class="panel-title" style="float: left;">Producto: </h3>
+				</th>
+                           	<th>
+					<b style="float: left;"><t t-esc="widget.product_name"/></b>
+				</th>
+			</tr>
+			
+			<tr>
+				<th>
+					<h3 class="panel-title" style="float: left;">Codigo: </h3>
+				</th>
+                           	<th>
+					<b style="float: left;"><t t-esc="widget.codigo_interno"/></b>
+				</th>
+			</tr>
+
+			<tr>
+				<th>
+					<h3 class="panel-title" style="float: left;">Stock: </h3>
+				</th>
+                           	<th>
+					<b style="float: left;"><t t-esc="widget.stock"/></b>
+				</th>
+			</tr>
+
+
+
+                        <tr>
+			      <th>
+					<h3 class="panel-title" style="float: left;">Precio:  </h3>
+			      </th>
+                              <th>
+				<b style="float: left;color: #00A552;">
+					 
+					<span>$ </span>
+					<t  t-esc="(widget.product_price*( 1 + ( widget.taxes_id / 100 ) )).toFixed(2) != 'NaN' ? ( (widget.product_price).toFixed(2)*( 1 + ( widget.taxes_id / 100 ) )).toFixed(2) : ''" t-options='{"widget": "float", "precision": 2}'/> 
+				</b>
+			     </th>
+			</tr>
+
+			<tr>
+				<th>
+					<h3 class="panel-title" style="float: left;">Precio:  </h3>
+				</th>
+                                <th>
+				<b style="float: left;color: #00A552;">
+					 
+					<span>Bs. </span>
+					<t  t-esc="(widget.product_price*( 1 + ( widget.taxes_id / 100 ) )).toFixed(2) != 'NaN' ? ( ( (widget.product_price).toFixed(2)*( 1 + ( widget.taxes_id / 100 ) ) ).toFixed(2) * widget.tasa ).toFixed(2) : ''" t-options='{"widget": "float", "precision": 2}'/> 
+				</b>
+			       </th>
+			</tr>
+
+
+
+			<tr>
+				<th>
+					<h3 class="panel-title" style="float: left;">Tasa: </h3>
+				</th>
+                           	<th>
+				<b style="float: left;">
+
+					<span>Bs. </span>
+					<t t-esc="(widget.tasa*1).toFixed(2) != 'NaN' ? (widget.tasa*1).toFixed(2) : ''" t-options='{"widget": "float", "precision": 2}'/>
+				
+
+				</b>	
+				</th>
+			</tr>
+
+
+		
+
+
+                         
+                    </table>
+                    </t>
+                    <t t-else="">
+                        <table cellpadding="10" align="center">
+                        <tr><th><h3>PRODUCTO NO ENCONTRADO</h3></th></tr>
+                        </table>
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>

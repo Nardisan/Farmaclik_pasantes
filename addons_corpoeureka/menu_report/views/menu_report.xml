@@ -1,0 +1,17 @@
+<odoo>
+    <menuitem id="menu_report.report_menu_root"
+              name="Reportes"
+              groups="stock.group_stock_manager,purchase.group_purchase_manager,point_of_sale.group_pos_manager"
+              web_icon="menu_report,static/description/icon.png"
+              />
+
+    <menuitem id="sale_menu"
+            name="Ventas"
+            parent="menu_report.report_menu_root"
+            sequence="1"/>
+
+    <menuitem id="menu_report_pos_order_all_report" name="Pedidos TPV" action="point_of_sale.action_report_pos_order_all" parent="sale_menu" sequence="3"/>
+
+    <menuitem id="purchase_report_ext" name="Compras" parent="menu_report.report_menu_root" sequence="2"  action="purchase.action_purchase_order_report_all"/>
+
+</odoo>

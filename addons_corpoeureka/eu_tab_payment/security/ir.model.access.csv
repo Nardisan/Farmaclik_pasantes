@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_add_wallet_wizard,eu_tab_payment.add_wallet_wizard,model_add_wallet_wizard,eu_tab_payment.add_wallet_group,1,1,1,1

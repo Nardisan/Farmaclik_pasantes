@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="mensajeria_sms_pacientes_cronicos_form_view" model="ir.ui.view">
+            <field name="name">mensajeria.sms.pacientes.cronicos.form.view</field>
+            <field name="model">mensajeria.sms.pacientes.cronicos</field>
+            <field name="arch" type="xml">
+
+                <form string="Mensajes SMS para pacientes crónicos">
+
+                <header>
+                <field name="estatus_de_envio_sms" widget="statusbar" statusbar_visible="Pendiente,Enviado" />
+                </header>
+
+                <sheet>
+
+                    <group col="2">
+
+                        <group>
+                            <field name="registrado_desde" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}" />
+                        </group>
+
+                        <group>
+                            <field name="telefono" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}" />
+                        </group>
+
+                    </group>
+
+                    <group col="2">
+
+                        <group>
+                            <field name="paciente_id" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}" />
+                        </group>
+
+                        <group>
+                            <field name="medicamento_id" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}"/>
+                        </group>
+
+                    </group>
+
+                    <group col="1">
+                        <group>
+                            <field name="mensaje_plantilla" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}" />
+                        </group>
+                    </group>
+
+                    <group col="1">
+                        <group>
+                            <field name="mensaje_final"  />
+                        </group>
+                    </group>
+
+                    <group col="2">
+
+                        <group>
+                            <field name="fecha_de_registro" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}"/>
+                        </group>
+
+                        <group>
+                            <field name="fecha_de_envio_sms" attrs="{'readonly':[('estatus_de_envio_sms','==','Enviado')]}"/>
+                        </group>
+
+                    </group>
+                
+                </sheet>
+                </form>
+
+
+            </field>
+        </record>
+
+        <record id="mensajeria_sms_pacientes_cronicos_tree_view" model="ir.ui.view">
+            <field name="name">mensajeria.sms.pacientes.cronicos.tree.view</field>
+            <field name="model">mensajeria.sms.pacientes.cronicos</field>
+            <field name="arch" type="xml">
+            
+                <tree  string="Mensajes SMS para pacientes crónicos">
+                    <field name="registrado_desde"/>
+                    <field name="telefono"/>
+                    <field name="paciente_id"/>
+                    <field name="medicamento_id" />
+                    <field name="mensaje_final" />
+                    <field name="fecha_de_registro"/>
+                    <field name="fecha_de_envio_sms" />
+                    <field name="estatus_de_envio_sms" decoration-danger="estatus_de_envio_sms == 'Pendiente'" decoration-success="estatus_de_envio_sms == 'Enviado'" decoration-bf="1"/>
+                </tree>
+
+
+            </field>
+        </record>
+
+        <record id="mensajeria_sms_pacientes_cronicos_action" model="ir.actions.act_window">
+            <field name="name">Mensajes SMS para pacientes crónicos</field>
+            <field name="res_model">mensajeria.sms.pacientes.cronicos</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="mensajeria_sms_pacientes_cronicos_menu" name="Mensajes SMS para pacientes crónicos" parent="point_of_sale.menu_point_config_product" action="mensajeria_sms_pacientes_cronicos_action" sequence="9"/>
+
+    </data>
+</odoo>

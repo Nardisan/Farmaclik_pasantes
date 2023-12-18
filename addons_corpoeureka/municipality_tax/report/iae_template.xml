@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="iae_templates">		
+		<t t-call="web.html_container">
+			<!--<t t-set="data_report_margin_top" t-value="10" />-->
+			<t t-call="eu_template_report_corpoeureka.template_report_corpoeureka">
+				<div class="page">
+					<style type="text/css">
+                        .table{
+				        	font-family: Times;
+				        	font-size: 9px;
+				        	line-height: 1.6;
+				        }
+
+				        .cabecera{
+				        	background: #E4E4E4;
+				        	font-size: 12px;
+				        }
+
+                    </style>
+					<div class="row container">
+						<div class="col-12 text-center">
+                        	<h5><b>RETENCIONES DE IAE</b></h5>
+                        	<div class="col-12" style="font-size:12px;">
+	                        	<t t-if="type_invoice">
+	                            	<b><spam t-esc="type_invoice"/></b>
+	                        	</t>
+	                        </div>
+                        	<div class="col-12" style="font-size:12px;">
+	                        	<t t-if="state">
+	                            	<b>Estatus: <spam t-esc="state"/></b>
+	                        	</t>
+	                        </div>
+	                        <div class="col-12" style="font-size:12px;">
+	                        	<t t-if="date_start">
+	                            	<b>Desde: <spam t-esc="date_start" t-options='{"widget": "date"}'/></b>
+	                        	</t>
+	                        	<t t-if="date_end">
+	                            	<b>Hasta: <spam t-esc="date_end" t-options='{"widget": "date"}'/></b>
+	                        	</t>                            
+	                        </div>
+	                        <div class="col-12" style="font-size:12px;">
+	                        	<t t-if="partner_id">
+	                            	<b>Proveedor/Cliente: <spam t-esc="partner_id"/></b>
+	                        	</t>
+	                        </div>
+                    	</div>
+                    </div><br/>
+                    <t t-set="Tmonto" t-value="False"/>
+					<t t-set="Tbase" t-value="False"/>
+					<t t-set="Timpu" t-value="False"/>
+					<t t-set="Ttot" t-value="False"/>
+					<t t-set="comprobante_anterior" t-value=""/>                 
+                    		
+                	<table class="table table-sm" style="width:100%;">
+						
+                		<thead class="thead-light">
+                			<tr>
+                				<td scope="col" style="border-top:0px;width:10%;">
+                					<strong>Comprobante</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:6%;">
+                					<strong>Fecha</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:10%;">
+                					<strong>Factura</strong>
+                				</td>
+                				<td scope="col" style="border-top:0px;width:22%;">
+                					<strong>Proveedor</strong>
+                				</td>
+                				<td scope="col" class="text-right" style="border-top:0px;width:14%;">
+                					<strong >Monto</strong>
+                				</td>
+                				<td scope="col" class="text-right" style="border-top:0px;width:14%;">
+                					<strong>Base Imponible</strong>
+                				</td>
+                				<td scope="col" class="text-right" style="border-top:0px;width:5%;">
+                					<strong>%Alic</strong>
+                				</td>
+                				<td scope="col" class="text-right" style="border-top:0px;width:5%;">
+                					<strong>Porc.</strong>
+                				</td>
+                				<td scope="col" class="text-right" style="border-top:0px;width:14%;">
+                					<strong>Monto</strong>
+                				</td>
+
+                			</tr>
+						</thead>
+						<tbody>	
+							<tr t-foreach="final" t-as="f">									
+								<td>
+									<span t-esc="f['comprobante']"/>
+								</td>
+								<td>
+									<span t-esc="f['fecha']" t-options='{"widget": "date"}'/>
+								</td>
+								<td class="text-right">
+									<t t-if="type_invoice == 'Cuentas Por Cobrar'">
+									<span t-esc="f['nro_facv']" />
+									</t>
+									<t t-if="type_invoice == 'Cuentas Por Pagar'">
+									<span t-esc="f['nro_fac']" />
+									</t>
+								</td>
+								<td>
+									<span t-esc="f['proveedor']"/>
+								</td>
+								<td class="text-right">
+									<span t-esc="f['monto_total']"  t-options='{"widget": "float", "precision": 2}'/>
+									<t t-if="f['comprobante'] != comprobante_anterior">
+									<t t-set="Tmonto" t-value="Tmonto + f['monto_total']"  />
+									</t>
+								</td>
+								<td class="text-right">												
+									<span t-esc="f['base_imponible']" t-options='{"widget": "float", "precision": 2}'/>
+									<t t-set="Tbase" t-value="Tbase + f['base_imponible']"/>
+								</td>
+								
+								<td class="text-right">
+									<span t-esc="f['alicuota']" t-options='{"widget": "float", "precision": 2}'/>
+									
+								</td>
+								<td class="text-right">
+									<span t-esc="f['porcentaje']" />
+
+								</td>
+								<td  class="text-right">
+									<span t-esc="f['monto']" t-options='{"widget": "float", "precision": 2}'/>
+									<t t-set="Ttot" t-value="Ttot + f['monto']"/>
+									<t t-set="comprobante_anterior" t-value="f['comprobante']"/>
+								</td>
+							</tr>
+						</tbody>						
+                	</table>
+
+                	<table class="table table-sm" style="100%">
+                		<tr>
+                			<td scope="col" style="border-top:0px;width:10%;"></td>
+            				<td scope="col" style="border-top:0px;width:6%;"></td>
+            				<td scope="col" style="border-top:0px;width:10%;"></td>
+            				<td scope="col" style="border-top:0px;width:22%;">
+            					<strong>TOTAL GENERAL</strong>
+            				</td>
+            				<td scope="col" style="border-top:0px;width:14%;" class="text-right">
+            					<strong><t t-esc="Tmonto" t-options='{"widget": "float", "precision": 2}'/></strong>
+            				</td>
+            				<td scope="col" style="border-top:0px;width:14%;" class="text-right">
+            					<strong style="text-align: right;"><t t-esc="Tbase" t-options='{"widget": "float", "precision": 2}'/></strong>
+            				</td>
+            				<td scope="col" style="border-top:0px;width:5%;"></td>
+            				<td scope="col" style="border-top:0px;width:5%;"></td>
+            				<td scope="col" style="border-top:0px;width:14%;" class="text-right">
+            					<strong><t t-esc="Ttot" t-options='{"widget": "float", "precision": 2}'/></strong>
+            				</td>                			
+                		</tr>
+
+                	</table>
+				</div>
+			</t>
+		</t>
+	</template>
+</odoo>
+

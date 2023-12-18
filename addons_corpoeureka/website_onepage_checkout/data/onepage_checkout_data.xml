@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="onepage_config_setting_1" model="onepage.checkout.config">
+            <field name="name">Default Onepage Checkout Configuration</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="onepage_bill_company_name" model="billing.default.fields">
+            <field name="name">Street and Number</field>
+            <field name="code">street</field>
+        </record>
+
+        <record id="onepage_bill_phone" model="billing.default.fields">
+            <field name="name">Phone</field>
+            <field name="code">phone</field>
+        </record>
+
+      <!--   <record id="onepage_bill_street" model="billing.default.fields">
+            <field name="name">Street</field>
+            <field name="code">street2</field>
+        </record> -->
+
+        <record id="onepage_bill_city" model="billing.default.fields">
+            <field name="name">City</field>
+            <field name="code">city</field>
+        </record>
+
+        <record id="onepage_bill_zip" model="billing.default.fields">
+            <field name="name">Zip / Postal Code</field>
+            <field name="code">zip</field>
+        </record>
+
+        <!-- Shipping Checkout Form Fields -->
+        <record id="onepage_shipp_phone" model="shipping.default.fields">
+            <field name="name">Phone</field>
+            <field name="code">phone</field>
+        </record>
+        <record id="onepage_shipp_street" model="shipping.default.fields">
+            <field name="name">Street</field>
+            <field name="code">street</field>
+        </record>
+        <record id="onepage_shipp_city" model="shipping.default.fields">
+            <field name="name">City</field>
+            <field name="code">city</field>
+        </record>
+        <record id="onepage_shipp_zip" model="shipping.default.fields">
+            <field name="name">Zip / Postal Code</field>
+            <field name="code">zip</field>
+        </record>
+        
+    </data>
+</odoo>
+
+
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- Responsible Developer:- Sunny Kumar Yadav -->

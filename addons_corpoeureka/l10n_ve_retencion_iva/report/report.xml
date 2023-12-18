@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record id="paperformat_euro_landscape" model="report.paperformat">
+            <field name="name">European A4 Landscape</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">4</field>
+            <field name="margin_left">4</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        <report 
+            id="report_withholding_receipt"
+            model="account.wh.iva"
+            string="Withholding receipt"
+            report_type="qweb-pdf"
+            name="l10n_ve_retencion_iva.report_withholding_receipt_iva"
+            file="l10n_ve_retencion_iva.report_withholding_receipt_iva"
+            paperformat="paperformat_euro_landscape"
+        />
+    </data>
+</odoo>

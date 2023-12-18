@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user_membership,user_membership,model_user_membership,user_membership.um_security_group,1,1,1,1
+access_user_membership_portal,user_membership_portal,model_user_membership,base.group_portal,1,0,0,0
+access_user_membership_user,user_membership_user,model_user_membership,base.group_user,1,0,0,0
+access_product_wizard,product_wizard,model_product_wizard,,1,1,1,1
+access_user_membership_plan,user_membership_plan,model_user_membership_plan,user_membership.um_security_group,1,1,1,1
+access_user_membership_plan_portal,user_membership_plan_portal,model_user_membership_plan,,1,0,0,0
+access_user_membership_plan_service,user_membership_plan_service,model_user_membership_plan_service,,1,1,1,1

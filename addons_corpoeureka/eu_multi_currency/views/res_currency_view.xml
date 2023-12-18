@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_currency_form_inherit_views_usd" model="ir.ui.view">
+        <field name="name">res_currency_form_inherit_views</field>
+        <field name="model">res.currency</field>
+        <field name="inherit_id" ref="base.view_currency_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="parent_id" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

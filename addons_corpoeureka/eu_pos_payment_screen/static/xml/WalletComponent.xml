@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="wallet_template" xml:space="preserve">
+    <t t-name="WalletComponent" owl="1">
+       <div id="wallet-payment">
+            <div class="wallet-box disabled">
+                <button type="button" t-on-click="handleClick" accesskey="w">
+                    Wallet
+                </button>
+                <strong class="input-dollar" >
+                    0.00
+                </strong>
+                <small class="input-dollar">
+                    $
+                </small>
+                <span class="input-bolivar">
+                    <t t-esc="inverse"/>
+                </span>
+            </div>
+            <p></p>
+       </div>
+    </t>
+</templates>

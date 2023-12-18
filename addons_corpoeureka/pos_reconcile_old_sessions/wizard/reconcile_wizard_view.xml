@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="pos_reconcile_wizard_view_form" model="ir.ui.view">
+		<field name="name">pos.reconcile.wizard.view.form</field>
+		<field name="model">pos.reconcile.wizard</field>
+		<field name="arch" type="xml">
+			<form>
+				<div class="alert alert-warning text-center" role="status">
+					Esto puede tardar varios minutos. Asegúrese de realizarlo en el momento adecuado para que no exista bajas en el rendimiento del servicio.
+				</div>
+				<group>
+					<field name="filtered_by"/>
+					<field name="session_ids" widget="many2many_tags" attrs="{'invisible': [('filtered_by', '!=', 'session')], 'required': [('filtered_by', '=', 'session')]}"/>
+					<field name="date_from" attrs="{'invisible': [('filtered_by', '!=', 'period')], 'required': [('filtered_by', '=', 'period')]}"/>
+					<field name="date_to" attrs="{'invisible': [('filtered_by', '!=', 'period')], 'required': [('filtered_by', '=', 'period')]}"/>
+				</group>
+				<footer>
+					<button string="Conciliar facturas" name="reconcile" type="object" class="oe_highlight"/>
+					<button string="Cancel" class="btn btn-secondary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+	<record id="pos_reconcile_wizard_action" model="ir.actions.act_window">
+		<field name="name">Conciliación facturas de TPV</field>
+		<field name="res_model">pos.reconcile.wizard</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+	<menuitem id="pos_reconcile_wizard_menu" action="pos_reconcile_wizard_action" parent="point_of_sale.menu_point_config_product" groups="base.group_no_one" sequence="100"/>
+</odoo>

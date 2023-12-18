@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_reconcile_wizard,access.pos.reconcile.wizard,model_pos_reconcile_wizard,,1,1,1,1
+access_productos_compra_venta_wizard,access.productos.compra.venta.wizard,model_productos_compra_venta_wizard,base.group_user,1,1,1,1
+access_productos_valoracion_mercancia_vendida,access.productos.valoracion.mercancia.vendida,model_productos_valoracion_mercancia_vendida,base.group_user,1,1,1,1

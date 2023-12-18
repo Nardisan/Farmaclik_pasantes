@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_currency_rate_tree_inherit_views_usd" model="ir.ui.view">
+        <field name="name">res_currency_rate_tree_inherit_views_usd</field>
+        <field name="model">res.currency.rate</field>
+        <field name="inherit_id" ref="base.view_currency_rate_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='rate']" position="after">
+                <field name="rate_inv" readonly="1"></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

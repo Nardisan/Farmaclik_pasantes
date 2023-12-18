@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wizard_book_sale_form_view" model="ir.ui.view">
+            <field name="name">wizard.book.sale.form</field>
+            <field name="model">wizard.book.sale</field>
+            <field name="arch" type="xml">
+                <form string="Libro de Pruebas">
+                    <field name="company_id" invisible="1"/>
+                    <group col="4">
+                        <field name="target_move" widget="radio"/>
+                        <field name="sortby" widget="radio"/>
+                        <newline/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="in_bs" />
+                    </group>
+                    <group>
+                        <field name="account_ids" widget="many2many_tags"/>
+                        <field name="journal_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <!-- <field name="branch_ids" widget="many2many_tags" options="{'no_create': True}"/> -->
+                    </group>
+                    <footer>
+                        <button name="check_reports" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_book_sale_act_window" model="ir.actions.act_window">
+            <field name="name">Sales Book Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.book.sale</field>
+            <field name="view_id" ref="wizard_book_sale_form_view"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="wizard_sale_book_menu" name="Sales Book" action="wizard_book_sale_act_window"
+                  parent="account.menu_finance_reports"/>
+
+    </data>
+</odoo>

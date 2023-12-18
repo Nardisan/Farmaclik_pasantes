@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_line_form_inherit_views_usd" model="ir.ui.view">
+            <field name="name">purchase_order_line_form_inherit_views</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">    
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/field[6]" position="before">
+                    <field name="price_unit_ref"  widget='monetary' options="{'currency_field': 'order_id.currency_id_dif'}" optional="show"></field>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/field[8]" position="before">
+                    <field name="price_subtotal_ref" widget='monetary' options="{'currency_field': 'order_id.currency_id_dif'}" force_save="1" optional="show"></field>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[20]" position="before">
+                    <field name="price_unit_ref" widget='monetary' options="{'currency_field': 'order_id.currency_id_dif'}" optional="show"></field>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[22]" position="before">
+                    <field name="price_subtotal_ref" widget='monetary' options="{'currency_field': 'order_id.currency_id_dif'}"  force_save="1" optional="show"></field>
+                </xpath>
+                 <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <field name="utilidad" readonly="0" optional="show"></field>
+                </xpath>
+                <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <field name="fecha_de_caducidad" attrs="{'readonly':[('state','=','purchase')]}"></field>
+                </xpath>
+                <xpath expr="//field[@name='price_subtotal']" position="after">
+                    <field name="lote" attrs="{'readonly':[('state','=','purchase')]}"></field>
+                </xpath>
+                <xpath expr="//field[@name='price_unit']" position="after">
+                    <field name="coste_actual" decoration-bf="1" decoration-warning="price_unit &lt; coste_actual and  ( abs( price_unit - coste_actual) ) &gt; (coste_actual * 0.10)" decoration-danger="price_unit &gt; coste_actual and  ( abs( price_unit - coste_actual) ) &gt; (coste_actual * 0.10)" force_save="1" readonly="1"></field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

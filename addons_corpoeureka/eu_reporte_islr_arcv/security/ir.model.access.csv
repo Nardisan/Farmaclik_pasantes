@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_report_islr_arcv,eu_report_islr_arcv.report_islr_arcv,model_islr_wizard_arcv,base.group_user,1,1,1,1

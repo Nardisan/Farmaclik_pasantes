@@ -1,0 +1,45 @@
+
+<odoo>
+        <record id="commission_view_customer_form" model="ir.ui.view">
+            <field name="name">commission.view.customer.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="flexipharmacy.aspl_view_customer_form"/>
+             <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='is_doctor']" position="after">
+                    <field name="medical_center" />
+                </xpath>
+                <xpath expr="//page[@name='commission']" position="inside">
+                    <group>
+                        <group>
+                            <field string="Comisión Médica" name="pos_doctor_commission_ids" widget="one2many" colspan="4" nolabel="1" mode="tree">
+                                    <tree string="Comisión Médica" editable="top">
+                                        <field name="doctor_id" />
+                                        <field name="calculation" />
+                                        <field name="commission" />
+                                        <field name="partner_comm_id" invisible="1" />
+                                    </tree>
+                                    <form string="Comisión Médica">
+                                        <group>
+                                        <field name="doctor_id" />
+                                        <field name="calculation" />
+                                        <field name="commission" />
+                                        <field name="partner_comm_id" invisible="1" />
+                                        </group>
+                                    </form>
+                            </field>
+                        </group> 
+                        <group>
+                            <field name="especialidad" style="with:40%%;"/>
+                            <field name="descuento" style="with:40%%;"/>
+                             <!--<field name="pricelist_id" style="with:40%%;"/> -->
+                        </group> 
+                    </group>   
+                </xpath>
+                
+               
+            </field>
+        </record>
+
+</odoo>

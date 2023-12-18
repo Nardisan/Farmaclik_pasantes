@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="homeopathy_system_hms_order_wizard_form">
+            <field name="name">Product</field>
+            <field name="model">product.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="control_action" widget="radio"/>
+                            </group>
+                            <group>
+                                <field name="user_membership_plan_ids" widget="many2many_tags" required="1"
+                                       domain="[('is_exclusive_product','=',True)]"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="public_categ_ids" widget="many2many_tags" string="eCom Category"/>
+                                <label for="time" string="Exclusive Till"
+                                       attrs="{'invisible':[('control_action','=','unset')]}"/>
+                                <div class="o_row" attrs="{'invisible':[('control_action','=','unset')]}">
+                                    <field name="time" string="Exclusive Till"
+                                           attrs="{'invisible':[('control_action','=','unset')], 'required':[('control_action','=','set')]}"/>
+                                    Hour(s)
+                                </div>
+                            </group>
+
+                            <group>
+                                <field name="msg"
+                                       attrs="{'invisible':[('control_action','=','unset')], 'required':[('control_action','=','set')]}"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <field name="product_tmpl_ids" widget="many2many_tags" required="1"
+                                   string="Exclusive Products"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Apply" type="object" name="wizard_submit" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="user_membership_product_wizard">
+            <field name="name">Control Exclusive Products</field>
+            <field name="res_model">product.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+        </record>
+
+        <menuitem name="Exclusive Products Control Wizard" id="user_membership_product_wizard_menu"
+                  parent="user_membership_product_menu"
+                  action="user_membership_product_wizard"/>
+    </data>
+</odoo>

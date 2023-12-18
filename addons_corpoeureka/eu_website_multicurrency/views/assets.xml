@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assent_front_multi" name="MultiCurrency Assets" inherit_id="website.assets_frontend" priority="18">
+        <xpath expr="." position="inside">
+            <!-- SCSS File -->
+            <link href="/eu_website_multicurrency/static/src/scss/multicurrency.scss" rel="stylesheet" type="text/scss" />
+        </xpath>
+    </template>
+       <template id="assets_frontend_multicurrency" inherit_id="website.assets_frontend" name="MultiCurrency Assets">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/eu_website_multicurrency/static/src/scss/multicurrency.scss' />
+        </xpath>
+    </template>
+</odoo>

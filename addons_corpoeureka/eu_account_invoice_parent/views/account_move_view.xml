@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_control" model="ir.ui.view">
+        <field name="name">account.move.form.control</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="after">
+                <field name="num_credit" string="Número de Nota de Crédito" attrs="{'invisible': [('parent_id', '=', False)]}" ></field>
+                <field name="ref_credit" string="Nro Control Nota de Crédito" attrs="{'invisible': [('parent_id', '=', False)]}" ></field>
+                <field 
+                    name="parent_id" 
+                    attrs="{'invisible': [('parent_id', '=', False)]}"
+                    readonly="1"
+                    options="{'no_create_edit': True, 'no_quick_create': True, 'no_create': True}">
+                </field>
+                <field name="motivos" string="Motivo de Nota de Crédito" attrs="{'invisible': [('parent_id', '=', False)]}" options="{'no_create_edit': True, 'no_quick_create': True, 'no_create': True, 'no_open' : True}"></field>
+                <field name="with_nc" attrs="{'invisible': [('with_nc', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object" icon="fa-book" 
+                    context="{
+                    'search_default_parent_id': active_id,
+                    'default_parent_id': active_id,
+                    }" 
+                    name="show_parent_invoice" 
+                    width="180px"
+                    >
+                <field name="parent_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+     <record id="account_move_credit_motivo_form_view" model="ir.ui.view">
+        <field name="name">account.move.credit.motivo.form.view</field>
+        <field name="model">account.move.credit.motivo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <div class="oe_title">
+                    <div class="oe_title">
+                    <h1>
+                        Motivo del Pago
+                    </h1>
+                </div>
+                </div> 
+                    <group>
+                        <group>
+                            <field name="name"/><br/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_move_credit_motivo_tree_view" model="ir.ui.view">
+        <field name="name">account.move.credit.motivo.view.tree</field>
+        <field name="model">account.move.credit.motivo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_move_credit_motivo">
+        <field name="name">Motivos de las Notas de Crédito</field>
+        <field name="res_model">account.move.credit.motivo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_account_credit_motivo" name="Motivo de las Notas de Crédito" parent="account.menu_account_config" action="action_account_move_credit_motivo"/>
+</odoo>

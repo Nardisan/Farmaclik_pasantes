@@ -1,0 +1,724 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_accountant
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 15:54+0000\n"
+"PO-Revision-Date: 2020-06-09 15:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "% Alícuota"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "0,00"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>30</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>312</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>313</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>31</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>322</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>323</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>32</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>332</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>333</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>33</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>342</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>343</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>34</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>35</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>36</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>40</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>42</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>43</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>442</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>443</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>452</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>453</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>46</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>47</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>Currency</strong>"
+msgstr "<strong>Moneda</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Date from :</strong>"
+msgstr "<strong>Desde :</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Date to :</strong>"
+msgstr "<strong>Hasta:</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Display Account</strong>"
+msgstr "<strong>Mostrar cuenta</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Journals:</strong>"
+msgstr "<strong> Diarios:</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>Journals</strong>"
+msgstr "<strong> Diarios:</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Sorted By:</strong>"
+msgstr "<strong> Ordenado por:</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "<strong>TOTAL</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Target Moves:</strong>"
+msgstr "<strong>Movimientos señalados:</strong>"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__account_ids
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__account_ids
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Ajuste Aplicado"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Ajustes"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Ajustes de este periodo"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__display_account__all
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__display_account__all
+msgid "All"
+msgstr "Todas"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__target_move__all
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__target_move__all
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "All Entries"
+msgstr "Todos los asientos"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__target_move__posted
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__target_move__posted
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "All Posted Entries"
+msgstr "Todos los asientos asentados"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "All accounts'"
+msgstr "Todas las cuentas"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Base Imponible"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Base imponible"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "COMPRAS INTERNAS O IMPORTACIONES"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.wizard_book
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.wizard_book_sale_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__company_id
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras Importación Afectas en Alicuota General + Adicional"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras Importación Afectas en Alicuota Reducida"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras Importación afectadas solo Alicuota General"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras Internas Afectas en Alicuota General + Adicional"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras Internas Afectas en Alicuota Reducida"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras Internas Afectas solo Alicuota General"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Compras sin derecho a Crédito IVA"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__create_date
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Credito fiscal"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__currency_id
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__sortby__sort_date
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__sortby__sort_date
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Date"
+msgstr "Fecha"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Debito  fiscal"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__display_account
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__display_account
+msgid "Display Accounts"
+msgstr "Mostrar cuentas"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_report_l10n_ve_accountant_report_sales_book__display_name
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_report_l10n_ve_accountant_report_shooping_book__display_name
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__display_name
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__date_to
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__date_to
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Fecha de la Factura"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: code:addons/l10n_ve_accountant/reports/account_purchase_book.py:0
+#: code:addons/l10n_ve_accountant/reports/report_sales_book.py:0
+#: code:addons/l10n_ve_accountant/reports/report_shopping_book.py:0
+#, python-format
+msgid "Form content is missing, this report cannot be printed."
+msgstr "Falta el contenido del formulario, este informe no se puede imprimir."
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_report_l10n_ve_accountant_report_sales_book__id
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_report_l10n_ve_accountant_report_shooping_book__id
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__id
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "IVA Percibido"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "IVA Retenido (a terceros)"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "IVA Retenido (al vendedor)"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "IVA Retenido (por el comprador)"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "IVA Retenido por el Comprador"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Impuesto IVA"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__sortby__sort_journal_partner
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__sortby__sort_journal_partner
+msgid "Journal & Partner"
+msgstr "Diario y socio"
+
+#. module: l10n_ve_accountant
+#: model:ir.model,name:l10n_ve_accountant.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: l10n_ve_accountant
+#: model:ir.model,name:l10n_ve_accountant.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Journal and Partner"
+msgstr "Diario y socio"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__journal_ids
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__journal_ids
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_report_l10n_ve_accountant_report_sales_book____last_update
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_report_l10n_ve_accountant_report_shooping_book____last_update
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book____last_update
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__write_date
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Libro de Compras"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.wizard_book_sale_form_view
+msgid "Libro de Pruebas"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Libro de Ventas"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model,name:l10n_ve_accountant.model_wizard_book_sale
+msgid "Libro de ventas"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Nombre o Razón Social"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Núm. Ctrol. de Factura"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Número Nota Debit."
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Número de Comprobt."
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Número de Factura Afectada"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Número de Factura."
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Número de Nota Crdto."
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Oper. N°"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_account_move_line__payments_three
+msgid "Payments to third parties"
+msgstr "Pagos a terceros"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.wizard_book
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.wizard_book_sale_form_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.wizard_book
+msgid "Purchase Book"
+msgstr "Libro de compras"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "RIF"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.actions.act_window,name:l10n_ve_accountant.action_wizard_book
+msgid "Report print book"
+msgstr "Reporte de libro de compras"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Saldo anterior de Ajuste"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Saldo de Ajuste próximo periodo"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.ui.menu,name:l10n_ve_accountant.wizard_sale_book_menu
+msgid "Sales Book"
+msgstr "Libro de ventas"
+
+#. module: l10n_ve_accountant
+#: model:ir.actions.act_window,name:l10n_ve_accountant.wizard_book_sale_act_window
+msgid "Sales Book Report"
+msgstr "Reporte de libro de ventas"
+
+#. module: l10n_ve_accountant
+#: model:ir.actions.report,name:l10n_ve_accountant.sales_book
+msgid "Sales book"
+msgstr "Libro de ventas"
+
+#. module: l10n_ve_accountant
+#: model:ir.ui.menu,name:l10n_ve_accountant.account_shopping_book
+msgid "Shopping Book"
+msgstr "Libro de compras"
+
+#. module: l10n_ve_accountant
+#: model:ir.actions.report,name:l10n_ve_accountant.shooppin_book
+msgid "Shopping book"
+msgstr "libro de compras"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__sortby
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__sortby
+msgid "Sort by"
+msgstr "Ordenar por"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__date_from
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__date_from
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book__target_move
+#: model:ir.model.fields,field_description:l10n_ve_accountant.field_wizard_book_sale__target_move
+msgid "Target Moves"
+msgstr "Movimientos destino"
+
+#. module: l10n_ve_accountant
+#: code:addons/l10n_ve_accountant/wizard/wizard_book.py:0
+#: code:addons/l10n_ve_accountant/wizard/wizard_sale_book_sh.py:0
+#, python-format
+msgid "The end date cannot be less than the start date "
+msgstr "La fecha de finalización no puede ser inferior a la fecha de inicio"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Tipo de Proveed."
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Tipo de Transacc."
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Total : Compras Excentas y/o sin derecho a crédito fiscal"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Total : Ventas Internas Afectas en Alicuota General + Adicional"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Total : Ventas Internas Afectas en Alicuota Reducidal"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Total : Ventas Internas Afectas solo Alicuota General"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Total : Ventas Internas No Gravadas"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Total Ajuste Aplicable"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "Total Compras Incluyendo el IVA"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Total Ventas Incluyendo el IVA"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "VENTAS INTERNAS O EXPORTACION GRAVADAS"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+msgid "Ventas Internas No Gravadas"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__display_account__not_zero
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__display_account__not_zero
+msgid "With balance is not equal to 0"
+msgstr "Con saldo distinto de 0"
+
+#. module: l10n_ve_accountant
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "With balance not equal to zero"
+msgstr "Con saldo distinto a cero"
+
+#. module: l10n_ve_accountant
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book__display_account__movement
+#: model:ir.model.fields.selection,name:l10n_ve_accountant.selection__wizard_book_sale__display_account__movement
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_sales_book_doc
+#: model_terms:ir.ui.view,arch_db:l10n_ve_accountant.report_shooping_book
+msgid "With movements"
+msgstr "Con movimientos"
+
+#. module: l10n_ve_accountant
+#: model:ir.model,name:l10n_ve_accountant.model_report_l10n_ve_accountant_report_sales_book
+msgid "report.l10n_ve_accountant.report_sales_book"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model,name:l10n_ve_accountant.model_report_l10n_ve_accountant_report_shooping_book
+msgid "report.l10n_ve_accountant.report_shooping_book"
+msgstr ""
+
+#. module: l10n_ve_accountant
+#: model:ir.model,name:l10n_ve_accountant.model_wizard_book
+msgid "wizard.book"
+msgstr ""

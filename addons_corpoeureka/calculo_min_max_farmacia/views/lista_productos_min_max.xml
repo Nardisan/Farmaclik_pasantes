@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="lista_productos_min_max_form_view" model="ir.ui.view">
+            <field name="name">lista.productos.min.max.form.view</field>
+            <field name="model">lista.productos.min.max</field>
+            <field name="arch" type="xml">
+
+                <form string="Lista de Productos Mín Máx">
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                    <group>
+                        <field name="lista_productos" widget="many2many_tags"/>
+                    </group>
+                
+                </sheet>
+                </form>
+
+
+            </field>
+        </record>
+
+        <record id="lista_productos_min_max_tree_view" model="ir.ui.view">
+            <field name="name">lista.productos.min.max.tree.view</field>
+            <field name="model">lista.productos.min.max</field>
+            <field name="arch" type="xml">
+            
+                <tree  string="Lista de Productos Mín Máx">
+                    <field name="name"/>
+                    <field name="lista_productos" widget="many2many_tags"/>
+                </tree>
+
+
+            </field>
+        </record>
+
+        <record id="lista_productos_min_max_action" model="ir.actions.act_window">
+            <field name="name">Lista de Productos Mín Máx</field>
+            <field name="res_model">lista.productos.min.max</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="lista_productos_min_max_menu" name="Lista de Productos Mín Máx" parent="min_max_farmacia_principal_menu" action="lista_productos_min_max_action" sequence="9"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="eu_tab_payment_styles" name="eu_tab_payment assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+          <link rel="stylesheet" href="/eu_tab_payment/static/src/css/index.css" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/eu_tab_payment/static/src/js/index.js"></script>
+        </xpath>
+    </template>
+
+    <template id="payment_tab" name="Payment tab" inherit_id="payment.payment_tokens_list">
+        <xpath expr="//button[@id='o_payment_form_pay']" position="replace">
+            <button type="submit" id="payment_button" class="btn btn-primary" disabled="">
+                Pagar
+            </button>
+        </xpath>
+        <xpath expr="//div[hasclass('card')]" position="replace">
+            <div id="spin"></div>
+            <input type="hidden" name="pricelist_currency_name" t-att-value="order.pricelist_id.currency_id.name"/>
+            <input type="hidden" name="company_currency" t-att-value="website.company_id.currency_id.name"/>
+            <input type="hidden" name="pricelist_currency_symbol" t-att-value="order.pricelist_id.currency_id.symbol"/>
+            <input type="hidden" name="client_wallet" t-att-value="order.partner_id.remaining_wallet_amount or 0"/>
+            <input type="hidden" name="ref_rate" t-att-value="round(order.pricelist_id.tasa_del_dia, 2)"/>
+            <input type="hidden" name="ref_symbol" t-att-value="order.pricelist_id.currency_id.parent_id.symbol"/>
+            <input type="hidden" name="amount_total" t-att-value="order.amount_total"/>
+            <div class="tabs-card d-none">
+                <t 
+                    t-set="categories" 
+                    t-value="set(acq.payment_type for acq in acquirers if acq.payment_type)"
+                />
+                <nav class="tabs-menu">
+                    <t t-foreach="categories" t-as="category">
+                        <button 
+                            type="button"
+                            class="tab"
+                            t-attf-id="tab-{{category}}"
+                            t-attf-style="order: {{
+                                0 if category == 'efectivo' else 
+                                1 if category == 'pago_movil' else 
+                                2 if category == 'transferencia' else 
+                                3 if category == 'paypal' else
+                                4 if category == 'zelle' else
+                                5
+                            }}"
+                        >
+                            <t t-esc="category.replace('_', ' ')"/>
+                        </button>
+                    </t>
+                </nav>
+                <div class="current-form">
+                    <t t-foreach="categories" t-as="category">
+                        <div t-attf-id="payment-type-{{category}}">
+                            <t t-set="types" t-value="[acq for acq in acquirers if acq.payment_type == category]"/>
+                            <nav t-attf-class="payment-{{category}} payment-accounts">
+                                <button type="button" 
+                                    t-foreach="types" 
+                                    t-as="type" 
+                                    t-att-data-type-id="type.id"
+                                >
+                                    <strong t-esc="type.name"/>
+                                </button>
+                            </nav>
+                            <div class="payment-quantity">
+                                <div class="form-quantity" t-foreach="types" t-as="type">
+                                    <t t-raw="type.pending_msg" />
+                                    <strong t-if="type.provider == 'wallet'">
+                                        Usted tiene
+                                        <t
+                                            t-esc="order.partner_id.remaining_wallet_amount or 0" 
+                                            t-options="{
+                                                'widget': 'monetary',
+                                                'display_currency': order.currency_id,
+                                            }"
+                                        />
+                                        en su billetera
+                                    </strong>
+                                    <div class="input-group">
+                                        <input
+                                            type="number"
+                                            min="0" 
+                                            step="any"
+                                            t-attf-name="payment-{{category}}-{{type.id}}-quantity-dollar"
+                                            class="form-control"
+                                            placeholder="Monto $"
+                                            t-att-data-provider="type.provider"
+                                            t-att-data-rate="round(type.manual_currency_exchange_rate, 2)"
+                                            t-att-data-payment-id="type.id"
+                                            data-currency="USD"
+                                        />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text bg-primary">$</div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <input
+                                            type="number" 
+                                            min="0" 
+                                            step="any"
+                                            class="form-control"
+                                            t-attf-name="payment-{{category}}-{{type.id}}-quantity-bs"
+                                            t-att-data-rate="round(type.manual_currency_exchange_rate, 2)"
+                                            placeholder="Monto Bs.S"
+                                            t-att-data-provider="type.provider"
+                                            t-att-data-payment-id="type.id"
+                                            data-currency="VEF"
+                                        />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text bg-primary">Bs.S</div>
+                                        </div>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        data-reference=""
+                                        placeholder="Referencia"
+                                        t-if="type.has_reference"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                    <p id="tab-available" class="text-600 pl-4 py-2 text-center">
+                        <span>
+                            <strong class="font-italic">Restante:</strong>
+                            <button type="button" class="font-weight-bold"></button>
+                        </span>
+                        <span>
+                            <strong class="font-italic">Restante REF</strong>
+                            <span class="font-weight-bold text-black" id="total-ref"></span>
+                        </span>
+                    </p>
+                </div>
+                <p class="tab-total text-success border-success d-none"></p>
+                <h4 class="text-center py-2 text-success font-weight-bold" id="change-amount"></h4>
+                <t t-foreach="pms" t-as="pm">
+                    <t t-if="not verify_validity or (pm.acquirer_id.check_validity and pm.verified) or not pm.acquirer_id.check_validity">
+                        <div class="card-body o_payment_acquirer_select">
+                            <label>
+                                <input t-if="mode == 'payment'" type="radio" name="pm_id" t-att-value="pm.id" t-att-checked="checked_pm_id == pm.id"/>
+                                <span class="payment_option_name" t-esc="pm.name"/>
+                                <t t-if="pm.verified">
+                                    <i class="fa fa-check text-success" title="This payment method is verified by our system." role="img" aria-label="Ok"></i>
+                                </t>
+                                <t t-else="">
+                                    <i class="fa fa-check text-muted" title="This payment method has not been verified by our system." role="img" aria-label="Not verified"></i>
+                                </t>
+                            </label>
+                            <button type="button" t-if="mode == 'manage'" name="delete_pm" t-att-value="pm.id" class="btn btn-primary btn-sm float-right">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="result" name="Confirmation page" inherit_id="website_sale.confirmation">
+        <xpath expr="//table[hasclass('table')]" position="replace">
+            <ul id="tab-confirmation">
+                <t t-foreach="order.transaction_ids" t-as="transaction">
+                    <li>
+                        <strong t-esc="transaction.acquirer_id.name" />
+                        <em 
+                            t-esc="transaction.amount_with_change" 
+                            t-options="{'widget': 'monetary', 'display_currency': transaction.currency_id}" 
+                        />
+                    </li>
+                </t>
+            </ul>
+        </xpath>
+    </template>
+
+    <template id="inherit_products_add_to_cart_ept" inherit_id="website_sale.products_add_to_cart">
+        <xpath expr="//t[@t-if='product_variant_id']/a[hasclass('a-submit')]" position="attributes">
+            <attribute name="t-attf-class">
+                btn btn-secondary a-submit not_product_page {{"disabled out_of_stock" if product.sudo().virtual_available &lt; 1 and product.inventory_availability in ['always', 'threshold'] else ""}}
+            </attribute>
+            <attribute name="t-att-style">
+                "display:none;" if product.sudo().virtual_available &lt; 1 and product.inventory_availability in ['always', 'threshold'] else ""
+            </attribute>
+        </xpath>
+    </template>
+
+
+</odoo>

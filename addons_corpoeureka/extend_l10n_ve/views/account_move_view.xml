@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_amount_untaxed" model="ir.ui.view">
+        <field name="name">account.move.form.amount</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_untaxed']" position="replace">
+                <field name="amount_untaxed" string="Subtotal"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_untaxed']" position="after">
+                <field name="amount_untaxed_base" string="Base Imponible" attrs="{'invisible': [('amount_tax', '=', 0)]}"/>
+                <field name="amount_untaxed_exempt" string="Total Exento" />
+            </xpath>
+        </field>   
+    </record>
+</odoo>

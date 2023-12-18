@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+
+        <record id="account_daily_legal_report_form" model="ir.ui.view">
+            <field name="name">account_report_legal_form</field>
+            <field name="model">account.report.legal</field>
+            <field name="arch" type="xml">
+                <form string="Opciones para generar reporte">
+                    <group>
+                        <group>
+                            <field name="target_move" widget='radio'/>
+                            <field name="display_account" widget='radio'/>
+                        </group>
+                        <group>
+                            <!-- <field name="fiscalyear_id" options="{'no_create': True, 'no_open': True}" groups="account.group_fiscal_year"/> -->
+                            <label for="date_from" string="Fechas" />
+                            <div>
+                                <field name="date_from" class="oe_inline" />
+                                <field name="date_to" class="oe_inline" attrs="{'required': [('date_from', '!=', False)] }"/>
+                            </div>
+                            <field name="show_initial_balance" attrs="{'invisible': [('date_from', '=', False)]}"/>
+                        </group>
+                        <group groups="base.group_multi_company">
+                            <label for="parent_1" string="Grupos de cuentas" />
+                            <div>
+                                <field name="parent_1" class="oe_inline" options="{'no_open': True}"/>
+                                <field name="parent_2" class="oe_inline" options="{'no_open': True}"/>
+                            </div>
+                        </group>
+                        <group name="company" groups="base.group_multi_company">
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True, 'no_open': True}"
+                                    domain="[('user_ids','=',uid)]" readonly="1"/>
+                        </group>
+                    </group>
+                    <p class="oe_grey">
+                        Nota: Si no hay cuentas principales configuradas, no se mostrará ninguna vista jerárquica.
+                    </p>
+                    <footer>
+                        <button string="Generar Reporte"
+                            name="print_report" type="object"
+                            class="oe_highlight" />
+                        o
+                        <button string="Cancelar" 
+                            class="oe_link" 
+                            special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="account_daily_legal_report_action_window">
+            <field name="name">Diario Legal</field>
+            <field name="res_model">account.report.legal</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_daily_legal_report" name="Reporte de Diario Legal"
+                  parent="account.account_reports_management_menu" action="account_daily_legal_report_action_window"
+                  sequence="100"/>
+
+    </data>
+</odoo>

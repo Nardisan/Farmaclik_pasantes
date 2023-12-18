@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="islr_arcv_templates">		
+		<t t-call="web.html_container">
+			<t t-call="web.basic_layout">
+				<div class="page">
+					<style type="text/css">
+                        .table{
+				        	font-family: Times;
+				        	font-size: 12px;
+				        	line-height: 1.6;
+				        }
+
+				        .cabecera{
+				        	background: #E4E4E4;
+				        	font-size: 12px;
+				        } 
+                    </style>
+                    <div>
+	                    <table class="table table-sm table-borderless" style="width:100%;">
+	                    	<thead>
+	                    		<tr>
+	                    			<td colspan="12">
+		                                <div style="border:1px solid black;border-radius:5px;border-spacing:0;margin-left:0%;width:100%;height:auto;">
+		                                    <table style="width:100%;font-size:12px;">
+		                                    	<tr>
+		                                    		<th style="width:33%" class="text-left" >
+		                                    			<!-- <t t-if="company_id == 1">
+				                    						<img style="width:100px;height:50px;position:-webkit-sticky;" src="/eu_reporte_islr_arcv/static/src/img/maisa_logo.png" alt="Logo"/>
+				                    					</t>
+				                    					<t t-if="company_id == 2">
+				                    						<img style="width:100px;height:50px;position:-webkit-sticky;" src="/eu_reporte_islr_arcv/static/src/img/alivensa_logo.png" alt="Logo"/>
+				                    					</t> -->
+		                                    		</th>
+		                                            <th style="width:34%" class="text-center"><span t-esc="company_name"/></th>
+		                                            <th style="width:33%;padding-right:10px" class="text-right">Fecha: <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')" /></th>
+		                                    	</tr>
+		                                        <tr>
+		                                        	<th/>
+		                                            <th class="text-center"><span t-esc="company_rif"/></th>
+		                                            <th style="padding-right:10px" class="text-right">Hora: <span t-esc="hora_actual"/></th>
+		                                        </tr>		                                        
+		                                    </table>
+		                                </div>
+		                            </td>
+	                    		</tr>
+	                    		<tr><td colspan="12"></td></tr>
+	                    		<tr>
+	                    			<td colspan="12">
+	                    				<center><h5>COMPROBANTE DE RETENCIONES VARIAS</h5></center>
+	                    			</td>		                    			
+	                    		</tr>
+	                    		<tr>
+	                    			<td colspan="6">
+                    					<table class="table table-borderless" style="width:100%;font-size:10px;">
+			                    			<tr><td style="font-size:14px;" colspan="3"><center><strong>DATOS DEL AGENTE DE RETENCIÓN</strong></center></td></tr>
+			                    			<tr>
+			                    				<th style="border:1px solid black;">TIPO DE AGENTE DE RETENCIÓN:</th>
+			                    				<td style="border:1px solid black;" colspan="2">Persona Juridica</td>
+			                    			</tr>
+			                    			<tr>
+			                    				<th style="border:1px solid black;" colspan="2">NOMBRE O RAZON SOCIAL: </th>
+			                    				<th style="border:1px solid black;">RIF: </th>
+			                    			</tr>
+			                    			<tr>
+			                    				<td style="border:1px solid black;" colspan="2"><span t-esc="company_name"/></td>
+			                    				<td style="border:1px solid black;"><span t-esc="company_rif"/></td>
+			                    			</tr>
+			                    			<tr>
+			                    				<th style="border:1px solid black;width:50%;">DIRECCIÓN Y TELEFONOS</th>
+			                    				<th style="border:1px solid black;" colspan="2">FECHA CIERRE DEL EJERCICIO</th>
+			                    			</tr>
+			                    			<tr>
+			                    				<td style="border:1px solid black;" valign="middle" rowspan="2">
+			                    					<span t-esc="direccion"/> <t t-if="estado">EDO. <span t-esc="estado"/></t>
+			                    				</td>
+			                    				<th style="border:1px solid black;width:15%;" class="text-center">DIA</th>
+			                    				<th style="border:1px solid black;width:15%;" class="text-center">MES</th>
+			                    			</tr>
+			                    			<tr>
+			                    				<td style="border:1px solid black;" class="text-center"><span t-esc="dia_fiscal"/></td>
+			                    				<td style="border:1px solid black;" class="text-center"><span t-esc="anio_fiscal"/></td>
+			                    			</tr>
+			                    		</table>
+			                    	</td>
+			                    	<td colspan="6">
+                    					<table class="table table-borderless" style="width:100%;font-size:10px;">
+			                    			<tr><td style="font-size:14px;" colspan="3"><center><strong>DATOS DEL BENEFICIARIO</strong></center></td></tr>
+			                    			<tr>
+			                    				<th style="border:1px solid black;" colspan="2">NOMBRE O RAZON SOCIAL: </th>
+			                    				<th style="border:1px solid black;">TIPO DE PERSONA: </th>
+			                    			</tr>
+			                    			<tr>
+			                    				<td style="border:1px solid black;" colspan="2"><span t-esc="partner_name"/></td>
+			                    				<td style="border:1px solid black;">
+			                    					<t t-if="partner_is_company == 't'">
+			                    						JURIDICA
+			                    					</t>
+			                    					<t t-else="">
+			                    						NATURAL
+			                    					</t>
+			                    				</td>
+			                    			</tr>
+			                    			<tr>
+			                    				<th style="border:1px solid black;">NACIONALIDAD</th>
+			                    				<th style="border:1px solid black;">RESIDENTE EN EL PAIS</th>
+			                    				<th style="border:1px solid black;"><span t-esc="documento"/></th>
+			                    			</tr>
+			                    			<tr>
+			                    				<td style="border:1px solid black;">
+			                    					<t t-if="partner_pais == 'VE'">
+			                    						VENEZOLANO
+			                    					</t>
+			                    					<t t-else="">
+			                    						EXTRANJERO
+			                    					</t>
+			                    				</td>
+			                    				<td style="border:1px solid black;">
+			                    					<span t-esc="partner_residence_type"/>
+			                    				</td>
+			                    				<td style="border:1px solid black;"><span t-esc="partner_rif"/></td>
+			                    			</tr>
+			                    			<tr>
+			                    				<th style="border:1px solid black;width:50%;">DIRECCIÓN Y TELEFONOS</th>
+			                    				<td style="border:1px solid black;font-size:10px;"  colspan="2">PERIODO A QUE CORRESPONDEN LAS REMUNERACIONES PAGADAS</td>
+			                    			</tr>
+			                    			<tr>
+			                    				<td style="border:1px solid black;"><span t-esc="partner_street"/></td>						                    				
+			                    				<th style="border:1px solid black;" class="text-center">DESDE: <span t-esc="date_start" t-options='{"widget": "date"}'/></th>
+			                    				<th style="border:1px solid black;" class="text-center">HASTA: <span t-esc="date_end" t-options='{"widget": "date"}'/></th>
+			                    			</tr>			                    				
+			                    		</table>
+	                    			</td>
+	                    		</tr>
+	                    		<tr>
+	                    			<td style="font-size:14px;" colspan="12">
+	                    				<strong>INFORMACIÓN DEL IMPUESTO RETENIDO Y ENTERADO</strong>
+	                    			</td>
+	                    		</tr>
+	                    		<tr >
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" colspan="3">Fecha de pago o abono en cuenta</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">Codigo de retención</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">Total cantidad pagada o abonada en cuenta</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">Cantidad objeto de retención</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">% o tarifa</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">Impuesto retenido</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">Total catidad objeto de retención acumulada</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" valign="middle" rowspan="2">Impuesto retenido acumulado</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center" colspan="2">Impuesto enterado</th>
+	                    		</tr>
+	                    		<tr>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center">Dia</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center">Mes</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center">Año</th>		                    			
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center">En fecha</th>
+	                    			<th style="border:1px solid black;font-size:10px;" class="text-center">Banco</th>
+	                    		</tr>
+	                    	</thead>
+	                    	<body>
+								<t t-set="contador" t-value="1"/>
+	                    		<t t-set="ret_acumulado" t-value="False"/>
+								<t t-set="imp_acumulado" t-value="False"/>
+								
+								<t t-set="monto_factura_acum" t-value="False"/>
+								<t t-set="monto_base_acum" t-value="False"/>
+								<t t-set="retenido_acum" t-value="False"/>
+								
+	                    		<t t-foreach="final" t-as="line">
+	                    			<t t-set="ret_acumulado" t-value="ret_acumulado + line['monto_factura']"/>
+									<t t-set="imp_acumulado" t-value="imp_acumulado + line['retenido']"/>
+									<t t-set="monto_factura_acum" t-value="monto_factura_acum + line['monto_total']"/>
+									<t t-set="monto_base_acum" t-value="monto_base_acum + line['monto_base']"/>
+									<t t-set="retenido_acum" t-value="retenido_acum + line['retenido']"/>	
+									<t t-set="contador" t-value="contador + 1"/>
+	                    			<tr>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-center">
+	                    					<span t-esc="line['dia']"/>
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-center">
+	                    					<span t-esc="line['mes']"/>
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-center">
+	                    					<span t-esc="line['anio']"/>
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-center">
+	                    					<span t-esc="line['comprobante']"/>
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-right">
+	                    					<span t-esc="line['monto_total']" t-options='{"widget": "float", "precision": 2}'/>
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-right">
+	                    					<span t-esc="line['monto_base']" t-options='{"widget": "float", "precision": 2}'/>		                    					
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-right">
+	                    					<span t-esc="line['porcentaje_islr']" t-options='{"widget": "float", "precision": 2}'/>		                    					
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-right">
+	                    					<span t-esc="line['retenido']" t-options='{"widget": "float", "precision": 2}'/>		                    					
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-right">
+	                    					<span t-esc="ret_acumulado" t-options='{"widget": "float", "precision": 2}'/>		                    					
+	                    				</td>
+	                    				<td style="border:1px solid black;font-size:10px;" class="text-right">		                    					
+	                    					<span t-esc="imp_acumulado" t-options='{"widget": "float", "precision": 2}'/>
+	                    				</td>
+	                    				<td style="border:1px solid black;"/>
+	                    				<td style="border:1px solid black;" />
+	                    			</tr>
+	                    		</t>
+	                    		<tr>
+                    				<td colspan="4" class="text-right">
+                    					TOTALES:
+                    				</td>
+                    				<td style="border:1px solid black;" class="text-right">
+                    					<span t-esc="monto_factura_acum" t-options='{"widget": "float", "precision": 2}'/>
+                    				</td>
+                    				<td style="border:1px solid black;" class="text-right">
+                    					<span t-esc="monto_base_acum" t-options='{"widget": "float", "precision": 2}'/>		                    					
+                    				</td>
+                    				<td style="border:1px solid black;"/>
+                    				<td style="border:1px solid black;" class="text-right">
+                    					<span t-esc="retenido_acum" t-options='{"widget": "float", "precision": 2}'/>		                    					
+                    				</td>
+                    				<td style="border:1px solid black;" class="text-right">
+                    					<span t-esc="ret_acumulado" t-options='{"widget": "float", "precision": 2}'/>		                    					
+                    				</td>
+                    				<td style="border:1px solid black;" class="text-right">		                    					
+                    					<span t-esc="imp_acumulado" t-options='{"widget": "float", "precision": 2}'/>
+                    				</td>
+                    				<td style="border:1px solid black;"/>
+                    				<td style="border:1px solid black;"/>
+                    			</tr>
+                    			<tr><td colspan="12"><br/></td></tr>                    			
+	                    	</body>
+	                    </table>
+                    </div>
+                    <div class="footer o_standard_footer">
+                    	<table style="width:100%;">
+                    		<tr>
+                    			<td colspan="5" style="border:1px solid black;font-size:12px;border-radius:5px;border-spacing:0;" height="120px" valign="bottom">
+                    				<strong><center>AGENTE DE RETENCION (SELLO, FECHA, FIRMA)</center><br/></strong>
+                    				<center>
+                    					<t t-if="company_id == 1">
+                    						<img style="margin-top:-10px;width:190px;height:80px" src="/eu_reporte_islr_arcv/static/src/img/maisa.png" alt="Firma"/>
+                    					</t>
+                    					<t t-if="company_id == 2">
+                    						<img style="margin-top:-10px;width:190px;height:80px" src="/eu_reporte_islr_arcv/static/src/img/alivensa.png" alt="Firma"/>                    						
+                    					</t>
+                    				</center>
+                    			</td>
+                    			<td colspan="2" style="width:1%;">
+                    				
+                    			</td>
+                    			<td colspan="5" style="border:1px solid black;font-size:12px;border-radius:5px;border-spacing:0;" height="120px" valign="bottom">
+									<strong><center>PARA USO DE LA ADMINISTRACIÓN DE HACIENDA</center><br/></strong>
+                    			</td>
+                    		</tr>
+                    	</table>
+		                <div class="text-center">
+		                  	Pagina: <span class="page"/> / <span class="topage" height="120px" valign="bottom"/>
+		                </div>
+	                </div>
+				</div>
+			</t>
+		</t>
+	</template>
+
+
+</odoo>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- INICIO SECTORES -->
+    <record id="view_res_partner_sectores_form" model="ir.ui.view">
+        <field name="name">Sectores </field>
+        <field name="model">res.partner.sectores</field>
+        <field name="arch" type="xml">
+            <form string="Sectores">
+                <header>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="short_name" />
+                            <field name="id_ciudad" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+     
+
+      <record id="view_res_partner_sectores_tree" model="ir.ui.view">
+        <field name="name">res.partner.sectores.form</field>
+        <field name="model">res.partner.sectores</field>
+        <field name="arch" type="xml">
+            <tree string="Sectores">
+            <field name="name" />
+            <field name="short_name" />
+            <field name="id_ciudad" options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_sectores" model="ir.actions.act_window">
+        <field name="name">Sectores</field>
+        <field name="res_model">res.partner.sectores</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False"/>
+    </record>
+    <!-- FIN SECTORES -->
+    <!-- MENU ITEM -->
+    <menuitem id="res_partner_sector_menuitem" name="Sectores"  sequence="2"  action="additional_fields_signup.res_partner_sectores" parent="contacts.res_partner_menu_config"/>
+    <!-- MENU ITEM -->
+
+</odoo>

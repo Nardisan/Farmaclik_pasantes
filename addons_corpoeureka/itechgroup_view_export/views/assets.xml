@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="view_export assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!-- js -->
+                <script type="text/javascript" src="/itechgroup_view_export/static/src/js/jspdf.min.js"></script>
+                <script type="text/javascript" src="/itechgroup_view_export/static/src/js/autotable.js"></script>
+                <script type="text/javascript" src="/itechgroup_view_export/static/src/js/listview.js"></script>
+
+                <!-- Widget -->
+                <link rel="stylesheet" href="/itechgroup_view_export/static/src/lib/bootstrap-colorpicker/css/bootstrap-colorpicker.css"/>
+                <script type="text/javascript" src="/itechgroup_view_export/static/src/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script> 
+                <script type="text/javascript" src="/itechgroup_view_export/static/src/js/widget.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

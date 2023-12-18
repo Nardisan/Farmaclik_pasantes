@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record model="ir.module.category" id="module_category_ivaper">
+        <field name="name">IVA Permissions</field>
+        <field name="description">Limíta los permisos de los usuarios en las diferentes acciones.</field>
+        <field name="sequence">100</field>
+    </record>
+
+
+
+    <record id="retencion_iva_group_create" model="res.groups">
+        <field name="name">IVA Retention: Create</field>
+        <field name="category_id" ref="l10n_ve_retencion_iva.module_category_ivaper"/>
+    </record>
+    <record id="retencion_iva_group_confirm" model="res.groups">
+        <field name="name">IVA Retention: Confirm</field>
+        <field name="category_id" ref="l10n_ve_retencion_iva.module_category_ivaper"/>
+    </record>
+    <record id="retencion_iva_group_delete" model="res.groups">
+        <field name="name">IVA Retention: Delete</field>
+        <field name="category_id" ref="l10n_ve_retencion_iva.module_category_ivaper"/>
+    </record>
+    <record id="retencion_iva_group_print" model="res.groups">
+        <field name="name">IVA Retention: Print</field>
+        <field name="category_id" ref="l10n_ve_retencion_iva.module_category_ivaper"/>
+    </record>
+
+
+</odoo>

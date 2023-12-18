@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template 
+      id="eu_pos_payment_screen_assets" 
+      name="pos_screen_assets" 
+      inherit_id="point_of_sale.assets"
+    >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/eu_pos_payment_screen/static/css/index.css"/>
+            <link rel="stylesheet" href="/eu_pos_payment_screen/static/css/NumpadComponent.css"/>
+            <link rel="stylesheet" href="/eu_pos_payment_screen/static/css/HeaderComponent.css"/>
+            <link rel="stylesheet" href="/eu_pos_payment_screen/static/css/ButtonsComponent.css"/>
+            <link rel="stylesheet" href="/eu_pos_payment_screen/static/css/PaymentComponent.css"/>
+            <link rel="stylesheet" href="/eu_pos_payment_screen/static/css/WalletComponent.css"/>
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/NotaCreditoPopUp.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/HeaderComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/NumpadComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/ButtonsComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/PaymentComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/InputComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/WalletComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/SearchPartner.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/GiftCardComponent.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/ShortcutsPopup.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/FiscalPrinter.js"/>
+            <script type="text/javascript" src="/eu_pos_payment_screen/static/js/ContactComponent.js"/>
+        </xpath>
+    </template>
+
+</odoo>

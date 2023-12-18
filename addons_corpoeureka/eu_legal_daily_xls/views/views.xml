@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+        <record id="account_daily_legal_xls_report_form" model="ir.ui.view">
+            <field name="name">account_report_legal_xls_form</field>
+            <field name="model">account.report.legal.xls</field>
+            <field name="arch" type="xml">
+                <form string="Opciones para generar reporte en Excel">
+                    <group attrs="{'invisible': [('states', '=', 'get')]}">
+                        <group>
+                            <field name="states" invisible="1"/>
+                            <field name="name" invisible="1"/>
+                            <field name="company_id" readonly="1" options='{"no_open": False, "no_create_edit": True, "no_quick_create": True, "no_create": True}' invisible="1"/>
+                            <field name="target_move" widget='radio'/>
+                            <field name="display_account" widget='radio'/>
+                        </group>
+                        <group>
+                            <label for="date_from" string="Fechas" />
+                            <div>
+                                <field name="date_from" class="oe_inline" />
+                                <field name="date_to" class="oe_inline" attrs="{'required': [('date_from', '!=', False)] }"/>
+                            </div>
+                            <field name="show_initial_balance" attrs="{'invisible': [('date_from', '=', False)]}"/>
+                        </group>
+                        <group groups="base.group_multi_company">
+                            <label for="parent_1" string="Grupos de cuentas" />
+                            <div>
+                                <field name="parent_1" class="oe_inline" options="{'no_open': True}"/>
+                                <field name="parent_2" class="oe_inline" options="{'no_open': True}"/>
+                            </div>
+                        </group>
+                        <group name="company" groups="base.group_multi_company">
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True, 'no_open': True}"
+                                    domain="[('user_ids','=',uid)]" readonly="1"/>
+                        </group>
+                    </group>
+                    <p class="oe_grey">
+                        Nota: Si no hay cuentas principales configuradas, no se mostrará ninguna vista jerárquica.
+                    </p>
+                    <div attrs="{'invisible': [('states', '=', 'choose')]}">
+                        <h2>Descargar Reporte</h2>
+                        <p>Archivo : <field name="data" readonly="1" filename="name"/></p>
+                    </div>
+                    <footer attrs="{'invisible': [('states', '=', 'get')]}">
+                        <button name="print_xls_report" string="XLS" type="object" class="oe_highlight" />
+                        o
+                        <button string="Cancelar" class="oe_link" special="cancel" />
+                    </footer>
+                    <footer attrs="{'invisible': [('states', '=', 'choose')]}">
+                        <button name="go_back" string="Volver" type="object" class="oe_highlight" />
+                        o
+                        <button special="cancel" string="Cerrar" type="object" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="account_daily_legal_xls_report_action_window">
+            <field name="name">Diario Legal</field>
+            <field name="res_model">account.report.legal.xls</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_daily_legal_xls_report" name="Reporte de Diario Legal en Excel"
+                  parent="account.account_reports_management_menu" action="account_daily_legal_xls_report_action_window"
+                  sequence="101"/>
+
+    </data>
+</odoo>

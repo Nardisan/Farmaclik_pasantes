@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="nota_credito_template" xml:space="preserve">
+    <t t-name="NotaCreditoPopUp" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text">
+                <header class="title">
+                    <t t-esc="props.title" />
+                </header>
+                <form 
+                    action="#" 
+                    name="nota-credito" 
+                    id="nota-credito" 
+                    autocomplete="off" 
+                    t-on-submit="onSubmit"
+                >
+                    <fieldset>
+                        <legend>Factura</legend>
+                        <label>
+                            N° Factura
+                            <input 
+                                type="text" 
+                                name="nro_factura" 
+                                id="nro_factura" 
+                                t-model="fields.nro_factura"
+                                required=""
+                            />
+                        </label>
+                        <label>
+                            Máquina
+                            <input 
+                                type="text" 
+                                name="maquina" 
+                                id="maquina"
+                                t-model="fields.maquina"
+                                required=""
+                            />
+                        </label>
+                        <label>
+                            Fecha
+                            <input 
+                                type="datetime-local" 
+                                name="fecha" 
+                                id="fecha"
+                                t-model="fields.fecha"
+                                required="" 
+                            />
+                        </label>
+                    </fieldset>
+                </form>
+                <footer class="footer">
+                    <button class="button" form="nota-credito" type="submit">
+                        Imprimir
+                    </button>
+                    <div class="button cancel" t-on-click="cancel">
+                        Salir
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</templates>

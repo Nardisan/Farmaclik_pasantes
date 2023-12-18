@@ -1,0 +1,1316 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_retencion_iva
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-28 23:33+0000\n"
+"PO-Revision-Date: 2020-05-28 23:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "% Alícuota"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__rate_amount
+msgid "% Retenido"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_move__retention
+msgid "% de retencion"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "01"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_fiscal_position__ret_IVA_purchase__03-ordinary
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_fiscal_position__ret_IVA_sale__03-ordinary
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_move__retention__03-ordinary
+msgid "100% contributor ordinary"
+msgstr "100% Contribuyente ordinario"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "15 days"
+msgstr "15 Días"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_fiscal_position__ret_IVA_purchase__02-special
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_fiscal_position__ret_IVA_sale__02-special
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_move__retention__02-special
+msgid "75% special contributor"
+msgstr "75% contribuyente especial"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.res_config_settings_view_form_l10n_ve_retencion_iva
+msgid "<span class=\"o_form_label\">Withholding tax IVA</span>"
+msgstr "<span class=\"o_form_label\">Retención de impuestos IVA </span>"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid ""
+"<span style=\"text-aling: center; width: 100%\">COMPROBANTE DE RETENCIÓN <br/>\n"
+"                            PROVIDENCIA ADMINISTRATIVA N° SNAT/2015/0049 DEL 10/08/2015 <br/>\n"
+"                            LEY DE IVA ART. 11 \" La Administración Tributaria podrá designar como responsables del pago del impuesto,<br/>\n"
+"                            en calidad de agentes de retención,razón de sus actividades privadas intervengan en operaciones gravadas con el impuesto <br/>\n"
+"                            establecido en este Decreto con Rango, Valor y Fuerza de Ley\".\n"
+"                        </span>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "<strong>COMPRAS INTERNAS E IMPORTACIONES</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid ""
+"<strong>Este comprobante se emite según lo establecido en el Artículo No 16 de la Providencia Administrativa SNAT/2015/0049 de fecha 14/07/2015 10 de Agosto de 2015. <br/>\n"
+"Publicada en Gaceta Oficial No. 40.720 de fecha 10 de Agosto de 2015.-</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "<strong>FECHA DE EMISION <br/>Firma y Sello del Proveedor</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid ""
+"<strong>FECHA DE ENTREGA <br/>Sello y Firma del Agente de Retención</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "<strong>Fecha</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "<strong>NÚMERO DE COMPROBANTE</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "<strong>PERIODO FISCAL</strong>"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__account_id
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_res_config_settings__sale_iva_ret_account_id
+msgid "Account for defects for the retention of the IVA Customer"
+msgstr "Cuenta por defectos para la retención de IVA del cliente"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_res_config_settings__retention_iva_account_id
+msgid "Account for defects for the retention of the IVA Suplier"
+msgstr "Cuenta por defectos para la retención de IVA del Proveedor"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__move_id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__move_id
+msgid "Accounting Entry"
+msgstr "Asiento contable"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+msgid "Accounting Move"
+msgstr "Movimiento contable"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__annulled
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__annulled
+msgid "Annulled"
+msgstr "Anulado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de archivos adjuntos"
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/wh_iva.py:0
+#, python-format
+msgid "Aviso!"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "AÑO"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__base_tax
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Base Imponible"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__base_tax
+msgid "Base imponible del impuesto"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_iva_txt_export__format__csv
+msgid "CSV File"
+msgstr "Archivo CSV"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__total_tax_ret
+msgid "Calcula el monto total retenido de este comprobante"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+msgid "Cambiar a borrador"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__cancel
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__cancel
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.confirmed_iva_wh_view
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.declarate_iva_wh_view
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_pay_iva_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+msgid "Cancelar"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__partner_id
+msgid "Cliente o proveedor a retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__company_id
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_pay__company_id
+msgid "Company related to this journal"
+msgstr "Compañía relacionada con este diario"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__company_id
+msgid "Compañia"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Compras sin derecho a Crédito I.V.A."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.account_invoice_form_inherited_iva
+msgid "Comprobante de Retención IVA"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.confirmed_iva_wh_view
+msgid "Confirm retention"
+msgstr "Confirmar retención"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form_customer
+msgid "Confirmar"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__confirmed
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__confirmed
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_wh_iva_confirmed
+msgid "Confirmed IVA Withholding"
+msgstr "Confirmar Retención IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_confirmed_retention_iva
+msgid "Confirmed Retention"
+msgstr "Confirmar retención"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.declarate_iva_wh_view
+msgid "Continuar"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.account_invoice_form_inherited_iva
+msgid "Create Retention"
+msgstr "Crear Retención"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__create_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__create_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__create_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__create_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__create_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__create_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__create_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__account_id
+msgid "Cuenta"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__account_id
+msgid "Cuenta contable de la retención."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_tax__wh_vat_collected_account_id
+msgid "Cuenta de Retención"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_tax__wh_vat_paid_account_id
+msgid "Cuenta de Retención para devoluciones"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_res_company__sale_iva_ret_account
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_res_config_settings__sale_iva_ret_account_id
+msgid "Cuenta de declaracion IVA Cliente"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_res_company__purchase_iva_ret_account
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_res_config_settings__retention_iva_account_id
+msgid "Cuenta de retención IVA proveedor"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__type__out_invoice
+msgid "Customer Invoice"
+msgstr "Factura de cliente"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__type__out_refund
+msgid "Customer Refund"
+msgstr "Reembolso al cliente"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "DIRECCIÓN FISCAL DEL AGENTE DE RETENCIÓN:"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "DIRECCIÓN FISCAL DEL SUJETO RETENIDO:"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__date
+msgid "Date of the issuance of the withholding document"
+msgstr "Fecha de emisión del documento de retención."
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/account_move.py:0
+#, python-format
+msgid ""
+"Debe confirmar la retención IVA asociada antes de poder validar la factura."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_declarate_wh_iva
+msgid "Declarate Retention"
+msgstr "Declarar retención"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_declarate_wh_iva_wizar
+msgid "Declarate Retention Iva Form"
+msgstr "Declarar Retención Iva Form"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__declared
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_declared__state__declared
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__declared
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Declared"
+msgstr "Declarado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_wh_iva_declared
+msgid "Declared IVA Withholding"
+msgstr "Declarar Retención IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.res_config_settings_view_form_l10n_ve_retencion_iva
+msgid "Default accounts for VAT withholdings"
+msgstr "Cuentas predeterminadas para retenciones de IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.account_invoice_form_inherited_iva
+msgid "Delete Retention"
+msgstr "Eliminar Retención"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__display_name
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__display_name
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__display_name
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__display_name
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__display_name
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__display_name
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__done
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__done
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Done"
+msgstr "Hecho"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__draft
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_declared__state__draft
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__draft
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+msgid "Enviar por correo"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_tax__wh_vat_paid_account_id
+msgid "Esta cuenta sera utilizada para aplicar una retención a una devolución"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/account_move.py:0
+#, python-format
+msgid "Esta factura no posee un porentage de Retención asociado."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__state
+msgid "Estatus"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/wh_iva.py:0
+#, python-format
+msgid "Este proveedor no tiene facturas para generar retención."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_move__exempt_amount
+msgid "Exempt amount"
+msgstr "Importe exento"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Export"
+msgstr "Exportar"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_wizard_txt_iva_export
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Export TXT"
+msgstr "Exportar TXT"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__invoice_id
+msgid "Factura"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__invoice_id
+msgid "Factura a retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_line_form
+msgid "Facturas a retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Fecha"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__data
+msgid "File"
+msgstr "Archivo"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__format
+msgid "File Format"
+msgstr "Formato del archivo"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__name
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__file_txt_id
+msgid "File TXT"
+msgstr "Archivo TXT"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Posición fiscal"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Empresas)"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Here is the your retención TXT file:"
+msgstr "Aquí está el archivo TXT de su retención:"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__amount_tax
+msgid "IVA Facturado"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__ret_amount
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "IVA Retenido"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_needaction
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_has_error
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Impuesto IVA"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__ret_tax
+msgid "Impuesto a retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__ret_tax
+msgid "Impuesto a retener."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form_customer
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__journal_id
+msgid "Journal"
+msgstr "Diario"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/account_move.py:0
+#, python-format
+msgid "La factura está asociada a una retención IVA Declarada."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export____last_update
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva____last_update
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed____last_update
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared____last_update
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line____last_update
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay____last_update
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__write_uid
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización realizada por"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__write_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__write_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__write_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__write_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__write_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__write_date
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizacion en"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Last month"
+msgstr "Mes Pasado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_wh_iva_line
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__wh_lines
+msgid "Lineas de retención de IVA"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__wh_lines
+msgid "Lineas de retención de iva"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_line_form
+msgid "Lineas iva withholding"
+msgstr "Lineas de Retención de iva"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_line_tree
+msgid "Líneas de Retención"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "MES"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__communication
+msgid "Memo"
+msgstr "Circular"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__currency_id
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__currency_id
+msgid "Moneda"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__amount_tax
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__ret_amount
+msgid "Monto a retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__total_tax_ret
+msgid "Monto total retenido"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__move_paid_id
+msgid "Move Paid"
+msgstr "Mover pagado"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "NOMBRE O RAZON SOCIAL DEL AGENTE DE RETENCIÓN"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "NOMBRE O RAZÓN SOCIAL DEL SUJETO RETENIDO:"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_fiscal_position__ret_IVA_purchase__01-sin
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_fiscal_position__ret_IVA_sale__01-sin
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_move__retention__01-sin
+msgid "No Retention"
+msgstr "No Retención"
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/wh_iva.py:0
+#, python-format
+msgid "No puede eliminar retenciones confirmadas."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/wh_iva.py:0
+#, python-format
+msgid "No se puede cancelar una retención IVA con una factura declarada."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/wh_iva.py:0
+#, python-format
+msgid "No se puede confirmar una retención sin asociar facturas."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__customer_doc_number
+msgid "Nro Comprobante Cliente"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form_customer
+msgid "Nro de comprobante"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Number"
+msgstr "Numero"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero de errores"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Núm. Control de Factura"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Número Nota de Crédito"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Número Nota de Débito"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__number
+msgid "Número de Comprobante"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Número de Factura Afectada"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__number
+msgid "Número de comprobante"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__customer_doc_number
+msgid "Número de comprobante de retención emitido por el Cliente."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Número de la Factura"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.confirmed_iva_wh_view
+msgid ""
+"Once the withholdings are confirmed, the invoices associated with them will "
+"also be confirmed, the accounting entries will be created and neither the "
+"invoices nor the withholdings will be able to be canceled."
+msgstr ""
+"Una vez que se confirman las retenciones, las facturas asociadas con "
+"ellastambién se confirmará, se crearán las entradas contables y nilas "
+"facturas ni las retenciones podrán cancelarse."
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.declarate_iva_wh_view
+msgid ""
+"Once the withholdings have been declared, the declarations can not be "
+"reversed and a file in txt format will be generated, which will be attached "
+"to the retention for consultation."
+msgstr ""
+"Una vez que se han declarado las retenciones, las declaraciones no pueden "
+"serinvertido y se generará un archivo en formato txt, que se adjuntaráa la "
+"retención para consulta."
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/wizard/declare_pay_iva.py:0
+#, python-format
+msgid "Only withholdings assigned to the same account can be paid together.."
+msgstr ""
+"Solo las retenciones asignadas a la misma cuenta se pueden pagar juntas."
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Oper. Nro."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_iva_txt_export__format__txt
+msgid "PO File"
+msgstr "Archivo PO"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_pays_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_pays_iva_massive
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_pays_iva_menus
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_wh_iva_pay
+msgid "Pay IVA"
+msgstr "Pagar IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__amount
+msgid "Payment Amount"
+msgstr "Monto del pago"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__payment_date
+msgid "Payment Date"
+msgstr "Fecha de pago"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__journal_id
+msgid "Payment Journal"
+msgstr "Diario de pago"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__period
+msgid "Period"
+msgstr "Periodo"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Por favor, verifique los datos de este achivo."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid ""
+"Por medio de la presente, hacemos constar que durante este mes se realizó la"
+" retención del Impuesto al Valor Agregado correspondiente a la siguiente "
+"información detallada:"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_fiscal_position__ret_IVA_sale
+msgid "Porcentaje Retenido por este Contribuyente como Cliente"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_fiscal_position__ret_IVA_purchase
+msgid "Porcentaje Retenido por este Contribuyente como Proveedor"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__rate_amount
+msgid "Porcentaje aplicado al monto a retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.declarate_iva_wh_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "REGISTRO DE INFORMACIÓN FISCAL DEL AGENTE DE RETENCIÓN"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "REGISTRO DE INFORMACIÓN FISCAL DEL SUJETO RETENIDO (R.I.F.)"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__partner_id
+msgid "Razón Social"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__refund
+msgid "Refund"
+msgstr "Reembolso"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+msgid "Register payment"
+msgstr "Registrar pago"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_tree_customer
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_tree_supplier
+msgid "Retenciones de IVA"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_tax__ret
+msgid "Retención"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_move__wh_id
+msgid "Retención IVA"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_wh_iva_customer
+#: model:ir.ui.menu,name:l10n_ve_retencion_iva.menu_action_account_wh_iva_customer
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form_customer
+msgid "Retención IVA Cliente"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.act_window,name:l10n_ve_retencion_iva.action_account_wh_iva_supplier
+#: model:ir.ui.menu,name:l10n_ve_retencion_iva.menu_action_account_wh_iva_supplier
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+msgid "Retención IVA Proveedor"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form_customer
+msgid "Retener"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_position_form_new
+msgid "Retention IVA"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_fiscal_position__ret_IVA_purchase
+msgid "Retention IVA Purchase"
+msgstr "Retención IVA (Compra)"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_fiscal_position__ret_IVA_sale
+msgid "Retention IVA Sale"
+msgstr "Retención IVA (Venta)"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.ui.menu,name:l10n_ve_retencion_iva.menu_account_pay_iva_menu
+msgid "Retention Payments IVA"
+msgstr "Retención de pago IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega del SMS"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Search withholding"
+msgstr "Retención de búsqueda"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_iva_txt_export__state
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__state
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__state
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Status"
+msgstr "Estado"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__state
+msgid "Status of Withholding"
+msgstr "Estado de retención"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Suplier"
+msgstr "Proveedor"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Sí, los datos en el archivo son los correctos, procesada declarar."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_iva_txt_export__format__tgz
+msgid "TGZ Archive"
+msgstr "Archivo TGZ"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "TOTALES"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "TXT Generated Complete"
+msgstr "TXT Generado Completo"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__period
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__period
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Tax Period"
+msgstr "Periodo fiscal"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wizard_txt_iva_export
+msgid "Ten en cuenta que este archivo es de consulta."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "This month"
+msgstr "Este mes"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "This week"
+msgstr "Esta semana"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__type
+msgid "Tipo"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Tipo de Transacción"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__type
+msgid "Tipo de retención"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.declarate_iva_wh_view
+msgid "To declare"
+msgstr "Declarar"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_pay_iva_view_form
+msgid "Total"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__sub_total
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__sub_total
+msgid "Total Compra"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.wh-iva_receipt_document
+msgid "Total Compras Incluyendo el I.V.A."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/wh_iva.py:0
+#, python-format
+msgid "Una retención IVA declarada no puede ser eliminada."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes sin leer"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.res_config_settings_view_form_l10n_ve_retencion_iva
+msgid "VAT account retention (purchase)"
+msgstr "Cuenta de Retención de IVA (compras)"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.res_config_settings_view_form_l10n_ve_retencion_iva
+msgid "VAT account retention (sale)"
+msgstr "Cuenta de retención IVA (ventas)"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_pay_iva_view_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_line__retention_id
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva_line__retention_id
+msgid "Vat Withholding"
+msgstr "Retención de IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__type__in_invoice
+msgid "Vendor Bill"
+msgstr "Factura de proveedor"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__type__in_refund
+msgid "Vendor Refund"
+msgstr "Reembolso del vendedor"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_move__amount_wh_iva
+msgid "Wh IVA Amount"
+msgstr "Importe de retención de IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva__state__withhold
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_wh_iva_line__state__withhold
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_account_wh_iva_filter
+msgid "Withhold"
+msgstr "Retener"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_wh_iva_withold
+msgid "Withhold IVA report"
+msgstr "Reporte retención IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_pay__wh_ids
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_withold__wh_ids
+msgid "Withholding"
+msgstr "Retenciones"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_move_line__pay_wh_id
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_confirmed__wh_ids
+#: model:ir.model.fields,field_description:l10n_ve_retencion_iva.field_account_wh_iva_declared__wh_ids
+msgid "Withholding IVA"
+msgstr "Retención de IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_wh_iva
+msgid "Withholding Vat"
+msgstr "Rentención IVA"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.actions.report,name:l10n_ve_retencion_iva.report_withholding_receipt
+msgid "Withholding receipt"
+msgstr "Recibo de retención"
+
+#. module: l10n_ve_retencion_iva
+#: code:addons/l10n_ve_retencion_iva/models/account_move.py:0
+#, python-format
+msgid ""
+"Ya existe una retención para esta factura. Por favor eliminela primero antes"
+" de crear otra."
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model,name:l10n_ve_retencion_iva.model_account_iva_txt_export
+msgid "account.iva.txt.export"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_iva_txt_export__state__choose
+msgid "choose"
+msgstr "selección"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_tax__wh_vat_collected_account_id
+msgid "esta cuenta sera usada para aplicar retenciones de impuesto"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_wh_iva__state
+msgid "estatus de la retención"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields.selection,name:l10n_ve_retencion_iva.selection__account_iva_txt_export__state__get
+msgid "get"
+msgstr "obtener"
+
+#. module: l10n_ve_retencion_iva
+#: model:ir.model.fields,help:l10n_ve_retencion_iva.field_account_tax__ret
+msgid "indica si el impuesto puede ser retenido"
+msgstr ""
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.confirmed_iva_wh_view
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.declarate_iva_wh_view
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_pay_iva_view_form
+msgid "or"
+msgstr "o"
+
+#. module: l10n_ve_retencion_iva
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form
+#: model_terms:ir.ui.view,arch_db:l10n_ve_retencion_iva.view_wh_iva_form_customer
+msgid "withholding Lines"
+msgstr "Líneas de retención"

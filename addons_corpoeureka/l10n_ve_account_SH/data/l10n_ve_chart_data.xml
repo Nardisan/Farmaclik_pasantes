@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <record id="ve_sh_chart_template_amd" model="account.chart.template">
+        <field name="name">Venezuelan - Account</field>
+        <field name="bank_account_code_prefix">1.1.01.0</field>
+        <field name="cash_account_code_prefix">1.1.01.0</field>
+        <field name="transfer_account_code_prefix">1.1.01.03.0099</field>
+        <field name="code_digits">1</field>
+        <field name="currency_id" ref="base.VEF"/>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="pos_screen_template_extend" xml:space="preserve">
+    
+   <t t-inherit="flexipharmacy.ReferenceClientLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td[@name='email']" position="after">
+            <td t-if="props.partner.is_doctor ">
+                <t t-esc="props.partner.especialidad or ''"/>
+                    <span t-if="highlight"><br/></span>
+            </td>
+        </xpath>
+    </t>
+
+    <t t-inherit="flexipharmacy.ReferenceClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//thead/tr" position="replace">
+            <tr>
+                <th>Name</th>
+                <th t-if="!env.isMobile">Address</th>
+                <th t-if="!env.isMobile">Phone</th>
+                <th t-if="env.isMobile">ZIP</th>
+                <th>Email</th>
+                <th>Especialidad</th>
+                <th>Saldo en Billetera</th>
+                <th>Saldo en tarjetas de regalo</th>
+            </tr>
+        </xpath>
+    </t>
+</templates>

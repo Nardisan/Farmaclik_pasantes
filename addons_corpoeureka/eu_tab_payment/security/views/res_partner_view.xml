@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="eu_tab_payment_res_partner_inherit_form" model="ir.ui.view">
+        <field name="name">eu.tab.payment.res.partner.inherit.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="wallet_lines" position="replace">
+                <field name="wallet_lines" nolabel='1'>
+                    <tree create="true">
+                        <field name="order_id" />
+                        <field name="cashier_id" />
+                        <field name="type" />
+                        <field name="debit" />
+                        <field name="credit" />
+                        <field name="user_id" />
+                        <field name="origin" />
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_wallet_management_inherit_tree" model="ir.ui.view">
+        <field name="name">eu.tab.payment.wallet.management.inherit.tree</field>
+        <field name="model">wallet.management</field>
+        <field name="inherit_id" ref="flexipharmacy.wallet_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="debit" position="after">
+                <field name="user_id" />
+                <field name="origin" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

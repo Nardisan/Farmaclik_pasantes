@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock_picking_form_inherit_view_sector" model="ir.ui.view">
+        <field name="name">stock_picking_form_inherit_views</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="before">
+                <field name="street"  options="{'no_open': True, 'no_create_edit': True, 'no_quick_create': True, 'no_create': True}"></field>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="stock_picking_form_inherit_tree_sector" model="ir.ui.view">
+        <field name="name">stock_picking_form_inherit_tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="street" optional="hide"  ></field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

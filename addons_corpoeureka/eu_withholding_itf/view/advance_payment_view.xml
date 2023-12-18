@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_advance_inherit_view_form_igtf" model="ir.ui.view">
+        <field name="name">payment.advance.inherit.view.form3</field>
+        <field name="model">account.advanced.payment</field>
+        <field name="inherit_id" ref="locv_account_advance_payment.account_advance_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="move_itf_id" attrs="{'invisible': [('move_itf_id', '=', False)]}" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+            </xpath>
+            <notebook position="inside">
+                <page string="Asiento Contable ITF" attrs="{'invisible': ['|',('state','!=','available'),('move_itf_id','=',False)]}">
+                    <field name="move_itf_id_lines" readonly="1">
+                        <tree string="Asiento Contable">
+                            <field name="ref"/>
+                            <field name="date" string="Fecha"/>
+                            <field name="partner_id" string="Socio"/>
+                            <field name="account_id" string="Cuenta"/>
+                            <field name="name" string="Nombre"/>
+                            <field name="debit" string="Debe"/>
+                            <field name="credit" string="Haber"/>
+                            <field name="amount_currency" string="Importe en Moneda" groups="base.group_multi_currency"/>
+<!--                                     <field name="currency_id" groups="base.group_multi_currency"/>-->
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

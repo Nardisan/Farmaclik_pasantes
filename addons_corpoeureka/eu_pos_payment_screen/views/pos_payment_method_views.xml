@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="eu_pos_payment_screen_inherit_payment_method_tree" model="ir.ui.view">
+        <field name="name">eu.pos.payment.screen.inherit.pos.payment.method.tree</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="currency_id" />
+                <field name="manual_currency_exchange_rate" readonly="1" />
+                <field name="has_reference" required="1" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="eu_pos_payment_screen_inherit_payment_method_form" model="ir.ui.view">
+        <field name="name">eu.pos.payment.screen.inherit.pos.payment.method.form</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="currency_id" />
+                <field name="has_reference" required="1" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_pos_payment_inherit_tree" model="ir.ui.view">
+        <field name="name">eu.tab.payment.pos.payment.inherit.tree</field>
+        <field name="model">pos.payment</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_payment_tree"></field>
+        <field name="arch" type="xml">
+            <field name="pos_order_id" position="after">
+                <field name="transaction_id" string="Referencia" />
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_pos_payment_inherit_form" model="ir.ui.view">
+        <field name="name">eu.tab.payment.pos.payment.inherit.form</field>
+        <field name="model">pos.payment</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_payment_form"></field>
+        <field name="arch" type="xml">
+            <field name="transaction_id" position="attributes">
+                <attribute name="string">Referencia</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

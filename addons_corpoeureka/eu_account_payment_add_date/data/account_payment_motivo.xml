@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    	<!-- Motivo de Pagos -->
+
+        <record id="account_payment_motivo_uno" model="account.payment.motivo">
+            <field name="name">Compra de Dolares</field>
+        </record>
+        <record id="account_payment_motivo_dos" model="account.payment.motivo">
+            <field name="name">Venta de Dolares</field>
+        </record>
+
+    </data>
+</odoo>

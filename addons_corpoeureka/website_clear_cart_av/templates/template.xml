@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add clear cart button -->
+	<template id="clear_cart_inherited" inherit_id="website_sale.cart" active="True" customize_show="True" name="Clear Cart">
+		<xpath expr="//div[hasclass('oe_cart')]//a[hasclass('btn-secondary')]" position="after">
+            <t t-set="website_sale_order" t-value="website.sale_get_order()" />
+            <a t-if="website_sale_order and website_sale_order.website_order_line" href="/shop/clear/cart" class="btn btn-primary ml16" style="vertical-align: top;"> <i class="fa fa-trash mr8"></i> Vaciar Carrito</a>
+		</xpath>
+	</template>
+
+	<template id="empty_cart_popover" inherit_id="website_sale.cart_popover" customize_show="True" name="Empty Cart Button Popover" priority="21">
+            <xpath expr="//*[starts-with(@href,'/shop/cart')]" position="before">
+                <t t-if="website_sale_order and website_sale_order.website_order_line">
+                    <a id="clear_cart_button_shop" role="button" href="/shop/clear/cart/main" class="te_theme_button mb-2 btn btn-primary"><span class="fa fa-trash"/>Vaciar Carrito</a>
+                </t>
+            </xpath>
+        </template>
+</odoo>

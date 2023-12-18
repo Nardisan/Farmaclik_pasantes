@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="wallet_breadcrum_portal" name="Portal layout : wallet entries" inherit_id="portal.portal_breadcrumbs" priority="21">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li 
+                t-if="page_name == 'wallet'" 
+                t-attf-class="breadcrumb-item #{'active ' if not wallet_lines else ''}"
+            >
+                <a t-attf-href="'/my/wallet?{{ keep_query() }}' if wallet_lines else '#'">
+                    Wallet
+                </a>
+            </li>
+            </xpath>
+    </template>
+    
+    <template id="wallet_client" name="Wallet info">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Wallet</t>
+            </t>
+            <t t-if="not wallet_lines">
+                <p>Tu billetera esta vacía, no tiene un historial de transacciones.</p>
+            </t>
+            <h1 class="wallet_amount">
+                En billetera:
+                <t 
+                    t-esc="user_id.remaining_wallet_amount" 
+                    t-options="{
+                        'widget': 'monetary',
+                        'display_currency': user_id.company_id.currency_id
+                    }"
+                />
+            </h1>
+            <t t-if="wallet_lines" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="font-weight-bold">Tipo</th>
+                        <th class="text-right font-weight-bold">Monto (-/+)</th>
+                        <th class="text-right font-weight-bold">Origen de la transacción</th>
+                        <th class="text-right font-weight-bold">Fecha</th>
+                    </tr>
+                </thead>
+                <t t-foreach="wallet_lines" t-as="wallet">
+                    <tr>
+                        <td class="text-right">
+                            <span t-field="wallet.type"/>
+                        </td>
+                        <td 
+                            class="text-right"
+                        >
+                            <span
+                                t-att-class="'credit' if wallet.credit else 'debit'"
+                                t-esc="wallet.credit if wallet.credit else -wallet.debit"
+                                t-options="{
+                                    'widget': 'monetary', 
+                                    'display_currency': wallet.currency_id
+                                }"
+                            />
+                        </td>
+                        <td class="text-right">
+                            <span t-field="wallet.origin"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="wallet.create_date" />
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_home_wallet" name="Wallet lines" inherit_id="portal.portal_my_home" customize_show="True" priority="30">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <a 
+                href="/my/wallet" 
+                title="Billetera"
+                class="list-group-item list-group-item-action d-flex align-items-center justify-content-between"
+            >
+                Billetera
+
+                <t t-set="placeholder_count" t-value="'wallet_count'"/>
+
+                <span class="minibox">
+                    <t t-if="placeholder_count">
+                        <span class="badge badge-secondary badge-pill" t-att-data-placeholder_count="placeholder_count">
+                            <i class="fa fa-spin fa-spinner"></i>
+                        </span>
+                    </t>
+                    <small class="badge badge-primary badge-pill">
+                        <t
+                            t-esc="user_id.remaining_wallet_amount" 
+                            t-options="{
+                                'widget': 'monetary',
+                                'display_currency': user_id.company_id.currency_id
+                            }"
+                        />
+                        <i class="fa fa-money"></i>
+                    </small>
+                </span>
+            </a>
+        </xpath>
+    </template>
+
+</odoo>

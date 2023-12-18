@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_l10n_ve_retencion_iva" model="ir.ui.view">
+            <field name="name">res.config.view.inherited.base.l10n_ve_retencion_iva</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='rounding_method']" position="before">
+                     <div class="col-12 col-lg-6 o_setting_box" id="account_sale_iva">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Withholding tax IVA</span>
+                            <div class="text-muted">
+                                Default accounts for VAT withholdings
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label string="VAT account retention (purchase) " for="retention_iva_account_id"  class="col-lg-3 o_light_label"/>
+                                    <field name="retention_iva_account_id" class="o_light_label mt16"  context="{'active_test': False}" />
+                                </div>
+                                <div class="row mt8">
+                                    <label string="VAT account retention (sale) " for="sale_iva_ret_account_id" class="col-lg-3 o_light_label"/>
+                                    <field name="sale_iva_ret_account_id" class="o_light_label mt16" />
+                                </div>
+                                <div class="row mt8">
+                                    <label string="Diario de Retención de IVA " for="journal_iva" class="col-lg-3 o_light_label"/>
+                                    <field name="journal_iva" class="o_light_label mt16" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="purchase_account_invoice_ledger_view" model="ir.ui.view">
+            <field name="name">Purchase Invoice Ledger</field>
+            <field name="model">purchase.account.invoice.ledger</field>
+            <field name="inherit_id" ref="account.account_common_report_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='target_move']" position="replace">
+                    </xpath>
+                    <xpath expr="//field[@name='journal_ids']" position="replace">
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="purchase_account_invoice_ledger_menu" model="ir.actions.act_window">
+            <field name="name">Purchase Invoice Ledger</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.account.invoice.ledger</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="purchase_account_invoice_ledger_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="menu_purchase_account_invoice_ledger"
+                name="Purchase Invoice Ledger"
+                parent="account.menu_finance_reports"
+                action="purchase_account_invoice_ledger_menu"
+        />
+
+    </data>
+</odoo>

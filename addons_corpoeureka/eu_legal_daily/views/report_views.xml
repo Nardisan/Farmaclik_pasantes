@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+
+        <record id="paperformat_daily_legal" model="report.paperformat">
+            <field name="name">Daily Sale papper format</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">279</field>
+            <field name="page_width">216</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">50</field>
+            <field name="margin_left">15</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="eu_legal_daily"
+                model="account.report.legal"
+                string="Diario Legal"
+                name="eu_legal_daily.print_daily_legal_report_template"
+                paperformat="eu_legal_daily.paperformat_daily_legal"
+                file="eu_legal_daily.print_daily_legal_report_template"
+                report_type="qweb-pdf"
+                menu="False"
+        />
+
+    </data>
+</odoo>

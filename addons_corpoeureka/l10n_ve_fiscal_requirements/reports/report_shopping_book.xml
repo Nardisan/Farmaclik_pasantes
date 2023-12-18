@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    
+    <data>
+    <report
+            id="shooppin_book"
+            model="account.move"
+            string="Shopping book"
+            report_type="qweb-pdf"
+            name="l10n_ve_fiscal_requirements.report_shooping_book"
+        />
+    
+         <template id="report_shooping_book">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                        <div class="page" style ="font-size:10px;font-family: Times;line-height: 1.6;">
+
+                            <style type="text/css">
+                                table.tableizer-table {
+                                font-size: 12px;
+                                border: 1px solid #CCC;
+                                font-family: Arial, Helvetica, sans-serif;
+                                }
+                                .tableizer-table td {
+                                padding: 4px;
+                                margin: 3px;
+                                border: 1px solid #CCC;
+                                }
+                                .tableizer-table th {
+                                color: black;
+                                font-weight: bold;
+                                 border: 1px solid #CCC;
+                                }
+                            </style>
+                                <table class="tableizer-table">
+                                <thead><tr class="tableizer-firstrow"><th colspan="12"></th><th colspan="5" style="text-align:center;">CONTRIBUYENTES</th><th colspan="6" style="text-align:center;">NO CONTRIBUYENTES</th></tr></thead><tbody>
+                                <tr><td>N°</td><td>Fecha</td><td>Nombre o Razón Social</td><td>N° de RIF</td><td>N° de Factura</td><td>N° de Control</td><td>Nota de Debito</td><td>Nota de Crédito</td><td>Factura Afectada</td><td> Fecha Comp. Ret. </td><td>Tipo de Transaccion</td><td> N° de Comprob. de  Retención </td><td>Total de Ventas Incluye I.V.A.</td><td>Ventas Internas No Gravadas</td><td>Base Imponible</td><td>%         Alic.</td><td>Impuesto I.V.A.</td><td>Ventas Internas No Gravadas</td><td>Base Imponible</td><td>%         Alic.</td><td>Impuesto I.V.A.</td><td>IVA Retenido (Por el Comprador)</td><td>IVA Percibido</td></tr>
+                                    <t t-set="count" t-value="0"/>
+                                    <t t-foreach="docs" t-as="o">
+                                        <t t-set="count" t-value="count+1"/>
+                                        <tr><td><t t-esc="count"/></td>
+                                            <td><span t-esc="hola"/></td>
+                                            <td><span t-esc="hola"/></td>
+                                            <td><span t-esc="hola"/></td>
+                                            <td><span t-esc="hola"/></td>
+                                            <td><span t-esc="hola"/></td>
+                                            <td>N.A</td>
+                                            <td>N.A</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><t t-esc="hola"/></td>
+                                            <td></td>
+                                            <td><t t-esc="hola"/></td>
+                                            <td><t t-esc="hola"/></td>
+                                            <td><t t-esc="hola"/></td>
+                                            <td>12</td>
+                                            <td><t t-esc="hola"/></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td>  -   </td>
+                                            <td></td>
+                                            <td>  -   </td>
+                                        </tr>
+                                    </t>
+                                <tr><td>TOTAL</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0,00 </td><td>0,00 </td><td>0,00 </td><td></td><td>0,00 </td><td>0,00 </td><td>0,00 </td><td></td><td>0,00 </td><td>0,00 </td><td>0,00</td></tr>
+                            </tbody></table>
+
+                        </div>
+
+                </t>
+            </t>
+        </template>
+        
+        
+    </data>
+</odoo>

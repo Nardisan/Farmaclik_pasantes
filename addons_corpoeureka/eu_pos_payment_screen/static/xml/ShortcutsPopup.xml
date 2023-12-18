@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="pos_screen_template" xml:space="preserve">
+    <t t-name="ShortcutsPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text">
+                <header class="title">
+                    <t t-esc="props.title" />
+                </header>
+                <div style="font-size: .85rem;">
+                    <div class="shortcuts-grid">
+                        <!-- #region Accesskey shortcuts -->
+                        <t t-if="navigator.includes('chrome')">
+                            <dl>
+                                <dt>Seleccionar método de pago</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>9</kbd>
+                                </dd>
+                                <dt>Seleccionar wallet</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>W</kbd>
+                                </dd>
+                                <dt>FV</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>I</kbd>
+                                </dd>
+                                <dt>Seleccionar cliente</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>C</kbd>
+                                </dd>
+                                <dt>Alternar cantidades (cambio / totales)</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>M</kbd>
+                                </dd>
+                                <dt>Alternar total (entre varias monedas)</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>P</kbd>
+                                </dd>
+                                <dt>Agregar el restante al método de pago</dt>
+                                <dd>
+                                    <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>-</kbd>
+                                </dd>
+                            </dl>
+                        </t>
+                        <t t-else="">
+                            <dl>
+                                <dt>Seleccionar método de pago</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>1</kbd> / <kbd>9</kbd>
+                                </dd>
+                                <dt>Seleccionar wallet</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd>
+                                </dd>
+                                <dt>FV</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>
+                                </dd>
+                                <dt>Seleccionar cliente</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
+                                </dd>
+                                <dt>Alternar cantidades (cambio / totales)</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>
+                                </dd>
+                                <dt>Alternar total (entre varias monedas)</dt>
+                                <dd>
+                                    <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+                                </dd>
+                                <dt>Agregar el restante al método de pago</dt>
+                                <dd>
+                                    <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>-</kbd>
+                                </dd>
+                            </dl>
+                        </t>
+                        <!-- #endregion -->
+                        <!-- #region Ctrl + Alt shortcurts -->
+                        <dl>
+                            <dt>Validar</dt>
+                            <dd>
+                                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>}</kbd>
+                            </dd>
+                            <dt>Volver</dt>
+                            <dd>
+                                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>{</kbd>
+                            </dd>
+                            <dt>Agregar el total al método de pago</dt>
+                            <dd>
+                                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>+</kbd>
+                            </dd>
+                            <dt>Eliminar todo</dt>
+                            <dd>
+                                <kbd>Ctrl</kbd> + <kbd>Del</kbd>
+                            </dd>
+                            <dt>Seleccionar todo</dt>
+                            <dd>
+                                <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>→</kbd>
+                            </dd>
+                            <dt>Reiniciar</dt>
+                            <dd>
+                                <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Backspace</kbd>
+                            </dd>
+                        </dl>
+                        <!-- #endregion -->
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="button confirm" t-on-click="confirm">
+                        Ok
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>

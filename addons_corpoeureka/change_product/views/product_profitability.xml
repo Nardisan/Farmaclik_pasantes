@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="product_profitability_tree" model="ir.ui.view">
+            <field name="name">Porcentajes de Rentabilidad</field>
+            <field name="model">product.profitability</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="description"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_view_active_profitability">
+            <field name="name">Porcentajes de Rentabilidad</field>
+            <field name="res_model">product.profitability</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="main_menu_profitability" name="Porcentajes de Rentabilidad" parent="stock.menu_product_in_config_stock"
+                  action="action_view_active_profitability"/>
+
+    </data>
+</odoo>

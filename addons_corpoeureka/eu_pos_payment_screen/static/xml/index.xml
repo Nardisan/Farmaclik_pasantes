@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="pos_screen_template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div/div" position="replace">
+            <main>
+                <HeaderComponent />
+                <DueComponent />
+                <div class="content">
+                    <NumpadComponent />
+                    <PaymentComponent />
+                    <ButtonsComponent media="'(max-width: 728px)'" />
+                </div>
+            </main>
+        </xpath>
+    </t>
+
+    <!-- <t t-inherit="flexipharmacy.MiddleCustomControlButton" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[@id='Wallet']" position="replace"></xpath>
+    </t> -->
+
+    <t t-inherit="point_of_sale.Chrome" t-inherit-mode="extension" owl="1">
+        <xpath expr="//*[@class='status-buttons']/*[1]" position="after">
+            <button class="help" type="button" id="shortcuts-help">
+                <i class="fa fa-question-circle fa-3x" t-on-click="showPopup('ShortcutsPopup', {})"></i>
+            </button>
+        </xpath>
+    </t>
+
+    <t t-inherit="flexipharmacy.ReferenceClientLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr" position="inside">
+            <td>
+                <strong>
+                    <t t-esc="env.pos.format_currency_no_symbol(props.partner.remaining_wallet_amount)"/>
+                    $
+                </strong>
+                <span t-if="highlight"><br/></span>
+            </td>
+            <td>
+                <strong>
+                    <t t-esc="env.pos.format_currency(props.partner.giftcard_amount)"/>
+                </strong>
+                <span t-if="highlight"><br/></span>
+            </td>
+        </xpath>
+    </t>
+
+    <t t-inherit="flexipharmacy.ReferenceClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//thead/tr" position="inside">
+            <th>Saldo en Billetera</th>
+            <th>Saldo en tarjetas de regalo</th>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr" position="inside">
+            <td>
+                <strong>
+                    <t t-esc="env.pos.format_currency_no_symbol(props.partner.remaining_wallet_amount)"/>
+                    $
+                </strong>
+                <span t-if="highlight"><br/></span>
+            </td>
+            <td>
+                <strong>
+                    <t t-esc="env.pos.format_currency(props.partner.giftcard_amount)"/>
+                </strong>
+                <span t-if="highlight"><br/></span>
+            </td>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//thead/tr" position="inside">
+            <th>Saldo en Billetera</th>
+            <th>Saldo en tarjetas de regalo</th>
+        </xpath>
+    </t>
+
+</templates>

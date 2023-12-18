@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record id="view_wh_iva_line_tree" model="ir.ui.view">
+            <field name="name">account.wh.iva.line.tree</field>
+            <field name="model">account.wh.iva.line</field>
+            <field name="arch" type="xml">
+                <tree string="Líneas de Retención">
+                    <field name="invoice_id" context="{'wh_id': True}"/>
+                    <field name="ret_tax"/>
+                    <field name="amount_tax"/>
+                    <field name="rate_amount"/>
+                    <field name="ret_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_wh_iva_line_form" model="ir.ui.view">
+            <field name="name">account.wh.iva.line.form</field>
+            <field name="model">account.wh.iva.line</field>
+            <field name="arch" type="xml">
+                <form string="Lineas iva withholding">
+                    <notebook>
+                        <page string="Facturas a retener">
+                            <group>
+                                <field name="invoice_id"  context="{'wh_id': True}"/>
+                                <field name="ret_tax"/>
+                                <field name="amount_tax"/>
+                                <field name="rate_amount"/>
+                                <field name="base_tax"/>
+                                <field name="ret_amount"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wh_iva_tree_customer" model="ir.ui.view">
+            <field name="name">account.wh.iva.tree.customer</field>
+            <field name="model">account.wh.iva</field>
+            <field name="arch" type="xml">
+                <tree string="Retenciones de IVA">
+                     <field name="customer_doc_number"/>
+                    <field name="partner_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_wh_iva_form" model="ir.ui.view">
+            <field name="name">account.wh.iva.form</field>
+            <field name="model">account.wh.iva</field>
+            <field name="arch" type="xml">
+                <form string="Retención IVA Proveedor">
+                    <header>
+                        <button name="action_confirm" states="draft" string="Confirmar" class="oe_highlight" type="object"/>
+                        <button name="action_withhold_iva_send" states="confirmed,withhold,declared,done" string="Enviar por correo" class="oe_highlight" type="object" />
+                        <!--<button name="action_update" states="draft" string="Actualizar Retención" class="oe_highlight" type="object"/>-->
+                        <button name="action_cancel_draft" colspan="2" states="draft" string="Cancelar" type="object" class="oe_highlight"/>
+                        <button name="action_draft" colspan="2" states="confirmed,declared,withhold,done" string="Cambiar a borrador" type="object" class="oe_highlight"/>
+                        <button name="%(action_account_pays_iva)d" states="declared" string="Register payment" class="oe_highlight" type="action"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,withhold,declared,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="number"/>
+                            <field name="partner_id" readonly="context.get('readonly')"/>
+                            <field name="account_id"  />
+                            <field name="date"/>
+                            <field name="file_txt_id" widget="many2many_binary"/>
+                            <field name="move_type"/>
+                            <field name="journal_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Invoices">
+                                <field name="wh_lines" mode="tree" force_save="True" options="{'limit': 1}">
+                                    <form string="withholding Lines">
+                                        <group col="4">
+                                            <field name="invoice_id" force_save="True" domain="[('wh_id', '=', False)]"/>
+                                            <field name="ret_tax" force_save="True"/>
+                                            <field name="base_tax" force_save="True"/>
+                                            <field name="amount_tax" force_save="True"/>
+                                            <field name="rate_amount" force_save="True"/>
+                                            <field name="ret_amount" force_save="True"/>
+                                            <field name="state" force_save="True"/>
+                                        </group>
+                                    </form>
+                                    <tree string="withholding Lines">
+                                        <field name="invoice_id" force_save="True" context="{'wh_id': True}"/>
+                                        <field name="ret_tax"/>
+                                        <field name="base_tax"/>
+                                        <field name="amount_tax"/>
+                                        <field name="rate_amount"/>
+                                        <field name="ret_amount"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                                <group col="2" colspan="2">
+                                    <field name="total_tax_ret"/>
+                                </group>
+                            </page>
+                            <page string="Accounting Move">
+                                <group>
+                                    <field name="move_paid_id"/>
+                                    <field name="payment_id"/>
+                                    <field name="asiento_iva"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_wh_iva_tree_supplier" model="ir.ui.view">
+            <field name="name">account.wh.iva.tree.vendorr</field>
+            <field name="model">account.wh.iva</field>
+            <field name="priority">9</field>
+            <field name="arch" type="xml">
+                <tree string="Retenciones de IVA"   
+                    decoration-muted="state=='cancel'" 
+                    decoration-warning="state=='declared'" 
+                    decoration-info="state=='confirmed'" 
+                    decoration-primary="state=='withhold'" 
+                    decoration-success="state=='done'" 
+                    decoration-danger="state=='draft'">
+                    <field name="number"/>
+                    <field name="partner_id"/>
+                    <field name="total_tax_ret"/>
+                    <field name="date"/>
+                    <field name="period"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_wh_iva_form_customer" model="ir.ui.view">
+            <field name="name">account.wh.iva.form.customer</field>
+            <field name="model">account.wh.iva</field>
+            <field name="arch" type="xml">
+                <form string="Retención IVA Cliente">
+                    <header>
+                        <button name="action_confirm" states="draft" string="Confirmar" class="oe_highlight" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,withhold"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id" readonly="context.get('readonly')"/>
+                                <field name="company_id"/>
+                                <field name="customer_doc_number" placeholder="Nro de comprobante" attrs="{'invisible':[('move_type','not in',('out_refund','out_invoice'))]}"/>
+                                <field name="number" placeholder="Nro de comprobante"  attrs="{'invisible':[('move_type','in',('out_refund','out_invoice'))]}"/>
+                                <field name="account_id"  />
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="move_type"/>
+                                <field name="period" readonly="0"/>
+                                <field name="journal_id" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Invoices">
+                                <field name="wh_lines" mode="tree">
+                                    <form string="withholding Lines">
+                                        <group>
+                                            <group>
+                                                <field name="invoice_id" context="{'wh_id': True}"/>
+                                                <field name="ret_tax"/>
+                                                <field name="base_tax"/>
+                                                <field name="amount_tax"/>
+                                            </group>
+                                            <group>
+                                                <field name="rate_amount"/>
+                                                <field name="ret_amount"/>
+                                                <field name="state"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                    <tree string="withholding Lines">
+                                        <field name="invoice_id" context="{'wh_id': True}"/>
+                                        <field name="ret_tax"/>
+                                        <field name="base_tax"/>
+                                        <field name="amount_tax"/>
+                                        <field name="rate_amount"/>
+                                        <field name="ret_amount"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                                <group>
+                                    <field name="total_tax_ret"/>
+                                </group>
+                            </page>
+                            <page string="Accounting Move">
+                                <group>
+                                    <field name="move_paid_id"/>
+                                    <field name="payment_id"/>
+                                    <field name="asiento_iva"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_account_wh_iva_filter" model="ir.ui.view">
+            <field name="name">account.wh.iva.filter</field>
+            <field name="model">account.wh.iva</field>
+            <field name="arch" type="xml">
+                <search string="Search withholding">
+                    <field name="number" string="Number" filter_domain="[('number','ilike',self)]"/>
+                    <field name="partner_id" string="Suplier" filter_domain="[('partner_id','ilike',self)]"/>
+                    <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                    <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                    <filter name="withhold" string="Withhold" domain="[('state','=','withhold')]"/>
+                    <filter name="declared" string="Declared" domain="[('state','=','declared')]"/>
+                    <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                    <separator/>
+                    <filter name="thisweek" string="This week" domain="[('date', '&gt;', (context_today() - datetime.timedelta(days=8)).strftime('%%Y-%%m-%%d'))]"/>
+                    <filter name="fifteen" string="15 days" domain="[('date', '&gt;', (context_today() - datetime.timedelta(days=15)).strftime('%%Y-%%m-%%d'))]"/>
+                    <filter name="month" string="This month" domain="[('date','&gt;=',context_today().strftime('%%Y-%%m-01')),('date','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01'))]"/>
+                    <filter name="last_month" string="Last month" domain="[('date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('date','&lt;',context_today().strftime('%%Y-%%m-01'))]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
+                        <filter name="status" string="Status" context="{'group_by':'state'}"/>
+                        <filter name="period" string="Tax Period" context="{'group_by':'period'}"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+        <record id="action_account_declarate_wh_iva_wizar" model="ir.actions.act_window">
+            <field name="name">Declarate Retention Iva Form</field>
+            <field name="res_model">account.wh.iva.declared</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'default_wh_ids': [(4, active_id, None)]}</field>
+            <field name="target">new</field>
+        </record>        
+        
+        <record id="action_account_pays_iva" model="ir.actions.act_window">
+            <field name="name">Pay IVA</field>
+            <field name="res_model">account.wh.iva.pay</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'default_wh_ids': [(4, active_id, None)]}</field>
+            <field name="target">new</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_account_wh_iva_customer">
+            <field name="name">Retención IVA Cliente</field>
+            <field name="res_model">account.wh.iva</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('move_type','in',('out_invoice', 'out_refund'))]</field>
+            <field name="context">{'default_move_type':'out_invoice', 'move_type':'out_invoice', 'journal_type': 'sale'}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_wv_account_wh_iva_customer_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_wh_iva_tree_customer"/>
+            <field name="act_window_id" ref="action_account_wh_iva_customer"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_wv_account_wh_iva_customer_form">
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_wh_iva_form_customer"/>
+            <field name="act_window_id" ref="action_account_wh_iva_customer"/>
+        </record>
+
+        <menuitem id="menu_action_account_wh_iva_customer" name="Retención IVA Cliente" parent="account.menu_finance_receivables" action="action_account_wh_iva_customer"/>
+
+        <record model="ir.actions.act_window" id="action_account_wh_iva_supplier">
+            <field name="name">Retención IVA Proveedor</field>
+            <field name="res_model">account.wh.iva</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('move_type','in',('in_invoice', 'in_refund'))]</field>
+            <field name="context">{'default_move_type': 'in_invoice', 'move_type': 'in_invoice', 'journal_type': 'purchase'}</field>
+        </record>
+        
+        <record model="ir.actions.act_window.view" id="act_wv_account_wh_iva_supplier_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="action_account_wh_iva_supplier"/>
+        </record>
+        
+        <record model="ir.actions.act_window.view" id="act_wv_account_wh_iva_supplier_form">
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="action_account_wh_iva_supplier"/>
+        </record>
+
+        <menuitem id="menu_action_account_wh_iva_supplier" name="Retención IVA Proveedor" parent="account.menu_finance_payables" action="action_account_wh_iva_supplier" groups="account.group_account_invoice,account.group_account_user,account.group_account_manager"/>
+    </data>
+</odoo>

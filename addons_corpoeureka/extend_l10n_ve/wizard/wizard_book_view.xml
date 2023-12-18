@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="extend_wizard_book" model="ir.ui.view">
+        <field name="name">extend.wizard.book.inherit</field>
+        <field name="model">wizard.book</field>
+        <field name="inherit_id" ref="l10n_ve_accountant.wizard_book"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='check_report']" position="after">
+                    <button name="generate_excel_book" string="Imprimir Excel" type="object" class="oe_highlight"/>
+                </xpath>
+
+                <xpath expr="//button[@name='check_report']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+     </record>
+     
+</odoo>

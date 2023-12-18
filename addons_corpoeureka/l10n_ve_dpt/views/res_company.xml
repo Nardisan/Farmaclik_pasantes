@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="res_company_view_municipality_parish" model="ir.ui.view">
+            <field name="name">res_company.view.municipality_parish</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+                <field name="country_id" position="before">
+                    <field name="municipality_id" placeholder="Municipality" options='{"no_open": True}' domain="[('state_id','=',state_id)]"/>
+                    <field name="parish_id" placeholder="Parish" options='{"no_open": True}' domain="[('municipality_id','=',municipality_id)]"/>
+                </field>
+                <xpath expr="//field[@name='state_id']" position="attributes">
+					<attribute name="domain">[('country_id','=',country_id)]</attribute>
+				</xpath>  
+            </field>
+        </record>
+
+    </data>
+</odoo>

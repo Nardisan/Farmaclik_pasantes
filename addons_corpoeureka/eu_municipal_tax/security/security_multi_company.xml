@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--PARA MOSTRAR SOLOS LOS DATOS POR COMPAÑIA  -->
+    <data noupdate="0">
+        <record model="ir.rule"  id="municipal_tax_rule">
+            <field name="name">Impuesto Actividad Economica multi-company</field>
+            <field name="model_id" ref="model_tax_municipal"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+        <record model="ir.rule"  id="municipal_tax_line_rule">
+            <field name="name">Impuesto Áctividad Economica Line multi-compañí­a</field>
+            <field name="model_id" ref="model_tax_municipal_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+
+    </data>
+</odoo>

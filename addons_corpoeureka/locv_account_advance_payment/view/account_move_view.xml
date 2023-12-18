@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Incluye pestaña de anticipo en la facturas de proveedores-->
+        <record id="account_invoice_supplier_advanced_id" model="ir.ui.view">
+            <field name="name">account.invoice.advanced</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='other_info']" position="after">
+                    <page string="Anticipos Proveedor" attrs="{'invisible': [('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}">
+                        <field name="account_advance_ids"
+                               mode="tree"
+                        />
+                    </page>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="sum_amount_available" readonly="1" force_save="1" attrs="{'invisible': [('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"/>
+                    <field name="currency_company" invisible="True"/>
+                    <field name="sum_amount_available_dolares" readonly="1" force_save="1" attrs="{'invisible': [('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"/>
+                    <field name="foreign_currency" invisible="True"/>
+                </xpath>
+            </field>
+        </record>
+        <!--Incluye pestaña de anticipo en la facturas de cliente -->
+        <record id="account_invoice_advanced_id" model="ir.ui.view">
+            <field name="name">account.invoice.advanced</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_info']" position="after">
+                    <page string="Anticipos Cliente" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt'))]}">
+                        <field name="account_advance_ids"
+                               mode="tree"
+                        />
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="sum_amount_available" readonly="1" force_save="1" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt'))]}" widget='monetary' options="{'currency_field': 'currency_company'}"/>
+                    <field name="currency_company" invisible="True"/>
+                    <field name="sum_amount_available_dolares" readonly="1" force_save="1" attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'out_receipt'))]}"/>
+                    <field name="foreign_currency" invisible="True"/>
+                </xpath>
+            </field>
+        </record>
+        <!--Incluye monto de disponible en las facturas de cliente-->
+    </data>
+</odoo>

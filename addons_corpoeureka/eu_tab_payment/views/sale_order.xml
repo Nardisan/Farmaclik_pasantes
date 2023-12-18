@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="eu_tab_payment_sale_order_form" model="ir.ui.view">
+        <field name="name">eu.tab.payment.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="sale_order_template_id" position="after">
+                <field name="change_type" />
+            </field>
+            <xpath expr="//header">
+                <field name="to_wallet" invisible="1" />
+                <field name="paid" invisible="1" />
+                <button 
+                    string="Enviar cambio a la billetera"
+                    name="action_change_wallet" 
+                    type="object" 
+                    class="oe_highlight"
+                    confirm="Estás seguro?"
+                    attrs="{
+                        'invisible':[
+                            '|', '|',
+                            ('to_wallet', '=', False), 
+                            ('paid', '=', True),
+                            ('change', '=', 0),
+                        ]
+                    }"
+                />
+                <button 
+                    string="Dar cambio"
+                    name="go_paid" 
+                    type="object" 
+                    class="oe_highlight"
+                    confirm="Estás seguro?"
+                    attrs="{
+                        'invisible':[
+                            '|', '|',
+                            ('to_wallet', '=', True), 
+                            ('paid', '=', True),
+                            ('change', '=', 0),
+                        ]
+                    }"
+                />
+            </xpath>
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page name="web_payments" string="Pagos web">
+                    <field name="transaction_ids" />
+                </page>
+            </xpath>
+            <field name="amount_total" position="after">
+                <div class="oe_inline o_td_label">
+                    <label for="change"/>
+                </div>
+                <field 
+                    name="change" 
+                    nolabel="1" 
+                    class="oe_subtotal_footer_separator" 
+                    style="border:0;"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_sale_order_tree" model="ir.ui.view">
+        <field name="name">eu.tab.payment.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="amount_total" position="after">
+                <field name="change" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

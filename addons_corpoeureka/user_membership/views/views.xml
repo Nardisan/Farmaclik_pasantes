@@ -1,0 +1,458 @@
+<odoo>
+    <data>
+        <record id="view_delivery_carrier_tree_inherit" model="ir.ui.view">
+            <field name="name">delivery.carrier.tree.inherit</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_tree"/>
+            <field name="arch" type="xml">
+                <field name="delivery_type" position="after">
+                    <field name="user_membership_plan_id" groups="user_membership.um_security_group" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_delivery_carrier_form_website_delivery" model="ir.ui.view">
+            <field name="name">delivery.carrier.website.form</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position='after'>
+                    <field name="user_membership_plan_id" groups="user_membership.um_security_group"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="inherit_res_partner_form">
+            <field name="name">Inherit Res Partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='sales_purchases']" position="inside">
+                    <group string="Membership">
+                        <field name="is_membership_suspend" invisible="1"/>
+                        <field name="is_membership_active" invisible="1"/>
+                        <label for="user_membership_id"/>
+                        <div>
+                            <field name="user_membership_id" readonly="1" force_save="1"/>
+                            <button name="mem_suspend_remove" string="Active Membership" class="oe_highlight"
+                                    type="object" attrs="{'invisible':[('is_membership_suspend','=',False)]}"/>
+                        </div>
+                        <field name="user_membership_ids" readonly="1" force_save="1">
+                            <tree decoration-muted="id != parent.user_membership_id"
+                                  decoration-success="id == parent.user_membership_id">
+                                <field name="name"/>
+                                <field name="user_membership_plan_id" string="Plan"/>
+                                <field name="from_date"/>
+                                <field name="to_date"/>
+                                <field name="state"/>
+                                <field name="amount"/>
+                                <field name="currency_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_order_form_with_carrier" model="ir.ui.view">
+            <field name="name">delivery.sale.order.form.view.with_carrier</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position='after'>
+                        <field name="is_membership" invisible="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="product_template_only_form_view_product_image_for_membership_view_list">
+            <field name="name">Product Template</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='purchase_ok']/.." position="after">
+                    <div groups="user_membership.um_security_group">
+                        <field name="is_membership"/>
+                        <label for="is_membership"/>
+                    </div>
+                </xpath>
+
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Membership" name="membership"
+                          groups="user_membership.um_security_group">
+                        <group string="Membership" name="membership">
+                            <group>
+                                <field name="user_membership_plan_id"
+                                       attrs="{'required':[('is_membership','=',True)], 'invisible':[('is_membership','=',False)]}"/>
+                                <field name="msg" attrs="{'invisible':[('is_membership','=',True)]}"/>
+                                <field name="user_membership_plan_ids" widget="many2many_tags"
+                                       attrs="{'invisible':[('is_membership','=',True)]}"/>
+                                <field name="not_show_in_website" invisible="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="em_product_pack_product_product_package" model="ir.ui.view">
+            <field name="name">Product Packages</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='membership']" position="inside">
+
+                    <group attrs="{'invisible':[('is_membership','=',False)]}">
+                        <label for="duration_value" string="Plan Duration"/>
+                        <div class="o_row">
+                            <field name="duration_value"/>
+                            <field name="duration_range"/>
+                        </div>
+                        <field name="mem_priority" string="Listing Sequence"/>
+                        <field name="amount_pr_month" string="Price per Month"/>
+                    </group>
+
+                </xpath>
+            </field>
+        </record>
+
+        <record id="pricelist_prime_inherit_view" model="ir.ui.view">
+            <field name="name">Product prime pricelist</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="is_prime_pricelist" />
+                    <field 
+                        name="pricelist_prime_id" 
+                        domain="[
+                            ('currency_id', '=', currency_id), 
+                            ('id', '!=', id), 
+                            ('is_prime_pricelist', '=', True),
+                        ]"
+                        attrs="{'invisible': [('is_prime_pricelist', '=', True)]}"
+                    />
+                </field>
+                <field name="selectable" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly': [('is_prime_pricelist', '=', True)]}
+                    </attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="pricelist_prime_inherit_tree_view" model="ir.ui.view">
+            <field name="name">Product prime pricelist tree</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="is_prime_pricelist" />
+                    <field name="pricelist_prime_id" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="user_membership_list">
+            <field name="name">user_membership list</field>
+            <field name="model">user.membership</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="product_id"/>
+                    <field name="duration_report" invisible="1"/>
+                    <field name="counts_of_plan" invisible="1"/>
+                    <field name="amount"/>
+                    <field name="user_membership_plan_id"/>
+                    <field name="duration" string="Trial Duration"/>
+                    <field name="duration_range" string="Trial Duration Unit"/>
+
+                    <field name="state" widget="badge" decoration-success="state == 'active'"
+                           decoration-info="state == 'suspend'" decoration-danger="state == 'expire'"
+                           decoration-muted="state == 'cancel'"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="user_membership_form">
+            <field name="name">user_membership form</field>
+            <field name="model">user.membership</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="send_mail" string="Send Mail" class="oe_highlight" type="object"/>
+                        <button name="mem_suspend" string="Suspend" class="oe_highlight" type="object"
+                                confirm="Are you sure you want to Suspend membership?"
+                                attrs="{'invisible':[('state','in',['suspend','expire','cancel'])]}"/>
+                        <button name="mem_cancel" string="Cancel" class="oe_highlight" type="object"
+                                attrs="{'invisible':[('state','in',['expire','cancel'])]}"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,active,cancel,expire,suspend"/>
+                    </header>
+                    <sheet>
+                        <div class="h1">
+                            <field name="name"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="duration_report" invisible="1"/>
+                                <field name="partner_id" string="Customer"/>
+                                <field name="user_id" invisible="1"/>
+                                <field name="sales_user_id" string="Salesperson"/>
+                            </group>
+                            <group>
+                                <field name="from_date"/>
+                                <field name="to_date"/>
+                            </group>
+                            <group>
+                                <field name="product_id"/>
+                                <field name="amount"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="tax_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="user_membership_plan_id"/>
+                                <label for="duration" string="Trial Duration"/>
+                                <div class="o_row">
+                                    <field class="mr-1" name="duration"/>
+                                    <field name="duration_range"/>
+                                </div>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="cancel_reason"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" class="mail_followers"/>
+                        <field name="message_ids" class="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="user_membership_plan_list">
+            <field name="name">user_membership_plan list</field>
+            <field name="model">user.membership.plan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="product_template_id" string="Membership Product"/>
+                    <field name="website_published" string="Published"/>
+                    <field name="user_membership_plan_service_ids" widget="many2many_tags" string="Plan Benefits"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="user_membership_plan_form">
+            <field name="name">user_membership_plan form</field>
+            <field name="model">user.membership.plan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="website_publish_button" type="object" class="oe_stat_button" icon="fa-globe">
+                                <field name="is_published" widget="website_publish_button"/>
+                            </button>
+                        </div>
+                        <h1>
+                            <field name="name" placeholder="eg. Gold Membership" required="1" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <group string="Trial Duration">
+                                <field name="has_trial"/>
+                                <label for="duration" attrs="{'invisible': [('has_trial', '=', False)]}"/>
+                                <div class="d-flex" attrs="{'invisible': [('has_trial', '=', False)]}">
+                                    <field class="mx-1" name="duration"/>
+                                    <field class="mx-1" name="duration_range" required="1"/>
+                                </div>
+                            </group>
+
+                            <group string="Benefits of Plan">
+                                <field name="is_pricelist"/>
+                                <field name="pricelist_id"
+                                       attrs="{'invisible':[('is_pricelist','!=',True)], 'required':[('is_pricelist','==',True)]}"
+                                        domain="[('is_prime_pricelist', '=', True)]"
+                               />
+                                <field name="is_delivery"/>
+                                <field name="carrier_id"
+                                       attrs="{'invisible':[('is_delivery','!=',True)], 'required':[('is_delivery','==',True)]}"/>
+                                <field name="is_exclusive_product"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="product_template_id" string="Membership Product"
+                                       readonly="1"/>
+                            </group>
+                            <group>
+                                <label for="reminder_before" string="Send Renewal Reminder"/>
+                                <div class="o_row">
+                                    <field class="" name="reminder_before"/>
+                                    <field class="" name="reminder_before_range" required="1"/>
+                                    Before Due Date
+                                </div>
+                            </group>
+                        </group>
+
+                        <group string="Benefits">
+                            <field name="user_membership_plan_service_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="desc" string="Description"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="user_membership_plan_service_list">
+            <field name="name">User Membership Plan Service list</field>
+            <field name="model">user.membership.plan.service</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="user_membership_report_graph" model="ir.ui.view">
+            <field name="name">user.membership.report graph</field>
+            <field name="model">user.membership</field>
+            <field name="arch" type="xml">
+                <graph string="eLearning Sales Analysis" type="line" sample="1" disable_linking="1">
+                    <field name="user_membership_plan_id" type="row"/>
+                    <field name="counts_of_plan" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="cms_front_desk_prvot_view">
+            <field name="name">user.membership.report.pivot</field>
+            <field name="model">user.membership</field>
+            <field name="arch" type="xml">
+                <pivot string="Membership" sample="1">
+                    <field name="user_membership_plan_id" type="row"/>
+                    <field name="counts_of_plan"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="user_membership_customer_action_window">
+            <field name="name">Membership Customers</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">['|',('is_membership_active','=',True),('is_membership_suspend','=',True)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Don't have any customer with membership!
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="user_membership_action_window">
+            <field name="name">Memberships</field>
+            <field name="res_model">user.membership</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Don't have any membership!
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="user_membership_plan_action_window">
+            <field name="name">Membership Plans</field>
+            <field name="res_model">user.membership.plan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="user_membership_report_action_window">
+            <field name="name">User Membership Report</field>
+            <field name="res_model">user.membership</field>
+            <field name="view_mode">graph,pivot</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="user_membership_plan_service_action_window">
+            <field name="name">User Membership Plan Service</field>
+            <field name="res_model">user.membership.plan.service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="membership_plan_product_action_window">
+            <field name="name">Membership Products</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[("is_membership", "=", True)]</field>
+            <field name="context">{"default_is_membership": True, "default_type": "service", "default_list_price":0}
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="membership_plan_product_var_action_window">
+            <field name="name">Membership Product Variants</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[("is_membership", "=", True)]</field>
+            <field name="context">{"default_is_membership": True, "default_type": "service", "default_list_price":0,
+                "group_by":"product_tmpl_id"}
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="membership_exclusive_product_action_window">
+            <field name="name">Membership Exclusive Products</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[("user_membership_plan_ids", "!=", False)]</field>
+        </record>
+
+        <!-- <record id="menu_membership" model="website.menu">
+            <field name="name">Membership</field>
+            <field name="url">/shop-membership</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">2</field>
+        </record> -->
+
+
+        <menuitem name="Membership" id="user_membership_menu_root" groups="user_membership.um_security_group"
+                  parent="website.menu_website_configuration"/>
+
+
+        <menuitem name="Memberships" id="user_membership_menu" parent="user_membership_menu_root"/>
+        <menuitem name="Membership Orders" id="user_membership_order_menu" parent="user_membership_menu"
+                  action="user_membership_action_window"/>
+        <menuitem name="Membership Customers" id="user_membership_customer_menu" parent="user_membership_menu"
+                  action="user_membership_customer_action_window"/>
+        <menuitem name="Membership Plans" id="user_membership_plan_menu" parent="user_membership_menu"
+                  action="user_membership_plan_action_window"/>
+
+
+        <menuitem name="Products" id="user_membership_product_menu" parent="user_membership_menu_root"/>
+        <menuitem name="Membership Plan Products" id="user_membership_plan_product_menu"
+                  parent="user_membership_product_menu"
+                  action="membership_plan_product_action_window"/>
+        <menuitem name="Membership Plan Product Variants" id="user_membership_plan_product_variant"
+                  parent="user_membership_product_menu"
+                  action="membership_plan_product_var_action_window"/>
+        <menuitem name="Membership Exclusive Products" id="user_membership_exclusive_product_menu"
+                  parent="user_membership_product_menu"
+                  action="membership_exclusive_product_action_window"/>
+
+
+        <menuitem name="Membership Report" id="user_membership_report_menu" parent="user_membership_menu_root"
+                  action="user_membership_report_action_window"/>
+    </data>
+</odoo>

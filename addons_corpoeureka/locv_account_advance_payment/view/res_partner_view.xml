@@ -1,0 +1,22 @@
+<odoo>
+	<data>
+        <record id="view_account_advance_payment_purchase" model="ir.ui.view">
+            <field name="name">view_account_advance_payment_purchase</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_account_payable_id']" position="after">
+                        <field name="es_cliente" invisible="1"/>
+                        <field name="es_proveedor" invisible="1"/>
+                        <field name="tipo_usuario" widget="radio"
+                            class="oe_edit_only"
+                            options="{'horizontal': true}"/>
+                        <field name="account_advance_payment_purchase_id" options='{"no_open": False, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+                        <field name="account_advance_payment_sales_id"  options='{"no_open": False, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+                        <field name="journal_advanced_id" options='{"no_open": False, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+        

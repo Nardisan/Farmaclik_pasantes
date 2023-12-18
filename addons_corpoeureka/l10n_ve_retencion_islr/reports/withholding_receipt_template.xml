@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="l10n_ve_retencion_islr.report_withholding_receipt_document">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <t t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+                <div class="page">
+                    <style type="text/css">
+                          .a {
+                              font-size:11px;
+                          }
+          
+                          .table-bordered tr, .table-bordered tr th, .table-bordered tr td{
+                              border: 1px solid #CCC;
+                              padding: 3px;
+                          }
+                    </style>
+                    <div>
+                        <div class="row">
+                            <div class="col-3">
+                                <table style="padding: 5px; border: none; font-size:12px;" class="text-center">
+                                    <tr>
+                                        <td class="text-center">
+                                           <img t-if="doc.company_id.logo" t-att-src="image_data_uri(doc.company_id.logo)" height="50px" style="margin-top: 0px; max-width: 150px;"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr style="text-align:center;font-size:10px;">
+                                        <td class="text-center" style="font-style: bold;" t-esc="doc.company_id.name"/>
+                                    </tr>
+                                   <tr style="text-align:center;font-size:10px;">
+                                       <td class="text-center" style="font-style: bold;" t-esc="doc.company_id.rif"/>
+                                   </tr>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table style="padding: 5px; border: none;" class="text-center">
+                                    <tr style="text-align:center">
+                                        <td>
+                                            <center>
+                                                <strong>
+                                                    <H6 class="text-center">COMPROBANTE DE RETENCIÓN IMPUESTO SOBRE LA RENTA</H6>
+                                                    <div class="text-center" style="display:inline-block; font-size:10px">
+                                                        <span style="text-aling: center; width: 100%">Según decreto 1808 de fecha 23 de Abril de 1997 publicado en Gaceta Oficial
+                                                        N° 36.203 de fecha de 12 de MAYO de 1997
+                                                        </span>
+                                                    </div>
+                                                </strong>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-3">
+                                <table class="table table-bordered table-sm" style="font-size:12px;">
+                                    <tr>
+                                        <th class="text-center"  colspan="4" width="250px" style="  ">
+                                            <strong>NÚMERO DE COMPROBANTE</strong>
+                                        </th>                                
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="3">
+                                            <strong>
+                                                <span style="x-small;color:red" t-field="doc.number"/>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered table-sm" style="font-size:12px;">
+                                    <tr>
+                                        <th class="text-center"  colspan="4" width="250px">
+                                            <strong>
+                                                FECHA DE EMISIÓN
+                                            </strong>
+                                        </th>                                
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="" style=" ">
+                                            <span t-field="doc.date"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <table  valign="middle" class="table-bordered a" width="100%">
+                        <tr>
+                            <th class="text-center" colspan="3" style="  ">DATOS DEL AGENTE DE RETENCIÓN</th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="" style="width:20%">NOMBRE O RAZON SOCIAL</th>
+                            <td class="text-left" colspan="2" style=" ">
+                                <span t-field="doc.company_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="" style="width:20%">
+                                DIRECCIÓN FISCAL
+                            </th>
+                            <td class="text-left" colspan="2" style=" ">
+                                <span t-field="doc.company_id.street" /> 
+                                <span t-field="doc.company_id.street2" /> 
+                                <span t-field="doc.company_id.city"/> - 
+                                <span t-field="doc.company_id.state_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="" style="width:20%">N° DE RIF</th>
+                            <td class="text-left" colspan="2" style=" "><span t-field="doc.company_id.rif"/></td>
+                        </tr>
+                    </table>
+                    <table  valign="middle" class="table-bordered a" width="100%" style="margin-top:10px;">
+                        <tr>
+                            <th class="text-center" colspan="2" style="  ">
+                                DATOS DEL CONTRIBUYENTE
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="" style="width:20%">
+                                NOMBRE O RAZON SOCIAL
+                            </th>
+                            <td class="text-left" colspan="" style=" ">
+                                <span t-field="doc.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="" style="width:20%">
+                                DIRECCIÓN FISCAL
+                            </th>
+                            <td class="text-left" colspan="" style=" ">
+                              <span t-field="doc.partner_id.street" /> 
+                              <span t-field="doc.partner_id.street2" /> 
+                              <span t-field="doc.partner_id.city"/> - 
+                              <span t-field="doc.partner_id.state_id.name"/> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-left" colspan="" style="width:20%">
+                                N° DE RIF
+                            </th>
+                            <td class="text-left" colspan="" style=" ">
+                                <span t-field="doc.partner_id.rif"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table  valign="middle" class="table-bordered a" width="100%" style="margin-top:10px;">
+                        <tr>
+                            <th class="text-center" colspan="6" style="  ">
+                                DATOS DEL IMPUESTO RETENIDO
+                            </th>
+                            <th colspan="4" style="  ">
+                                CÓD.ARCHIVO XML
+                            </th>
+                        </tr>
+                        <tr t-foreach="doc.withholding_line" t-as="c">
+                            <td class="text-center" colspan="6" style=" ">
+                                <span t-field="c.descripcion"/>
+                            </td>
+                            <td colspan="4" style=""/>
+                        </tr>
+                    </table>
+                    <table  valign="middle" class="table-bordered a" width="100%" style="margin-top:10px;">
+                        <tr>
+                            <th class="text-center">Fecha de Emisión</th>
+                            <th t-if="doc.move_type == 'in_invoice'" class="text-center" colspan="">Número de la Factura</th>
+                            <th class="text-center">Número de Control</th>
+                            <th class="text-center">Monto Total</th>
+                            <th class="text-center">Base Imponible</th>
+                            <th class="text-center">% de Retención</th>
+                            <th class="text-center">Sustraendo</th>
+                            <th class="text-center">Monto Retenido</th>
+                        </tr>
+                        <t t-set="iterador" t-value="1"/>
+                        <t t-set="total_holding" t-value="0" />
+                        <t t-set="m_retenido" t-value="0"/>
+                        <t t-set="m_total" t-value="0"/>
+                        <tr t-if="doc.move_type =='in_refund'" t-foreach="doc.mapped('withholding_line.invoice_id.reversed_entry_id.withholding_id.withholding_line')" t-as="l">
+                            <t t-if="doc.state !='annulled'">
+                                <td class="text-center" colspan="" style=" ">
+                                    sdsdsdsdsd
+                                    <span t-field="l.invoice_id.nro_control"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="l.invoice_id.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <span t-field="l.invoice_id.amount_total"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="l.invoice_id.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <span t-field="l.invoice_id.amount_untaxed"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <span t-field="l.porc_islr"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="l.invoice_id.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <span t-field="l.sus_amount"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="l.invoice_id.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <span t-field="l.ret_amount_bs"/>
+                                    <t t-set="total_holding" t-value="total_holding + l.ret_amount_bs" />
+                                    <t t-set="m_retenido" t-value="m_retenido + l.ret_amount_bs"/>
+                                </td>
+                                <t t-set="iterador" t-value="iterador+1"/>
+                            </t>
+                        </tr>
+                        <t t-set="iterador" t-value="1"/>
+                        <t t-set="total_holding" t-value="0" />
+                        <t t-set="monto_total_bs" t-value="0" />
+                        <t t-set="base_imponible_bs" t-value="0" />
+                        <t t-set="sustraendo_bs" t-value="0" />
+                        <tr t-foreach="doc.withholding_line" t-as="l">
+                            <td class="text-center">                                    
+                                <span t-field="l.invoice_id.invoice_date"/>
+                            </td>
+                            <t t-if="l.invoice_id.currency_id != doc.env.company.currency_id">
+                                <td t-if="doc.move_type == 'in_invoice'"  class="text-center" colspan="" style="">
+                                    <span t-field="l.invoice_id.vendor_invoice_number"/>
+                                </td>
+                                <td class="text-center" colspan="1" style=" ">
+                                    <span t-field="l.invoice_id.nro_control"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+
+                                    <t t-set="monto_total_bs" t-value="l.invoice_id.amount_total"/>
+                                    <span t-esc="monto_total_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+
+                                    <t t-set="m_total" t-value="m_total + monto_total_bs"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <t t-set="base_imponible_bs" t-value="l.invoice_id.amount_untaxed"/>
+                                    <span t-esc="base_imponible_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <span t-field="l.porc_islr"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <t t-set="sustraendo_bs" t-value="l.sus_amount"/>
+                                    <span t-esc="sustraendo_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <t t-set="monto_retenido_bs" t-value="l.ret_amount_bs"/>
+                                    <span t-esc="monto_retenido_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                                    <t t-set="total_holding" t-value="total_holding + monto_retenido_bs" />
+                                    <t t-set="m_retenido" t-value="m_retenido + monto_retenido_bs"/>
+                                </td>
+                            </t>
+                            <t t-else="">
+                                <td t-if="doc.move_type == 'in_invoice'"  class="text-center">
+                                    <span t-field="l.invoice_id.vendor_invoice_number"/>
+                                </td>
+                                <td class="text-center" colspan="1" style=" ">
+                                    <span t-field="l.invoice_id.nro_control"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+
+                                    <t t-set="monto_total_bs" t-value="l.invoice_id.amount_total * l.invoice_id.manual_currency_exchange_rate"/>
+                                    <span t-esc="monto_total_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+
+                                    <t t-set="m_total" t-value="m_total + monto_total_bs"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <t t-set="base_imponible_bs" t-value="l.invoice_id.amount_untaxed * l.invoice_id.manual_currency_exchange_rate"/>
+                                    <span t-esc="base_imponible_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <span t-field="l.porc_islr"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <t t-set="sustraendo_bs" t-value="l.sus_amount"/>
+                                    <span t-esc="sustraendo_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                                </td>
+                                <td class="text-center" colspan="" style=" ">
+                                    <t t-if="doc.move_type == 'in_refund'">
+                                        -
+                                    </t>
+                                    <t t-set="monto_retenido_bs" t-value="l.ret_amount_bs"/>
+                                    <span t-esc="monto_retenido_bs" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                                    <t t-set="total_holding" t-value="total_holding + monto_retenido_bs" />
+                                    <t t-set="m_retenido" t-value="m_retenido + monto_retenido_bs"/>
+                                </td>
+                            </t>
+                            <t t-set="iterador" t-value="iterador+1"/>
+                        </tr>
+                    </table>
+                    <table  valign="middle" class="table-bordered a" width="100%" style="margin-top:10px;">
+                        <tr>
+                            <th t-if="doc.move_type == 'in_invoice' or doc.move_type == 'in_refund' " class="text-center" colspan="4" style="">
+                                PAGADO / ABONADO
+                            </th>
+                            <th t-if="doc.move_type != 'in_invoice' and doc.move_type != 'in_refund' " class="text-center" colspan="3" style="">
+                                PAGADO / ABONADO
+                            </th>
+                            <th t-if="doc.move_type == 'in_invoice'" class="text-center" colspan="1" style=" ">
+                                <t t-if="doc.move_type == 'in_refund'">
+                                    -
+                                </t>
+                                <t t-esc="m_total - m_retenido" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                            </th>
+                            <th t-if="doc.move_type == 'in_refund'" class="text-right" colspan="1" style=" ">
+                                <t t-esc="m_total - m_retenido" t-options="{'widget': 'monetary', 'display_currency': doc.company_id.currency_id_ref}"/>
+                            </th>
+                            <th t-if="doc.move_type != 'in_invoice' and doc.move_type != 'in_refund' " class="text-center" colspan="1" style=" ">
+                                <t t-if="doc.move_type == 'in_refund'">
+                                    -
+                                </t>
+                            </th>
+                        </tr>
+                    </table>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <table  class="table table-sm table-borderless" style="font-size:10px;">
+                        <tr>
+                            <td colspan="12" class="text-center">
+                                <img t-if="doc.company_id.firma" t-att-src="image_data_uri(doc.company_id.firma)" height="140px" style="margin-top: 0px; max-width: 200px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" style="border-style: none; font-size:10px" colspan="4" valign="bottom"/>
+                            <td class="text-center" style="border-style: none; font-size:10px" colspan="4" valign="bottom"/>
+                            <td class="text-center" style="border-style: none; font-size:10px" colspan="4" valign="bottom"/>
+                        </tr>
+                        <tr class="border-black">
+                            <th class="text-center" style="border-style: none; font-size:10px" colspan="4"  width="10px" valign="bottom"/>
+                            <th class="text-center" colspan="4" width="100px" valign="bottom">
+                                FIRMA Y SELLO DEL AGENTE DE RETENCIÓN<br/>
+                                <span t-field="doc.company_id.name"/><br/>
+                                <span t-field="doc.company_id.rif"/>
+                            </th>
+                            <th class="text-center" style="border-style: none;font-size:10px"  colspan="4" width="10px" valign="bottom"/>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="l10n_ve_retencion_islr.report_withholding_receipt">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="l10n_ve_retencion_islr.report_withholding_receipt_document" />
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock_picking_form_view_dispatch_tree" model="ir.ui.view">
+        <field name="name">stock.invoice.detail.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.stock_picking_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                    <field name="invoice_rel" optional="hide" />
+                    <field name="invoice_rel_status"  optional="hide" />
+                    <field name="invoice_rel_pay"  optional="hide" />
+                    <field name="sale_rel" optional="hide" />
+                    <field name="sale_rel_status"  optional="hide" />
+
+                    <field name="invoice_rel_po" optional="hide" />
+                    <field name="purchase_rel"  optional="hide" />
+                    <field name="invoice_rel_status_po"  optional="hide" />
+                    <field name="invoice_rel_pay_po" optional="hide" />
+                    <field name="purchase_rel_status"  optional="hide" />
+            </xpath>
+        </field>    
+    </record>
+
+    <record model="ir.ui.view" id="view_picking_form_inherit_dispatch">
+        <field name="name">view.invoice.detail.form.dispatch.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="invoice_rel" attrs="{'invisible': [('invoice_rel','=',False)]}"/>
+                <field name="invoice_rel_status"  attrs="{'invisible': [('invoice_rel','=',False)]}"/>
+                <field name="invoice_rel_pay"  attrs="{'invisible': [('invoice_rel','=',False)]}"/>
+                <field name="sale_rel" attrs="{'invisible': [('invoice_rel','=',False)]}"/>
+                <field name="sale_rel_status"  attrs="{'invisible': [('invoice_rel','=',False)]}"/>  
+                <field name="invoice_rel_po" attrs="{'invisible': [('invoice_rel_po','=',False)]}"/>
+                <field name="purchase_rel" attrs="{'invisible': [('invoice_rel_po','=',False)]}"/>
+                <field name="invoice_rel_status_po" attrs="{'invisible': [('invoice_rel_po','=',False)]}"/>
+                <field name="invoice_rel_pay_po" attrs="{'invisible': [('invoice_rel_po','=',False)]}"/>
+                <field name="purchase_rel_status" attrs="{'invisible': [('invoice_rel_po','=',False)]}"/>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

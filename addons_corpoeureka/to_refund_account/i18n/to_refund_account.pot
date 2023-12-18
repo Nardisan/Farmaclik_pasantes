@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* to_refund_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-24 07:55+0000\n"
+"PO-Revision-Date: 2020-04-24 07:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: to_refund_account
+#: model:ir.model,name:to_refund_account.model_account_chart_template
+msgid "Account Chart Template"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,field_description:to_refund_account.field_product_category__property_account_expense_refund_categ_id
+#: model:ir.model.fields,field_description:to_refund_account.field_product_product__property_account_expense_refund_id
+#: model:ir.model.fields,field_description:to_refund_account.field_product_template__property_account_expense_refund_id
+msgid "Expense Refund Account"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,field_description:to_refund_account.field_account_chart_template__property_account_expense_refund_categ_id
+msgid "Expense Refund Account on Product Category"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,field_description:to_refund_account.field_account_chart_template__property_account_expense_refund_id
+msgid "Expense Refund Account on Product Template"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,field_description:to_refund_account.field_product_category__property_account_income_refund_categ_id
+#: model:ir.model.fields,field_description:to_refund_account.field_product_product__property_account_income_refund_id
+#: model:ir.model.fields,field_description:to_refund_account.field_product_template__property_account_income_refund_id
+msgid "Income Refund Account"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,field_description:to_refund_account.field_account_chart_template__property_account_income_refund_categ_id
+msgid "Income Refund Account on Product Category"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,field_description:to_refund_account.field_account_chart_template__property_account_income_refund_id
+msgid "Income Refund Account on Product Template"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model,name:to_refund_account.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model,name:to_refund_account.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model,name:to_refund_account.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model,name:to_refund_account.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,help:to_refund_account.field_product_category__property_account_expense_refund_categ_id
+#: model:ir.model.fields,help:to_refund_account.field_product_product__property_account_expense_refund_id
+#: model:ir.model.fields,help:to_refund_account.field_product_template__property_account_expense_refund_id
+msgid ""
+"This account, instead of the original Expense Account, will be used for "
+"vendor bill refund, if set. I.e. When validating vendor bill refund, the "
+"amount will be credited into this account. You can leave this field empty to"
+" have the Expense Account credited instead."
+msgstr ""
+
+#. module: to_refund_account
+#: model:ir.model.fields,help:to_refund_account.field_product_category__property_account_income_refund_categ_id
+#: model:ir.model.fields,help:to_refund_account.field_product_product__property_account_income_refund_id
+#: model:ir.model.fields,help:to_refund_account.field_product_template__property_account_income_refund_id
+msgid ""
+"This account, instead of the original Income Account, will be used for "
+"customer invoice refund, if set. I.e. When validating customer invoice "
+"refund, the amount will be debited into this account. You can leave this "
+"field empty to have the Income Account debited instead."
+msgstr ""

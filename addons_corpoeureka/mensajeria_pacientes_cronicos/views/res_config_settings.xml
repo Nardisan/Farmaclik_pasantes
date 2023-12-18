@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="mensajeria_pacientes_cronicos_res_config_settings_form_view">
+            <field name="name">mensajeria.pacientes.cronicos.res.config.settings.form.view</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@data-key='point_of_sale']" position="inside">
+                    <h2>Plantilla Mensaje SMS para Pacientes Crónicos</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-12 o_setting_box">
+                               
+                            <field name="plantilla_mensaje_sms_para_pacientes_cronicos"/>
+                                   
+                        </div>
+                         <div class="col-xs-12 col-md-12 text-danger">
+                            Usar menos de 140 caracteres, toma en cuenta que se requiere más o menos 90 caracteres que ocuparan los parámetros, dejando solo 50 caracteres para el resto del mensaje.
+                        </div>
+                        <div class="col-xs-12 col-md-12 text-muted">
+                            Recuerda usar [c] para referenciar la compañia, [p] para referenciar al paciente, [m] para referenciar el medicamento y [f] para  referenciar la fecha de compra del medicamento.
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_wh_islr_table_tree_view" model="ir.ui.view">
+        <field name="name">account.wh.islr.table.tree.view</field>
+        <field name="model">account.withholding.rate.table</field>
+        <field name="arch" type="xml">
+            <tree string="Tabla de tarifas para retenciones de ISLR">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="factor"/>
+                <field name="parcentage_subtracting_1"/>
+                <field name="parcentage_subtracting_3"/>
+                <field name="amount"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_wh_islr_table_form_view" model="ir.ui.view">
+        <field name="name">account.wh.islr.table.form.view</field>
+        <field name="model">account.withholding.rate.table</field>
+        <field name="arch" type="xml">
+            <form string="Tabla de tarifas para retenciones de ISLR">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" groups="account.group_account_user"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="year"/>
+                        <field name="factor"/>
+                        <field name="tributary_unit" options='{"no_open": True, "no_create_edit": True, "no_quick_create": True, "no_create": True}'/>
+                    </group>
+                    <group>
+                        <field name="parcentage_subtracting_1"/>
+                        <field name="parcentage_subtracting_3"/>
+                        <field name="amount"/>
+                    </group>
+                    <field name="line_ids">
+                        <tree editable="True">
+                            <field name="code"/>
+                            <field name="concept"/>
+                            <field name="residence_type"/>
+                            <field name="company_type"/>
+                            <field name="percentage_amount_base"/>
+                            <field name="variable"/>
+                            <field name="rate2"/>
+                            <field name="apply_up_to"/>
+                            <field name="sustraendo"/>
+                            <field name="percentage"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_account_wh_table_islr">
+        <field name="name">Tabla de Tarifas Retención ISLR</field>
+        <field name="res_model">account.withholding.rate.table</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_action_account_wh_table_islr_retention" name="Tabla de Tarifas Retención ISLR" parent="account.account_account_menu" action="action_account_wh_table_islr" sequence="30"/>
+</odoo>

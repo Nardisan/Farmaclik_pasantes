@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="seq_wh_orde" model="ir.sequence">
+            <field name="name">Withholding Vat Out Invoice</field>
+            <field name="code">account.wh.islr.in_invoice</field>
+            <field name="prefix">%(year)s/%(month)s/</field>
+            <field name="implementation">no_gap</field>
+            <field name="padding">8</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        
+        <record id="sequence_payments_islr_withholdin" model="ir.sequence">
+            <field name="name">Payments islr withholding sequence</field>
+            <field name="code">account.payment.islr.in_invoice</field>
+            <field name="prefix">>PAY-ISLR/%(range_year)s/%(range_month)s/</field>
+            <field name="implementation">no_gap</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+    <data>
+        <record id="sequence_account_wh_islr_declaration_sequence" model="ir.sequence">
+            <field name="name">Payments islr withholding Declaration sequence</field>
+            <field name="code">islr.declaration.seq</field>
+            <field name="prefix">DECLARACION-</field>
+            <field name="implementation">no_gap</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

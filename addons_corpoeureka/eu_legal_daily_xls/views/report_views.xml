@@ -1,0 +1,11 @@
+<odoo>
+    <record id="eu_legal_daily_xls" model="ir.actions.report">
+        <field name="name">Diario Legal Excel</field>
+        <field name="model">account.report.legal.xls</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">eu_legal_daily_xls.print_daily_legal_xls_report_template"</field>
+        <field name="report_file">eu_legal_daily_xls.print_daily_legal_xls_report_template"</field>
+        <field name="binding_model_id" ref="model_account_report_legal_xls"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

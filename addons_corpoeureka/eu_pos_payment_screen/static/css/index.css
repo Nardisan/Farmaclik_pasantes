@@ -1,0 +1,159 @@
+:root {
+    --main-color: #875a7b;
+    --main-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --main-animation: shine 750ms infinite ease-in;
+    --shine-color: rgb(253, 115, 115);
+}
+
+.pos .pos-content {
+    overflow: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: .25rem;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+:where(.top, .calculator, .top-buttons, nav) > button:not(:disabled):hover {
+    filter: brightness(110%);
+}
+
+:where(.top, .calculator, nav) > button:not(:disabled):active {
+    transform: scale(95%);
+}
+
+.payment-screen .content section {
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
+    padding: 1.125rem;
+}
+
+.payment-screen .content {
+    font-size: 1rem;
+    display: flex;
+    padding: 0 1rem;
+    border-right: 0;
+}
+
+:where(.calculator, .top, .top-buttons, nav) > button {
+    transition: 
+        filter 75ms ease-in-out,
+        transform 100ms ease-in-out,
+        background-color 65ms linear
+    ;
+}
+
+small.float-top {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: .7rem;
+    padding: .125rem;
+    top: 0;
+    left: 0;
+}
+
+span.text-right {
+    text-align: right;
+    font-size: 1.75rem;
+    width: 100%;
+    display: inline-block;
+    margin-left: auto;
+    user-select: all;
+}
+
+button.help {
+    color: white;
+    background: none;
+    border: none;
+}
+
+dt {
+    padding-bottom: .25rem;
+}
+
+dd {
+    padding-left: .5rem;
+    margin: auto;
+    margin-bottom: .5rem;
+}
+
+kbd {
+    background-color: #52324a;
+    color: white;
+    padding: .125rem .2rem;
+    border-radius: .2rem;
+    box-shadow: var(--main-shadow);
+    cursor: help;
+}
+
+.shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+div.buttons {
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.pos .subwindow .subwindow-container-fix {
+    overflow: auto !important;
+}
+
+@media screen and (max-width: 728px) {
+    .payment-screen .content > section {
+        padding: .5rem;
+    }
+    
+    #help {
+        display: none;
+    }
+
+    .payment-screen .content {
+        flex-direction: column;
+    }
+
+    div.calculator {
+        display: none;
+    }
+
+    main {
+        padding-bottom: 4rem;
+        padding-top: 1rem;
+    }
+
+    .shortcuts-grid {
+        display: grid;
+        grid-template-columns: 1;
+    }
+}
+
+#nota-credito {
+    padding: .5rem;
+}
+
+#nota-credito label {
+    display: flex;
+    justify-content: space-between;
+    column-gap: .5rem;
+}
+
+#nota-credito fieldset {
+    display: grid;
+    row-gap: .25rem;
+}
+
+@keyframes shine {
+    0%, 100% {
+        color: rgb(42, 104, 47);
+    }
+
+    50% {
+        color: var(--shine-color);
+    }
+}

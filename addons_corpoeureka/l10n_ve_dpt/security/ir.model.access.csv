@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_state,dpt_state,model_res_country_state,,1,1,1,1
+access_municipality,dpt_municipality,model_res_country_state_municipality,,1,1,1,1
+access_municipality_parish,dpt_parish,model_res_country_state_municipality_parish,,1,1,1,1
+access_res_country_state_city,res.country.state.city,model_res_country_state_city,,1,1,1,1

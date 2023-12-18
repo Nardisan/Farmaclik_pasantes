@@ -1,0 +1,31 @@
+.calculator {
+    display: grid;
+    gap: .125rem;
+    width: max-content;
+    overflow: hidden;
+    border-radius: .4rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+section[name='NumpadComponent'] > h1 {
+    --shine-color: #54a154;
+    padding: .25rem .125rem;
+    margin: 0;
+    position: relative;
+    backdrop-filter: brightness(90%);
+    animation: var(--main-animation);
+}
+
+.calculator > .calculator-btn:nth-child(12) {
+    height: auto;
+    grid-row: span 2 / span 2;
+}
+
+.calculator > button {
+    padding: .75rem;
+    font-size: 1.75rem;
+    width: 4rem;
+    height: 4rem;
+    color: white;
+    background-color: var(--main-color);
+}

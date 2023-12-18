@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+    <report
+        id="productos_formato_etiqueta"
+        model="product.template"
+        string="Formato Precios Gondolas"
+        report_type="xlsx"
+        name="company_dependent_fields.productos_formato_etiqueta"
+        file="company_dependent_fields.productos_formato_etiqueta"
+        attachment_use="False"
+    />
+    </data>
+</odoo>

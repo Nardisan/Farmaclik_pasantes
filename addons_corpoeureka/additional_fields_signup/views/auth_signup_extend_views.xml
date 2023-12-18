@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <template id="adress_nif_replace_cedula" inherit_id="website_sale.address_b2b"  name="Address Management">
+            <xpath expr="//div[2]/div[2]/div/form/div/t/div[2]" position="replace">
+                
+            </xpath>
+            <xpath expr="//div[2]/div[2]/div/form/div/t" position="after">
+
+                <t t-if="mode[1] != 'shipping'">
+                    <div t-attf-class="form-group #{error.get('cedula') and 'o_has_error' or ''} col-xl-6">
+                        <label class="col-form-label label-optional" for="cedula">Cedula</label>
+                        <t t-set="vat_not_editable_message">Changing VAT number is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.</t>
+                        <input type="text" name="cedula" placeholder="V-11111111" t-attf-class="form-control #{error.get('cedula') and 'is-invalid' or ''}" t-att-value="'cedula' in checkout and checkout['cedula']" t-att-readonly="None if can_edit_vat else '1'" t-att-title="None if can_edit_vat else vat_not_editable_message"/>
+                    </div>
+                </t>
+            </xpath>
+            
+
+        </template>
+        <template id="portal_more_details" inherit_id="portal.portal_my_details"  name="Mis detalles portal">
+            <xpath expr="//div/div/div/div[6]" position="replace">
+                <div t-attf-class="form-group #{error.get('cedula') and 'o_has_error' or ''} col-xl-6">
+                    <label class="col-form-label label-optional" for="cedula">Cedula</label>
+                    <t t-set="vat_not_editable_message">Changing VAT number is not allowed once document(s) have been issued for your account. Please contact us directly for this operation.</t>
+                    <input type="text" name="cedula" t-attf-class="form-control #{error.get('cedula') and 'is-invalid' or ''}" t-att-value="cedula or partner.cedula" t-att-readonly="None if partner_can_edit_vat else '1'" t-att-title="None if partner_can_edit_vat else vat_not_editable_message"/>
+                </div>
+            </xpath>
+
+        </template>
+        <template id="auth_signup.fields"  name="campos de registro extendido">
+
+            <div>
+                <input type="hidden" name="reset_present" t-att-value="only_passwords"/>
+                <label style="justify-content:center;color:#5bab39;">Datos Básicos</label>
+                <div class="form-group field-name">
+                    <label for="name">Nombre y Apellido</label>
+                    <input type="text" name="name" t-att-value="name" id="name" class="form-control form-control-sm" placeholder="e.g. Pedro Pérez"
+                        required="required" autofocus="autofocus" t-att-readonly="'readonly' if only_passwords else None"
+                         />
+                </div>
+                <div class="form-group field-cedula">
+                    <label for="cedula" class="control-label">Cédula</label>
+                    <input type="text" name="cedula" placeholder="V-11111111" t-att-value="cedula" id="cedula" class="form-control" t-att-required="'required' if not only_passwords else None" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                </div>
+                <div class="form-group field-phone">
+                    <label for="phone" class="control-label">Teléfono</label>
+                    <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control" t-att-required="'required' if not only_passwords else None" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                </div>
+            </div>
+            <div>
+                <label style="justify-content:center;color:#5bab39;">Dirección de Envío (Por favor, especificar)</label>
+                <div class="form-group field-ciudades">
+                    <label for="ciudad" class="control-label">Ciudad</label>
+                    <select name="ciudad" class="form-control" id="213" t-att-required="'required' if not only_passwords else None" t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None">
+                        <option value="">Seleccione su ciudad</option>
+                        <t t-foreach="ciudads or []" t-as="ciudades">
+                            <option t-att-value="ciudades.id">
+                                <t t-esc="ciudades.name" />
+                            </option>
+                        </t>
+                    </select>
+                </div>
+                <div class="form-group field-sectores">
+                    <label for="sector" class="control-label">Sectores</label>
+                    <select name="sector" class="form-control" t-att-required="'required' if not only_passwords else None" t-att-readonly="'readonly' if only_passwords else None"
+                        t-att-autofocus="'autofocus' if login and not only_passwords else None">
+                        <option value="">Sector en el que vive</option>
+                        <t t-foreach="sectors or []" t-as="sectores">
+                            <option t-att-value="sectores.id" t-att-data-sector-id='sectores.id_ciudad.id'>
+                                <t t-esc="sectores.name" />
+                            </option>
+                        </t>
+                    </select>
+
+                </div>
+                <div class="form-group field-street">
+                    <label for="street" class="control-label">Calle / Avenida / Nro Casa / Punto de Referencia</label>
+                    <input type="text" name="street" t-att-value="street" id="street" class="form-control" t-att-required="'required' if not only_passwords else None" t-att-readonly="'readonly' if only_passwords else None"
+                    t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                </div>
+            </div>
+            <div>
+            <label style="justify-content:center;color:#5bab39;">Información de la Cuenta</label>
+                <div class="form-group field-login">
+                    <label for="login">Correo Electrónico</label>
+                    <input type="text" name="login" t-att-value="login" id="login" class="form-control form-control-sm" 
+                        autocapitalize="off" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
+                </div>
+                <div class="form-group field-password pt-2">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password" class="form-control form-control-sm"
+                        required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
+                </div>
+
+                <div class="form-group field-confirm_password">
+                    <label for="confirm_password">Repetir Contraseña</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control form-control-sm" required="required"/>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>

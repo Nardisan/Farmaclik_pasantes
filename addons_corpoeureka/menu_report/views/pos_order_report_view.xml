@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="view_report_pos_order_pivot_extend" model="ir.ui.view">
+            <field name="name">report.pos.order.pivot.extend</field>
+            <field name="model">report.pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_report_pos_order_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='price_total']" position="after">
+                    <!-- <field name="ticket" type="measure"/> -->
+                    <field name="percentage" type="measure"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_report_pos_order_search_extend" model="ir.ui.view">
+            <field name="name">report.pos.order.search.extend</field>
+            <field name="model">report.pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_report_pos_order_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <!-- <field name="ticket"/> -->
+                    <field name="percentage"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_login_facebook" inherit_id="auth_oauth.providers" name="login auth Providers">
+        <xpath expr="//div" position="replace">
+            <div class="social-buttons">
+                <div t-foreach="providers" t-as="p">
+                    <a t-att-href="p['auth_link']" t-attf-class="btn btn-link signin_#{p['name']}">
+                        <i t-att-class="p['css_class']" />
+                        <t t-esc="p['body']" />
+                    </a>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <record id="view_oauth_provider_form_inherit_website_logins" model="ir.ui.view">
+        <field name="name">auth.oauth.provider.form.inherit.website_logins</field>
+        <field name="model">auth.oauth.provider</field>
+        <field name="inherit_id" ref="auth_oauth.view_oauth_provider_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="css_class" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

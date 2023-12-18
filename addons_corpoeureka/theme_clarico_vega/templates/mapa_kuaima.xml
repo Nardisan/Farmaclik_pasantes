@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="place_into_bar" inherit_id="website.snippets" name="mapa">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" 
+            position="inside">
+            <t t-snippet="theme_clarico_vega.mapa_kuaima"
+            t-thumbnail="/theme_clarico_vega/static/src/img/ui/snippet_thumb.jpg"/>
+
+        </xpath>
+    </template>
+
+    <template id="mapa_kuaima" name="mapa">
+
+    <style>
+
+.estado{
+        position:absolute;
+    }
+
+
+    .estado1{
+        z-index: 2;
+        margin-top: 114px;
+        margin-left:240px;
+    }
+
+    .relieve:hover{
+        
+        cursor: pointer;
+        opacity: 0.0;
+        border-radius: 3px;
+        box-shadow: 3px 3px #226550, -1em 0 0.7em #226550;
+        
+        z-index: 99;
+    }
+
+    .estado2{
+        z-index: 3;
+        margin-top: 97px;
+        margin-left:325px;
+    }
+
+
+    .estado3{
+        z-index: 3;
+        margin-top:242px;
+        margin-left:250px;
+    }
+
+    .estado4{
+        z-index: 6;
+        margin-top:64px;
+        margin-left:71px;
+    }
+
+    .estado5{
+        margin-top: 170px;
+        margin-left: 260px;
+    }
+
+    .estado6{
+        margin-top: 122px;
+        margin-left: 296px;
+    }
+
+    .estado7{
+        margin-top: 103px;
+        margin-left: 330px;
+    }
+
+    .estado8{
+        margin-left: 405px;
+        margin-top: 98px;
+    }
+
+    .estado9{
+        margin-left: 343px;
+        margin-top: 120px;
+    }
+
+    .estado10{
+        margin-left: 393px;
+        margin-top: 125px;
+    }
+
+    .estado11{
+        margin-left: 227px;
+        margin-top: 132px;
+    }
+
+    .estado12{
+        margin-left: 247px;
+        margin-top: 115px;
+    }
+
+    .estado13{
+        margin-left: 230px;
+        margin-top: 120px;
+    }
+
+    .estado14{
+        margin-left: 105px;
+        margin-top: 190px;  
+    }
+
+    .estado15{
+        margin-left: 130px;
+        margin-top: 80px;  
+    }
+
+    .estado16{
+        margin-left: 125px;
+        margin-top: 167px; 
+    }
+
+    .mapa{
+        margin-left: -34px;
+    }
+
+    .texto-maria{
+        color: red;
+    }
+
+    .estado17{
+        margin-left: 212px;
+        margin-top: 120px; 
+    }
+
+    .estado18{
+        margin-left: 186px;
+        margin-top: 115px; 
+    }
+
+    .estado19{
+        margin-left: 148px;
+        margin-top: 116px; 
+    }
+
+    .estado20{
+        margin-left: 100px;
+        margin-top: 179px; 
+    }
+
+    .estado21{
+        margin-left: 197px;
+        margin-top: 135px; 
+    }
+
+    .estado22{
+        margin-left: 165px;
+        margin-top: 145px; 
+    }
+
+    .estado23{
+        margin-left: 135px;
+        margin-top: 145px; 
+    }
+
+    .estado24{
+        margin-left: 118px;
+        margin-top: 160px; 
+    }
+
+    @media (max-width: 768px){ 
+        .texto_caipi{
+            margin-top: -80px;
+        }
+
+        .imagen_mapa{
+            margin-top: 10px;
+        }
+
+    }
+
+
+    </style>
+
+<section class="mapa">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 texto_caipi" >
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae atque,
+                recusandae sunt rerum iusto nobis, voluptatem molestiae deserunt esse praesentium 
+                dicta repellendus doloremque! Officia minus cumque vitae recusandae sequi iusto!</p>
+            </div>
+
+            <div class="col-lg-6 col-md-12 texto_caipi" >
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_mapa.png" alt="" srcset="" class="estado mapa"  />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_05.png" alt="" srcset="" class="estado estado2 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_24.png" alt="" srcset="" class="estado estado3 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_16.png" alt="" srcset="" class="estado estado4 relieve" /> 
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_25.png" alt="" srcset="" class="estado estado5 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_09.png" alt="" srcset="" class="estado estado6 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_06.png" alt="" srcset="" class="estado estado7 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_27.png" alt="" srcset="" class="estado estado8 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_08.png" alt="" srcset="" class="estado estado9 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_07.png" alt="" srcset="" class="estado estado10 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_22.png" alt="" srcset="" class="estado estado11 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_04.png" alt="" srcset="" class="estado estado12 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_10.png" alt="" srcset="" class="estado estado13 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_23.png" alt="" srcset="" class="estado estado14 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_12.png" alt="" srcset="" class="estado estado15 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_19.png" alt="" srcset="" class="estado estado16 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_11.png" alt="" srcset="" class="estado estado17 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_14.png" alt="" srcset="" class="estado estado18 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_13.png" alt="" srcset="" class="estado estado19 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_18.png" alt="" srcset="" class="estado estado20 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_15.png" alt="" srcset="" class="estado estado21 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_21.png" alt="" srcset="" class="estado estado22 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_17.png" alt="" srcset="" class="estado estado23 relieve" />
+                <img src="/theme_clarico_vega/static/description/mapa/kuama_mapa_separado_20.png" alt="" srcset="" class="estado estado24 relieve" />
+            </div>
+        </div>  
+    </div>
+</section>
+
+    </template>
+</odoo>

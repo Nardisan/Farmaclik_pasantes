@@ -1,0 +1,141 @@
+#payment-box {
+    flex-grow: 1;
+}
+
+#payment-box .payments {
+    display: grid;
+    row-gap: .5rem;
+}
+
+#payment-box .payment:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.banco_venezuela {
+	background-image: url('https://www.bancodevenezuela.com/wp-content/uploads/2023/03/logonuevo.png');
+	background-size: 100px;
+	background-repeat: no-repeat;
+	background-position: 25%
+}
+
+.banco_provincial {
+	background-image: url('https://www.provincial.com/content/dam/public-web/venezuela/images/logos/logo-bbva-provincial-blanco-rectangular.svg');
+	background-size: 100px;
+	background-repeat: no-repeat;
+	background-position: 25%
+}
+
+.banco_fondo_comun {
+	background-image: url('https://www.bfc.com.ve/images/Banco%20Fondo%20Comun%20Victor%20Gill.png');
+	background-size: 100px;
+	background-repeat: no-repeat;
+	background-position: 25%
+}
+
+
+
+.payment input {
+    text-align: right;
+    width: 100%;
+    appearance: none;
+    outline: none;
+    background-color: '#FFFFFF';
+    border: 0;
+    padding: .125rem .25rem;
+    font-family: monospace;
+    transition:
+    border-color 100ms ease-in,
+    backdrop-filter 100ms ease-out;
+    border-bottom: 1px solid;
+    border-color: transparent;
+    font-size: 1rem;
+    color: black;
+}
+
+.payment input:read-only {
+    cursor: not-allowed;    
+    backdrop-filter: brightness(80%);
+    color: #e5b7cf;
+}
+
+#payment-box .payment {
+    --grids-repeat: 3;
+    display: grid;
+    grid-template-columns: 6rem repeat(var(--grids-repeat), minmax(0, 1fr));
+    font-size: 1.25rem;
+    gap: .5rem;
+    padding: .75rem;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: .25rem;
+    box-shadow: var(--main-shadow);
+    transition: box-shadow 250ms ease-in-out;
+    user-select: none;
+    justify-items: start;
+    align-items: center;
+}
+
+#payment-box .payment input:focus {
+    backdrop-filter: brightness(90%);
+    border-color: rgb(66, 28, 62);
+}
+
+#payment-box .payment label {
+    font-size: .95rem;
+}
+
+#payment-box .payment input:hover,
+output {
+    backdrop-filter: brightness(90%);
+}
+
+.flex-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .25rem;
+    padding: .125rem;
+}
+
+.input-dollar {
+    color: #78ff78;
+}
+
+.input-reference {
+    color: rgb(96 240 255);
+}
+
+.input-bolivar {
+    color: #fff084;
+}
+
+#payment-box .payment.more {
+    background-color: rgb(189, 15, 15);
+}
+
+output {
+    display: block;
+    position: relative;
+    padding: .35rem;
+    text-align: right;
+    user-select: all;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.empty {
+    filter: brightness(.8) grayscale(.1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+@media screen and (max-width: 728px) {
+    #payment-box .payment {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

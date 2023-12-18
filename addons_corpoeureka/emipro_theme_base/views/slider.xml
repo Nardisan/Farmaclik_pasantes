@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="slider_form_view" model="ir.ui.view">
+		<field name="name">slider.form</field>
+		<field name="model">slider</field>
+		<field name="arch" type="xml">
+			<form string="slider">
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+							<field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}" />
+						</button>
+						<button type="object" class="oe_stat_button" name="action_preview" icon="fa-eye">
+                			<span class="o_stat_text">Preview</span>
+            			</button> 
+					</div>
+					<group>
+						<field name="name" />
+						<field name="website_id" />
+						<field name="theme_id"/>
+						<field name="slider_type" widget="radio" />
+						<field name="slider_filter_ids" attrs="{'invisible':[('slider_type', '==', 'category')],'required': [('slider_type','!=','category')]}"/>
+						<field name="slider_limit"/>
+						<field name="slider_style_id" domain="[('theme_id','=',theme_id)]" attrs="{'invisible':[('slider_type', '==', 'category')],'required': [('slider_type','!=','category')]}" options="{'no_quick_create': True, 'no_create_edit' : True}" ></field>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="slider_tree_view" model="ir.ui.view">
+		<field name="name">slider.tree.view</field>
+		<field name="model">slider</field>
+		<field name="arch" type="xml">
+			<tree string="slider">
+				<field name="name" />
+				<field name="website_id" />
+			</tree>
+		</field>
+	</record>
+	
+	<record id="action_sliders" model="ir.actions.act_window">
+		<field name="name">slider</field>
+		<field name="res_model">slider</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	
+	<menuitem id="menu_slider_settings" name="Slider" sequence="80"
+        parent="website.menu_website_global_configuration"/>
+    <menuitem id="menu_sliders" name="Sliders" action="action_sliders" parent="emipro_theme_base.menu_slider_settings"></menuitem>
+      
+</odoo>

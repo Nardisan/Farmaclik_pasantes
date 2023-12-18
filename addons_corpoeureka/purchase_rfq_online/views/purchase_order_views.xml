@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div/button[@name='action_view_invoice']" position="after">
+                <button name="preview_purchase_order"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-globe icon">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Supplier</span>
+                        <span class="o_stat_text">Preview</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Quotation Online" name="purchase_quotation_online">
+                    <group>
+                        <group>
+                            <field name="signed_by" readonly="1"/>
+                            <field name="signed_on" readonly="1" />
+                            <field name="signature" widget="image" readonly="1" />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

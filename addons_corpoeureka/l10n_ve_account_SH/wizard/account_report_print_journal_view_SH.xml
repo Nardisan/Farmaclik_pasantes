@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--
+    <record id="account_report_print_journal_view_SH2" model="ir.ui.view">
+        <field name="name">Common Report</field>
+        <field name="model">account.print.journal.sale</field>
+        <field name="arch" type="xml">
+        <form string="Report Options">
+            <field name="company_id" invisible="1"/>
+            <group col="4">
+                <field name="target_move" widget="radio"/>
+                <field name="amount_currency" groups="base.group_multi_currency"/>
+                <field name="sort_selection" widget="radio"/>
+                <newline/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </group>
+            <group>
+                <field name="journal_ids" widget="many2many_tags" options="{'no_create': True}"/>
+            </group>
+            <footer>
+                <button name="check_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                or 
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+-->
+    
+    
+    
+    
+    <record id="account_report_print_journal_view_SH" model="ir.ui.view">
+        <field name="name">Sale/Purchase Journal</field>
+        <field name="model">account.print.journal.sale</field>
+        <field name="inherit_id" ref="account.account_common_report_view"/>
+        <field name="arch" type="xml">
+        <data>
+        <xpath expr="//field[@name='target_move']" position="replace">
+                    </xpath>
+        <xpath expr="//field[@name='journal_ids']" position="attributes">
+            <attribute name="domain">[('type', '=', ('sale'))]</attribute>
+        </xpath>
+        </data>
+        </field>
+    </record>
+    
+    
+    <record id="sale_account_invoice_menu" model="ir.actions.act_window">
+            <field name="name">Libro de Ventas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.print.journal.sale</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_report_print_journal_view_SH"/>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_account_sale_ledger_values" model="ir.values">
+            <field name="model_id" ref="account.model_account_invoice" />
+            <field name="name">Libro de Ventas</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' +str(ref('sale_account_invoice_menu'))" />
+            <field name="key">action</field>
+            <field name="model">account.invoice</field>
+        </record>
+
+<!--
+    <record id="action_account_print_journal_menu_SH" model="ir.actions.act_window">
+        <field name="name">Diarios de Ventas SH</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.print.journal.sale</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="account_report_print_journal_view_SH"/>
+        <field name="target">new</field>
+    </record>
+-->
+
+    <menuitem
+        id="menu_print_journal"
+        name="Libro de Ventas"
+        parent="account.menu_finance_legal_statement"
+        action="sale_account_invoice_menu"
+        groups="account.group_account_manager,account.group_account_user"
+       />
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_company_export_view_form" model="ir.ui.view">
+            <field name="name">res.company.form.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[last()]" position="after">
+                    <page string="Export view to PDF configuration">
+                        <group>
+                            <group string="Header">
+                                <field name="with_header" />
+                                <field name="with_header_bar" />
+                                <field name="header_bar_color" attrs="{'invisible': [('with_header_bar', '=', False)]}" widget="colorpicker" />
+                            </group>
+                            <group string="Footer">
+                                <field name="with_footer" />
+                                <field name="with_footer_bar" />
+                                <field name="footer_bar_color" attrs="{'invisible': [('with_footer_bar', '=', False)]}" widget="colorpicker" />
+                            </group>
+                            <group string="Table">
+                                <field name="table_theme" />
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,903 @@
+<odoo>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend">
+            <xpath expr="link[last()]" position="after">
+                <link rel="stylesheet" type="text/css" href="/user_membership/static/src/css/style.css"/>
+            </xpath>
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/user_membership/static/src/js/cancel_reason.js"/>
+                <script type="text/javascript" src="/user_membership/static/src/js/index.js"/>
+            </xpath>
+        </template>
+
+        <template inherit_id="theme_clarico_vega.clarico_slider_styles_one_template" id="slider_price_ref_one">
+            <!-- <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.clarico_slider_styles_two_template" id="slider_price_ref_two">
+            <!-- <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.clarico_slider_styles_three_template" id="slider_price_ref_three">
+            <!-- <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.clarico_slider_styles_four_template" id="slider_price_ref_four">
+            <!-- <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.clarico_slider_styles_five_template" id="slider_price_ref_five">
+            <!-- <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.clarico_slider_styles_six_template" id="slider_price_ref_six">
+            <!-- <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h6[@class='oe_price_h4 css_editable_mode_hidden']" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.product_price_ept" id="product_page_ref">
+            <!-- <xpath expr="//h4[@class='oe_price_h4 css_editable_mode_hidden']" position="inside">
+                /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <b
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    style="white-space: nowrap;"
+                />
+            </xpath>
+            <xpath expr="//h4[@class='oe_price_h4 css_editable_mode_hidden']" position="before">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box in-left">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+        <template inherit_id="theme_clarico_vega.products_item_discount_message" id="price_item_inherited" priority="22">
+            <!-- <xpath expr="//div[hasclass('product_price')]/span[1]" position="after">
+               /
+                <t t-set="currency" t-value="website.pricelist_id.currency_id.parent_id" />
+                <span
+                    t-if="combination_info['price']" 
+                    t-esc="combination_info['price'] * currency.rate"
+                    t-options="{
+                        'widget': 'monetary', 
+                        'display_currency': currency
+                    }"
+                    class="monetary-responsive"
+                />
+            </xpath>
+            <xpath expr="//div[hasclass('product_price')]/span[1]" position="attributes">
+               <attribute name="class">monetary-responsive</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('product_price')]" position="after">
+                <t t-set="pricelist" t-value="website.pricelist_id" />
+                <t t-if="pricelist">
+                    <t t-if="pricelist.pricelist_prime_id">
+                        <t t-if="pricelist.pricelist_prime_id.id != pricelist.id">
+                            <t
+                                t-set="prime" 
+                                t-value="product._get_combination_info(
+                                    add_qty=add_qty or 1,
+                                    pricelist=pricelist.pricelist_prime_id
+                                )"
+                            />
+    
+                            <br />
+    
+                            <strong class="prime-box">
+                                <strong class="fa fa-check yellow"></strong>
+                                Prime:
+                                <span
+                                    t-esc="prime['price']" 
+                                    class="prime-price"
+                                    t-options="{
+                                        'widget':'monetary', 
+                                        'display_currency': pricelist.pricelist_prime_id.currency_id
+                                    }"
+                                />
+                            </strong>
+                        </t>
+                    </t>
+                </t>
+            </xpath> -->
+        </template>
+
+        <template id="product_add_to_cart" inherit_id="website_sale.products_item">
+            <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="before">
+                <t t-set="user_membership_id"
+                   t-value="request.env.user.user_membership_id"/>
+                <t t-set="product_in_membership"
+                   t-value="user_membership_id and (user_membership_id.user_membership_plan_id.id in product.user_membership_plan_ids.ids)"/>
+
+
+            </xpath>
+            <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="attributes">
+                <attribute name="t-attf-class">{{'o_wsale' if product.not_show_in_website and not product_in_membership else 'oe_wsale'}} o_wsale_product_btn
+                </attribute>
+            </xpath>
+        </template>
+
+        <template id="product_wish" inherit_id="website_sale_wishlist.product_wishlist">
+            <xpath expr="//button[hasclass('o_wish_add')]" position="before">
+                <t t-set="user_membership_id"
+                   t-value="request.env.user.user_membership_id"/>
+                <t t-set="product_in_membership"
+                   t-value="user_membership_id and (user_membership_id.user_membership_plan_id.id in wish.product_id.user_membership_plan_ids.ids)"/>
+
+            </xpath>
+            <xpath expr="//button[hasclass('o_wish_add')]" position="attributes">
+                <attribute name="t-attf-class">{{'d-none' if wish.product_id.not_show_in_website and not product_in_membership else ''}} btn btn-secondary {{'o_wish' if wish.product_id.not_show_in_website and not product_in_membership else 'oe_wish'}} btn-block o_wish_add mb4 </attribute>
+            </xpath>
+        </template>
+        <template id="product" inherit_id="website_sale.product">
+            <xpath expr="//a[@id='add_to_cart']" position="before">
+                <t t-set="user_membership_id"
+                   t-value="request.env.user.user_membership_id"/>
+                <t t-set="product_in_membership"
+                   t-value="user_membership_id and (user_membership_id.user_membership_plan_id.id in product.user_membership_plan_ids.ids)"/>
+
+            </xpath>
+            <xpath expr="//a[@id='add_to_cart']" position="replace">
+                <t 
+                    t-set="templates" 
+                    t-value="website
+                        .sale_get_order()
+                        .website_order_line
+                        .mapped('product_id.product_tmpl_id.id')"
+                />
+                <a role="button" id="add_to_cart"
+                    t-attf-class="
+                    btn btn-primary 
+                    {{'js_check ' if product.not_show_in_website and not product_in_membership else 'js_chick'}} 
+                    btn-lg mt16 js_check_product a-submit 
+                    {{'d-none' if (product.not_show_in_website and not product_in_membership) or (product.is_membership and (product.id in templates)) else 'd-block d-sm-inline-block'}}"
+                   href="#">
+                    <i class="fa fa-shopping-cart"/>
+                    <span t-attf-class="{{'d-none' if not product.is_membership else ''}}">Get Membership</span>
+                    <span t-attf-class="{{'d-none' if product.is_membership else ''}}">Add to Cart</span>
+                </a>
+
+
+                <div t-attf-class="alert alert-info h3 mt-2 {{'' if product.not_show_in_website and not product_in_membership else 'd-none'}}">
+                    <span class="d-block " t-esc="product.msg"/>
+                    <a class="h6 d-block text-success" href="/shop-membership">Get Membership</a>
+                </div>
+
+            </xpath>
+            <xpath expr="//div[hasclass('css_quantity','input-group')]" position="attributes">
+                <attribute name="t-att-class">'d-none' if product.is_membership else 'css_quantity input-group oe_website_spinner'</attribute>
+            </xpath>
+        </template>
+
+
+        <template id="cart_lines_inherit" inherit_id="website_sale.cart_lines" priority="130">
+            <xpath expr="//div[hasclass('css_quantity','input-group','mx-auto')]" position="attributes">
+                <attribute name="t-att-style">'opacity:0;pointer-events: none;' if line.product_id.is_membership else ''</attribute>
+            </xpath>
+        </template>
+
+
+        <template id="portal_my_home_menu_venue_booking" name="Portal layout : "
+                  inherit_id="portal.portal_breadcrumbs" priority="30">
+            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+                <li t-if="page_name == 'User Membership'"
+                    t-attf-class="breadcrumb-item #{'active ' if not user_membership_id else ''}">
+                    <a t-attf-href="/my/membership?{{ keep_query()}}">Membership</a>
+                </li>
+                <li t-if="user_membership_id" class="breadcrumb-item active">
+                    <t t-esc="user_membership_id.name"/>
+                </li>
+            </xpath>
+        </template>
+
+        <template id="portal_my_home_user_membership" name="My Memberships" inherit_id="portal.portal_my_home">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">Memberships</t>
+                    <t t-set="url" t-value="'/my/membership'"/>
+                    <t t-set="placeholder_count" t-value="'membership_count'"/>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="portal_my_user_membership" name="User Membership">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">User Membership</t>
+                </t>
+                <t t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th>Membership #</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <t t-foreach="user_membership_ids" t-as="user_membership_id">
+                            <tr t-att-class="'active' if user_membership_id.state == 'active' else 'text-muted'">
+                                <td>
+                                    <a t-att-href="user_membership_id.get_portal_url()"
+                                       t-att-title="user_membership_id.name">
+                                        <t t-esc="user_membership_id.name"/>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <t t-esc="user_membership_id.format_date(date=user_membership_id.from_date)"/>
+                                </td>
+                                <td>
+                                    <t t-esc="user_membership_id.format_date(date=user_membership_id.to_date)"/>
+                                </td>
+
+                                <td>
+                                    <span t-if="user_membership_id.state == 'draft'"
+                                          class="badge badge-pill badge-info">
+                                        <i class="fa fa-fw fa-ban"/>
+                                        Inactive
+                                    </span>
+                                    <span t-elif="user_membership_id.state == 'active'"
+                                          class="badge badge-pill badge-success">
+                                        <i class="fa fa-fw fa-check"/>
+                                        Active
+                                    </span>
+                                    <span t-elif="user_membership_id.state == 'cancel'"
+                                          class="badge badge-pill badge-secondary">
+                                        <i class="fa fa-fw fa-remove"/>
+                                        Cancelled
+                                    </span>
+                                    <span t-elif="user_membership_id.state == 'expire'"
+                                          class="badge badge-pill badge-warning">
+                                        <i class="fa fa-fw fa-clock-o"/>
+                                        Expired
+                                    </span>
+                                    <span t-elif="user_membership_id.state == 'suspend'"
+                                          class="badge badge-pill badge-warning">
+                                        <i class="fa fa-fw fa-ban"/>
+                                        Suspended
+                                    </span>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </t>
+            </t>
+        </template>
+
+        <template id="portal_page" name="Membership" inherit_id="portal.portal_sidebar" primary="True">
+            <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+                <t t-set="title">Membership</t>
+                <div class="row mt16 o_portal_sale_sidebar">
+                    <t t-call="portal.portal_record_sidebar">
+                        <t t-set="classes" t-value="'col-lg-3 d-print-none'"/>
+
+                        <t t-set="title">
+                            <h2 class="mb-0">
+                                <b t-field="user_membership_id.amount" data-id="amount"/>
+                            </h2>
+                        </t>
+
+                        <t t-set="entries">
+                            <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+
+                                <li class="list-group-item flex-grow-1">
+                                    <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                        <div class="d-block m-auto h2 font-weight-bold text-primary">
+                                            <span t-field="user_membership_id.name"/>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li t-if="user_membership_id.state not in ['cancel','expire']"
+                                    class="list-group-item flex-grow-1">
+                                    <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                        <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                            <button type="button" class="btn btn-danger btn-block"
+                                                    title="Download" data-toggle="modal"
+                                                    data-target="#cancel_membership_confirm">
+                                                Cancel Membership
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="cancel_membership_confirm" tabindex="-1"
+                                         role="dialog"
+                                         aria-labelledby="cancel_membership_confirm">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span>×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="alert alert-warning">
+                                                        Are you sure? You want to cancel the membership.
+                                                    </div>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label for="cancel_reason">Reason for Cancellation</label>
+                                                            <textarea class="form-control" id="membership_cancel_reason"
+                                                                      rows="3"/>
+                                                            <small class="text-muted">
+                                                                <sup>*</sup>Your feedback helps us to improve our
+                                                                services.
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                        Close
+                                                    </button>
+                                                    <a type="button" class="btn btn-danger"
+                                                       id="cancel_my_membership"
+                                                       t-attf-href="/cancel-membership/{{user_membership_id.id}}">
+                                                        Cancel
+                                                        Membership
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                                <li t-if="user_membership_id.user_id" class="list-group-item flex-grow-1">
+                                    <div class="small mb-1">
+                                        <strong class="text-muted">Salesperson</strong>
+                                    </div>
+                                    <div class="row flex-nowrap">
+                                        <div class="col flex-grow-0 pr-2">
+                                            <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                                 t-if="user_membership_id.user_id.image_1024"
+                                                 t-att-src="image_data_uri(user_membership_id.user_id.image_1024)"
+                                                 alt="Contact"/>
+                                            <img class="rounded-circle mr4 float-left o_portal_contact_img"
+                                                 t-if="not user_membership_id.user_id.image_1024"
+                                                 src="/web/static/src/img/placeholder.png" alt="Contact"/>
+                                        </div>
+                                        <div class="col pl-0" style="min-width: 150px">
+                                            <span t-field="user_membership_id.user_id"
+                                                  t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>
+                                            <a href="#discussion" class="small">
+                                                <i class="fa fa-comment"></i>
+                                                Send message
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </t>
+                    </t>
+                    <div id="quote_content" class="col-12 col-lg-9 justify-content-end">
+                        <div class="card" style="border-radius: 10px;">
+                            <t t-call="user_membership.user_membership_content_template">
+                                <t t-set="report_type" t-value="'html'"/>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div id="user_membership_communication" class="mt-4">
+                            <h2>History</h2>
+                            <t t-call="portal.message_thread">
+                                <t t-set="object" t-value="user_membership_id"/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="user_membership_content_template">
+            <div class="card-body py-0">
+                <div class="membership_card_design pb-3 container">
+                    <div class="text-light row" style="">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    <img t-att-src="image_data_uri(company_id.logo)"
+                                 style="max-height: 130px;width: 130px;margin: 1px 5px" alt="Company Logo"/>
+                                </div>
+
+                            <h2 style="align-self: center;" class="col-md-8 px-4 col-sm-12"
+                                t-field="company_id.name"/>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 col-md-12 px-4 py-2 d-flex">
+                            <div class="row" style="">
+                            <div  class="col-12">
+                                <h5 t-field="user_membership_id.partner_id.display_name"/>
+                                <h6 t-field="user_membership_id.partner_id.email"/>
+                                <h6 t-field="user_membership_id.partner_id.mobile"/>
+                            </div></div>
+
+
+                        </div>
+                        <div class="col-lg-6 col-md-12  px-4 py-2">
+                            <div class="h3"
+                                 t-field="user_membership_id.product_id.name"/>
+                            <div class="h5">
+
+                                <span t-field="user_membership_id.product_id.product_template_attribute_value_ids[0].name"/>
+                                <span t-if="user_membership_id.state == 'active'"
+                                      class="badge badge-pill badge-success">
+                                    <i class="fa fa-fw fa-check"/>
+                                    Active
+                                </span>
+                                <span t-elif="user_membership_id.state == 'cancel'"
+                                      class="badge badge-pill badge-secondary">
+                                    <i class="fa fa-fw fa-remove"/>
+                                    Cancelled
+                                </span>
+                                <span t-elif="user_membership_id.state == 'expire'"
+                                      class="badge badge-pill badge-warning">
+                                    <i class="fa fa-fw fa-clock-o"/>
+                                    Expired
+                                </span>
+                                <span t-elif="user_membership_id.state == 'suspend'"
+                                      class="badge badge-pill badge-warning">
+                                    <i class="fa fa-fw fa-ban"/>
+                                    Suspended
+                                </span>
+                                <span t-elif="user_membership_id.state == 'draft'"
+                                      class="badge badge-pill badge-info">
+                                    <i class="fa fa-fw fa-ban"/>
+                                    Inactive
+                                </span>
+
+                            </div>
+                            <div>
+                                <div class="row">
+
+                                    <div class="col-12 ">
+                                         Duration: <t t-if="user_membership_id.duration">
+
+                                            <span t-field="user_membership_id.duration"/>
+                                            <span t-field="user_membership_id.duration_range"/>(s) Trial +
+                                        </t><t t-esc="user_membership_id.format_date(date=user_membership_id.from_date)"/>
+                                    - <t t-esc="user_membership_id.format_date(date=user_membership_id.to_date)"/></div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12  px-4 py-2">
+
+                            <h4>Services:</h4>
+
+
+                            <t t-set="service_ids"
+                               t-value="user_membership_id.user_membership_plan_id.user_membership_plan_service_ids"/>
+                            <t t-foreach="range(len(service_ids)) if len(service_ids)&lt;=8 else range(8)"
+                               t-as="item">
+                                <div>
+                                    <span class="h5 text-success" style="vertical-align: middle;">☑</span>
+                                    <span t-esc="service_ids[item].name"/>
+                                </div>
+
+                            </t>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+        <template id="membership_products" name="Membership Plans">
+            <t t-call="website.layout">
+                <div class="oe_structure"/>
+                <div class="container">
+                    <div class="oe_structure"/>
+                    <div class="alert alert-info h4 mt-2" t-if="request.env.user.user_membership_id">Your active
+                        membership
+                        <a target="new" t-attf-href="/my/membership/{{request.env.user.user_membership_id.id}}"
+                           title="Click to check the details">
+                            <em t-esc="request.env.user.user_membership_id.user_membership_plan_id.name"/>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <t t-if="not product_ids">
+                            <div class="col mt32">
+                                <div class="alert alert-info h4">
+                                    <i class="fa fa-info-circle"/>
+                                    <em>
+                                        Currently we don't have any membership plans for website users
+                                    </em>
+                                </div>
+                            </div>
+                        </t>
+                        <t else="">
+                            <t t-foreach="product_ids" t-as="product_id">
+                                <div class="col-lg-4 s_col_no_bgcolor text-center pt32 pb16" data-name="Box">
+                                    <div class="card bg-200">
+
+                                        <span class="h4 card-header font-weight-bold" t-field="product_id.name"/>
+                                        <div class="card-body text-center">
+                                            <img t-att-src="image_data_uri(product_id.image_1920)"
+                                                 class="col-5"
+                                                 style="max-height: 140px;width: 140px;margin: 1px auto;display: block;border-radius: 50%;"
+                                                 alt="Company Logo"/>
+
+                                        </div>
+                                        <div class="card-footer p-0">
+                                            <!-- <ul class="list-group list-group-flush">
+                                                <t t-set="membership_plan_id"
+                                                   t-value="product_id.user_membership_plan_id"/>
+                                                <li
+                                                        class="list-group-item font-weight-bold py-1 px-2 bg-200">
+                                                    Benefits
+                                                </li>
+                                                <li class="list-group-item py-1 px-2 text-left"
+                                                    t-if="membership_plan_id.has_trial">
+                                                    Trial Period:
+                                                    <span t-field="membership_plan_id.duration"/>
+                                                    <span t-field="membership_plan_id.duration_range"/><t t-if="membership_plan_id.duration > 1" t-esc="'s'"/>
+                                                </li>
+                                                <t t-foreach="membership_plan_id.user_membership_plan_service_ids"
+                                                   t-as="service_id">
+                                                    <li class="list-group-item py-1 px-2 text-left">
+                                                        <span t-field="service_id.name"/>
+                                                        <i t-if="service_id.desc" class="fa fa-info-circle"
+                                                           style="cursor: pointer;" data-container="body"
+                                                           role="button" data-toggle="popover" data-trigger="focus"
+                                                           tabindex="0" data-placement="top"
+                                                           t-att-data-content="service_id.desc"/>
+                                                    </li>
+
+                                                </t>
+
+                                            </ul> -->
+                                        </div>
+                                        <!-- <ul class="list-group list-group-flush">
+                                            <t t-set="product_variant_ids"
+                                               t-value="request.env['product.product'].sudo().search([('id', 'in', product_id.product_variant_ids.ids),('product_tmpl_id', '=', product_id.id)], order='mem_priority')"/>
+                                            <li class="list-group-item font-weight-bold py-1 px-2 bg-200">
+                                                Pricing
+                                            </li>
+                                            <t t-foreach="product_variant_ids" t-as="product_var_id">
+                                                <li class="list-group-item px-0 py-2">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-4 pl-2  text-left">
+                                                            <t t-esc="product_var_id.product_template_attribute_value_ids[0].name"/>
+                                                        </div>
+                                                        <div class="col-7 text-left">
+                                                            <span t-field="product_var_id.lst_price"
+                                                                  t-options="{'widget': 'monetary', 'display_currency': product_var_id.company_id.currency_id}"/>
+                                                            <small class="text-muted">
+                                                                <span t-field="product_var_id.amount_pr_month"
+                                                                      t-options="{'widget': 'monetary', 'display_currency': product_var_id.company_id.currency_id}"/>
+                                                                /month
+                                                            </small>
+
+                                                        </div>
+                                                        <div class="col-1 pl-2">
+                                                            <a t-attf-href="/shop/membership/{{product_var_id.id}}"
+                                                               class="btn_order"
+                                                               t-if="not request.env.user._is_public()">
+                                                                <i class="fa fa-shopping-cart"/>
+                                                            </a>
+
+                                                            <a t-attf-href="/web/login?redirect=/shop/membership/{{product_var_id.id}}"
+                                                               class="btn_order" t-if="request.env.user._is_public()">
+                                                                <i class="fa fa-shopping-cart"/>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                            </t>
+                                        </ul> -->
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+                <div class="oe_structure"/>
+            </t>
+        </template>
+
+        <template id="payment_membership" inherit_id="website_sale.payment">
+            <xpath expr="//div[@id='payment_method']/t[@t-call='payment.payment_tokens_list']" position="inside">
+                <t t-set="website_sale_order_id" t-value="website.sale_get_order()"/>
+                <t t-if="website_sale_order_id.only_membership_line()">
+                    <t t-set="back_button_txt">Memberships</t>
+                    <t t-set="back_button_class" t-value="'btn btn-secondary'"/>
+                    <t t-set="back_button_link" t-value="'/shop-membership'"/>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

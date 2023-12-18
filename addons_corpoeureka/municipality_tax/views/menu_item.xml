@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+    <!-- Detalles Operaciones -->
+    <menuitem id="tax_municipal_declaration" name="Declaración de Retención IAE"  sequence="1"  action="municipality_tax.open_tax_municipal_declaration" parent="account.menu_finance_payables"/>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  
+    <record id="res_partner_bank_saldo_form_view" model="ir.ui.view">
+      <field name="name">res.partner.bank.saldo.form.view</field>
+      <field name="model">res.partner.bank</field>
+      <field name="inherit_id" ref="base.view_partner_bank_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='acc_holder_name']" position="after">
+          <field name="saldo" />
+        </xpath>
+        <xpath expr="//field[@name='acc_holder_name']" position="after">
+          <field name="fecha_de_saldo_actualizado" />
+        </xpath>
+       
+      </field>
+    </record>
+
+    <record id="res_partner_bank_saldo_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.bank.saldo.tree.view</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='bank_name']" position="after">
+
+                <field name="saldo" decoration-bf="1"/>
+               
+            </xpath>
+            <xpath expr="//field[@name='bank_name']" position="after">
+
+                <field name="fecha_de_saldo_actualizado" decoration-bf="1"/>
+               
+            </xpath>
+
+        </field>
+    </record>
+  
+</odoo>

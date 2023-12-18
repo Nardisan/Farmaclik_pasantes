@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_municipality_tax_account" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.municipality.tax.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='tax_exigibility']" position="before">
+                     <div class="col-12 col-lg-6 o_setting_box" id="account_municipality_tax">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Retención de Impuesto Municipal</span>
+                            <div class="text-muted">
+                                Cuentas predeterminadas para retencion de Impuesto Municipal (IAE)
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label string="Cuenta de Retención para Proveedores (Compra)" for="account_ret_muni_payable_id"  class="col-lg-3 o_light_label"/>
+                                    <field name="account_ret_muni_payable_id" class="o_light_label mt16"  context="{'active_test': False}" />
+                                </div>
+                                <div class="row mt8">
+                                    <label string="Cuenta de Retención de Clientes (Venta) " for="account_ret_muni_receivable_id" class="col-lg-3 o_light_label"/>
+                                    <field name="account_ret_muni_receivable_id" class="o_light_label mt16" />
+                                </div>
+                                <div class="row mt8">
+                                    <label string="Diario de Retención de IAE " for="purchase_jrl_id" class="col-lg-3 o_light_label"/>
+                                    <field name="purchase_jrl_id" class="o_light_label mt16" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

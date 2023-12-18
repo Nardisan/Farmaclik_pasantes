@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="view_journal_form_inherit_view_serie" model="ir.ui.view">
+            <field name="name">view_journal_form_inherit_view_serie</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="multi_serie" invisible="1" ></field>
+                    <field name="account_serie"  
+                            string="Tipo de serie" 
+                            attrs="{'invisible': [('multi_serie', '=', False)]}">
+                    </field>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="account_view_journal_tree_serie" model="ir.ui.view">
+            <field name="name">account_view_journal_tree_serie</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="multi_serie"  invisible="1"></field>
+                    <field name="account_serie" optional="hide" string="Tipo de serie"></field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

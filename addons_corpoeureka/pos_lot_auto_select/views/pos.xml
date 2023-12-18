@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="assets" inherit_id="point_of_sale.assets">
+		  <xpath expr="." position="inside">
+			  <script type="text/javascript" src="/pos_lot_auto_select/static/src/js/models.js"></script>
+			  <script type="text/javascript" src="/pos_lot_auto_select/static/src/js/ProductScreen.js"></script>
+			  <script type="text/javascript" src="/pos_lot_auto_select/static/src/js/OrderWidget.js"></script>
+			  <script type="text/javascript" src="/pos_lot_auto_select/static/src/js/EditListPopup.js"></script>
+			  <script type="text/javascript" src="/pos_lot_auto_select/static/src/js/PaymentScreen.js"></script>
+		  </xpath>
+		</template>
+
+		<record model="ir.ui.view" id="odoo_pos_config_view_form_inherit">
+			<field name="name">pos.config.form.inherit.view</field>
+			<field name="model">pos.config</field>
+			<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//div[@id='inventory_location']" position="after">
+					<h2 name="order">Lot/Serial Number Configuration</h2>
+					<div class="row mt16 o_settings_container">
+						<div id="category_reference" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="allow_pos_lot"/>
+							</div>
+
+							<div class="o_setting_right_pane">
+								<label for="allow_pos_lot" string="Lot/Serial Number Config"/>
+								<div class="text-muted">
+									Lot/Serial Number Configuration
+								</div>
+								<div class="content-group" attrs="{'invisible' : [('allow_pos_lot', '=', False)]}">
+									<div class="row mt16">
+										<label  for="lot_expire_days" class="col-md-3 o_light_label"/>
+										<field name="lot_expire_days"/>
+									</div>
+									<div class="row">
+										<label for="pos_lot_receipt" class="col-md-3 o_light_label"/>
+										<field name="pos_lot_receipt"/>
+									</div>
+								</div>
+							</div>
+							<t attrs="{'invisible' : [('allow_pos_lot', '=', False)]}">
+
+								<div class="o_setting_left_pane">
+									<field name="allow_auto_select_lot"/>
+								</div>
+								<div class="o_setting_right_pane">
+										<label for="allow_auto_select_lot" string="Automatic select Lot/Serial Number"/>
+										<div class="text-muted">
+												Allow Automatic select Lot/Serials Number in POS Session
+										</div>
+								</div>
+							</t>
+
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+
+
+		<record id="odoo_pos_config_view_form" model="ir.ui.view">
+			<field name="name">account.move.form.inherit.view</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+					<field name="pos_lot_ids" widget="many2many_tags" />
+				</xpath>
+			</field>
+		</record>
+
+		<template id="report_invoice_document_inherit_discount" inherit_id="account.report_invoice_document">
+			<xpath expr="//th[@name='th_price_unit']" position="before">
+				<th name="th_lot" class="text-right">
+					<span>POS Lot/Serial</span>
+				</th>
+			</xpath>
+			<xpath expr="//td[4]" position="after">
+				<td class="text-right">
+					<span t-esc="', '.join(map(lambda x: (x.lot_name), line.pos_lot_ids))" id="pos_lot_ids"/>
+				</td>
+			</xpath>
+		</template>
+
+	</data>
+</odoo>

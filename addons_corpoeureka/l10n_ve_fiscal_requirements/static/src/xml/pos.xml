@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ClientDetails">
+        <t t-jquery="div.client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>Cédula</span>
+                <t t-if='partner.cedula'>
+                    <span class='detail client-cedula'><t t-esc='partner.cedula'/></span>
+                </t>
+                <t t-if='!partner.cedula'>
+                    <span class='detail client-cedula empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+        <t t-jquery="div.client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>RIF</span>
+                <t t-if='partner.rif'>
+                    <span class='detail client-rif'><t t-esc='partner.rif'/></span>
+                </t>
+                <t t-if='!partner.rif'>
+                    <span class='detail client-rif empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+        <t t-jquery="div.client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>Tipo de Residencia</span>
+                <t t-if='partner.residence_type'>
+                    <span class='detail client-residence_type'><t t-esc='partner.residence_type'/></span>
+                </t>
+                <t t-if='!partner.residence_type'>
+                    <span class='detail client-residence_type empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+    </t>
+     <t t-extend="ClientDetailsEdit">
+        <t t-jquery="div.client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>Cédula</span>
+                <input class='detail client-cedula' name='cedula' type='text'
+                       t-att-value='partner.cedula || ""'/>
+            </div>
+            <div class='client-detail'>
+                <span class='label'>RIF</span>
+                <input class='detail client-rif' name='rif' type='text'
+                       t-att-value='partner.rif || ""'/>
+            </div>
+            <div class='client-detail'>
+                <span class='label'>Tipo de Residencia</span>
+                 <select class="form-control" name="residence_type">
+                     <option t-attf-value="'SR'">Sin RIF</option>
+                     <option t-attf-value="'R'">Residenciado</option>
+                     <option t-attf-value="'NR'">No Residenciado</option>
+                     <option t-attf-value="'D'">Domiciliado</option>
+                     <option t-attf-value="'ND'">No domiciliado</option>
+                </select>
+                <!--<select class='detail client-residence_type' name='residence_type' type='select'
+                       t-att-value='partner.residence_type || ""'/>-->
+            </div>
+        </t>
+    </t>
+
+</templates>

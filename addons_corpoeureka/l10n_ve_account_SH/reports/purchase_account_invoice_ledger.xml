@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report id="report_purchase_invoice_ledger"
+                model="account.invoice"
+                string="Libro de Compras"
+                name="purchase_invoice_ledger"
+                file="purchase_invoice_ledger"
+                report_type="qweb-pdf"/>
+
+        <template id="purchase_invoice_ledger">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page" style ="font-size:10px;font-family: Times;line-height: 1.6;">
+
+                        <style type="text/css">
+                            table.tableizer-table {
+                            font-size: 12px;
+                            border: 1px solid #CCC;
+                            font-family: Arial, Helvetica, sans-serif;
+                            }
+                            td {
+                            border: 1px solid #000000 !important;
+                            }
+                            th {
+                            color: black;
+                            font-weight: bold;
+                            border: 1px solid #000000 !important;
+                            }
+                        </style>
+                        <t t-set="R30" t-value="False"></t>
+                        <t t-set="R31" t-value="False"></t>
+                        <t t-set="R32" t-value="False"></t>
+                        <t t-set="R312" t-value="False"></t>
+                        <t t-set="R313" t-value="False"></t>
+                        <t t-set="R322" t-value="False"></t>
+                        <t t-set="R323" t-value="False"></t>
+                        <t t-set="R332" t-value="False"></t>
+                        <t t-set="R342" t-value="False"></t>
+                        <t t-set="R333" t-value="False"></t>
+                        <t t-set="R343" t-value="False"></t>
+                        <t t-set="R33" t-value="False"></t>
+                        <t t-set="R34" t-value="False"></t>
+                        <t t-set="R35" t-value="False"></t>
+                        <t t-set="R36" t-value="False"></t>
+                        <h4>
+                            <div class="col-xs-12">
+                                <div class="col-xs-3" style ="float:left">
+                                    <strong> NOMBRE CONTRIBUYENTE:</strong>
+                                </div>
+                                <div class="col-xs-3">
+                                    <strong><t t-esc="res_company.name"/></strong>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-3" style ="float:left">
+                                    <strong> Dirección fiscal de contribuyente:</strong>
+                                </div>
+                                <div class="col-xs-4">
+                                    <address t-field="res_company.partner_id"
+                                             t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="col-xs-3" style ="float:left">
+                                    <strong> Contribuyente:</strong>
+                                </div>
+                                <div class="col-xs-3">
+                                    <strong>Especial</strong>
+                                </div>
+                            </div>
+                            <div class="col-xs-12" style="margin-bottom:30px">
+                                <div class="col-xs-3" style ="float:left">
+                                    <strong> Perdiodo de declaración:</strong>
+                                </div>
+                                <div class="col-xs-3">
+                                    <strong>Desde: <t t-esc="data.get('date_from')"/></strong>
+                                </div>
+                                <div class="col-xs-3">
+                                    <strong>Hasta: <t t-esc="data.get('date_to')"/></strong>
+                                </div>
+                            </div>
+                        </h4>
+
+                        <H4><strong><CENTER>Libro de Compras</CENTER></strong></H4>
+                        <div class="row">
+                        <table class="table table-condensed table-bordered">
+                            <thead><tr>
+                                <th colspan="11"></th>
+                                <th colspan="5" style="text-align:center;">COMPRAS GRAVADAS POR ALICUOTA GENERAL</th>
+                                <th colspan="5" style="text-align:center;">COMPRAS ALICUOTA REDUCIDA</th>
+                                <t t-set="invoice_reg" t-value="docs.filtered(lambda invoice: not invoice.transaction_type == '04-ajuste')"/>
+                                <t t-set="invoice_multiple_taxes" t-value="1 if len(invoice_reg.mapped('invoice_line_ids').filtered(lambda line: len(line.invoice_line_tax_ids)>1)) else 0"/>
+                                <th t-if="invoice_multiple_taxes" colspan="7" style="text-align:center;">COMPRAS ALICUOTA GENERAL MAS ALICUOTA REDUCIDA</th>
+                            </tr>
+                            <tr><th>N°</th>
+                                <th>Fecha</th>
+                                <th>Nombre o Razón Social</th>
+                                <th>N° de RIF</th>
+                                <th>Tipo de Proveedor</th>
+                                <th>N° de Control</th>
+                                <th>N° de Factura</th>
+                                <th>Nota de Debito</th>
+                                <th>Nota de Crédito</th>
+                                <th>Tipo de Transaccion</th>
+                                <th>Total de Compras Incluyendo I.V.A.</th>
+                                <th>Compras sin derecho a credito I.V.A.</th>
+                                <th>Base Imponible</th>
+                                <th>%         Alic.</th>
+                                <th>Impuesto I.V.A.</th>
+                                <th>Total de Compras Incluyendo I.V.A.</th>
+                                <th>Compras sin derecho a credito I.V.A.</th>
+                                <th>Base Imponible</th>
+                                <th>%         Alic.</th>
+                                <th>Impuesto I.V.A.</th>
+                                <th>Total de Compras Incluyendo I.V.A.</th>
+                                <t t-if="invoice_multiple_taxes">
+                                    <th>Compras sin derecho a credito I.V.A.</th>
+                                    <th>Base Imponible</th>
+                                    <th>% Alicuota 1</th>
+                                    <th>% Alicuota 2</th>
+                                    <th>Impuesto I.V.A. Alicuota 1 + 2</th>
+                                    <th>Nro de Comprobante de retención</th>
+                                    <th>Total de Compras Incluyendo I.V.A.</th>
+                                </t>
+                                <th>Nro de Comprobante de retencion</th>
+                                <th>IVA Retenido al Proveedor</th>
+                                <th>IVA Retenido (Comprador)</th>
+                            </tr>
+                            </thead><tbody>
+                            <t t-set="count" t-value="0"/>
+                            <t t-set="total_untaxed_amount_1" t-value="0"/>
+                            <t t-foreach="invoice_reg" t-as="o">
+                                <t t-set="count" t-value="count+1"/>
+                                <tr><td><t t-esc="count"/></td>
+                                    <td><span t-field="o.date_invoice"/></td>
+                                    <td><span t-field="o.partner_id.name"/></td>
+                                    <td><span t-field="o.partner_id.rif"/></td>
+                                    <td><span t-field="o.partner_id.residence_type"/></td>
+                                    <td><span t-field="o.nro_control"/></td>
+                                    <td>
+                                        <span t-if="o.type == 'in_invoice'" t-field="o.vendor_invoice_number"/>
+                                        <t t-if="o.type == 'in_refund'">N.A</t>
+                                    </td>
+                                    <td>N.A</td>
+                                    <td>
+                                        <span t-if="o.type == 'in_refund'" t-field="o.vendor_invoice_number"/>
+                                        <t t-if="o.type == 'in_invoice'">N.A</t>
+                                    </td>
+                                    <td><t t-esc="o.transaction_type"/></td>
+                                    <td><span t-field="o.amount_total_signed"/></td>
+                                    <t t-set="invoice_lines_general" t-value="o.invoice_line_ids.filtered(lambda line: not len(line.invoice_line_tax_ids)>1)"/>
+                                    <t t-foreach="invoice_lines_general.mapped('invoice_line_tax_ids').filtered(lambda tax_line: tax_line.amount > 0)" t-as="tax">
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: tax.id in line.invoice_line_tax_ids.ids).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="tax.amount"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,o.tax_line_ids.filtered(lambda line: line.name == tax.name).amount * -1 if o.tax_line_ids.filtered(lambda line: line.name == tax.name).invoice_id.type == 'in_refund' else o.tax_line_ids.filtered(lambda line: line.name == tax.name).amount))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,o.amount_total_signed))"/></td>
+                                    </t>
+                                    <t t-if="len(o.invoice_line_ids.filtered(lambda line: len(line.invoice_line_tax_ids)>1))">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: len(line.invoice_line_tax_ids) > 1).mapped('price_subtotal_signed'))))"/></td>
+                                        <t t-foreach="o.invoice_line_ids.mapped('invoice_line_tax_ids')" t-as="tax">
+                                            <td><t t-esc="tax.amount"/></td>
+                                        </t>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.tax_line_ids.mapped('amount'))))"/></td>
+                                        <td>-</td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,o.amount_total_signed))"/></td>
+                                    </t>
+                                    <t t-if="not len(o.invoice_line_ids.mapped('invoice_line_tax_ids').filtered(lambda tax_line: tax_line.amount > 0)) > 1">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <t t-if="invoice_multiple_taxes">
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </t>
+                                    </t>
+                                    <td><t t-if="o.wh_id" t-esc="o.wh_id.number"/></td>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env, o.amount_wh_iva * -1 if o.type == 'in_refund' else o.amount_wh_iva))"/></td>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env, (o.amount_tax - o.amount_wh_iva) * -1 if o.type == 'in_refund' else o.amount_tax - o.amount_wh_iva))"/></td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="10" style="text-align:center"><strong>TOTAL</strong></td>
+                                <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_reg.mapped('amount_total_signed'))))"/></td>
+                                <t t-set="invoice_lines_general" t-value="invoice_reg.mapped('invoice_line_ids').filtered(lambda line: not len(line.invoice_line_tax_ids)>1)"/>
+                                 <t t-foreach="invoice_lines_general.mapped('invoice_line_tax_ids.tax_group_id')" t-as="tax">
+                                    <!--creo la variable invoice tax donde agrego las facturas-->
+                                    <t t-set="invoice_tax" t-value="invoice_reg.filtered(lambda invoice: tax.id in invoice.mapped('invoice_line_ids.invoice_line_tax_ids').mapped('tax_group_id').ids and invoice.id in invoice_lines_general.mapped('invoice_id').ids)"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_invoice').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))-sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_refund').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                    <t t-if="not R30" t-set="R30" t-value="sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_invoice').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))-sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_refund').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: tax.id in line.invoice_line_tax_ids.mapped('tax_group_id').ids and sum(line.invoice_line_tax_ids.mapped('amount')) > 0).mapped('price_subtotal_signed'))))"/></td>
+                                    <t t-if="R33 and not R333" t-set="R333" t-value="sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: tax.id in line.invoice_line_tax_ids.mapped('tax_group_id').ids and sum(line.invoice_line_tax_ids.mapped('amount')) > 0).mapped('price_subtotal_signed'))"/>
+                                    <t t-if="not R33" t-set="R33" t-value="sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: tax.id in line.invoice_line_tax_ids.mapped('tax_group_id').ids and sum(line.invoice_line_tax_ids.mapped('amount')) > 0).mapped('price_subtotal_signed'))"/>
+                                    <td></td>
+                                    <t t-set="taxes" t-value="invoice_tax.mapped('invoice_line_ids.invoice_line_tax_ids').filtered(lambda line: line.tax_group_id.id == tax.id)"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_invoice').mapped('amount'))-sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_refund').mapped('amount'))))"/></td>
+                                    <t t-if="R34 and not R343" t-set="R343" t-value="sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_invoice').mapped('amount'))-sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_refund').mapped('amount'))"/>
+                                    <t t-if="not R34" t-set="R34" t-value="sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_invoice').mapped('amount'))-sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_refund').mapped('amount'))"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('amount_total_signed'))))"/></td>
+                                </t>
+                                <t t-if="not len(invoice_reg.mapped('invoice_line_ids').mapped('invoice_line_tax_ids').filtered(lambda tax_line: tax_line.amount > 0)) > 1">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <t t-if="not len (invoice_reg)">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </t>
+                                    <t t-if="invoice_multiple_taxes">
+                                        <t t-set="invoice_multi_tax" t-value="invoice_reg.mapped('invoice_line_ids').filtered(lambda line: len(line.invoice_line_tax_ids) > 1).mapped('invoice_id')"/>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_multi_tax.mapped('invoice_line_ids').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_multi_tax.mapped('invoice_line_ids').filtered(lambda line: len(line.invoice_line_tax_ids) > 1).mapped('price_subtotal_signed'))))"/></td>
+                                        <t t-if="not R332" t-set="R332" t-value="sum(invoice_multi_tax.mapped('amount_untaxed'))"/>
+                                        <td></td>
+                                        <td></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_multi_tax.mapped('amount_tax'))))"/>    </td>
+                                        <td></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env, sum(invoice_multi_tax.mapped('amount_total_signed'))))"/></td>
+                                    </t>
+                                </t>
+                                <t t-set="R35" t-value="R30+R332+R333+R33"/>
+                                <t t-set="R36" t-value="R34+R342+R343"/>
+                                <td></td>
+                                <td><t t-esc="(u'%s Bs.' % formatlang(self.env, sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_invoice').mapped('amount_wh_iva'))-sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_refund').mapped('amount_wh_iva'))))"/></td>
+                                <td><t t-esc="(u'%s Bs.' % formatlang(self.env, (sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_invoice').mapped('amount_tax'))-sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_refund').mapped('amount_tax'))) - (sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_invoice').mapped('amount_wh_iva'))-sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_refund').mapped('amount_wh_iva')))))"/></td>
+                            </tr>
+                        </tbody></table>
+                        </div>
+                        <br/>
+                        <div class="row">
+                        <div class="col-xs-4">
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                    <th></th>
+                                    <th>Base imponible</th>
+                                    <th></th>
+                                    <th>Credito fiscal</th>
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Compras Internas No Gravadas y/o sin derecho a credito fiscal</td>
+                                        <td><t t-if="R30" t-esc="(u'%s Bs.' % formatlang(self.env,R30))"/></td>
+                                        <td><strong>30</strong></td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Importaciones gravadas por alicuota general</td>
+                                        <td><t t-if="R31" t-esc="(u'%s Bs.' % formatlang(self.env,R31))"/></td>
+                                        <td><strong>31</strong></td>
+                                        <td><t t-if="R32" t-esc="(u'%s Bs.' % formatlang(self.env,R32))"/></td>
+                                        <td><strong>32</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Importaciones gravadas por alicuota general mas adicional</td>
+                                        <td><t t-if="R312" t-esc="(u'%s Bs.' % formatlang(self.env,R312))"/></td>
+                                        <td><strong>312</strong></td>
+                                        <td><t t-if="R322" t-esc="(u'%s Bs.' % formatlang(self.env,R322))"/></td>
+                                        <td><strong>322</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Importaciones gravadas por alicuota reducida</td>
+                                        <td><t t-if="R313" t-esc="(u'%s Bs.' % formatlang(self.env,R313))"/></td>
+                                        <td><strong>313</strong></td>
+                                        <td><t t-if="R323" t-esc="(u'%s Bs.' % formatlang(self.env,R323))"/></td>
+                                        <td><strong>323</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compras internas gravadas por alicuota general mas adicional</td>
+                                        <td><t t-if="R332" t-esc="(u'%s Bs.' % formatlang(self.env,R332))"/></td>
+                                        <td><strong>332</strong></td>
+                                        <td><t t-if="R342" t-esc="(u'%s Bs.' % formatlang(self.env,R342))"/></td>
+                                        <td><strong>342</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compras internas gravadas por alicuota reducida</td>
+                                        <td><t t-if="R333" t-esc="(u'%s Bs.' % formatlang(self.env,R333))"/></td>
+                                        <td><strong>333</strong></td>
+                                        <td><t t-if="R343" t-esc="(u'%s Bs.' % formatlang(self.env,R343))"/></td>
+                                        <td><strong>343</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compras internas gravadas solo por alicuota general</td>
+                                        <td><t t-if="R33" t-esc="(u'%s Bs.' % formatlang(self.env,R33))"/></td>
+                                        <td><strong>33</strong></td>
+                                        <td><t t-if="R34" t-esc="(u'%s Bs.' % formatlang(self.env,R34))"/></td>
+                                        <td><strong>34</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total</strong></td>
+                                        <td><t t-if="R35" t-esc="(u'%s Bs.' % formatlang(self.env,R35))"/></td>
+                                        <td><strong>35</strong></td>
+                                        <td><t t-if="R36" t-esc="(u'%s Bs.' % formatlang(self.env,R36))"/></td>
+                                        <td><strong>36</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <H4><strong><CENTER>Ajustes</CENTER></strong></H4>
+                        <table class="table table-condensed table-bordered">
+                            <thead><tr>
+                                <th colspan="11"></th>
+                                <th colspan="5" style="text-align:center;">COMPRAS GRAVADAS POR ALICUOTA GENERAL</th>
+                                <th colspan="5" style="text-align:center;">COMPRAS ALICUOTA REDUCIDA</th>
+                                <t t-set="invoice_reg" t-value="docs.filtered(lambda invoice: invoice.transaction_type == '04-ajuste')"/>
+                                <t t-set="invoice_multiple_taxes" t-value="1 if len(invoice_reg.mapped('invoice_line_ids').filtered(lambda line: len(line.invoice_line_tax_ids)>1)) else 0"/>
+                                <th t-if="invoice_multiple_taxes" colspan="7" style="text-align:center;">COMPRAS ALICUOTA GENERAL MAS ALICUOTA REDUCIDA</th>
+                            </tr>
+                            <tr><th>N°</th>
+                                <th>Fecha</th>
+                                <th>Nombre o Razón Social</th>
+                                <th>N° de RIF</th>
+                                <th>Tipo de Proveedor</th>
+                                <th>N° de Control</th>
+                                <th>N° de Factura</th>
+                                <th>Nota de Debito</th>
+                                <th>Nota de Crédito</th>
+                                <th>Tipo de Transaccion</th>
+                                <th>Total de Compras Incluyendo I.V.A.</th>
+                                <th>Compras sin derecho a credito I.V.A.</th>
+                                <th>Base Imponible</th>
+                                <th>%         Alic.</th>
+                                <th>Impuesto I.V.A.</th>
+                                <th>Total de Compras Incluyendo I.V.A.</th>
+                                <th>Compras sin derecho a credito I.V.A.</th>
+                                <th>Base Imponible</th>
+                                <th>%         Alic.</th>
+                                <th>Impuesto I.V.A.</th>
+                                <th>Total de Compras Incluyendo I.V.A.</th>
+                                <t t-if="invoice_multiple_taxes">
+                                    <th>Compras sin derecho a credito I.V.A.</th>
+                                    <th>Base Imponible</th>
+                                    <th>% Alicuota 1</th>
+                                    <th>% Alicuota 2</th>
+                                    <th>Impuesto I.V.A. Alicuota 1 + 2</th>
+                                    <th>Nro de Comprobante de retención</th>
+                                    <th>Total de Compras Incluyendo I.V.A.</th>
+                                </t>
+                                <th>Nro de Comprobante de retencion</th>
+                                <th>IVA Retenido al Proveedor</th>
+                                <th>IVA Retenido (Comprador)</th>
+                            </tr>
+                            </thead><tbody>
+                            <t t-set="count" t-value="0"/>
+                            <t t-set="total_untaxed_amount_1" t-value="0"/>
+                            <t t-foreach="invoice_reg" t-as="o">
+                                <t t-set="count" t-value="count+1"/>
+                                <tr><td><t t-esc="count"/></td>
+                                    <td><span t-field="o.date_invoice"/></td>
+                                    <td><span t-field="o.partner_id.name"/></td>
+                                    <td><span t-field="o.partner_id.rif"/></td>
+                                    <td><span t-field="o.partner_id.residence_type"/></td>
+                                    <td><span t-field="o.nro_control"/></td>
+                                    <td>
+                                        <span t-if="o.type == 'in_invoice'" t-field="o.vendor_invoice_number"/>
+                                        <t t-if="o.type == 'in_refund'">N.A</t>
+                                    </td>
+                                    <td>N.A</td>
+                                    <td>
+                                        <span t-if="o.type == 'in_refund'" t-field="o.vendor_invoice_number"/>
+                                        <t t-if="o.type == 'in_invoice'">N.A</t>
+                                    </td>
+                                    <td><t t-esc="o.transaction_type"/></td>
+                                    <td><span t-field="o.amount_total_signed"/></td>
+                                    <t t-set="invoice_lines_general" t-value="o.invoice_line_ids.filtered(lambda line: not len(line.invoice_line_tax_ids)>1)"/>
+                                    <t t-foreach="invoice_lines_general.mapped('invoice_line_tax_ids').filtered(lambda tax_line: tax_line.amount > 0)" t-as="tax">
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: tax.id in line.invoice_line_tax_ids.ids).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="tax.amount"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,o.tax_line_ids.filtered(lambda line: line.name == tax.name).amount * -1 if o.tax_line_ids.filtered(lambda line: line.name == tax.name).invoice_id.type == 'in_refund' else o.tax_line_ids.filtered(lambda line: line.name == tax.name).amount))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,o.amount_total_signed))"/></td>
+                                    </t>
+                                    <t t-if="len(o.invoice_line_ids.filtered(lambda line: len(line.invoice_line_tax_ids)>1))">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.invoice_line_ids.filtered(lambda line: len(line.invoice_line_tax_ids) > 1).mapped('price_subtotal_signed'))))"/></td>
+                                        <t t-foreach="o.invoice_line_ids.mapped('invoice_line_tax_ids')" t-as="tax">
+                                            <td><t t-esc="tax.amount"/></td>
+                                        </t>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(o.tax_line_ids.mapped('amount'))))"/></td>
+                                        <td>-</td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,o.amount_total_signed))"/></td>
+                                    </t>
+                                    <t t-if="not len(o.invoice_line_ids.mapped('invoice_line_tax_ids').filtered(lambda tax_line: tax_line.amount > 0)) > 1">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <t t-if="invoice_multiple_taxes">
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </t>
+                                    </t>
+                                    <td><t t-if="o.wh_id" t-esc="o.wh_id.number"/></td>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env, o.amount_wh_iva * -1 if o.type == 'in_refund' else o.amount_wh_iva))"/></td>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env, (o.amount_tax - o.amount_wh_iva) * -1 if o.type == 'in_refund' else o.amount_tax - o.amount_wh_iva))"/></td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="10" style="text-align:center"><strong>TOTAL</strong></td>
+                                <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_reg.mapped('amount_total_signed'))))"/></td>
+                                <t t-set="invoice_lines_general" t-value="invoice_reg.mapped('invoice_line_ids').filtered(lambda line: not len(line.invoice_line_tax_ids)>1)"/>
+                                 <t t-foreach="invoice_lines_general.mapped('invoice_line_tax_ids.tax_group_id')" t-as="tax">
+                                    <!--creo la variable invoice tax donde agrego las facturas-->
+                                    <t t-set="invoice_tax" t-value="invoice_reg.filtered(lambda invoice: tax.id in invoice.mapped('invoice_line_ids.invoice_line_tax_ids').mapped('tax_group_id').ids and invoice.id in invoice_lines_general.mapped('invoice_id').ids)"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_invoice').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))-sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_refund').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                    <t t-if="not R30" t-set="R30" t-value="sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_invoice').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))-sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: line.invoice_id.type == 'in_refund').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: tax.id in line.invoice_line_tax_ids.mapped('tax_group_id').ids and sum(line.invoice_line_tax_ids.mapped('amount')) > 0).mapped('price_subtotal_signed'))))"/></td>
+                                    <t t-if="R33 and not R333" t-set="R333" t-value="sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: tax.id in line.invoice_line_tax_ids.mapped('tax_group_id').ids and sum(line.invoice_line_tax_ids.mapped('amount')) > 0).mapped('price_subtotal_signed'))"/>
+                                    <t t-if="not R33" t-set="R33" t-value="sum(invoice_tax.mapped('invoice_line_ids').filtered(lambda line: tax.id in line.invoice_line_tax_ids.mapped('tax_group_id').ids and sum(line.invoice_line_tax_ids.mapped('amount')) > 0).mapped('price_subtotal_signed'))"/>
+                                    <td></td>
+                                    <t t-set="taxes" t-value="invoice_tax.mapped('invoice_line_ids.invoice_line_tax_ids').filtered(lambda line: line.tax_group_id.id == tax.id)"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_invoice').mapped('amount'))-sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_refund').mapped('amount'))))"/></td>
+                                    <t t-if="R34 and not R343" t-set="R343" t-value="sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_invoice').mapped('amount'))-sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_refund').mapped('amount'))"/>
+                                    <t t-if="not R34" t-set="R34" t-value="sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_invoice').mapped('amount'))-sum(invoice_tax.mapped('tax_line_ids').filtered(lambda line: line.name in taxes.mapped('name') and line.invoice_id.type == 'in_refund').mapped('amount'))"/>
+                                    <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_tax.mapped('amount_total_signed'))))"/></td>
+                                </t>
+                                <t t-if="not len(invoice_reg.mapped('invoice_line_ids').mapped('invoice_line_tax_ids').filtered(lambda tax_line: tax_line.amount > 0)) > 1">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <t t-if="not len (invoice_reg)">
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </t>
+                                    <t t-if="invoice_multiple_taxes">
+                                        <t t-set="invoice_multi_tax" t-value="invoice_reg.mapped('invoice_line_ids').filtered(lambda line: len(line.invoice_line_tax_ids) > 1).mapped('invoice_id')"/>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_multi_tax.mapped('invoice_line_ids').filtered(lambda line: not line.invoice_line_tax_ids or sum(line.invoice_line_tax_ids.mapped('amount')) == 0).mapped('price_subtotal_signed'))))"/></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_multi_tax.mapped('invoice_line_ids').filtered(lambda line: len(line.invoice_line_tax_ids) > 1).mapped('price_subtotal_signed'))))"/></td>
+                                        <t t-if="not R332" t-set="R332" t-value="sum(invoice_multi_tax.mapped('amount_untaxed'))"/>
+                                        <td></td>
+                                        <td></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env,sum(invoice_multi_tax.mapped('amount_tax'))))"/>    </td>
+                                        <td></td>
+                                        <td><t t-esc="(u'%s Bs.' % formatlang(self.env, sum(invoice_multi_tax.mapped('amount_total_signed'))))"/></td>
+                                    </t>
+                                </t>
+                                <t t-set="R35" t-value="R30+R332+R333+R33"/>
+                                <t t-set="R36" t-value="R34+R342+R343"/>
+                                <td></td>
+                                <td><t t-esc="(u'%s Bs.' % formatlang(self.env, sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_invoice').mapped('amount_wh_iva'))-sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_refund').mapped('amount_wh_iva'))))"/></td>
+                                <td><t t-esc="(u'%s Bs.' % formatlang(self.env, (sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_invoice').mapped('amount_tax'))-sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_refund').mapped('amount_tax'))) - (sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_invoice').mapped('amount_wh_iva'))-sum(invoice_reg.filtered(lambda invoice: invoice.type == 'in_refund').mapped('amount_wh_iva')))))"/></td>
+                            </tr>
+                        </tbody></table>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
+

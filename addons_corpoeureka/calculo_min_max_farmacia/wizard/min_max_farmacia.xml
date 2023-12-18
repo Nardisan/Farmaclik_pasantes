@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="min_max_farmacia_view_form" model="ir.ui.view">
+		<field name="name">min.max.farmacia.view.form</field>
+		<field name="model">mim.max.farmacia</field>
+		<field name="arch" type="xml">
+			<form string="Establecer Mín y Máx Farmacia">
+
+                <div class="alert alert-info text-center" role="status">
+					Cada lote agrupa 2000 productos, indique el lote que estara actualizando para calcular sus mínimos y máximos.
+				</div>
+
+				<group col="2">
+				
+                  
+                    <group>
+                    
+                        <field name="lotes_total"/>
+                        
+                    </group>
+
+                    <group>
+                    
+                        <field name="lote"/>
+                    
+                    </group>
+
+                </group>
+
+
+                <group col="2">
+				
+                  
+                    <group>
+                    
+                        <field name="fecha_inicial"/>
+                        
+                    </group>
+
+                    <group>
+                    
+                        <field name="fecha_final"/>
+                    
+                    </group>
+
+                </group>
+
+				<group col="1">
+				
+                  
+                    <group>
+                    
+                        <field name="solo_estos_product" />
+					
+                    </group>
+
+                
+                </group>
+				
+
+				<group col="1">
+				
+                  
+                    <group>
+                    
+                        <field name="excluyendo_estos_product" />
+                        
+                    </group>
+
+                
+                </group>
+
+			
+                
+               
+				<footer>
+					<button string="Calcular" name="calcular_min_max_farmacia" class="oe_highlight" type="object" />
+					<button string="Cancel" class="btn btn-secondary" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="min_max_farmacia_action" model="ir.actions.act_window">
+		<field name="name">Establecer Mín y Máx Farmacia</field>
+		<field name="res_model">mim.max.farmacia</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+    
+    <menuitem id="min_max_farmacia_principal_menu" name="Mín Máx y Rotación Farmacia" parent="stock.menu_stock_config_settings" sequence="106"/>
+	<menuitem id="min_max_farmacia_menu" name="Establecer Mín Máx Farmacia" parent="min_max_farmacia_principal_menu" action="min_max_farmacia_action" sequence="10"/>
+</odoo>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="declaration_tax_muni_templates">		
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="eu_template_report_corpoeureka.template_report_corpoeureka">
+					<div class="page">
+						<style type="text/css">
+	                        .table{
+					        	font-family: Times;
+					        	font-size: 9px;
+					        	line-height: 1.6;
+					        }
+
+					        .cabecera{
+					        	background: #E4E4E4;
+					        	font-size: 12px;
+					        }
+	                    </style>
+						<div class="row container">
+							<div class="col-12 text-center">
+	                        	<h5><b>DECLARACIÓN DE INGRESOS AL MUNICIPIO</b></h5>
+	                        	<div class="col-12" style="font-size:12px;">
+		                        </div>
+
+	                        	<div class="col-12" style="font-size:12px;">
+	                        		<t t-if="o.state == 'confirmed'">
+		                            	<b>Estatus: <spam>Confirmado</spam></b>
+		                            </t>
+		                            <t t-if="o.state == 'draft'">
+		                            	<b>Estatus: <spam>Borrador</spam></b>
+		                            </t>
+		                            <t t-if="o.state == 'done'">
+		                            	<b>Estatus: <spam>Pagado</spam></b>
+		                            </t>
+		                            <t t-if="o.state == 'cancel'">
+		                            	<b>Estatus: <spam>Cancelado</spam></b>
+		                            </t>
+		                        </div>
+
+		                        <div class="col-12" style="font-size:12px;">
+	                            	<b>Desde: <spam t-esc="o.date_in" t-options='{"widget": "date"}'/></b>
+	                            	<b>Hasta: <spam t-esc="o.date_end" t-options='{"widget": "date"}'/></b>
+		                        </div>
+
+		                        <div class="col-12" style="font-size:12px;">
+	                            	<b>% Alic: <spam t-esc="o.aliquot_municipal"/></b>
+	                        	</div>
+	                    	</div>
+	                    </div><br/>
+	                    <t t-set="T_montof" t-value="False"/>
+						<t t-set="T_base" t-value="False"/>
+						<t t-set="T_iva" t-value="False"/>
+						<t t-set="T_taxmuni" t-value="False"/>                 
+	                    <t t-set="T_retenido" t-value="False"/>	
+	                	<table class="table table-sm" style="width:100%;">
+							
+	                		<thead class="thead-light">
+	                			<tr>
+	                				<td scope="col" style="border-top:0px;width:8%;">
+	                					<strong>Fecha Fact.</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:8%;">
+	                					<strong>Rif</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:20%;">
+	                					<strong>Cliente</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:7%;">
+	                					<strong>N° Control</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:7%;">
+	                					<strong>N° Fact</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:10%;" class="text-right">
+	                					<strong>Base Imponible</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:10%;" class="text-right">
+	                					<strong>IVA</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:10%;" class="text-right">
+	                					<strong>Total Fact</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:10%;" class="text-right">
+	                					<strong>% Alic.</strong>
+	                				</td>
+	                				<td scope="col" style="border-top:0px;width:10%;" class="text-right">
+	                					<strong>Monto Retenido</strong>
+	                				</td>
+	                			</tr>
+							</thead>
+							<tbody>	
+								<tr t-foreach="o.invoice_line" t-as="line">									
+									<td>
+										<span t-esc="line.date_invoice" t-options='{"widget": "date"}'/>
+									</td>
+									<td>
+										<span t-esc="line.rif" />
+									</td>
+									<td>
+										<span t-esc="line.partner_id.name"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="line.invoice_id.nro_control"/>
+									</td>
+									<td class="text-right">												
+										<span t-esc="line.invoice_id.name" />
+									</td>
+									<td class="text-right">
+										<span t-esc="line.amount_untaxed * o.manual_currency_exchange_rate" t-options='{"widget": "float", "precision": 2}'/>
+										<t t-set="T_base" t-value="T_base + (line.amount_untaxed * o.manual_currency_exchange_rate)"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="line.amount_tax * o.manual_currency_exchange_rate" t-options='{"widget": "float", "precision": 2}'/>
+										<t t-set="T_iva" t-value="T_iva + (line.amount_tax * o.manual_currency_exchange_rate)"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="line.amount_total * o.manual_currency_exchange_rate" t-options='{"widget": "float", "precision": 2}'/>
+										<t t-set="T_montof" t-value="T_montof + (line.amount_total * o.manual_currency_exchange_rate )"/>
+									</td>
+									<td class="text-right">
+										<span t-esc="line.monto_muni * o.manual_currency_exchange_rate" t-options='{"widget": "float", "precision": 2}'/>
+										<t t-set="T_taxmuni" t-value="T_taxmuni + (line.monto_muni * o.manual_currency_exchange_rate)"/>
+									</td>
+									<td  class="text-right">
+										<span t-esc="line.total_amount_tax_ret * o.manual_currency_exchange_rate" t-options='{"widget": "float", "precision": 2}'/>
+										<t t-set="T_retenido" t-value="T_retenido + (line.total_amount_tax_ret * o.manual_currency_exchange_rate)"/>  	
+									</td>
+								</tr>
+							</tbody>						
+	                	</table>
+
+	                	<table class="table table-sm" style="100%">
+	                		<tr>
+
+	                			<td scope="col" style="border-top:0px;width:8%;"></td><!-- 1 -->
+	            				<td scope="col" style="border-top:0px;width:8%;"></td><!-- 2 -->
+	            				<td scope="col" style="border-top:0px;width:20%;"><!-- 3 -->
+	            					<strong>TOTAL GENERAL</strong>
+	            				</td>
+	            				<td scope="col" style="border-top:0px;width:7%;"></td><!-- 4 -->
+	            				<td scope="col" style="border-top:0px;width:7%;"></td><!-- 5 -->
+
+	            				<td scope="col" style="border-top:0px;width:10%;" class="text-right"><!-- 6 -->
+	            				<strong><t t-esc="T_base" t-options='{"widget": "float", "precision": 2}'/></strong>
+	            				</td>
+
+	            				<td scope="col" style="border-top:0px;width:10%;" class="text-right"><!-- 7 -->
+	            				<strong><t t-esc="T_iva" t-options='{"widget": "float", "precision": 2}'/></strong>	
+	            				</td>
+
+	            				<td scope="col" style="border-top:0px;width:10%;" class="text-right"><!-- 8 -->
+	            					<strong><t t-esc="T_montof" t-options='{"widget": "float", "precision": 2}'/></strong>
+	            				</td>
+	            				<td scope="col" style="border-top:0px;width:10%;" class="text-right"> <!-- 9 -->
+	            					<strong><t t-esc="T_taxmuni" t-options='{"widget": "float", "precision": 2}'/></strong>
+	            				</td>
+	            				<td scope="col" style="border-top:0px;width:10%;" class="text-right"><!-- 10 -->
+	            					<strong><t t-esc="T_retenido" t-options='{"widget": "float", "precision": 2}'/></strong>
+	            				</td> 
+	                		</tr>
+
+	                	</table>
+	                	<div class="row">
+	                		<div class="col-4"></div>
+	                		<div class="col-4 text-right">
+	                			<strong>Total Declaración de Ingresos: </strong>
+	                		</div>
+	                		<div class="col-4 text-right">
+	                			<t t-esc="o.total_iae * o.manual_currency_exchange_rate" t-options='{"widget": "float", "precision": 2}' />
+	                		</div>
+	                	</div>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+
+	<!-- Report action -->
+    <report
+        id="action_report_tax_municipal"
+        string="Delaclaracion de Ingresos al Municipio"
+        model="tax.municipal"
+        report_type="qweb-pdf"
+        name="eu_municipal_tax.declaration_tax_muni_templates"
+        file="eu_municipal_tax.declaration_tax_muni_templates"
+    />
+</odoo>
+

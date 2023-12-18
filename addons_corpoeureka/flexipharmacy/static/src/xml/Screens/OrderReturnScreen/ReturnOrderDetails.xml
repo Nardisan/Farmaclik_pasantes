@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ReturnOrderDetails" owl="1">
+        <div class="order-container">
+            <div t-ref="scrollable" class="order-scroller touch-scrollable">
+                <div class="order">
+                    <t t-if="!props.order">
+                        <div class="order-empty">
+                            <i class="fa fa-shopping-cart" role="img" aria-label="Shopping cart"
+                               title="Shopping cart" />
+                            <h1>Select an order</h1>
+                        </div>
+                    </t>
+                    <t t-elif="orderlines.length === 0">
+                        <div class="order-empty">
+                            <i class="fa fa-shopping-cart" role="img" aria-label="Shopping cart"
+                               title="Shopping cart" />
+                            <h1>Order is empty</h1>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div style="width: 100%; text-align: center;">
+                            <div style="width: fit-content;margin: auto;width: 100%;">
+                                <label class="switch" t-on-click="ReturnAllProductQty">
+                                    <input type="checkbox" id="checkbox_paid" class="checkbox_paid"
+                                           t-model="state.ReturnAllProduct"/>
+                                    <span class="slider round"></span>
+                                </label>
+                                <div>Return All Product</div>
+                            </div>
+                        </div>
+                        <ul class="orderlines">
+                            <t t-foreach="orderlines" t-as="orderline" t-key="orderline.id">
+                                <OrderReturnProductList line="orderline" ReturnProduct="state.ReturnAllProduct"/>
+                            </t>
+                        </ul>
+                        <!-- <OrderSummary total="total" tax="tax" /> -->
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="input_template" xml:space="preserve">
+    <t t-name="InputComponent" owl="1">
+        <span class="flex-form">
+            <input 
+                type="number"
+                step="any"
+                name="amount-payment" 
+                t-on-input="handleInput" 
+                t-on-keyup="handleKeyUp"
+                autocomplete="off"
+                t-att-data-payment-name="props.paymentMethod.currency_id[1]"
+            />
+            <small style="width: 50px;"></small>
+        </span>
+    </t>
+</templates>

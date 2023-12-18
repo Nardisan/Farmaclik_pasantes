@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="l10n_ve_fiscal_requirements.internal_layout_header_laws">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-2 text-center">
+                        <span t-esc="company.name"/>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-3 text-right">
+                        <ul class="list-inline">
+                            <li><span class="page"/></li>
+                            <li>/</li>
+                            <li><span class="topage"/></li>
+                        </ul>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="col-xs-12 text-center">
+                        <span style="font-size: 9px">Decreto con Rango, Valor y Fuerza de Ley de Reforma de Ley del Impuesto al Valor Agregado N° 1436 del 17 de noviembre de 2014 <br/>
+                        (Ley IVA - Art 11: "La Administración Tributaria podrá designar como responsables del pago del impuesto, en calidad de agentes de
+                        retención, a quienes por sus funciones públicas o por razón de sus actividades privadas intervengan en operaciones gravadas con el
+                        impuesto establecido en este Decreto con Rango, Valor y Fuerza de Ley.")</span>
+                    </div>
+                </div>
+            </div>
+            <t t-raw="0" />
+        </template>
+        
+        <template id="l10n_ve_fiscal_requirements.internal_layout_footer_laws">
+            <div class="footer">
+                <div class="text-center">
+                    <span style="font-size: 9px">Este comprobante se emite según en lo establecido en el Artículo N° 16 de la Providencia Administrativa SNAT/2015/0049 de fecha 14/07/2015 publicada en Gaceta Oficial N° 40.720 de fecha 10 de Agosto de 2015.</span>
+                </div>
+            </div>
+        </template>
+        
+    </data>
+</odoo>

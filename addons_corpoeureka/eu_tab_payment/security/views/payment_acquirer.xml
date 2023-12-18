@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="eu_tab_payment_payment_acquirer_inherit_form" model="ir.ui.view">
+        <field name="name">eu.tab.payment.inherit.payment.acquirer.form</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.acquirer_form"/>
+        <field name="arch" type="xml">
+            <field name="view_template_id" position="after">
+                <field 
+                    name="payment_type" 
+                    attrs="{'readonly': [('provider', '=', 'wallet')]}"
+                />
+                <field name="currency_id" />
+                <field name="manual_currency_exchange_rate" />
+                <field name="has_reference" />
+            </field>
+            <field name="pending_msg" position="attributes">
+                <attribute name="string">Mensaje informativo</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_payment_acquirer_inherit_tree" model="ir.ui.view">
+        <field name="name">eu.tab.payment.inherit.payment.acquirer.tree</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.acquirer_list"/>
+        <field name="arch" type="xml">
+            <field name="provider" position="after">
+                <field name="payment_type" />
+                <field name="currency_id" />
+                <field name="has_reference" />
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_payment_transaction_inherit_form" model="ir.ui.view">
+        <field name="name">eu.tab.payment.inherit.payment.transaction.form</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.transaction_form"/>
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field name="referencia_web" />
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_payment_transaction_inherit_tree" model="ir.ui.view">
+        <field name="name">eu.tab.payment.inherit.payment.transaction.tree</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.transaction_list"/>
+        <field name="arch" type="xml">
+            <field name="amount" position="after">
+                <field name="referencia_web" />
+            </field>
+        </field>
+    </record>
+
+    <record id="eu_tab_payment_account_payment_inherit_form" model="ir.ui.view">
+        <field name="name">eu.tab.payment.account.payment.inherit.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"></field>
+        <field name="arch" type="xml">
+            <field name="ref" position="attributes">
+                <attribute name="string">Referencia</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

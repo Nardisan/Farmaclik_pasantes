@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="extend_pos_commission_payment_view_form" model="ir.ui.view">
+            <field name="name">extend.pos.commission.payment.from</field>
+            <field name="model">pos.commission.payment</field>
+            <field name="inherit_id" ref="flexipharmacy.pos_commission_payment_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='is_invoice_paid']" position="after" >
+                    <field name="company_id" invisible="1" eval='lambda self:self.env.company.id'/>
+                    <field name="journal_id" widget="selection" style="with:40%%"/>
+                </xpath>
+            </field>
+        </record>
+
+      
+
+    </data>
+</odoo>

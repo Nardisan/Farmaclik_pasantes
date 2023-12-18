@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="wizard_book" model="ir.ui.view">
+        <field name="name">wizard.book.form</field>
+        <field name="model">wizard.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+           <footer>
+                <button string="Imprimir"  name="report_print" type="object" default_focus="1" class="btn-primary"/>
+                <button string="Cancel" class="btn-default" special="cancel"/>
+            </footer>
+           </form>
+        </field>
+    </record>
+    
+     <record id="action_wizard_book" model="ir.actions.act_window">
+        <field name="name">Report print book</field>
+        <field name="res_model">wizard.book</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="account_shopping_book" name="Shopping Book" action="action_wizard_book"
+                  parent="account.menu_finance_reports"/>
+
+</odoo>

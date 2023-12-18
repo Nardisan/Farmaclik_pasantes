@@ -1,0 +1,27 @@
+date 26th nov 2020
+version 14.0.0.1
+issue solve:-
+	- category not clickable.
+
+Version 14.0.0.2 : (08/12/20)
+		- Update validation of stock check.
+		- Update code for sync stock quantity when "Current Session Warehouse" is set for "Show Stock Of".
+
+Version 14.0.0.3 : (16/12/20)
+		- Add products image in bag charges popup.
+		- not able to change category , solve the issue.
+		- Solve Create coupon form pos issue.
+		- Solve select existing coupon validations errors.
+
+Version 14.0.0.4 : (17/12/20)
+		- Update invoice report as per base changes.
+		- Solve coupon validation issue , after coupon value change.
+		- Update condition for specific category coupon redemption.
+		- Fix bug of display multiple time stock values on product after refresh.
+		- Update code for multi-select functionality in create coupon popup.
+
+Version 14.0.0.5 : (29/12/20)
+		- Add new field for operation type location.
+
+Version 14.0.0.6 : (09/02/21)
+		- Update code for qunatity display on pos screen.

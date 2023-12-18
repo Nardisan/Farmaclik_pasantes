@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="product_popularity_rule_form_view" model="ir.ui.view">
+            <field name="name">product.popularity.rule.form.view</field>
+            <field name="model">product.rule</field>
+            <field name="arch" type="xml">
+                <form string="Product Popularity Rule">
+                   <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                            <field name="factor"/>
+                            <field name="threshold"/>
+                            <field name="threshold_amount"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_popularity_rule_tree_view" model="ir.ui.view">
+            <field name="name">product.popularity.rule.tree.view</field>
+            <field name="model">product.rule</field>
+            <field name="arch" type="xml">
+                <tree string="Product Popularity Rules">
+                    <field name="name"/>
+                    <field name="factor"/>
+                    <field name="threshold"/>
+                    <field name="threshold_amount"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_popularity_rule_action" model="ir.actions.act_window">
+            <field name="name">Product Popularity Rule</field>
+            <field name="res_model">product.rule</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+
+        <menuitem id="menu_product_popularity_rule_menu" name="Popularity Rule"
+                  parent="website_sale.menu_product_settings"
+                  action="product_popularity_rule_action"/>
+    </data>
+</odoo>

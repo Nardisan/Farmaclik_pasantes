@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document">
+            <t t-call="web.basic_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)"/>
+                <div class="page" style="font-size:10px;">
+
+                    <style type="text/css">
+                        .table td{
+
+                        border:0;
+
+                        }
+
+                        .lineas{
+                                font-size: 10px;
+                                line-height: 0.9;
+                            }
+                    </style>
+
+
+                    <div class="row">
+                        <div class="col-8">
+                            <t t-if="o.state != 'posted'">
+                                <span t-if="o.move_type == 'out_refund'  and o.state == 'draft'">NOTA DE CREDITO NO VÁLIDA PARA IMPRIMIR YA QUE NO ESTA PUBLICADA</span>
+                                <span>FACTURA NO VÁLIDA PARA IMPRIMIR YA QUE NO ESTA PÚBLICADA</span>
+                                <span>FACTURA NO VÁLIDA PARA IMPRIMIR YA QUE NO ESTA PÚBLICADA</span>
+                                <span>FACTURA NO VÁLIDA PARA IMPRIMIR YA QUE NO ESTA PÚBLICADA</span>
+                                <span>FACTURA NO VÁLIDA PARA IMPRIMIR YA QUE NO ESTA PÚBLICADA</span>
+                                <span>FACTURA NO VÁLIDA PARA IMPRIMIR YA QUE NO ESTA PÚBLICADA</span>
+                            </t>
+                        </div>    
+                        <div class="col-4">
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-8"/>
+                            <div class="col-4">
+                                <table style="width:100%;font-size:10px;">
+                                    <tr>
+                                        <t t-if="o.move_type == 'out_invoice' and o.state == 'posted'">
+                                            <td class="text-left">
+                                                <strong>FACTURA N° : </strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-if="o.account_serie">
+                                                    <span t-esc="o.account_serie.upper()"/>-    
+                                                </t>
+                                                <t t-esc="o.name"/>
+                                            </td>     
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="o.move_type == 'out_invoice' and o.state == 'draft'">
+                                            <td style="width:10%;" class="text-left">
+                                                <strong>FACTURA BORRADOR : </strong>
+                                            </td>
+                                            <td style="width:10%;" class="text-right">
+                                                <t t-if="o.account_serie">
+                                                    <span t-esc="o.account_serie.upper()"/>-    
+                                                </t>
+                                                <t t-esc="o.name"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">
+                                            <td style="width:10%;" class="text-left">
+                                                <strong>FACTURA CANCELADA : </strong>
+                                            </td>
+                                            <td style="width:10%;" class="text-right">
+                                                <t t-if="o.account_serie">
+                                                    <span t-esc="o.account_serie.upper()"/>-    
+                                                </t>
+                                                <t t-esc="o.name"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="o.move_type == 'out_refund'">
+                                            <td class="text-left">
+                                                <strong>NOTA DE CREDITO  : </strong>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-if="o.account_serie">
+                                                    <span t-esc="o.account_serie.upper()"/>-    
+                                                </t>
+                                                <t t-esc="o.name"/>
+                                            </td>
+                                        </t>
+                                    </tr>                                  
+                                    <tr>
+                                        <td class="text-left"><strong>FECHA : </strong></td>
+                                        <td class="text-right"><t t-esc="o.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;, &quot;format&quot;: &quot;dd/MM/YYYY&quot;}"/></td>
+                                    </tr>
+                                    <tr t-if="o.invoice_payment_term_id">
+                                        <td class="text-left"><strong>TERMS. DE PAGO : </strong></td>
+                                        <td class="text-right"> <t t-esc="o.invoice_payment_term_id.name"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div><br/><br/><br/><br/>
+                       <table style="width:100%;font-size:10px;">
+                          <tr>
+                            <td><strong>RAZÓN SOCIAL : </strong>
+                                <t t-esc="o.commercial_partner_id.name"/>
+                            </td>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+                            
+                            <td/>
+                            <td>
+                             
+                            </td>
+                            
+                            
+                            <td class="text-right"/>
+                            <td>
+                              
+                             </td>
+                            
+                          </tr>
+                          <tr>
+                            <td width="50%"><strong>DIRECCIÓN : </strong>
+                                <t t-esc="o.commercial_partner_id.street"/>
+                            </td>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td>
+                                    <span t-if="o.move_type == 'out_refund'"><strong>FACTURA AFECT. : </strong>
+                                        <t t-esc="o.parent_id.name"/>
+                                    </span>
+                                </td>
+                                <td>
+                                </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                <strong>RIF :</strong>
+                                <t t-esc="o.commercial_partner_id.rif"/>
+                            </td>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td>
+                                <span t-if="o.move_type == 'out_refund'"><strong>FECHA FACT. </strong>
+                                <t t-esc="o.parent_id.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;, &quot;format&quot;: &quot;dd/MM/YYYY&quot;}"/>
+                                </span>
+                            </td>
+                            <td/>
+                          </tr>
+                          <tr>
+                            <td>
+                                <strong>TELÉFONO : </strong>
+                                <t t-esc="o.partner_id.phone"/>
+                            </td>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td><span t-if="o.move_type == 'out_refund' "><strong>MONTO FACT.: </strong>
+                                <t t-esc="o.parent_id.amount_total" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            </span></td>
+                            <td/>
+                          </tr>
+
+                          <tr>
+                            <td><strong>VENDEDOR : </strong>
+                                <t t-esc="o.invoice_user_id.name"/>
+                            </td>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+                            <td/>
+                          </tr>
+                          <tr>
+                            <td/>
+                            <td/>
+                            <td colspan="5"/>
+                          </tr>
+                        </table>
+                    </div>
+                        <br/>
+                        <table name="invoice_line_table" style="width:100%;font-size:10px;" class="table table-sm">
+                            <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
+                                <thead>
+                                    <tr style="">
+                                        <th class="text-left">CÓDIGO</th>
+                                        <th class="text-left">DESCRIPCIÓN</th>
+                                        <th class="text-left">CANTIDAD</th>
+                                        <th class="text-right">PRECIO</th>
+                                        <th class="text-right" t-attf-class="text-center {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">IVA</th>
+                                        <!-- <th class="text-right">%DSCTO</th> -->
+                                        <th class="text-right">TOTAL</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="invoice_tbody" style="font-size:10px;border-bottom:1px solid #CCC;">
+                                    <t t-set="current_subtotal" t-value="0"/>
+                                    <t t-set="operacion" t-value="1"/>
+                                    <t t-set="contador" t-value="0"/>
+                                    <t t-foreach="o.invoice_line_ids" t-as="line">
+                                        <t t-set="contador" t-value="contador+1"/>
+                                            <t t-set="current_subtotal" t-value="(current_subtotal + line.price_subtotal)*o.manual_currency_exchange_rate" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                            <t t-set="current_subtotal" t-value="(current_subtotal + line.price_total)*o.manual_currency_exchange_rate" groups="account.group_show_line_subtotals_tax_included"/>
+                                            
+                                            <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+
+                                                <t t-if="not line.display_type" name="account_invoice_line_accountable">
+
+                                                    <td width="" name="account_invoice_line_code" class="text-left">
+                                                      <span t-field="line.product_id.default_code"/>
+                                                    </td><!-- CODIGO  -->
+
+                                                    <td width="" name="account_invoice_line_name" class="text-left">
+                                                        <span t-field="line.product_id.name"/>
+                                                    </td> <!-- DESCRIPCION  -->
+
+                                                    <td width="" class="text-left">
+                                                        <span t-field="line.quantity" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                        <span t-field="line.product_uom_id.name" groups="uom.group_uom"/>
+                                                    </td> <!-- CANTIDAD -->
+
+                                                    <td width="" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                                        <span t-esc="line.price_unit * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                    </td> <!-- COSTO UNITARIO -->
+
+                                                    <td width="" t-attf-class="text-center {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                                        <span t-esc="', '.join(map(lambda x: x.description, line.tax_ids))" id="line_tax_ids"/>
+                                                    </td>
+
+                                                    <td width="" class="text-right o_price_total">
+                                                        <span t-esc="line.price_subtotal * o.manual_currency_exchange_rate" groups="account.group_show_line_subtotals_tax_excluded" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                        <span t-esc="line.price_total * o.manual_currency_exchange_rate" groups="account.group_show_line_subtotals_tax_included" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                    </td>
+                                                </t>
+                                                    <t t-set="operacion" t-value="operacion+1"/>
+                                            </tr>       
+                                        </t> 
+                                        <tr>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                            <td><span/></td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                         
+                        <table style="font-size:10px;">
+                            <tr>
+                                <td width="30%"/>
+
+                                <td/>
+                                <td width="100%" style="border-bottom:0px">
+                                
+                                    <div style="margin-left:0%;width:100%;">
+                                        <table class="table table-sm lineas">
+                                            <tr>
+                                                <td><strong>SUB-TOTAL:</strong></td>
+                                                <td class="text-right">
+                                                    <span t-esc="o.amount_untaxed * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><strong>DESCUENTO:</strong></td>
+                                                <td class="text-right">
+                                                    <span t-esc="o.discount_total * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                </td>
+                                            </tr>
+                                            <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                                <tr style="">
+                                                    <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) == 1 and o.amount_untaxed == amount_by_group[2]">
+                                                        <td>
+                                                            <span>
+                                                                BASE (<span t-esc="amount_by_group[0]"/>)
+                                                            </span>
+                                                        </td>
+                                                        <td class="text-right o_price_total">
+                                                            <span t-esc="amount_by_group[2] * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <td>
+                                                            <span>
+                                                                BASE (<span t-esc="amount_by_group[0]"/>)
+                                                            </span>
+                                                        </td>
+                                                        <td class="text-right o_price_total">
+                                                            <span t-esc="amount_by_group[2] * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                        </td>
+                                                    </t>
+                                                </tr>
+                                                <tr style="">
+                                                    <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) == 1 and o.amount_untaxed == amount_by_group[2]">
+                                                        <t t-if="amount_by_group[0] != 'Exento'">
+                                                            <td>
+                                                                <t t-set="cant1" t-value="amount_by_group[0].split(' ')"/>
+                                                                <span t-esc="cant1[0]"/>
+                                                            </td>
+                                                            <td class="text-right o_price_total">
+                                                                <span t-esc="amount_by_group[1] * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                            </td>
+                                                        </t>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <t t-if="amount_by_group[0] != 'Exento'">
+                                                            <td>
+                                                                <t t-set="cant4" t-value="amount_by_group[0].split(' ')"/>
+                                                                <span t-esc="cant4[0]"/>
+                                                                <span>&amp;nbsp;
+                                                                    
+                                                                </span>
+                                                            </td>
+                                                            <td class="text-right o_price_total">
+                                                                <span t-esc="amount_by_group[1] * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                            </td>
+                                                        </t>
+                                                    </t>
+                                                </tr>
+                                            </t>
+                                            <tr>
+                                                <td><strong>TOTAL OPERACIÓN</strong></td>
+                                                <td class="text-right">
+                                                    <span t-esc="o.amount_total * o.manual_currency_exchange_rate" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <strong>NOTA: </strong> Según gaceta oficial Nro. 6.687 del 25-02-2022, estamos obligados a cobrar el 3% del IGTF, 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                              <td>
+                                                de aquellos montos de esta factura que sean pagados en moneda distinta a la de curso legal en el país
+                                              </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+
+                        <table style="width:30%">
+                            <th>
+                                <strong>REF :</strong>
+                            </th>
+                            <td>
+                                <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            </td>
+                        </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                </div>
+            </t>
+        </template>
+        <template id="report_invoice">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.invoice_user_id.lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-call="eu_multi_currency.report_invoice_document" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+        <report
+            id="account_invoices_bs"
+            model="account.move"
+            string="Facturas Bs"
+            report_type="qweb-pdf"
+            name="eu_multi_currency.report_invoice"
+            file="eu_multi_currency.report_invoice"
+            attachment="(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')"
+            print_report_name="(object._get_report_base_filename())"
+        />
+    </data>
+</odoo>

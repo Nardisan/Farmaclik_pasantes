@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <record id="change_product_template_form_view" model="ir.ui.view">
+      <field name="name">change_product_template_form_view</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='active_ingredient_ids']" position="replace">
+          <field name="active_ingredient_ids" widget="many2many_tags"
+            attrs="{'invisible':[('available_in_pos','=',False)]}" string="Principio Activo"/>
+        </xpath>
+        <xpath expr="//field[@name='uom_po_id']" position="after">
+          <field name="profitability_id" string="Rentabilidad" attrs="{'invisible':[('type','!=','product')]}"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="fiscal_printer" xml:space="preserve">
+    <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='buttons']" position="inside">
+            <div class="button print_fiscal" t-on-click="handleClick">
+                <i class='fa fa-file-text-o'></i> Factura Fiscal
+            </div>
+            <div class="button print_nota_credito" t-on-click="handleClick">
+                <i class='fa fa-file-text-o'></i> Nota de crédito
+            </div>
+        </xpath>
+    </t>
+</templates>
