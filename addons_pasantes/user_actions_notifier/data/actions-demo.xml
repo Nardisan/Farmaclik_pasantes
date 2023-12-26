@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="user_actions_notifier_user_action_imprimir" model="user_actions_notifier.user_action">
+            <field name="name">imprimir</field>
+            <field name="description"></field>
+        </record>
+        <record id="user_actions_notifier_user_action_crear" model="user_actions_notifier.user_action">
+            <field name="name">crear</field>
+            <field name="description"></field>
+        </record>
+        <record id="user_actions_notifier_user_action_eliminar" model="user_actions_notifier.user_action">
+            <field name="name">eliminar</field>
+            <field name="description"></field>
+        </record>
+        <record id="user_actions_notifier_user_action_modificar" model="user_actions_notifier.user_action">
+            <field name="name">modificar</field>
+            <field name="description"></field>
+        </record>
+    </data>
+</odoo>
