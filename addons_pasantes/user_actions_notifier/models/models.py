@@ -2,37 +2,42 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import UserError, ValidationError
+import re
 
-# skip_modules = ["base", "mail", "web", "web_enterprise", "web_settings_dashboard", "web_studio", "web_tour", "mail.message"]
+skip_modules = ["bus.presence", "mail.*", "ir.translation", "ir.default", "ir.module.module", "base.module*",
+                "user_actions_notifier*", "ir.property", "ir.attachment"]
+
+
 def save_notifier_record(self, report_type: str):
     """
     Metodo que crea el registro de la accion realizada por el usuario solo si esta monitoreada
     """
-
-    model_name = ""
-
-    if hasattr(self, "model") and self.model is not False and self.model is not None:
-        model_name = self.model
-    elif hasattr(self, "_name"):
-        model_name = self._name
-    elif hasattr(self, "_inherit"):
-        model_name = self._inherit
-
-    if model_name == "mail.message":
-        a = 5
-
     try:
+
+        model_name = ""
+
+        if hasattr(self, "model") and self.model is not False and self.model is not None:
+            model_name = self.model
+        elif hasattr(self, "_name"):
+            model_name = self._name
+        elif hasattr(self, "_inherit"):
+            model_name = self._inherit
+
+        # omitir modulos en skip_modules
+        for module in skip_modules:
+            if re.match(module, model_name):
+                return
+
         user_id = self.env.user.id
-        actions = self.env["user_actions_notifier.user_action"] \
+
+        actions = self.env["user_actions_notifier.user_actions"] \
             .search([("name", "ilike", report_type)])
         actions_ids = actions.mapped("id")
         company_id = self.env.user.company_id
         monitor = (self.env["user_actions_notifier.monitor"]
                    .search([("users", "in", [user_id]), ("actions", "in", actions_ids)]))
-        # print the fields above
 
         if len(monitor) > 0:
-
             self.env["user_actions_notifier.notifier"] \
                 .sudo().create({
                 "user": user_id,
@@ -42,17 +47,16 @@ def save_notifier_record(self, report_type: str):
                 "monitor": monitor.id
             })
     except Exception as e:
-        pass
-        #print(e.__str__())
-        # raise UserError(e.__str__())
-
+        # print("ERROR")
+        # print(e.__str__())
+        return
 
 
 class UserAction(models.Model):
     """
     Tabla que contiene las acciones que puede realizar un usuario
     """
-    _name = 'user_actions_notifier.user_action'
+    _name = 'user_actions_notifier.user_actions'
     _description = 'Acciones que puede realizar un usuario'
     _disable_action_monitor = True
 
@@ -60,9 +64,6 @@ class UserAction(models.Model):
     name = fields.Char(string="Accion", required=True, unique=True)
     # Action description
     description = fields.Char(string="Descripcion", optional=True)
-
-
-
 
 
 class UserActionsNotifier(models.Model):
@@ -73,20 +74,23 @@ class UserActionsNotifier(models.Model):
     _description = 'Registro de acciones de usuarios monitoreadas'
     _disable_action_monitor = True
 
+    _rec_name = "monitor"
     # reference to user
     user = fields.Many2one('res.users', string="Usuario", required=True, relation='notifier_res_user_rel',
-                           ondelete='cascade')
+                           ondelete="cascade"
+                           )
     # reference to action
     action = fields.Many2one(
-        'user_actions_notifier.user_action', string="Accion", required=True, relation='notifier_user_actions_rel',
-        ondelete='cascade')
+        'user_actions_notifier.user_actions', string="Accion", required=True, relation='notifier_user_actions_rel',
+        ondelete="cascade"
+    )
     # model where action was made
     model = fields.Char(string="Modelo", required=True)
     # company where the user is
-    company = fields.Many2one('res.company', string="Compañia", required=True, ondelete='cascade')
+    company = fields.Many2one('res.company', string="Compañia", required=True)
 
     monitor = fields.Many2one('user_actions_notifier.monitor', string="Regla relacionada", required=True,
-                              relation="notifier_monitor_rel", ondelete='cascade')
+                              relation="notifier_monitor_rel", ondelete="cascade")
 
     @api.model
     def create(self, vals):
@@ -129,14 +133,16 @@ class UserActionsMonitor(models.Model):
     name = fields.Char(string="Nombre regla", required=True)
 
     users = fields.Many2many('res.users', string="Usuario", required=True, relation='monitor_res_user_rel',
-                             ondelete='cascade')
+                             ondelete="cascade"
+                             )
 
     entries = fields.One2many('user_actions_notifier.notifier', 'monitor', string="Entradas registradas",
                               required=True)
 
     actions = fields.Many2many(
-        'user_actions_notifier.user_action', string="Accion", required=True, relation='monitor_user_actions_rel',
-        ondelete='cascade')
+        'user_actions_notifier.user_actions', string="Accion", required=False, relation='monitor_user_actions_rel',
+        ondelete="cascade"
+    )
 
     @api.constrains("users", "actions")
     def _check_users_actions(self):
@@ -152,7 +158,6 @@ class UserActionsMonitor(models.Model):
 
             monitor_info = [(m.name, u.name, a.name) for m in monitor for u in m.users for a in m.actions]
 
-
             if len(monitor) > 0 and monitor.ids[0] != record.ids[0]:
                 monitor_str = "\n".join([", ".join(info) for info in monitor_info])
                 raise ValidationError("Hay conflictos entre los siguientes monitores, usuarios y acciones:\n{}"
@@ -164,59 +169,33 @@ class ReportWithRecords(models.Model):
 
     @api.model
     def _get_rendering_context(self, docids, data):
-        try:
+        save_notifier_record(self, "imprimir")
 
-            save_notifier_record(self, "imprimir")
-
-            return super(ReportWithRecords, self)._get_rendering_context(docids, data)
-
-        except Exception as e:
-            # print(e.__str__())
-            # raise UserError(e.__str__())
+        return super(ReportWithRecords, self)._get_rendering_context(docids, data)
 
 
 class BaseWithReportRecords(models.AbstractModel):
-
     _inherit = 'base'
     _disable_action_monitor = False
 
     @api.model
     def create(self, vals):
-        try:
-            record = super().create(vals)
+        record = super().create(vals)
 
-            if not self._disable_action_monitor:
-                save_notifier_record(self, "crear")
+        save_notifier_record(self, "crear")
 
-            return record
-        except Exception as e:
-            pass
-            # print(e.__str__())
-            # raise UserError(e.__str__())
+        return record
 
     @api.model
     def write(self, vals):
-        try:
-            record = super().write(vals)
+        record = super().write(vals)
 
-            if not self._disable_action_monitor:
-                save_notifier_record(self, "modificar")
+        save_notifier_record(self, "modificar")
 
-            return record
-        except Exception as e:
-            pass
-            #raise UserError(e.__str__())
+        return record
 
     @api.model
     def unlink(self):
-        try:
-            record = super().unlink()
+        save_notifier_record(self, "eliminar")
 
-            if not self._disable_action_monitor:
-                save_notifier_record(self, "eliminar")
-
-            return record
-        except Exception as e:
-            pass
-            #print(e.__str__())
-            #raise UserError(e.__str__())
+        return super().unlink()

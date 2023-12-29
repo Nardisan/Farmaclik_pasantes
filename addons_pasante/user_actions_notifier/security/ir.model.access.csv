@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_user_actions_notifier_notifier,user_actions_notifier.notifier,model_user_actions_notifier_notifier,,1,1,1,1
-access_user_actions_notifier_user_action,user_actions_notifier.user_action,model_user_actions_notifier_user_actions,,1,1,1,1
-access_user_actions_notifier_monitor,user_actions_notifier.monitor,model_user_actions_notifier_monitor,,1,1,1,1

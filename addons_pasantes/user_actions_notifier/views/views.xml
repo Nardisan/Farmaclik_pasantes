@@ -6,14 +6,18 @@
             <field name="name">user.actions.notifier.form.view</field>
             <field name="model">user_actions_notifier.notifier</field>
             <field name="arch" type="xml">
-                <form string="Acciones registradas" create="false" delete="false" modify="false" edit="false" duplicate="false">
+                <form string="Acciones registradas" create="false" delete="false" edit="false" duplicate="false">
                     <sheet>
-                        <field name="user" string="Usuario"/>
-                        <field name="action" string="Accion"/>
-                        <field name="model" string="Modelo"/>
-                        <field name="company" string="Compañia"/>
-                        <field name="monitor"/>
+                        <group>
+                        <field name="user"/>
+                        <field name="company"/>
+                        <field name="model"/>
                         <field name="create_date" string="Fecha creacion"/>
+                        </group>
+                        <group>
+                            <field name="action"/>
+                            <field name="monitor"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
@@ -24,10 +28,10 @@
             <field name="model">user_actions_notifier.notifier</field>
             <field name="arch" type="xml">
                 <tree string="" create="false" delete="false">
-                    <field name="user" string="Usuario"/>
-                    <field name="action" string="Accion"/>
-                    <field name="model" string="Modelo"/>
-                    <field name="company" string="Compañia"/>
+                    <field name="user"/>
+                    <field name="action"/>
+                    <field name="model"/>
+                    <field name="company"/>
                     <field name="monitor"/>
                     <field name="create_date" string="Fecha creacion"/>
                 </tree>
@@ -42,14 +46,14 @@
                 <tree string="">
                     <field name="name"/>
                     <field name="users"/>
-                    <field name="actions"/>
+                    <field name="actions" widget="many2many_tags" options="{'no_create_edit': True}"/>
                     <field name="entries"/>
                     <field name="create_date" string="Fecha creacion"/>
                 </tree>
             </field>
         </record>
 
-        <record id="user_actions_notifier_form_view" model="ir.ui.view">
+        <record id="user_actions_notifier_monitor_form_view" model="ir.ui.view">
             <field name="name">user.actions.notifier.form.view</field>
             <field name="model">user_actions_notifier.monitor</field>
             <field name="arch" type="xml">
@@ -58,7 +62,6 @@
                         <field name="name"/>
                         <field name="users"/>
                         <field name="actions"/>
-                        <field name="create_date" string="Fecha creacion"/>
                     </sheet>
                 </form>
             </field>
@@ -66,21 +69,25 @@
 
         <!-- user_actions_notifier.user_action -->
 
-        <record id="user_actions_user_action_form_view" model="ir.ui.view">
+        <record id="user_actions_notifier_user_action_form_view" model="ir.ui.view">
             <field name="name">user.actions.user.action.form.view</field>
-            <field name="model">user_actions_notifier.user_action</field>
+            <field name="model">user_actions_notifier.user_actions</field>
             <field name="arch" type="xml">
                 <form string="" create="false" delete="false" modify="false" edit="false" duplicate="false">
-                    <field name="name"/>
-                    <field name="description"/>
-                    <field name="create_date" string="Fecha creacion"/>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="create_date" string="Fecha creacion"/>
+                        </group>
+                    </sheet>
                 </form>
             </field>
         </record>
 
         <record id="user_actions_user_action_tree_view" model="ir.ui.view">
             <field name="name">user.actions.user.action.tree.view</field>
-            <field name="model">user_actions_notifier.user_action</field>
+            <field name="model">user_actions_notifier.user_actions</field>
             <field name="arch" type="xml">
                 <tree string="" create="false" delete="false">
                     <field name="name"/>
@@ -137,9 +144,9 @@
 
         <record id="action_user_actions_user_action" model="ir.actions.act_window">
             <field name="name">Tipos de acciones para monitoreas</field>
-            <field name="res_model">user_actions_notifier.user_action</field>
+            <field name="res_model">user_actions_notifier.user_actions</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="user_actions_user_action_form_view"/>
+            <field name="search_view_id" ref="user_actions_notifier_user_action_form_view"/>
             <field name="view_id" eval="False"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
