@@ -158,8 +158,12 @@ class UserActionsMonitor(models.Model):
 
             monitor_info = [(m.name, u.name, a.name) for m in monitor for u in m.users for a in m.actions]
 
+            record_info = [(record.name, u.name, a.name) for u in record.users for a in record.actions]
+
+            intersection = set(monitor_info).intersection(set(record_info))
+
             if len(monitor) > 0 and monitor.ids[0] != record.ids[0]:
-                monitor_str = "\n".join([", ".join(info) for info in monitor_info])
+                monitor_str = "\n".join([", ".join(info) for info in intersection])
                 raise ValidationError("Hay conflictos entre los siguientes monitores, usuarios y acciones:\n{}"
                                       .format(monitor_str))
 
@@ -175,6 +179,11 @@ class ReportWithRecords(models.Model):
 
 
 class BaseWithReportRecords(models.AbstractModel):
+    """
+    Clase abstracta que hereda de base y que se encarga de monitorear las acciones de los usuarios.
+    La idea es guardar registros sobre las creaciones, modificaciones y eliminaciones de los registros de los modelos.
+    Esta clase sobreescribe los metodos create, write y unlink en todos los modelos de odoo.
+    """
     _inherit = 'base'
     _disable_action_monitor = False
 

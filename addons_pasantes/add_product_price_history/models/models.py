@@ -42,12 +42,6 @@ class ProductWithHistory(models.Model):
         Metodo para registrar los precios iniciales de los productos al inicializar el modulo, usando el cron.
         """
 
-        print("""
-        --------------------------------------------
-        REGISTRANDO PRECIOS INICIALES DE PRODUCTOS
-        --------------------------------------------
-        """)
-
         products = self.env['product.template'].search([])
 
         for product in products:
