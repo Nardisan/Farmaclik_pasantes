@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record id="view_product_price_history_history_form" model="ir.ui.view">
+            <field name="name">product.price.history_history.form</field>
+            <field name="model">add_product_price_history.product_price_history</field>
+            <field name="arch" type="xml">
+                <form string="Product Price History">
+                    <sheet>
+                        <group>
+                            <field name="product"/>
+                            <field name="price"/>
+                            <field name="user"/>
+                            <field name="type"/>
+                            <field name="create_date" string="Fecha de registro"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- add page to display product history in the product form -->
+        <record id="add_product_price_history_product_history_page" model="ir.ui.view">
+            <field name="name">add.product.price.history.product.history.page</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="flexipharmacy.package_product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[1]" position="after">
+                    <page string="Historial de Precios" name="product_price_history_page">
+                        <field name="price_history" nolabel="1" widget="one2many_list">
+                            <tree string="Historial de Precios" editable="bottom">
+                                <field name="product"/>
+                                <field name="price"/>
+                                <field name="user"/>
+                                <field name="type"/>
+                                <field name="create_date" string="Fecha de registro"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
