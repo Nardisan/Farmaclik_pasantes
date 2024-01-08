@@ -3,11 +3,17 @@
     'name': "user_actions_notifier",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Permite generar notificaciones de acciones realizadas por los usuarios cuando se crea, edita, imprime
+         o elimina un registro.
+        """,
 
     'description': """
-        Long description of module's purpose
+        Permite generar notificaciones de acciones realizadas por los usuarios cuando se crea, edita, imprime
+         o elimina un registro. Cuenta con partes vistas: 
+         - user_action: muestra las acciones que se pueden registrar.
+         - monitor: posee registros de las reglas (usuarios y acciones) que se van a monitorear.
+         - notifier: muestra las acciones realizadas por los usuarios monitoreados.
+         
     """,
 
     'author': "My Company",

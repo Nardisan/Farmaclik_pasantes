@@ -3,11 +3,11 @@
     'name': "add_invoice_number",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Añade el numero de proveedor a la factura de proveedor
+        """,
 
     'description': """
-        Long description of module's purpose
+        Añade el campo de nro de proveedor a la factura de proveedor extendiendo el modelo account.move
     """,
 
     'author': "My Company",
@@ -33,5 +33,4 @@
         # 'demo/demo.xml',
     ],
 
-    
 }

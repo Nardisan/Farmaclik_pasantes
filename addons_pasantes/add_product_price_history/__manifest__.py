@@ -3,11 +3,13 @@
     'name': "add_product_price_history",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Añade un historial de cambios de precios a los productos
+        """,
 
     'description': """
-        Long description of module's purpose
+        Añade un historial de cambios de precios a los productos, tomando en cuenta
+        la inicializacion del modulo y las actualizaciones o creaciones sobre el modelo
+        de productos.
     """,
 
     'author': "My Company",
