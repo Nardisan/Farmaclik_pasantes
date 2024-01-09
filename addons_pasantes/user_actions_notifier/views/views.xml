@@ -9,10 +9,10 @@
                 <form string="Acciones registradas" create="false" delete="false" edit="false" duplicate="false">
                     <sheet>
                         <group>
-                        <field name="user"/>
-                        <field name="company"/>
-                        <field name="model"/>
-                        <field name="create_date" string="Fecha creacion"/>
+                            <field name="user"/>
+                            <field name="company"/>
+                            <field name="model"/>
+                            <field name="create_date" string="Fecha creacion"/>
                         </group>
                         <group>
                             <field name="action"/>
@@ -43,7 +43,7 @@
             <field name="name">user.actions.notifier.monitor.tree.view</field>
             <field name="model">user_actions_notifier.monitor</field>
             <field name="arch" type="xml">
-                <tree string="">
+                <tree string="" delete="1">
                     <field name="name"/>
                     <field name="users"/>
                     <field name="actions" widget="many2many_tags" options="{'no_create_edit': True}"/>
@@ -59,10 +59,36 @@
             <field name="arch" type="xml">
                 <form string="">
                     <sheet>
-                        <field name="name"/>
-                        <field name="users"/>
-                        <field name="actions"/>
+                        <field name="name"
+                               style="font-size: 24px; width: 100%; text-align: center; font-weight: bolder"/>
+                        <notebook>
+                            <page string="Usuarios" name="users">
+                                <group>
+                                    <!--<field name="users" colspan="2"/>-->
+                                    <field name="users" string="">
+                                        <tree string="Usuarios" mode="tree" widget="section_and_note_one2many"
+                                              create="0" delete="0" modify="0">
+                                            <field name="name"/>
+                                            <field name="login"/>
+                                            <field name="company_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Acciones">
+                                <group>
+                                    <field name="actions" string="">
+                                        <tree string="Acciones" ode="tree" widget="section_and_note_one2many" create="0"
+                                              delete="0" modify="0">
+                                            <field name="name"/>
+                                            <field name="description"/>
+                                        </tree>
+                                    </field> <!--widget="many2many_tags" options="{'no_create_edit': True}"-->
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
+
                 </form>
             </field>
         </record>
@@ -166,7 +192,8 @@
         <menuitem action="action_user_actions_monitor" id="menu_action_user_actions_monitor" parent="base.menu_users"
                   sequence="1"/>
 
-        <menuitem action="action_user_actions_user_action" id="menu_action_user_actions_user_action" parent="base.menu_users"
+        <menuitem action="action_user_actions_user_action" id="menu_action_user_actions_user_action"
+                  parent="base.menu_users"
                   sequence="1"/>
     </data>
 </odoo>

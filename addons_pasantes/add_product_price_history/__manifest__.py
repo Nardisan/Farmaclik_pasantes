@@ -24,6 +24,8 @@
     # any module necessary for this one to work correctly
     'depends': ['base', 'product', 'flexipharmacy'],
 
+    "post_init_hook": "initialize_module",
+
     # always loaded
     'data': [
         'security/ir.model.access.csv',

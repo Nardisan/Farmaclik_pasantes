@@ -12,13 +12,13 @@ class ProductPriceHistory(models.Model):
     _description = ('Historial con los cambios de precios de los productos. Se registra el precio al modificar y '
                     'crear productos, y al inicializar el módulo.')
 
-    product = fields.Many2one('product.template', string="Producto", required=True)
+    product = fields.Many2one('product.template', string="Producto", required=True, cascade="delete")
     price = fields.Float(string="Precio", required=True)
     type = fields.Selection(
         [('actualizacion', 'Actualización'), ('creacion', 'Creación'), ('inicializacion', 'Inicialización')],
         string="Tipo",
         required=True)
-    user = fields.Many2one('res.users', string="Usuario", default=lambda self: self.env.user.id)
+    user = fields.Many2one('res.users', string="Usuario", default=lambda self: self.env.user.id, cascade="delete")
 
     def __str__(self):
         return f"{self.product.name} - {self.description}"
@@ -41,6 +41,12 @@ class ProductWithHistory(models.Model):
         """
         Metodo para registrar los precios iniciales de los productos al inicializar el modulo, usando el cron.
         """
+
+        print("""
+        ----------------------------
+        INICIALIZANDO HISTORIAL DE PRECIOS DE PRODUCTOS
+        ----------------------------
+        """)
 
         products = self.env['product.template'].search([])
 

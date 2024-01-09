@@ -132,7 +132,7 @@ class UserActionsMonitor(models.Model):
 
     name = fields.Char(string="Nombre regla", required=True)
 
-    users = fields.Many2many('res.users', string="Usuario", required=True, relation='monitor_res_user_rel',
+    users = fields.Many2many('res.users', required=True, relation='monitor_res_user_rel',
                              ondelete="cascade"
                              )
 
@@ -140,7 +140,7 @@ class UserActionsMonitor(models.Model):
                               required=True)
 
     actions = fields.Many2many(
-        'user_actions_notifier.user_actions', string="Accion", required=False, relation='monitor_user_actions_rel',
+        'user_actions_notifier.user_actions', required=False, relation='monitor_user_actions_rel',
         ondelete="cascade"
     )
 
@@ -151,19 +151,23 @@ class UserActionsMonitor(models.Model):
         si pueden haber varias reglas y usuarios repetidos siempre y cuando no se repita la accion para el mismo usuario
         """
         for record in self:
-            user_ids = record.users.ids
-            action_ids = record.actions.ids
+            users_ids = record.users.ids
+            actions_ids = record.actions.ids
             monitor = self.env['user_actions_notifier.monitor'] \
-                .search([('users', 'in', user_ids), ('actions', 'in', action_ids)])
+                .search([('users', 'in', users_ids), ('actions', 'in', actions_ids), ('id', 'not in', record.ids)])
 
+            """
             monitor_info = [(m.name, u.name, a.name) for m in monitor for u in m.users for a in m.actions]
 
             record_info = [(record.name, u.name, a.name) for u in record.users for a in record.actions]
 
             intersection = set(monitor_info).intersection(set(record_info))
+            """
+
+            monitor_info = [(m.name, u.name, a.name) for m in monitor for u in m.users for a in m.actions]
 
             if len(monitor) > 0 and monitor.ids[0] != record.ids[0]:
-                monitor_str = "\n".join([", ".join(info) for info in intersection])
+                monitor_str = "\n".join([", ".join(info) for info in monitor_info])
                 raise ValidationError("Hay conflictos entre los siguientes monitores, usuarios y acciones:\n{}"
                                       .format(monitor_str))
 
@@ -171,7 +175,6 @@ class UserActionsMonitor(models.Model):
 class ReportWithRecords(models.Model):
     _inherit = 'ir.actions.report'
 
-    @api.model
     def _get_rendering_context(self, docids, data):
         save_notifier_record(self, "imprimir")
 
@@ -203,8 +206,7 @@ class BaseWithReportRecords(models.AbstractModel):
 
         return record
 
-    @api.model
-    def unlink(self):
+    def unlink(self, *args):
         save_notifier_record(self, "eliminar")
 
-        return super().unlink()
+        return super(BaseWithReportRecords, self).unlink()
