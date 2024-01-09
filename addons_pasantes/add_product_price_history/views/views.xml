@@ -4,14 +4,14 @@
             <field name="name">product.price.history_history.form</field>
             <field name="model">add_product_price_history.product_price_history</field>
             <field name="arch" type="xml">
-                <form string="Product Price History">
+                <form string="Product Price History" create="false" delete="false" edit="false" duplicate="false">
                     <sheet>
                         <group>
-                            <field name="product"/>
-                            <field name="price"/>
-                            <field name="user"/>
-                            <field name="type"/>
-                            <field name="create_date" string="Fecha de registro"/>
+                            <field name="product" readonly="1"/>
+                            <field name="price" readonly="1"/>
+                            <field name="user" readonly="1"/>
+                            <field name="type" style="font-weight: bolder; text-transform: uppercase;" readonly="1"/>
+                            <field name="create_date" string="Fecha de registro" readonly="1"/>
                         </group>
                     </sheet>
                 </form>
@@ -26,13 +26,14 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[1]" position="after">
                     <page string="Historial de Precios" name="product_price_history_page">
-                        <field name="price_history" nolabel="1" widget="one2many_list">
-                            <tree string="Historial de Precios" editable="bottom">
-                                <field name="product"/>
-                                <field name="price"/>
-                                <field name="user"/>
-                                <field name="type"/>
-                                <field name="create_date" string="Fecha de registro"/>
+                        <field name="price_history" nolabel="1" widget="one2many_list" mode="tree">
+                            <tree string="Historial de Precios" create="false" write="false">
+                                <field name="product" readonly="1"/>
+                                <field name="price" readonly="1"/>
+                                <field name="user" readonly="1"/>
+                                <field name="type" style="font-weight: bolder; text-transform: uppercase;"
+                                       readonly="1"/>
+                                <field name="create_date" string="Fecha de registro" readonly="1"/>
                             </tree>
                         </field>
                     </page>
