@@ -27,7 +27,7 @@
                 <xpath expr="//notebook/page[1]" position="after">
                     <page string="Historial de costos" name="product_price_history_page">
                         <field name="price_history" nolabel="1" widget="one2many_list" mode="tree">
-                            <tree string="Historial de costos" create="false" write="false">
+                            <tree string="Historial de costos" create="false" write="false" delete="false">
                                 <field name="product" readonly="1"/>
                                 <field name="price" string="costo" readonly="1"/>
                                 <field name="user" readonly="1"/>
