@@ -1,14 +1,27 @@
 <odoo>
-  <data>
-    <record id="invoice_with_display_name_inherit_account_move" model="ir.ui.view">
-        <field name="name">invoice.with.display.name.inherit.account.move</field>
-        <field name="model">account.move</field>
-        <field name="inherit_id" ref="account.view_invoice_tree"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='invoice_partner_display_name']" position="after"> 
-                <field name="vendor_invoice_number_inherit" invisible="context.get('default_move_type') not in ('in_invoice', 'in_refund','in_receipt')"></field>
-            </xpath>
-        </field>
-    </record> 
-  </data>
+    <data>
+        <record id="invoice_with_display_name_inherit_account_move" model="ir.ui.view">
+            <field name="name">invoice.with.display.name.inherit.account.move</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_partner_display_name']" position="after">
+                    <field name="vendor_invoice_number_inherit"
+                           invisible="context.get('default_move_type') not in ('in_invoice', 'in_refund','in_receipt')"></field>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="add_invoice_number_search" model="ir.ui.view">
+            <field name="name">add.invoice.number.search</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="vendor_invoice_number_inherit" string="Nro factura proveedor"/>
+                    <filter string="Nro factura proveedor" name="filter_vendor_invoice_number_inherit"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>

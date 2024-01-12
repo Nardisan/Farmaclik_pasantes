@@ -184,6 +184,27 @@
             </field>
         </record>
 
+        <!-- search action -->
+        <record id="user_actions_notifier_monitor_search" model="ir.ui.view">
+            <field name="name">user.actions.notifier.monitor.search</field>
+            <field name="model">user_actions_notifier.notifier</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="user" string="Usuario"/>
+                    <field name="action" string="Accion"/>
+                    <field name="company" string="Compañia"/>
+                    <filter string="Usuario" name="user"/>
+                    <filter string="Accion" name="action"/>
+                    <filter string="Compañia" name="company"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Usuario" name="user" context="{'group_by': 'user'}"/>
+                        <filter string="Accion" name="action" context="{'group_by': 'action'}"/>
+                        <filter string="Compañia" name="company" context="{'group_by': 'company'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
         <!-- menu entry in setting -->
 
         <menuitem action="action_user_actions_notifier" id="menu_action_user_actions_notifier" parent="base.menu_users"

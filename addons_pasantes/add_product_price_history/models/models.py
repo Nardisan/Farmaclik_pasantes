@@ -3,6 +3,16 @@
 from odoo import models, fields, api
 
 
+def add_product_price_history(cr, registry):
+    """
+    Metodo para inicializar el modulo y llamar al metodo para registrar los precios iniciales de los productos.
+    """
+
+    env = api.Environment(cr, 1, {})
+    model = env["product.template"]
+    model.register_starting_price()
+
+
 class ProductPriceHistory(models.Model):
     """
     Modelo para registrar los cambios de precios de los productos.
@@ -36,17 +46,10 @@ class ProductWithHistory(models.Model):
     price_history = fields.One2many('add_product_price_history.product_price_history', 'product',
                                     string="Historial de precios")
 
-    @api.model
     def register_starting_price(self):
         """
         Metodo para registrar los precios iniciales de los productos al inicializar el modulo, usando el cron.
         """
-
-        print("""
-        ----------------------------
-        INICIALIZANDO HISTORIAL DE PRECIOS DE PRODUCTOS
-        ----------------------------
-        """)
 
         products = self.env['product.template'].search([])
 
@@ -59,16 +62,22 @@ class ProductWithHistory(models.Model):
             })
         return True
 
+    """
     def write(self, vals):
-        """
+        \"""
         Sobre escritura del metodo write para registrar los cambios de precios de los productos.
         Se compara el precio anterior con el nuevo para determinar si es un cambio y se registra como una actualizacion
         o creacion si no hay registros para ese producto.
-        """
+        \"""
+
         old_price = self.standard_price
 
-        result: bool = super(ProductWithHistory, self).write(vals)
+        result: bool = super().write(vals)
 
+        if 'standard_price' not in vals:
+            return result
+
+        return
         is_creation = len((self.env['add_product_price_history.product_price_history']
                            .search([('product', '=', self.id)]))) == 0
 
@@ -85,3 +94,32 @@ class ProductWithHistory(models.Model):
                 'user': self.env.user.id
             })
         return result
+        """
+
+
+class ProductBase(models.Model):
+    _inherit = 'product.product'
+
+    def write(self, vals):
+
+        try:
+            if not self.product_tmpl_id or 'standard_price' not in vals:
+                return
+                raise Exception('Error al actualizar el precio del producto')
+
+            product_tmpl_id = self.product_tmpl_id.id
+            standard_price = vals['standard_price']
+            old_price = self.standard_price
+
+            if product_tmpl_id and standard_price and old_price != standard_price:
+                price_history = self.env['add_product_price_history.product_price_history'].create({
+                    'product': product_tmpl_id,
+                    'price': standard_price,
+                    'type': 'actualizacion',
+                    'user': self.env.user.id
+                })
+        except Exception as e:
+            pass
+        finally:
+            result = super().write(vals)
+            return result
