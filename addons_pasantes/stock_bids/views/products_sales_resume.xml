@@ -1,0 +1,117 @@
+<odoo>
+    <data>
+
+        <!-- VISTA TREE PARA LOS PRODUCTOS CON ESTADISTICAS -->
+        <record id="product_resume_tree_view" model="ir.ui.view">
+            <field name="name">product.resume.tree.view</field>
+            <field name="model">stock_bids.product_resume</field>
+            <field name="arch" type="xml">
+                <tree string="Product Resume">
+                    <field name="product"/>
+                    <field name="barcode"/>
+                    <field name="default_code"/>
+                    <field name="product_name"/>
+                    <field name="categ_id"/>
+                    <field name="rotacion_4f"/>
+                    <field name="lst_price"/>
+                    <field name="standard_price"/>
+                    <field name="utilidad"/>
+                    <field name="active_ingredient_ids" widget="many2many_tags"/>
+                    <field name="fabricantes_ids" widget="many2many_tags"/>
+                    <field name="ventas_mes_1"/>
+                    <field name="ventas_mes_2"/>
+                    <field name="ventas_mes_3"/>
+                    <field name="ventas_mes_4"/>
+                    <field name="ventas_mes_5"/>
+                    <field name="ventas_mes_6"/>
+                    <!-- total entre 6 meses -->
+                    <field name="ventas_promedio"/>
+                    <field name="ventas_total"/>
+                    <!-- Estadisticas por farmacia -->
+                    <!-- PP -->
+                    <field name="stock_pp" options='{"bg_color": "rgba(255, 0, 0, 0.2)"}'/>
+                    <field name="min_stock_pp" options='{"bg_color": "rgba(255, 0, 0, 0.2)"}'/>
+                    <field name="max_stock_pp" options='{"bg_color": "rgba(255, 0, 0, 0.2)"}'/>
+                    <field name="diferencia_pp" options='{"bg_color": "rgba(255, 0, 0, 0.2)"}'/>
+                    <field name="comprar_pp" options='{"bg_color": "rgba(255, 0, 0, 0.2)"}'/>
+                    <!-- EG -->
+                    <field name="stock_eg" options='{"bg_color": "rgba(0, 255, 0, 0.2)"}'/>
+                    <field name="min_stock_eg" options='{"bg_color": "rgba(0, 255, 0, 0.2)"}'/>
+                    <field name="max_stock_eg" options='{"bg_color": "rgba(0, 255, 0, 0.2)"}'/>
+                    <field name="diferencia_eg" options='{"bg_color": "rgba(0, 255, 0, 0.2)"}'/>
+                    <field name="comprar_eg" options='{"bg_color": "rgba(0, 255, 0, 0.2)"}'/>
+                    <!-- GU -->
+                    <field name="stock_gu" options='{"bg_color": "rgba(0, 0, 255, 0.2)"}'/>
+                    <field name="min_stock_gu" options='{"bg_color": "rgba(0, 0, 255, 0.2)"}'/>
+                    <field name="max_stock_gu" options='{"bg_color": "rgba(0, 0, 255, 0.2)"}'/>
+                    <field name="diferencia_gu" options='{"bg_color": "rgba(0, 0, 255, 0.2)"}'/>
+                    <field name="comprar_gu" options='{"bg_color": "rgba(0, 0, 255, 0.2)"}'/>
+                    <!-- FGG -->
+                    <field name="stock_fgg" options='{"bg_color": "rgba(255, 255, 0, 0.2)"}'/>
+                    <field name="min_stock_fgg" options='{"bg_color": "rgba(255, 255, 0, 0.2)"}'/>
+                    <field name="max_stock_fgg" options='{"bg_color": "rgba(255, 255, 0, 0.2)"}'/>
+                    <field name="diferencia_fgg" options='{"bg_color": "rgba(255, 255, 0, 0.2)"}'/>
+                    <field name="comprar_fgg" options='{"bg_color": "rgba(255, 255, 0, 0.2)"}'/>
+                    <!-- Sumario -->
+
+
+                    <field name="comprar_total"/>
+                    <field name="pv"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- PRODUCT_RESUME SEARCH VIEW -->
+        <record id="product_resume_search_view" model="ir.ui.view">
+            <field name="name">product.resume.search.view</field>
+            <field name="model">stock_bids.product_resume</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="product" string="Producto"
+                           filter_domain="['|', '|', '|', ('barcode', 'ilike', self),
+                           ('id', 'ilike', self), ('product', 'ilike', self), ('default_code', 'ilike', self)]"/>
+                    <field name="categ_id" string="Categoria"/>
+
+                    <filter name="categ_id" string="Categoria" context="{'group_by':'categ_id'}"/>
+                    
+
+                </search>
+            </field>
+        </record>
+
+        <!-- VISTA FORM PARA LOS PRODUCTOS CON ESTADISTICAS -->
+        <record id="product_resume_form_view" model="ir.ui.view">
+            <field name="name">product.resume.form.view</field>
+            <field name="model">stock_bids.product_resume</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="product"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_resume_action_windows" model="ir.actions.act_window">
+            <field name="name">Wizard resumen</field>
+            <field name="res_model">stock_bids.product_resume</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="product_resume_report_menu" action="product_resume_action_windows"
+                  name="Mostrar estadisticas de productos"
+                  parent="stock.menu_warehouse_report"/>
+    </data>
+</odoo>

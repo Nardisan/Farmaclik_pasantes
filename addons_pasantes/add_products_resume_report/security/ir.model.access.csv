@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_with_history_user,product.template,model_product_product,,1,1,1,0
-access_product_price_history,add_product_price_history.product_price_history,add_product_price_history_product_price_history,,1,1,1,0

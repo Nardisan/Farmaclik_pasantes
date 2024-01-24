@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "add_products_resume_report",
+    'name': "stock_bids",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,14 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'stock', 'menu_report', ],
+    'depends': ['base', 'stock', 'menu_report', 'product', 'calculo_min_max_farmacia',
+                'web_tree_dynamic_colored_field'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
+        'security/ir.model.access.csv',
+        'views/products_sales_resume.xml',
         'views/templates.xml',
-        'wizards/print_resume_report_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
